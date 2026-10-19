@@ -54,3 +54,6 @@ service-account*.json
 /artifacts/models/
 /checkpoints/
 
+# Redundant first-batch recovery log; all cases are in classification.json.
+/experiments/first-batch/classification-partial.jsonl
+

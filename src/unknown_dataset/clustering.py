@@ -30,7 +30,8 @@ def _occupy_groups(labels, k, seed):
 
 def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                            feature_types=None, n_clusters=None,
-                           time_budget=50.0, seed=42, route_plan=None):
+                           time_budget=50.0, seed=42, route_plan=None,
+                           experimental_controls=None):
     """Compare covariance geometry only for small, numeric tables.
 
     The caller retains responsibility for a hard worker deadline. GMM model
@@ -40,6 +41,18 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
     consequently this strategy remains opt-in until independently validated.
     """
     started = time.monotonic()
+    controls = dict(getattr(route_plan, "experimental", {}) or {})
+    if experimental_controls is not None:
+        controls.update(experimental_controls)
+    indicators = controls.get("clustering_missing_indicators", True)
+    covariance_kind = controls.get("clustering_covariance", "full")
+    kmeans_only = controls.get("clustering_kmeans_only", False)
+    instrument = controls.get("runtime_instrumentation", False)
+    if not isinstance(indicators, bool) or not isinstance(kmeans_only, bool):
+        raise ValueError("Clustering indicator and kmeans-only controls must be boolean")
+    if covariance_kind not in {"full", "diag"}:
+        raise ValueError("Clustering covariance must be full or diag")
+    timings = {}
     if task != "clustering":
         raise ValueError("This candidate supports clustering only")
     if not len(X_train):
@@ -52,8 +65,16 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
         raise ValueError("Model time budget must be finite and positive")
     with threadpool_limits(limits=1):
         cleaner = TableCleaner(feature_types).fit(X_train)
-        matrix = build_preprocessor(cleaner, scale_numeric=True).fit_transform(
-            cleaner.transform(X_train))
+        preprocessor = build_preprocessor(cleaner, scale_numeric=True)
+        if not indicators and cleaner.numeric_columns_:
+            # Modify this local transformer only; shared preprocessing defaults
+            # and all supervised paths retain their existing behavior.
+            for name, transformer, _ in preprocessor.transformers:
+                if name == "numeric":
+                    transformer.set_params(impute__add_indicator=False)
+        matrix = preprocessor.fit_transform(cleaner.transform(X_train))
+        timings["preprocessing_seconds"] = time.monotonic() - started
+        phase_started = time.monotonic()
         if len(X_train) <= 5000 and matrix.shape[1] <= 256:
             model = KMeans(n_clusters=n_clusters, n_init=5, max_iter=100, random_state=seed)
         else:
@@ -61,6 +82,8 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                 batch_size=max(1024, 3 * n_clusters), random_state=seed,
                 reassignment_ratio=0.0)
         predictions = model.fit_predict(matrix)
+        timings["kmeans_seconds"] = time.monotonic() - phase_started
+        phase_started = time.monotonic()
         selected = type(model).__name__
         selection = "baseline geometry; covariance comparison not eligible"
         bics = {}
@@ -71,6 +94,7 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                     time_budget - (time.monotonic() - started) >= 12)
         if route_plan is not None:
             eligible = eligible and "gmm" in route_plan.candidates
+        eligible = eligible and not kmeans_only
         if eligible:
             dense = matrix.toarray() if sparse.issparse(matrix) else np.asarray(matrix)
             rng = np.random.default_rng(seed)
@@ -80,8 +104,8 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
             # basins: a generic start and the already fitted baseline centers.
             # Sample order can otherwise send both generic starts to the same
             # inferior density optimum, discarding a useful completed result.
-            starts = (("spherical", None, 2), ("full", None, 1),
-                      ("full", model.cluster_centers_, 1))
+            starts = (("spherical", None, 2), (covariance_kind, None, 1),
+                      (covariance_kind, model.cluster_centers_, 1))
             for covariance, means, restarts in starts:
                 if time_budget - (time.monotonic() - started) < 4:
                     break
@@ -98,13 +122,16 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                         models[covariance] = candidate
                 except (ValueError, np.linalg.LinAlgError):
                     continue
-            if set(bics) == {"spherical", "full"}:
+            if set(bics) == {"spherical", covariance_kind}:
                 margin = max(10.0, 0.05 * abs(bics["spherical"]))
                 selection = "full covariance BIC gain below conservative margin"
-                if bics["full"] < bics["spherical"] - margin:
-                    predictions = models["full"].predict(dense)
-                    selected = "GaussianMixtureFull"
-                    selection = "full covariance improves BIC by more than margin"
+                if bics[covariance_kind] < bics["spherical"] - margin:
+                    predictions = models[covariance_kind].predict(dense)
+                    selected = "GaussianMixture" + covariance_kind.title()
+                    selection = covariance_kind + " covariance improves BIC by more than margin"
+                elif covariance_kind != "full":
+                    selection = covariance_kind + " covariance BIC gain below conservative margin"
+        timings["gmm_seconds"] = time.monotonic() - phase_started
         predictions, repaired = _occupy_groups(predictions, n_clusters, seed)
     return predictions, {
         "model": selected, "strategy": "geometry", "experimental": True,
@@ -118,5 +145,10 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
         "empty_clusters_repaired": repaired,
         "model_seconds": time.monotonic() - started,
         "time_budget_seconds": float(time_budget),
+        **({"experimental_controls": {"clustering_missing_indicators": indicators,
+                "clustering_covariance": covariance_kind,
+                "clustering_kmeans_only": kmeans_only}}
+           if not indicators or covariance_kind != "full" or kmeans_only else {}),
+        **({"phase_timings": timings} if instrument else {}),
         **({"routing": route_plan.to_dict()} if route_plan is not None else {}),
     }

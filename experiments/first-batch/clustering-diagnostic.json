@@ -1,0 +1,412 @@
+{
+  "rows": [
+    {
+      "kind": "repeat",
+      "mechanism": "none",
+      "fraction": 0.0,
+      "policy": "current",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "none",
+      "fraction": 0.0,
+      "policy": "kmeans_only",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "none",
+      "fraction": 0.0,
+      "policy": "no_indicators",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "none",
+      "fraction": 0.0,
+      "policy": "diagonal",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.1,
+      "policy": "current",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.1,
+      "policy": "kmeans_only",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.1,
+      "policy": "no_indicators",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.1,
+      "policy": "diagonal",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.3,
+      "policy": "current",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.3,
+      "policy": "kmeans_only",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.3,
+      "policy": "no_indicators",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "random",
+      "fraction": 0.3,
+      "policy": "diagonal",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.1,
+      "policy": "current",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.1,
+      "policy": "kmeans_only",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.1,
+      "policy": "no_indicators",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.1,
+      "policy": "diagonal",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.3,
+      "policy": "current",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.3,
+      "policy": "kmeans_only",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.3,
+      "policy": "no_indicators",
+      "identical": true
+    },
+    {
+      "kind": "repeat",
+      "mechanism": "feature",
+      "fraction": 0.3,
+      "policy": "diagonal",
+      "identical": true
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 42,
+      "policy": "current",
+      "ari": 0.38840492809467453,
+      "ami": 0.41711612272084003,
+      "valid": true,
+      "wall_seconds": 0.09400000000005093,
+      "info": {
+        "model": "GaussianMixtureFull",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "full covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 8632.376603235776,
+          "full": 999.0913614690645
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 42,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.07800000000042928,
+        "time_budget_seconds": 50.0
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 42,
+      "policy": "kmeans_only",
+      "ari": 0.395135891207367,
+      "ami": 0.42195047108102096,
+      "valid": true,
+      "wall_seconds": 0.03099999999994907,
+      "info": {
+        "model": "KMeans",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "baseline geometry; covariance comparison not eligible",
+        "bic": {},
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 42,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.03099999999994907,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": true,
+          "clustering_covariance": "full",
+          "clustering_kmeans_only": true
+        }
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 42,
+      "policy": "no_indicators",
+      "ari": 0.6975342699102023,
+      "ami": 0.719372501674728,
+      "valid": true,
+      "wall_seconds": 0.06199999999989814,
+      "info": {
+        "model": "GaussianMixtureFull",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "full covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 4480.451703749413,
+          "full": 3678.5397900865382
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 42,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 3,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.06199999999989814,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": false,
+          "clustering_covariance": "full",
+          "clustering_kmeans_only": false
+        }
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 42,
+      "policy": "diagonal",
+      "ari": 0.3913819881137381,
+      "ami": 0.42071554369299347,
+      "valid": true,
+      "wall_seconds": 0.07800000000042928,
+      "info": {
+        "model": "GaussianMixtureDiag",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "diag covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 8632.376603235776,
+          "diag": 2081.9017437622874
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 42,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.06300000000010186,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": true,
+          "clustering_covariance": "diag",
+          "clustering_kmeans_only": false
+        }
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 8081,
+      "policy": "current",
+      "ari": 0.2961687699147079,
+      "ami": 0.36063740402882566,
+      "valid": true,
+      "wall_seconds": 0.0929999999998472,
+      "info": {
+        "model": "GaussianMixtureFull",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "full covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 9636.309279749423,
+          "full": -427.6513641488634
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 8081,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.0929999999998472,
+        "time_budget_seconds": 50.0
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 8081,
+      "policy": "kmeans_only",
+      "ari": 0.3838184229369683,
+      "ami": 0.4084573762825218,
+      "valid": true,
+      "wall_seconds": 0.04699999999957072,
+      "info": {
+        "model": "KMeans",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "baseline geometry; covariance comparison not eligible",
+        "bic": {},
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 8081,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.032000000000152795,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": true,
+          "clustering_covariance": "full",
+          "clustering_kmeans_only": true
+        }
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 8081,
+      "policy": "no_indicators",
+      "ari": 0.6694735987362441,
+      "ami": 0.700561736972573,
+      "valid": true,
+      "wall_seconds": 0.09400000000005093,
+      "info": {
+        "model": "GaussianMixtureFull",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "full covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 4491.521167752454,
+          "full": 3673.761890427686
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 8081,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 3,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.07800000000042928,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": false,
+          "clustering_covariance": "full",
+          "clustering_kmeans_only": false
+        }
+      }
+    },
+    {
+      "kind": "inspected_original_diagnostic",
+      "seed": 8081,
+      "policy": "diagonal",
+      "ari": 0.2961687699147079,
+      "ami": 0.36063740402882566,
+      "valid": true,
+      "wall_seconds": 0.07800000000042928,
+      "info": {
+        "model": "GaussianMixtureDiag",
+        "strategy": "geometry",
+        "experimental": true,
+        "selection": "diag covariance improves BIC by more than margin",
+        "bic": {
+          "spherical": 9636.309279749423,
+          "diag": -545.8489657895391
+        },
+        "covariance_initialization": "generic plus baseline centroids",
+        "cpu_threads": 1,
+        "seed": 8081,
+        "training_rows": 660,
+        "input_features": 3,
+        "transformed_features": 6,
+        "requested_clusters": 3,
+        "observed_clusters": 3,
+        "empty_clusters_repaired": 0,
+        "model_seconds": 0.06300000000010186,
+        "time_budget_seconds": 50.0,
+        "experimental_controls": {
+          "clustering_missing_indicators": true,
+          "clustering_covariance": "diag",
+          "clustering_kmeans_only": false
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\first-batch\\clustering-diagnostic.py": "a75d6d9a91e30521d707923ecd8785454819d1771672d6883bc11e68f513e43b",
+    "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\scripts\\datasets.py": "139552ec36c29118d5a7fee6e3e57ad9c6ff2a7d4e0722721f7d6b690184f7a7"
+  }
+}

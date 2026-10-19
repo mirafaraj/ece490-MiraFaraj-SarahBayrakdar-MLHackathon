@@ -9,7 +9,11 @@ DEFAULT_CONFIG = {
     "metrics": {"classification": "balanced_accuracy", "regression": "rmse", "clustering": "bic"},
     "selection": {"near_tie_tolerance": 0.0},
     "experimental": {"categorical_enabled": False, "categorical_max_features": 4,
-                     "categorical_max_cardinality": 512, "categorical_alphas": [1.0, 10.0]},
+                     "categorical_max_cardinality": 512, "categorical_alphas": [1.0, 10.0],
+                     "classification_weighting": "objective", "classification_holdouts": 1,
+                     "classification_objective": "route", "clustering_missing_indicators": True,
+                     "clustering_covariance": "full", "clustering_kmeans_only": False,
+                     "runtime_instrumentation": False},
     "limits": {
         "min_selection_seconds": 12.0, "reserve_seconds": 5.0,
         "selection_fraction": 0.25, "selection_budget_fraction": 0.4,
@@ -59,6 +63,19 @@ def validate_config(config=None):
     if isinstance(tolerance, bool) or not isinstance(tolerance, (float, int)) or not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("Near-tie tolerance must be finite and nonnegative")
     experimental = result["experimental"]
+    for key in ("clustering_missing_indicators", "clustering_kmeans_only", "runtime_instrumentation"):
+        if not isinstance(experimental[key], bool):
+            raise ValueError(f"{key} must be boolean")
+    choices = {
+        "classification_weighting": {"objective", "balanced", "unweighted", "both"},
+        "classification_objective": {"route", "accuracy", "balanced_accuracy", "macro_f1"},
+        "clustering_covariance": {"full", "diag"},
+    }
+    for key, allowed_values in choices.items():
+        if not isinstance(experimental[key], str) or experimental[key] not in allowed_values:
+            raise ValueError(f"Unsupported experimental {key}")
+    if type(experimental["classification_holdouts"]) is not int or experimental["classification_holdouts"] not in (1, 2):
+        raise ValueError("classification_holdouts must be one or two")
     if not isinstance(experimental["categorical_enabled"], bool):
         raise ValueError("categorical_enabled must be boolean")
     for key in ("categorical_max_features", "categorical_max_cardinality"):

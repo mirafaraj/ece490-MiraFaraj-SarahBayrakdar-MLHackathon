@@ -23,7 +23,9 @@ def _clear_artifacts(directory):
         (directory / name).unlink(missing_ok=True)
 
 
-def _model_worker(dataset, budget, seed, result_path, strategy, route_config=None, checkpoint_path=None):
+def _model_worker(dataset, budget, seed, result_path, strategy, route_config=None, checkpoint_path=None,
+                  instrument_runtime=False):
+    worker_started = time.monotonic()
     try:
         from .models import fit_predict
 
@@ -34,6 +36,7 @@ def _model_worker(dataset, budget, seed, result_path, strategy, route_config=Non
             extra = {"route_config": route_config,
                      "checkpoint_callback": lambda predictions, info: write_checkpoint(
                          checkpoint_path, dataset, predictions, info)}
+        fit_started = time.monotonic()
         predictions, info = fit_predict(
             task=dataset.task,
             X_train=dataset.X_train,
@@ -47,6 +50,11 @@ def _model_worker(dataset, budget, seed, result_path, strategy, route_config=Non
             **extra,
         )
         payload = {"predictions": predictions, "model_info": info}
+        if instrument_runtime:
+            payload["worker_phase_seconds"] = {
+                "imports": fit_started - worker_started,
+                "fit_predict": time.monotonic() - fit_started,
+            }
     except Exception:
         payload = {"error": traceback.format_exc()}
     # Files avoid pipe deadlocks when a prediction vector exceeds the pipe buffer.
@@ -78,6 +86,7 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--strategy", choices=("baseline", "auto", "routed"), default="baseline")
     parser.add_argument("--router-config", type=Path)
+    parser.add_argument("--timings", action="store_true", help="Opt in to diagnostic phase timings")
     args = parser.parse_args(argv)
     if not 0 < args.time_budget <= 3600:
         parser.error("--time-budget must be positive and at most 3600 seconds")
@@ -85,6 +94,7 @@ def main(argv=None):
         parser.error("--router-config requires --strategy routed")
 
     process = None
+    phases = {}
     try:
         _clear_artifacts(args.output)
         from .contract import load_dataset, write_outputs
@@ -96,9 +106,15 @@ def main(argv=None):
             from .routing import load_router_config
 
             route_config = load_router_config(args.router_config)
+            if args.timings:
+                route_config["experimental"]["runtime_instrumentation"] = True
 
+        stage_started = time.monotonic()
         dataset = load_dataset(args.input)
+        phases["load"] = time.monotonic() - stage_started
+        stage_started = time.monotonic()
         profile = build_profile(dataset.X_train, dataset.feature_types, dataset.y_train)
+        phases["profile"] = time.monotonic() - stage_started
         reserve = min(3.0, args.time_budget * 0.15)
         remaining = args.time_budget - (time.monotonic() - started) - reserve
         if remaining <= 0:
@@ -109,15 +125,18 @@ def main(argv=None):
             result_path = str(Path(temporary) / "model-result.pkl")
             checkpoint_path = str(Path(temporary) / "completed-baseline.json")
             worker_args = (dataset, remaining, args.seed, result_path, args.strategy)
-            if args.strategy == "routed":
-                worker_args += (route_config, checkpoint_path)
+            if args.strategy == "routed" or args.timings:
+                worker_args += (route_config, checkpoint_path, args.timings)
             process = mp.get_context("spawn").Process(
                 target=_model_worker,
                 args=worker_args,
             )
+            stage_started = time.monotonic()
             process.start()
             wait_budget = max(0, args.time_budget - (time.monotonic() - started) - reserve)
             process.join(wait_budget)
+            phases["spawn_and_wait"] = time.monotonic() - stage_started
+            stage_started = time.monotonic()
             if process.is_alive():
                 process.terminate()
                 process.join(1)
@@ -151,6 +170,7 @@ def main(argv=None):
                               if args.strategy == "routed" else None)
                     if result is None:
                         raise
+            phases["recovery_or_result_validation"] = time.monotonic() - stage_started
 
         predictions = validate_predictions(dataset, result["predictions"])
         run_info = {
@@ -162,11 +182,19 @@ def main(argv=None):
             "contract": "provisional-v1",
             "strategy": args.strategy,
         }
+        if args.timings:
+            run_info["phase_seconds"] = dict(phases)
+            run_info["worker_phase_seconds"] = result.get("worker_phase_seconds")
+        stage_started = time.monotonic()
         write_outputs(args.output, predictions, profile, run_info)
+        output_seconds = time.monotonic() - stage_started
         elapsed = time.monotonic() - started
         if elapsed > args.time_budget:
             raise TimeoutError("Output serialization exceeded the execution budget")
-        print(json.dumps({"status": "ok", "elapsed_seconds": elapsed}), file=sys.stderr)
+        status = {"status": "ok", "elapsed_seconds": elapsed}
+        if args.timings:
+            status["output_serialization_seconds"] = output_seconds
+        print(json.dumps(status), file=sys.stderr)
         return 0
     except Exception as exc:
         try:

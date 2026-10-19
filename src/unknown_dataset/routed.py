@@ -19,6 +19,9 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
     summary = summarize_training(task, X_train, y_train, feature_types)
     plan = make_route_plan(summary, time_budget=time_budget, n_clusters=n_clusters,
                            config=route_config)
+    instrument = plan.experimental.get("runtime_instrumentation", False)
+    phase_seconds = {"plan": time.monotonic() - started}
+    phase_started = time.monotonic()
     common = dict(task=task, X_train=X_train, y_train=y_train, X_test=X_test,
                   feature_types=feature_types, n_clusters=n_clusters, seed=seed)
     if task == "clustering":
@@ -32,10 +35,20 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
             **common, time_budget=time_budget, route_plan=plan)
 
     baseline_info = dict(baseline_info)
+    phase_seconds["baseline"] = time.monotonic() - phase_started
     baseline_info.update(strategy="routed", routing=plan.to_dict(), fallback=False,
                          route_stage="completed_baseline", checkpoint_recovered=False)
+    if instrument:
+        # Recovery can expose completed phases even if optional work is killed.
+        baseline_info["route_phase_seconds"] = dict(phase_seconds)
     if checkpoint_callback is not None:
+        phase_started = time.monotonic()
         checkpoint_callback(predictions, baseline_info)
+        phase_seconds["checkpoint"] = time.monotonic() - phase_started
+    else:
+        phase_seconds["checkpoint"] = 0.0
+    if instrument:
+        baseline_info["route_phase_seconds"] = dict(phase_seconds)
     baseline_elapsed = time.monotonic() - started
     # Recompute deadline headroom after full-data fitting and checkpoint writing.
     remaining = time_budget - baseline_elapsed
@@ -48,6 +61,7 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
         return predictions, baseline_info
 
     try:
+        phase_started = time.monotonic()
         if task == "clustering":
             from .clustering import fit_predict_clustering
 
@@ -60,6 +74,9 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
                                                        route_plan=plan,
                                                        completed_baseline=(predictions, baseline_info))
         info = dict(info)
+        phase_seconds["optional_total"] = time.monotonic() - phase_started
+        if instrument:
+            info["route_phase_seconds"] = dict(phase_seconds)
         refit_failure = info.get("refit_fallback_reason")
         info.update(strategy="routed", routing=plan.to_dict(), route_stage="completed_selection",
                     baseline_model=baseline_info.get("model"), baseline_seconds=baseline_elapsed,
@@ -76,4 +93,7 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
                              fallback_kind="completed_baseline", checkpoint_recovered=False,
                              fallback_reason=f"{type(exc).__name__}: {exc}",
                              model_seconds=time.monotonic() - started)
+        if instrument:
+            phase_seconds["optional_total"] = time.monotonic() - phase_started
+            baseline_info["route_phase_seconds"] = dict(phase_seconds)
         return predictions, baseline_info

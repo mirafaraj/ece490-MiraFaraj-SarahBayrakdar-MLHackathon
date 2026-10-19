@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import time
 import warnings
+from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
@@ -10,7 +11,7 @@ from sklearn.dummy import DummyClassifier, DummyRegressor
 from sklearn.ensemble import ExtraTreesClassifier, ExtraTreesRegressor, HistGradientBoostingClassifier, HistGradientBoostingRegressor
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LogisticRegression, Ridge
-from sklearn.metrics import accuracy_score, balanced_accuracy_score, mean_absolute_error, mean_squared_error
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score, recall_score, mean_absolute_error, mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from threadpoolctl import threadpool_limits
@@ -19,6 +20,40 @@ from .preprocessing import TableCleaner, build_preprocessor
 
 
 _DENSE_CELLS = 2_000_000
+_OBJECTIVE_WEIGHT = object()
+
+
+@dataclass(frozen=True)
+class ClassificationControls:
+    """Explicit development controls; omitted controls retain the incumbent path.
+
+    These do not change repository configuration or the assessment entry point.
+    A shared elapsed-time cap covers all candidates and all inner holdouts.
+    """
+    objective: str = "balanced_accuracy"
+    weighting: str = "objective"
+    holdouts: int = 1
+
+    def __post_init__(self):
+        if self.objective not in {"accuracy", "balanced_accuracy", "macro_f1"}:
+            raise ValueError("Unsupported experimental classification objective")
+        if self.weighting not in {"objective", "balanced", "unweighted", "both"}:
+            raise ValueError("Unsupported experimental classification weighting")
+        if type(self.holdouts) is not int or self.holdouts not in {1, 2}:
+            raise ValueError("Experimental holdouts must be 1 or 2")
+
+
+def classification_metrics(target, prediction, labels):
+    """Offline/inner-fold diagnostics with a fixed training-derived class order."""
+    encoder = LabelEncoder().fit(np.asarray(labels))
+    target, prediction = encoder.transform(target), encoder.transform(prediction)
+    return {
+        "accuracy": float(accuracy_score(target, prediction)),
+        "balanced_accuracy": float(balanced_accuracy_score(target, prediction)),
+        "macro_f1": float(f1_score(target, prediction, labels=np.arange(len(encoder.classes_)), average="macro", zero_division=0)),
+        "class_recall": recall_score(target, prediction, labels=np.arange(len(encoder.classes_)), average=None, zero_division=0).tolist(),
+        "classes": encoder.classes_.tolist(),
+    }
 
 
 def _matrix(cleaner, preprocessor, frame, dense=False, dense_cells_limit=None):
@@ -69,12 +104,25 @@ def _fit(name, task, frame, labels, feature_types, seed, final=False, final_tree
 
 def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_types=None,
                            n_clusters=None, time_budget=50, seed=42, route_plan=None,
-                           completed_baseline=None):
+                           completed_baseline=None, classification_controls=None):
     """Choose using train-only holdout, then refit once on all supplied labels.
 
     The caller must enforce a process deadline. Checks between candidate fits
     cannot interrupt a running sklearn estimator.
     """
+    if classification_controls is None and route_plan is not None and task == "classification":
+        experimental = route_plan.experimental
+        weighting = experimental.get("classification_weighting", "objective")
+        holdouts = experimental.get("classification_holdouts", 1)
+        objective = experimental.get("classification_objective", "route")
+        if weighting != "objective" or holdouts != 1 or objective != "route":
+            classification_controls = ClassificationControls(
+                route_plan.metric if objective == "route" else objective, weighting, holdouts)
+    if classification_controls is not None:
+        if task != "classification" or route_plan is None:
+            raise ValueError("Classification controls require a classification route plan")
+        return _fit_predict_classification_experiment(X_train, y_train, X_test, feature_types,
+            time_budget, seed, route_plan, classification_controls, completed_baseline)
     if route_plan is not None:
         return _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types,
                                              time_budget, seed, route_plan, completed_baseline)
@@ -230,7 +278,8 @@ def _categorical_features(frame, feature_types, plan):
 
 def fit_predict_fixed_candidate(name, task, X_train, y_train, X_test, feature_types=None,
                                 seed=42, metric=None, final=True, route_plan=None,
-                                categorical_feature=None, categorical_alpha=10.0):
+                                categorical_feature=None, categorical_alpha=10.0,
+                                class_weight=_OBJECTIVE_WEIGHT):
     """Fit a fixed candidate for offline paired evaluation or routed final refit.
 
     Evaluation references are deliberately absent from this API. A categorical
@@ -252,6 +301,10 @@ def fit_predict_fixed_candidate(name, task, X_train, y_train, X_test, feature_ty
     if encoder is None and not np.isfinite(target).all():
         raise ValueError("Regression labels must be finite")
     weight = "balanced" if task == "classification" and metric == "balanced_accuracy" else None
+    if class_weight is not _OBJECTIVE_WEIGHT:
+        if task != "classification" or class_weight not in {None, "balanced"}:
+            raise ValueError("Class-weight override requires classification and balanced or None")
+        weight = class_weight
     fitting_started = time.monotonic()
     with threadpool_limits(limits=1):
         if name == "categorical":
@@ -416,4 +469,118 @@ def _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types
                 model_seconds=time.monotonic() - started,
                 selection_direction="maximize" if task == "classification" else "minimize",
                 near_tie_tolerance=route_plan.near_tie_tolerance)
+    if route_plan.experimental.get("runtime_instrumentation", False):
+        info["phase_seconds"] = {"selection": selection_seconds,
+            "refit": info.get("fit_seconds", 0.0),
+            "prediction": info.get("prediction_seconds", 0.0)}
+    return prediction, info
+
+
+def _fit_predict_classification_experiment(X_train, y_train, X_test, feature_types,
+                                           time_budget, seed, route_plan, controls,
+                                           completed_baseline=None):
+    """Optional factorial selector; no evaluation labels or features enter selection."""
+    if not isinstance(controls, ClassificationControls):
+        raise ValueError("classification_controls must be ClassificationControls")
+    _validate_supervised("classification", X_train, y_train, X_test, time_budget)
+    if route_plan.task != "classification":
+        raise ValueError("Route plan task does not match classification")
+    started = time.monotonic()
+    target = np.asarray(y_train)
+    labels = np.unique(target)
+    if completed_baseline is not None:
+        if not isinstance(completed_baseline, tuple) or len(completed_baseline) != 2:
+            raise ValueError("Completed baseline must be a predictions/info tuple")
+        values, metadata = completed_baseline
+        values = np.asarray(values)
+        if values.ndim != 1 or len(values) != len(X_test) or not isinstance(metadata, dict) or not np.isin(values, target).all():
+            raise ValueError("Completed baseline has invalid shape, classes, or metadata")
+    weights = (["balanced", None] if controls.weighting == "both" else
+               ["balanced"] if controls.weighting == "balanced" else
+               [None] if controls.weighting == "unweighted" else
+               ["balanced" if controls.objective == "balanced_accuracy" else None])
+    candidates = [name for name in route_plan.candidates if name in {"extra_trees", "linear", "histogram"}]
+    variants = [(name, weight) for name in candidates for weight in weights]
+    indices = np.arange(len(target))
+    folds, scores, details, errors, timings = [], {}, {}, {}, {}
+    skip = "route_validation_disabled" if route_plan.validation_mode == "none" else None
+    if skip is None:
+        try:
+            if len(indices) > route_plan.selection_sample_rows:
+                indices, _ = train_test_split(indices, train_size=route_plan.selection_sample_rows,
+                    random_state=seed, stratify=target)
+            for fold in range(controls.holdouts):
+                folds.append(train_test_split(indices, test_size=route_plan.selection_fraction,
+                    random_state=seed + fold, stratify=target[indices]))
+        except ValueError:
+            skip = "sample_too_small_for_stratification"
+    selection_limit = max(0.0, min(time_budget * route_plan.selection_budget_fraction,
+                                   time_budget - route_plan.reserve_seconds))
+    with threadpool_limits(limits=1):
+        if skip is None:
+            for name, weight in variants:
+                key = name + ":" + (weight or "unweighted")
+                candidate_started = time.monotonic()
+                records = []
+                try:
+                    for fold, (fitting, validation) in enumerate(folds):
+                        if time.monotonic() - started >= selection_limit:
+                            raise ValueError("selection budget exhausted; incomplete candidate excluded")
+                        prediction, _ = fit_predict_fixed_candidate(name, "classification",
+                            X_train.iloc[fitting], target[fitting], X_train.iloc[validation], feature_types,
+                            seed, final=False, route_plan=route_plan, class_weight=weight)
+                        record = classification_metrics(target[validation], prediction, labels)
+                        record.update(fold=fold, fitting_rows=len(fitting), validation_rows=len(validation))
+                        records.append(record)
+                    scores[key] = float(np.mean([record[controls.objective] for record in records]))
+                except (ValueError, MemoryError) as exc:
+                    errors[key] = str(exc)
+                details[key] = records
+                timings[key] = time.monotonic() - candidate_started
+        selection_seconds = time.monotonic() - started
+        # Preserve incumbent simple-candidate preference on exact ties, with
+        # weighting ties resolved in declared order. No near-tie expansion.
+        order = {"linear": 0, "extra_trees": 1, "histogram": 2}
+        selected = min(scores, key=lambda key: (-scores[key], order[key.split(":")[0]],
+            list(scores).index(key))) if scores else "extra_trees:" + (weights[0] or "unweighted")
+        name, weight_name = selected.split(":")
+        weight = None if weight_name == "unweighted" else weight_name
+        def final_fit(candidate):
+            if (candidate == "extra_trees" and completed_baseline is not None
+                    and metadata.get("class_weight", _OBJECTIVE_WEIGHT) == weight):
+                reused = dict(metadata)
+                reused.update(baseline_reused=True, baseline_fit_seconds=reused.get("fit_seconds", 0.0),
+                              fit_seconds=0.0, prediction_seconds=0.0)
+                return values.copy(), reused
+            return fit_predict_fixed_candidate(candidate, "classification", X_train, y_train,
+                X_test, feature_types, seed, route_plan=route_plan, class_weight=weight)
+        refit_fallback = None
+        try:
+            prediction, info = final_fit(name)
+        except (ValueError, MemoryError) as exc:
+            if name == "extra_trees" and completed_baseline is None:
+                raise
+            refit_fallback = str(exc)
+            if completed_baseline is not None:
+                # Recovery must not launch another fit after a failed refit.
+                # A safe completed checkpoint takes precedence over the planned
+                # experimental weight, which is recorded as actually recovered.
+                prediction, info = values.copy(), dict(metadata)
+                info.update(baseline_reused=True, baseline_fit_seconds=info.get("fit_seconds", 0.0),
+                            fit_seconds=0.0, prediction_seconds=0.0)
+                weight_name = info.get("class_weight") or "unweighted"
+            else:
+                prediction, info = final_fit("extra_trees")
+            selected = "extra_trees:" + weight_name
+    info.update(experimental_classification=True, selection_metric=controls.objective,
+        classification_weighting=controls.weighting, selection_holdouts=controls.holdouts,
+        selected_variant=selected, validation_scores=scores, validation_fold_metrics=details,
+        candidate_errors=errors, candidate_seconds=timings, selection_seconds=selection_seconds,
+        selection_skipped=skip, refit_fallback_reason=refit_fallback,
+        time_budget_seconds=float(time_budget), model_seconds=time.monotonic() - started,
+        selection_direction="maximize", near_tie_tolerance=0.0,
+        selection_time_limit_seconds=selection_limit)
+    if route_plan.experimental.get("runtime_instrumentation", False):
+        info["phase_seconds"] = {"selection": selection_seconds,
+            "refit": info["fit_seconds"], "prediction": info["prediction_seconds"]}
     return prediction, info

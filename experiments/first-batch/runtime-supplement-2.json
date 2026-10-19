@@ -1,0 +1,738 @@
+{
+  "scope": "development evidence; official size/memory/metric limits unavailable",
+  "order_seed": 490,
+  "sample_period_seconds": 0.025,
+  "planned": [
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "auto"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "routed"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "baseline"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "baseline"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "routed"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "auto"
+    }
+  ],
+  "rows": [
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "auto",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 22.514999999999418,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 22.186999999999898, \"output_serialization_seconds\": 0.015000000000327418}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 22.17199999999957,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "strategy": "auto",
+          "selected_candidate": "histogram",
+          "selection_metric": "balanced_accuracy",
+          "validation_scores": {
+            "extra_trees": 0.5197444831591173,
+            "linear": 0.7720673635307782,
+            "histogram": 0.8966318234610917
+          },
+          "candidate_errors": {},
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "fallback": false,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "seed": 42,
+          "cpu_threads": 1,
+          "time_budget_seconds": 45.51600000000053,
+          "model_seconds": 15.811999999999898,
+          "n_estimators": null
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto",
+        "phase_seconds": {
+          "load": 0.14099999999962165,
+          "profile": 0.125,
+          "spawn_and_wait": 20.67200000000048,
+          "recovery_or_result_validation": 0.0
+        },
+        "worker_phase_seconds": {
+          "imports": 2.8599999999996726,
+          "fit_predict": 15.811999999999898
+        }
+      },
+      "accuracy": 0.8916666666666667,
+      "balanced_accuracy": 0.8842396613480952,
+      "macro_f1": 0.8757071149709187,
+      "minority_recall": 0.8648648648648649,
+      "prediction_sha256": "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "routed",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 26.75,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 26.25, \"output_serialization_seconds\": 0.015000000000327418}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 26.234999999999673,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "selected_candidate": "histogram",
+          "strategy": "routed",
+          "selection_metric": "balanced_accuracy",
+          "class_weight": "balanced",
+          "fallback": false,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "seed": 42,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 8.328999999999724,
+          "prediction_seconds": 0.06199999999989814,
+          "model_seconds": 17.73399999999947,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "balanced_accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 660,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": "balanced",
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 660,
+              "input_features": 110,
+              "retained_features": 110,
+              "numeric_features": 110,
+              "categorical_features": 0,
+              "estimated_encoded_width": 220,
+              "missing_fraction": 0.10147382920110193,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                493,
+                167
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ],
+              "classification_weighting": "objective",
+              "classification_holdouts": 1,
+              "classification_objective": "route",
+              "clustering_missing_indicators": true,
+              "clustering_covariance": "full",
+              "clustering_kmeans_only": false,
+              "runtime_instrumentation": true
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.5197444831591173,
+            "linear": 0.7720673635307782,
+            "histogram": 0.8966318234610917
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.25,
+            "linear": 0.2029999999995198,
+            "histogram": 8.109000000000378
+          },
+          "candidate_errors": {},
+          "selection_seconds": 8.561999999999898,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 41.89100000000053,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "phase_seconds": {
+            "selection": 8.561999999999898,
+            "refit": 8.328999999999724,
+            "prediction": 0.06199999999989814
+          },
+          "route_phase_seconds": {
+            "plan": 0.10899999999946886,
+            "baseline": 0.6410000000005311,
+            "checkpoint": 0.014999999999417923,
+            "optional_total": 16.96900000000005
+          },
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.7649999999994179,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed",
+        "phase_seconds": {
+          "load": 0.10999999999967258,
+          "profile": 0.10900000000037835,
+          "spawn_and_wait": 21.875,
+          "recovery_or_result_validation": 0.0
+        },
+        "worker_phase_seconds": {
+          "imports": 2.485000000000582,
+          "fit_predict": 17.73399999999947
+        }
+      },
+      "accuracy": 0.8916666666666667,
+      "balanced_accuracy": 0.8842396613480952,
+      "macro_f1": 0.8757071149709187,
+      "minority_recall": 0.8648648648648649,
+      "prediction_sha256": "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 1,
+      "strategy": "baseline",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 7.109000000000378,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 6.75, \"output_serialization_seconds\": 0.03099999999994907}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.719000000000051,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.40599999999995,
+          "model_seconds": 0.7029999999995198,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline",
+        "phase_seconds": {
+          "load": 0.07799999999951979,
+          "profile": 0.10900000000037835,
+          "spawn_and_wait": 5.109999999999673,
+          "recovery_or_result_validation": 0.0
+        },
+        "worker_phase_seconds": {
+          "imports": 2.54700000000048,
+          "fit_predict": 0.7029999999995198
+        }
+      },
+      "accuracy": 0.6916666666666667,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4088669950738916,
+      "minority_recall": 0.0,
+      "prediction_sha256": "6c540e428596387edcd6be57c3452dd2ea3ad24f7f80db4e20736ed0eb4f12ac"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "baseline",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 6.70299999999952,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 6.358999999999469, \"output_serialization_seconds\": 0.01599999999962165}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.342999999999847,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.54700000000048,
+          "model_seconds": 0.6869999999998981,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline",
+        "phase_seconds": {
+          "load": 0.07799999999951979,
+          "profile": 0.09400000000005093,
+          "spawn_and_wait": 4.859999999999673,
+          "recovery_or_result_validation": 0.015000000000327418
+        },
+        "worker_phase_seconds": {
+          "imports": 2.5789999999997235,
+          "fit_predict": 0.7030000000004293
+        }
+      },
+      "accuracy": 0.6916666666666667,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4088669950738916,
+      "minority_recall": 0.0,
+      "prediction_sha256": "6c540e428596387edcd6be57c3452dd2ea3ad24f7f80db4e20736ed0eb4f12ac"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "routed",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 27.07800000000043,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 26.57800000000043, \"output_serialization_seconds\": 0.016000000000531145}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 26.561999999999898,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "selected_candidate": "histogram",
+          "strategy": "routed",
+          "selection_metric": "balanced_accuracy",
+          "class_weight": "balanced",
+          "fallback": false,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "seed": 42,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 8.890999999999622,
+          "prediction_seconds": 0.07800000000042928,
+          "model_seconds": 18.01600000000053,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "balanced_accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 660,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": "balanced",
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 660,
+              "input_features": 110,
+              "retained_features": 110,
+              "numeric_features": 110,
+              "categorical_features": 0,
+              "estimated_encoded_width": 220,
+              "missing_fraction": 0.10147382920110193,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                493,
+                167
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ],
+              "classification_weighting": "objective",
+              "classification_holdouts": 1,
+              "classification_objective": "route",
+              "clustering_missing_indicators": true,
+              "clustering_covariance": "full",
+              "clustering_kmeans_only": false,
+              "runtime_instrumentation": true
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.5197444831591173,
+            "linear": 0.7720673635307782,
+            "histogram": 0.8966318234610917
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.2960000000002765,
+            "linear": 0.2039999999997235,
+            "histogram": 7.765000000000327
+          },
+          "candidate_errors": {},
+          "selection_seconds": 8.265000000000327,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 42.01499999999942,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "phase_seconds": {
+            "selection": 8.265000000000327,
+            "refit": 8.890999999999622,
+            "prediction": 0.07800000000042928
+          },
+          "route_phase_seconds": {
+            "plan": 0.11000000000058208,
+            "baseline": 0.6559999999999491,
+            "checkpoint": 0.01599999999962165,
+            "optional_total": 17.23400000000038
+          },
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.7820000000001528,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed",
+        "phase_seconds": {
+          "load": 0.09400000000005093,
+          "profile": 0.09400000000005093,
+          "spawn_and_wait": 22.34400000000005,
+          "recovery_or_result_validation": 0.014999999999417923
+        },
+        "worker_phase_seconds": {
+          "imports": 2.592999999999847,
+          "fit_predict": 18.01600000000053
+        }
+      },
+      "accuracy": 0.8916666666666667,
+      "balanced_accuracy": 0.8842396613480952,
+      "macro_f1": 0.8757071149709187,
+      "minority_recall": 0.8648648648648649,
+      "prediction_sha256": "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "repeat": 2,
+      "strategy": "auto",
+      "returncode": 0,
+      "external_timeout": false,
+      "external_seconds": 20.51599999999962,
+      "peak_process_tree_rss_bytes": null,
+      "stderr": "{\"status\": \"ok\", \"elapsed_seconds\": 20.17200000000048, \"output_serialization_seconds\": 0.015000000000327418}\n",
+      "valid": true,
+      "run": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 20.157000000000153,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "strategy": "auto",
+          "selected_candidate": "histogram",
+          "selection_metric": "balanced_accuracy",
+          "validation_scores": {
+            "extra_trees": 0.5197444831591173,
+            "linear": 0.7720673635307782,
+            "histogram": 0.8966318234610917
+          },
+          "candidate_errors": {},
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "fallback": false,
+          "training_rows": 660,
+          "input_features": 110,
+          "retained_features": 110,
+          "transformed_features": 220,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "seed": 42,
+          "cpu_threads": 1,
+          "time_budget_seconds": 45.60899999999947,
+          "model_seconds": 14.875,
+          "n_estimators": null
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto",
+        "phase_seconds": {
+          "load": 0.07800000000042928,
+          "profile": 0.125,
+          "spawn_and_wait": 18.75,
+          "recovery_or_result_validation": 0.0
+        },
+        "worker_phase_seconds": {
+          "imports": 2.282000000000153,
+          "fit_predict": 14.875
+        }
+      },
+      "accuracy": 0.8916666666666667,
+      "balanced_accuracy": 0.8842396613480952,
+      "macro_f1": 0.8757071149709187,
+      "minority_recall": 0.8648648648648649,
+      "prediction_sha256": "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+    }
+  ],
+  "notes": [
+    "RSS is sampled sum of resident process-tree memory, not unique memory.",
+    "Fine phases available in routed; baseline/auto have worker total only.",
+    "Natural fallback frequency does not measure expected production recovery benefit."
+  ],
+  "source_sha256": {
+    "main.py": "eaae6f7b36735625d337f630fd1c54fca9a6a20f367b293ac941d559ecedca19",
+    "scripts/batch_runtime.py": "1ca2327519cd71c04e15d6f2d5c52872d3d5787baeecf4c0c68d4890bba571f9",
+    "src/unknown_dataset/__init__.py": "7a8e565dccd13b5c66f4c0a5a66a4bcf1591596d73bf2bf844055ef612e491da",
+    "src/unknown_dataset/categorical.py": "762a29482208e3fbfafacb32c10ab9020c4bcac642ed90bb7bc86e84200a1b2b",
+    "src/unknown_dataset/checkpoints.py": "1ea404d7cd286509364b6a60f7ac8d3313197afb82f734680d4bc7f45ecf4216",
+    "src/unknown_dataset/clustering.py": "c1105cb908d356b7fc87d31d647bdfe0488dfa20e79ffa10473f23f027bb3061",
+    "src/unknown_dataset/contract.py": "7c1e57a55a662cd58ed2c422aaaa0d3b290db8d8ac8800c869607ed481964076",
+    "src/unknown_dataset/fallback.py": "be4a75c7ad4980bc929027d61b8661c1bdd014054b98a7bbad3cbb517cec649c",
+    "src/unknown_dataset/models.py": "50f7f30fec56f355e83ea2082605283f595a47c156248ea3092319e98deaa4d5",
+    "src/unknown_dataset/policies.py": "c7255e795f24ca3d74d12ca497af9fea6cc56a61ae22ee11f345141cb38d06ba",
+    "src/unknown_dataset/preprocessing.py": "c6327fe726bf34ad9a068712f9cf2efddecac72d5de8643ca1ad24a9e3e586a5",
+    "src/unknown_dataset/profiling.py": "9b7ff27b42021774a5c2c518532bfb805baa454546b0be94bdb910a7b02bdf1e",
+    "src/unknown_dataset/routed.py": "33e4cf65863113d31a2faa6cf646dd7912c321329dca2167839a65c5cefa7c78",
+    "src/unknown_dataset/routing.py": "d4c03ab5fa29f46e0a49469cfd6ab1eaf50c96f3db7f605419dd604dff7b1343",
+    "src/unknown_dataset/runner.py": "7a153c932c97f65f918e8b1cbb67caa5a884f859e067a88bfa861b4cd84e9ca6",
+    "src/unknown_dataset/supervised.py": "d4ab5f1712036d45f18e14adb8ae040176c193210a40aa4323740266f028ba47",
+    "configs/router-accuracy.json": "8aa522e97eeef15bf313aaecabb923737d7f11360612d6e670c239a2bb0bc5ca",
+    "configs/router-categorical.json": "a3ce3342edd6c5d63fc3eafe6567066dc83552dbe7b44338b5b8fb0b01e49d59",
+    "configs/router.json": "2523b727d7136dbe1f2bbfc002033c015d4e59682062e0dc1e60c3c7812b8d33"
+  },
+  "resumed_from": "experiments\\first-batch\\runtime-supplement.json",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+    "logical_cpus": 16,
+    "package_versions": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scikit-learn": "1.9.1"
+    }
+  },
+  "fixture_sha256": {
+    "normal": {
+      "metadata.json": "65ff3309541c8453709d18cc54be0dc976a3c318d4122ca8e14ec0d5113faad7",
+      "train.csv": "d6578052e997f837eb14fade17493c3334b23fbaa837d32c1d51b48092e23f65",
+      "test.csv": "e4efed18c4e697b9847e6e998cf696ae9261031021b5d8f1f83332f2302d5975"
+    },
+    "wider": {
+      "metadata.json": "891a24855cb9c6d3181cd3e7b1e47e0a90292f8f125bad65fcb2e6973d836edb",
+      "train.csv": "de91edf4f25c7d9c1f100d7f30d044f845b0d44596649d3c078c97b2f10aef05",
+      "test.csv": "e9154f726ff6b56f8ad6852f08bd6d5e9169047d0c9a4ea8ad04a38a63c7e282"
+    }
+  },
+  "controlled_recovery": {
+    "scope": "controlled failure and simulated deadline, not natural frequency",
+    "optional_failure_retained_baseline": true,
+    "recovered_equals_completed_predictions": true,
+    "emergency_model": {
+      "model": "EmergencyMajorityClass",
+      "fallback": true,
+      "fallback_reason": "controlled comparison",
+      "seed": 42,
+      "training_rows": 96,
+      "time_budget_seconds": 0.0
+    },
+    "completed_and_recovered": {
+      "accuracy": 0.8916666666666667,
+      "balanced_accuracy": 0.8406478578892371,
+      "macro_f1": 0.8571297737888085,
+      "minority_recall": 0.7272727272727273
+    },
+    "emergency": {
+      "accuracy": 0.725,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.42028985507246375,
+      "minority_recall": 0.0
+    }
+  },
+  "total_seconds": 111.67199999999957,
+  "unrun": [],
+  "summary": [
+    {
+      "shape": "wider",
+      "budget": 50,
+      "strategy": "baseline",
+      "runs": 2,
+      "valid": 2,
+      "failures": 0,
+      "mean_external_seconds": 6.905999999999949,
+      "external_over_60": 0,
+      "completed_baseline_recoveries": 0,
+      "fallback_runs": 0,
+      "emergency_fallbacks": 0,
+      "repeat_prediction_hashes": [
+        "6c540e428596387edcd6be57c3452dd2ea3ad24f7f80db4e20736ed0eb4f12ac"
+      ],
+      "mean_accuracy": 0.6916666666666667,
+      "mean_balanced_accuracy": 0.5,
+      "mean_macro_f1": 0.4088669950738916,
+      "mean_minority_recall": 0.0
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "strategy": "auto",
+      "runs": 2,
+      "valid": 2,
+      "failures": 0,
+      "mean_external_seconds": 21.51549999999952,
+      "external_over_60": 0,
+      "completed_baseline_recoveries": 0,
+      "fallback_runs": 0,
+      "emergency_fallbacks": 0,
+      "repeat_prediction_hashes": [
+        "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+      ],
+      "mean_accuracy": 0.8916666666666667,
+      "mean_balanced_accuracy": 0.8842396613480952,
+      "mean_macro_f1": 0.8757071149709187,
+      "mean_minority_recall": 0.8648648648648649
+    },
+    {
+      "shape": "wider",
+      "budget": 50,
+      "strategy": "routed",
+      "runs": 2,
+      "valid": 2,
+      "failures": 0,
+      "mean_external_seconds": 26.914000000000215,
+      "external_over_60": 0,
+      "completed_baseline_recoveries": 0,
+      "fallback_runs": 0,
+      "emergency_fallbacks": 0,
+      "repeat_prediction_hashes": [
+        "c05b680545c7eba055e5b1b478a56f7c9a9ff9e1d8652e8fbcfbba4d45e70426"
+      ],
+      "mean_accuracy": 0.8916666666666667,
+      "mean_balanced_accuracy": 0.8842396613480952,
+      "mean_macro_f1": 0.8757071149709187,
+      "mean_minority_recall": 0.8648648648648649
+    }
+  ]
+}
