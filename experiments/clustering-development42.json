@@ -1,0 +1,140 @@
+{
+  "seed": 42,
+  "notice": "Offline diagnostics; reference labels never used by production selection. Confirmation314 untouched.",
+  "configuration": {
+    "gmm_n_init": 2,
+    "gmm_max_iter": 80,
+    "sample_max_rows": 2000,
+    "bic_relative_margin": 0.05
+  },
+  "datasets": [
+    {
+      "dataset": "spherical",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 1.0,
+        "seconds": 0.2202,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 1.0,
+        "seconds": 0.0394,
+        "model": "GaussianMixtureFull"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "anisotropic",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 1.0,
+        "seconds": 0.0229,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 1.0,
+        "seconds": 0.0373,
+        "model": "GaussianMixtureFull"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "unequal_variance",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 0.8588910886306008,
+        "seconds": 0.0227,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 0.8588910886306008,
+        "seconds": 0.0435,
+        "model": "KMeans"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "moons",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 0.4660531364831247,
+        "seconds": 0.0256,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 0.4660531364831247,
+        "seconds": 0.0468,
+        "model": "KMeans"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "circles",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": -0.0016270520517674867,
+        "seconds": 0.0279,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": -0.0016270520517674867,
+        "seconds": 0.0457,
+        "model": "KMeans"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "irrelevant_features",
+      "rows": 600,
+      "features": 13,
+      "baseline": {
+        "ari": 1.0,
+        "seconds": 0.0564,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 1.0,
+        "seconds": 0.0528,
+        "model": "KMeans"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "outliers",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 0.9652218168183513,
+        "seconds": 0.0232,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 0.9652218168183513,
+        "seconds": 0.0535,
+        "model": "KMeans"
+      },
+      "delta_ari": 0.0
+    },
+    {
+      "dataset": "correlated_ellipses",
+      "rows": 600,
+      "features": 2,
+      "baseline": {
+        "ari": 0.4997138961566131,
+        "seconds": 0.0249,
+        "model": "KMeans"
+      },
+      "geometry": {
+        "ari": 1.0,
+        "seconds": 0.0649,
+        "model": "GaussianMixtureFull"
+      },
+      "delta_ari": 0.5002861038433869
+    }
+  ]
+}

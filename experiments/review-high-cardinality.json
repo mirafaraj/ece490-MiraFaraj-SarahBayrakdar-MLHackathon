@@ -1,0 +1,97 @@
+{
+  "notice": "Offline development metrics only; not official contest scores or the official checker. Seed 42 is development; other seeds are confirmation, not a guarantee of independence.",
+  "config": {
+    "seed": 42,
+    "timeout_seconds": 60,
+    "time_budget_seconds": 50,
+    "git_commit": null,
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "generator_version": 2,
+    "source_sha256": "81a8a622c85eca5d8286deefeb498cbe3dfe58dfb43cb3519e7214b1d22c51ef",
+    "platform": "win32",
+    "suite": "broad",
+    "seeds": [
+      42
+    ],
+    "strategies": [
+      "baseline"
+    ],
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1"
+    },
+    "source_sha256_after": "81a8a622c85eca5d8286deefeb498cbe3dfe58dfb43cb3519e7214b1d22c51ef",
+    "source_unchanged": true
+  },
+  "datasets": [
+    {
+      "name": "high_cardinality",
+      "family": "high_cardinality",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "7c93ed14d2ea8e50dd5c7a0a229bbe95afff70c30ef08da80954251b456c0b97",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.785,
+        "balanced_accuracy": 0.7852285228522853,
+        "majority_accuracy": 0.505
+      },
+      "error": null,
+      "wall_seconds": 6.8034,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.4060000000026776,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 600,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 34,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.65599999999904,
+          "model_seconds": 0.5469999999986612,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "classification": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 6.8034
+      },
+      "regression": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "mean_wall_seconds": null
+      },
+      "clustering": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "mean_wall_seconds": null
+      }
+    }
+  }
+}

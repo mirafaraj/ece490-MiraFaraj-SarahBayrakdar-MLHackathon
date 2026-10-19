@@ -1,0 +1,1660 @@
+{
+  "notice": "Offline metrics only; not official contest scores or the official checker. Seed 8081 is predeclared confirmation; all other seeds are development. Independence requires frozen code before confirmation.",
+  "config": {
+    "seed": 42,
+    "timeout_seconds": 60,
+    "time_budget_seconds": 50,
+    "git_commit": null,
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "generator_version": 3,
+    "source_sha256": "e67b8bbe524e8cc450e55a770ba42224f0286f54d686ca847fdf7a3707141b53",
+    "platform": "win32",
+    "router_config": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\reports\\grade-evaluation\\accuracy-objective.json",
+    "router_config_sha256": "efc9edb8abf967a2fbed9f51f51521094508cee70efb6b77a513dc3463ac84f9",
+    "suite": "router",
+    "seeds": [
+      42,
+      8081
+    ],
+    "strategies": [
+      "baseline",
+      "routed"
+    ],
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1"
+    },
+    "source_sha256_after": "e67b8bbe524e8cc450e55a770ba42224f0286f54d686ca847fdf7a3707141b53",
+    "source_unchanged": true
+  },
+  "datasets": [
+    {
+      "name": "router_iris",
+      "family": "router_iris",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "sklearn bundled real dataset",
+      "partition": "development",
+      "data_sha256": "87543ae803a1ef5642d36a106614b890cb8609fe35e858e66eee6e57f0f09939",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.9210526315789473,
+        "balanced_accuracy": 0.923076923076923,
+        "majority_accuracy": 0.3157894736842105
+      },
+      "error": null,
+      "wall_seconds": 6.5094,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.110000000000582,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 4,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.70300000000134,
+          "model_seconds": 0.375,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "router_iris",
+      "family": "router_iris",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "routed",
+      "source": "sklearn bundled real dataset",
+      "partition": "development",
+      "data_sha256": "87543ae803a1ef5642d36a106614b890cb8609fe35e858e66eee6e57f0f09939",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.9210526315789473,
+        "balanced_accuracy": 0.923076923076923,
+        "majority_accuracy": 0.3157894736842105
+      },
+      "error": null,
+      "wall_seconds": 9.3412,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 8.8279999999977,
+        "model": {
+          "model": "LogisticRegression",
+          "selected_candidate": "linear",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 4,
+          "seed": 42,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 0.03200000000288128,
+          "prediction_seconds": 0.0,
+          "model_seconds": 0.6720000000022992,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 112,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 112,
+              "input_features": 4,
+              "retained_features": 4,
+              "numeric_features": 4,
+              "categorical_features": 0,
+              "estimated_encoded_width": 8,
+              "missing_fraction": 0.0,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                38,
+                37,
+                37
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.9642857142857143,
+            "linear": 1.0,
+            "histogram": 1.0
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.0790000000015425,
+            "linear": 0.0459999999984575,
+            "histogram": 0.125
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.25,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 42.93800000000192,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.3899999999994179,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 112,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "numeric_features": 4,
+          "categorical_features": 0,
+          "estimated_encoded_width": 8,
+          "missing_fraction": 0.0,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            38,
+            37,
+            37
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    },
+    {
+      "name": "sparse_linear_classes",
+      "family": "sparse_linear_classes",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "a50ead4f71d92e23b48fa5a3d9deda9a6699d331958de8bdc47e8c4561d832ba",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.7944444444444444,
+        "balanced_accuracy": 0.7944444444444445,
+        "majority_accuracy": 0.5
+      },
+      "error": null,
+      "wall_seconds": 7.0024,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.514999999999418,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "transformed_features": 100,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.56299999999828,
+          "model_seconds": 0.5630000000019209,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "sparse_linear_classes",
+      "family": "sparse_linear_classes",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "routed",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "a50ead4f71d92e23b48fa5a3d9deda9a6699d331958de8bdc47e8c4561d832ba",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8222222222222222,
+        "balanced_accuracy": 0.8222222222222222,
+        "majority_accuracy": 0.5
+      },
+      "error": null,
+      "wall_seconds": 10.6131,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 9.954000000001543,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "selected_candidate": "histogram",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "transformed_features": 100,
+          "seed": 42,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 0.3429999999971187,
+          "prediction_seconds": 0.0470000000022992,
+          "model_seconds": 1.889999999999418,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 540,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 540,
+              "input_features": 100,
+              "retained_features": 100,
+              "numeric_features": 100,
+              "categorical_features": 0,
+              "estimated_encoded_width": 200,
+              "missing_fraction": 0.0,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                270,
+                270
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.762962962962963,
+            "linear": 0.725925925925926,
+            "histogram": 0.7777777777777778
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.25,
+            "linear": 0.2029999999977008,
+            "histogram": 0.2820000000028813
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.7350000000005821,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 42.56299999999828,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.7649999999994179,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 540,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "numeric_features": 100,
+          "categorical_features": 0,
+          "estimated_encoded_width": 200,
+          "missing_fraction": 0.0,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            270,
+            270
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    },
+    {
+      "name": "missing_interactions",
+      "family": "missing_interactions",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "ced97c8527d071307449579bc8af157f18e8e63cbc79077063242223c16c33b8",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8555555555555555,
+        "balanced_accuracy": 0.6304898648648649,
+        "majority_accuracy": 0.8222222222222222
+      },
+      "error": null,
+      "wall_seconds": 6.4462,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.047000000002299,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "transformed_features": 20,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.75,
+          "model_seconds": 0.5160000000032596,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "missing_interactions",
+      "family": "missing_interactions",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "routed",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "ced97c8527d071307449579bc8af157f18e8e63cbc79077063242223c16c33b8",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8944444444444445,
+        "balanced_accuracy": 0.7888513513513513,
+        "majority_accuracy": 0.8222222222222222
+      },
+      "error": null,
+      "wall_seconds": 9.4003,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 8.890999999999622,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "selected_candidate": "histogram",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "transformed_features": 20,
+          "seed": 42,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 0.18800000000192085,
+          "prediction_seconds": 0.014999999999417923,
+          "model_seconds": 0.9840000000003783,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 540,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 540,
+              "input_features": 10,
+              "retained_features": 10,
+              "numeric_features": 10,
+              "categorical_features": 0,
+              "estimated_encoded_width": 20,
+              "missing_fraction": 0.17574074074074075,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                442,
+                98
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.8740740740740741,
+            "linear": 0.8666666666666667,
+            "histogram": 0.8962962962962963
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.125,
+            "linear": 0.046999999998661224,
+            "histogram": 0.13999999999941792
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.31199999999807915,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 42.96900000000096,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.4690000000009604,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 540,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "numeric_features": 10,
+          "categorical_features": 0,
+          "estimated_encoded_width": 20,
+          "missing_fraction": 0.17574074074074075,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            442,
+            98
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    },
+    {
+      "name": "router_iris",
+      "family": "router_iris",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "baseline",
+      "source": "sklearn bundled real dataset",
+      "partition": "confirmation",
+      "data_sha256": "c54da6a3fef5ec2bd5effaed69a2d500f4c7a5ac0054276514dd4644933b323a",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.9473684210526315,
+        "balanced_accuracy": 0.9465811965811964,
+        "majority_accuracy": 0.3157894736842105
+      },
+      "error": null,
+      "wall_seconds": 6.3398,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.015999999999622,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 8081,
+          "cpu_threads": 1,
+          "training_rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 4,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.79699999999866,
+          "model_seconds": 0.3429999999971187,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "router_iris",
+      "family": "router_iris",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "routed",
+      "source": "sklearn bundled real dataset",
+      "partition": "confirmation",
+      "data_sha256": "c54da6a3fef5ec2bd5effaed69a2d500f4c7a5ac0054276514dd4644933b323a",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.9473684210526315,
+        "balanced_accuracy": 0.9465811965811964,
+        "majority_accuracy": 0.3157894736842105
+      },
+      "error": null,
+      "wall_seconds": 9.3767,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 8.7970000000023,
+        "model": {
+          "model": "LogisticRegression",
+          "selected_candidate": "linear",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 4,
+          "seed": 8081,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 0.0319999999992433,
+          "prediction_seconds": 0.014999999999417923,
+          "model_seconds": 0.6719999999986612,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 112,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 112,
+              "input_features": 4,
+              "retained_features": 4,
+              "numeric_features": 4,
+              "categorical_features": 0,
+              "estimated_encoded_width": 8,
+              "missing_fraction": 0.0,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                37,
+                38,
+                37
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.9285714285714286,
+            "linear": 1.0,
+            "histogram": 0.9285714285714286
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.0779999999977008,
+            "linear": 0.03200000000288128,
+            "histogram": 0.13999999999941792
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.25,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 43.03099999999904,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.375,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 112,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 112,
+          "input_features": 4,
+          "retained_features": 4,
+          "numeric_features": 4,
+          "categorical_features": 0,
+          "estimated_encoded_width": 8,
+          "missing_fraction": 0.0,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            37,
+            38,
+            37
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    },
+    {
+      "name": "sparse_linear_classes",
+      "family": "sparse_linear_classes",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "118f0d50840f198e544e31d08fb5922f0bb2fa42a089b7db0477f3d35708af4b",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.7166666666666667,
+        "balanced_accuracy": 0.7166666666666667,
+        "majority_accuracy": 0.5
+      },
+      "error": null,
+      "wall_seconds": 6.9321,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.515999999999622,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 8081,
+          "cpu_threads": 1,
+          "training_rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "transformed_features": 100,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.59400000000096,
+          "model_seconds": 0.6409999999996217,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "sparse_linear_classes",
+      "family": "sparse_linear_classes",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "routed",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "118f0d50840f198e544e31d08fb5922f0bb2fa42a089b7db0477f3d35708af4b",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.7611111111111111,
+        "balanced_accuracy": 0.7611111111111111,
+        "majority_accuracy": 0.5
+      },
+      "error": null,
+      "wall_seconds": 10.8175,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 10.2970000000023,
+        "model": {
+          "model": "LogisticRegression",
+          "selected_candidate": "linear",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "transformed_features": 100,
+          "seed": 8081,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": null,
+          "candidate_parameters": {},
+          "fit_seconds": 0.13999999999941792,
+          "prediction_seconds": 0.06300000000192085,
+          "model_seconds": 1.7659999999996217,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 540,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 540,
+              "input_features": 100,
+              "retained_features": 100,
+              "numeric_features": 100,
+              "categorical_features": 0,
+              "estimated_encoded_width": 200,
+              "missing_fraction": 0.0,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                270,
+                270
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.7703703703703704,
+            "linear": 0.7777777777777778,
+            "histogram": 0.7555555555555555
+          },
+          "candidate_seconds": {
+            "extra_trees": 0.25,
+            "linear": 0.18800000000192085,
+            "histogram": 0.3279999999977008
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.7659999999996217,
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "time_budget_seconds": 42.23400000000038,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "route_stage": "completed_selection",
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.7969999999986612,
+          "checkpoint_recovered": false
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 540,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 540,
+          "input_features": 100,
+          "retained_features": 100,
+          "numeric_features": 100,
+          "categorical_features": 0,
+          "estimated_encoded_width": 200,
+          "missing_fraction": 0.0,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            270,
+            270
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    },
+    {
+      "name": "missing_interactions",
+      "family": "missing_interactions",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "1480d70867021deb889d8a3572654567bf83a4180393531cb2737e070d033698",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8555555555555555,
+        "balanced_accuracy": 0.6060606060606061,
+        "majority_accuracy": 0.8166666666666667
+      },
+      "error": null,
+      "wall_seconds": 6.3601,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 5.967999999997119,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 8081,
+          "cpu_threads": 1,
+          "training_rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "transformed_features": 20,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.68800000000192,
+          "model_seconds": 0.4690000000009604,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {},
+      "resource_exclusions": {}
+    },
+    {
+      "name": "missing_interactions",
+      "family": "missing_interactions",
+      "task": "classification",
+      "seed": 8081,
+      "strategy": "routed",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "1480d70867021deb889d8a3572654567bf83a4180393531cb2737e070d033698",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8722222222222222,
+        "balanced_accuracy": 0.6515151515151515,
+        "majority_accuracy": 0.8166666666666667
+      },
+      "error": null,
+      "wall_seconds": 9.2971,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 8081,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 8.78099999999904,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "selected_candidate": "extra_trees",
+          "strategy": "routed",
+          "selection_metric": "accuracy",
+          "class_weight": null,
+          "fallback": false,
+          "training_rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "transformed_features": 20,
+          "seed": 8081,
+          "cpu_threads": 1,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "n_estimators": 96,
+          "candidate_parameters": {},
+          "fit_seconds": 0.0,
+          "prediction_seconds": 0.0,
+          "model_seconds": 0.7970000000022992,
+          "routing": {
+            "task": "classification",
+            "policy_version": "1.0",
+            "metric": "accuracy",
+            "candidates": [
+              "extra_trees",
+              "linear",
+              "histogram"
+            ],
+            "excluded": {},
+            "validation_mode": "stratified_holdout",
+            "selection_sample_rows": 540,
+            "selection_fraction": 0.25,
+            "final_tree_count": 96,
+            "dense_cells_limit": 2000000,
+            "class_weight": null,
+            "selection_budget_fraction": 0.4,
+            "reserve_seconds": 5.0,
+            "decisions": [
+              "Eligibility uses training summary and configured resources only",
+              "Baseline is always eligible",
+              "Class weights follow configured objective; no threshold tuning"
+            ],
+            "summary": {
+              "task": "classification",
+              "rows": 540,
+              "input_features": 10,
+              "retained_features": 10,
+              "numeric_features": 10,
+              "categorical_features": 0,
+              "estimated_encoded_width": 20,
+              "missing_fraction": 0.1774074074074074,
+              "constant_columns": [],
+              "duplicate_columns": [],
+              "class_counts": [
+                442,
+                98
+              ],
+              "categorical_cardinalities": {}
+            },
+            "limits": {
+              "min_selection_seconds": 12.0,
+              "reserve_seconds": 5.0,
+              "selection_fraction": 0.25,
+              "selection_budget_fraction": 0.4,
+              "selection_sample_rows": 4000,
+              "max_training_rows": 100000,
+              "max_input_features": 1000,
+              "max_candidates": 3,
+              "dense_cells_limit": 2000000,
+              "working_memory_bytes": 268435456,
+              "min_validation_rows": 60,
+              "max_classes": 30,
+              "final_tree_count": 96,
+              "low_budget_tree_count": 32,
+              "gmm_max_rows": 5000,
+              "gmm_max_features": 12,
+              "gmm_max_clusters": 8
+            },
+            "near_tie_tolerance": 0.0,
+            "experimental": {
+              "categorical_enabled": false,
+              "categorical_max_features": 4,
+              "categorical_max_cardinality": 512,
+              "categorical_alphas": [
+                1.0,
+                10.0
+              ]
+            }
+          },
+          "validation_scores": {
+            "extra_trees": 0.8518518518518519,
+            "linear": 0.8222222222222222,
+            "histogram": 0.8296296296296296
+          },
+          "selection_skipped": null,
+          "time_budget_seconds": 42.90600000000268,
+          "route_stage": "completed_selection",
+          "checkpoint_recovered": false,
+          "baseline_reused": true,
+          "baseline_fit_seconds": 0.35900000000037835,
+          "candidate_seconds": {
+            "extra_trees": 0.125,
+            "linear": 0.0459999999984575,
+            "histogram": 0.14100000000325963
+          },
+          "candidate_errors": {},
+          "selection_seconds": 0.3120000000017171,
+          "refit_fallback_reason": null,
+          "selection_direction": "maximize",
+          "near_tie_tolerance": 0.0,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.4850000000005821
+        },
+        "contract": "provisional-v1",
+        "strategy": "routed"
+      },
+      "fallback": false,
+      "fallback_kind": "none",
+      "routing": {
+        "task": "classification",
+        "policy_version": "1.0",
+        "metric": "accuracy",
+        "candidates": [
+          "extra_trees",
+          "linear",
+          "histogram"
+        ],
+        "excluded": {},
+        "validation_mode": "stratified_holdout",
+        "selection_sample_rows": 540,
+        "selection_fraction": 0.25,
+        "final_tree_count": 96,
+        "dense_cells_limit": 2000000,
+        "class_weight": null,
+        "selection_budget_fraction": 0.4,
+        "reserve_seconds": 5.0,
+        "decisions": [
+          "Eligibility uses training summary and configured resources only",
+          "Baseline is always eligible",
+          "Class weights follow configured objective; no threshold tuning"
+        ],
+        "summary": {
+          "task": "classification",
+          "rows": 540,
+          "input_features": 10,
+          "retained_features": 10,
+          "numeric_features": 10,
+          "categorical_features": 0,
+          "estimated_encoded_width": 20,
+          "missing_fraction": 0.1774074074074074,
+          "constant_columns": [],
+          "duplicate_columns": [],
+          "class_counts": [
+            442,
+            98
+          ],
+          "categorical_cardinalities": {}
+        },
+        "limits": {
+          "min_selection_seconds": 12.0,
+          "reserve_seconds": 5.0,
+          "selection_fraction": 0.25,
+          "selection_budget_fraction": 0.4,
+          "selection_sample_rows": 4000,
+          "max_training_rows": 100000,
+          "max_input_features": 1000,
+          "max_candidates": 3,
+          "dense_cells_limit": 2000000,
+          "working_memory_bytes": 268435456,
+          "min_validation_rows": 60,
+          "max_classes": 30,
+          "final_tree_count": 96,
+          "low_budget_tree_count": 32,
+          "gmm_max_rows": 5000,
+          "gmm_max_features": 12,
+          "gmm_max_clusters": 8
+        },
+        "near_tie_tolerance": 0.0,
+        "experimental": {
+          "categorical_enabled": false,
+          "categorical_max_features": 4,
+          "categorical_max_cardinality": 512,
+          "categorical_alphas": [
+            1.0,
+            10.0
+          ]
+        }
+      },
+      "resource_exclusions": {}
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "classification": {
+        "cases": 6,
+        "valid": 6,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": 6.598333333333334
+      },
+      "regression": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": null
+      },
+      "clustering": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": null
+      }
+    },
+    "routed": {
+      "classification": {
+        "cases": 6,
+        "valid": 6,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": 9.80765
+      },
+      "regression": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": null
+      },
+      "clustering": {
+        "cases": 0,
+        "valid": 0,
+        "fallbacks": 0,
+        "checkpoint_recoveries": 0,
+        "emergency_fallbacks": 0,
+        "mean_wall_seconds": null
+      }
+    }
+  }
+}

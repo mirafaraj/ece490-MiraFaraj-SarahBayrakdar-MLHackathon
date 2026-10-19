@@ -1,0 +1,141 @@
+{
+  "notice": "Synthetic development metrics only; not official contest scores or the official checker.",
+  "config": {
+    "seed": 42,
+    "timeout_seconds": 60,
+    "time_budget_seconds": 50,
+    "git_commit": null,
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "generator_version": 1,
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1"
+    }
+  },
+  "datasets": [
+    {
+      "task": "classification",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8466666666666667,
+        "balanced_accuracy": 0.7824754901960784,
+        "majority_accuracy": 0.68
+      },
+      "error": null,
+      "wall_seconds": 5.0352,
+      "exit_code": 0,
+      "profile_status": "JSON structure checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.625,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 7,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.15599999999904,
+          "model_seconds": 0.39099999999962165,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1"
+      }
+    },
+    {
+      "task": "regression",
+      "valid": true,
+      "metrics": {
+        "rmse": 1.7694665376301006,
+        "r2": 0.7451002397184994,
+        "mean_baseline_rmse": 3.5626511323167307
+      },
+      "error": null,
+      "wall_seconds": 4.9069,
+      "exit_code": 0,
+      "profile_status": "JSON structure checked; official semantics unverified",
+      "run_info": {
+        "task": "regression",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.531000000000859,
+        "model": {
+          "model": "ExtraTreesRegressor",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 7,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.20299999999952,
+          "model_seconds": 0.5619999999998981,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1"
+      }
+    },
+    {
+      "task": "clustering",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 1.0
+      },
+      "error": null,
+      "wall_seconds": 4.3896,
+      "exit_code": 0,
+      "profile_status": "JSON structure checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.03099999999904,
+        "model": {
+          "model": "KMeans",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 360,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 7,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.23400000000038,
+          "model_seconds": 0.14099999999962165,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1"
+      }
+    }
+  ]
+}

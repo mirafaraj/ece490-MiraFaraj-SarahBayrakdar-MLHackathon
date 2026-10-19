@@ -1,0 +1,930 @@
+{
+  "notice": "Seeds 2027/4099 predeclared before evaluation; no post-confirmation tuning.",
+  "fingerprints_before": {
+    "src\\unknown_dataset\\clustering.py": "af71fae9e9b9d3bf9f9130474ba438bfed0c3db8dbfc5ca87c359af9d04f25c7",
+    "tests\\test_clustering_candidates.py": "a94008634f289d474bdc6a97aeba7e640c0aec4c8ee4415c92e3f2db360f7f79",
+    "experiments\\clustering-improvement-evaluate.py": "ba769dd7d6e5dc6192f35184d2692830f637afa4bc73ebe14d60e6022ad82815"
+  },
+  "fingerprints_after": {
+    "src\\unknown_dataset\\clustering.py": "af71fae9e9b9d3bf9f9130474ba438bfed0c3db8dbfc5ca87c359af9d04f25c7",
+    "tests\\test_clustering_candidates.py": "a94008634f289d474bdc6a97aeba7e640c0aec4c8ee4415c92e3f2db360f7f79",
+    "experiments\\clustering-improvement-evaluate.py": "ba769dd7d6e5dc6192f35184d2692830f637afa4bc73ebe14d60e6022ad82815"
+  },
+  "datasets": [
+    {
+      "name": "noisy_blobs",
+      "family": "noisy_blobs",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "33bb61930cb330b2315f4494e27d2551c9148f6f654ae6e7a853ad7f81fdd846",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.9760918612866026
+      },
+      "error": null,
+      "wall_seconds": 6.2331,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 5.828000000001339,
+        "model": {
+          "model": "KMeans",
+          "seed": 2027,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 8,
+          "retained_features": 8,
+          "transformed_features": 8,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.5779999999977,
+          "model_seconds": 0.23400000000037835,
+          "requested_clusters": 4,
+          "observed_clusters": 4,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "noisy_blobs",
+      "family": "noisy_blobs",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "33bb61930cb330b2315f4494e27d2551c9148f6f654ae6e7a853ad7f81fdd846",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.9919316349473174
+      },
+      "error": null,
+      "wall_seconds": 5.8421,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 5.453000000001339,
+        "model": {
+          "model": "GaussianMixtureFull",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance improves BIC by more than margin",
+          "bic": {
+            "spherical": 13995.4690116928,
+            "full": 12411.262292554886
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 2027,
+          "training_rows": 660,
+          "input_features": 8,
+          "transformed_features": 8,
+          "requested_clusters": 4,
+          "observed_clusters": 4,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.2809999999990396,
+          "time_budget_seconds": 45.79699999999866
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "anisotropic",
+      "family": "anisotropic",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a9bfa71413165da824d1a87a8924d8978e544fca6fcb5f6b2df728d6a706d2cb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.4879747722474954
+      },
+      "error": null,
+      "wall_seconds": 6.1183,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 5.764999999999418,
+        "model": {
+          "model": "KMeans",
+          "seed": 2027,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.81300000000192,
+          "model_seconds": 0.23400000000037835,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "anisotropic",
+      "family": "anisotropic",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a9bfa71413165da824d1a87a8924d8978e544fca6fcb5f6b2df728d6a706d2cb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.5018925174104032
+      },
+      "error": null,
+      "wall_seconds": 6.6018,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.25,
+        "model": {
+          "model": "GaussianMixtureFull",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance improves BIC by more than margin",
+          "bic": {
+            "spherical": 1825.3451629207223,
+            "full": 348.78969986445907
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 2027,
+          "training_rows": 660,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.25,
+          "time_budget_seconds": 45.67199999999866
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "moons",
+      "family": "moons",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a5425311fcf8550bf48a81fad7bd904d6a9c516f453415786d2bc1015e0a19f9",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.49348344479695455
+      },
+      "error": null,
+      "wall_seconds": 7.0293,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.671999999998661,
+        "model": {
+          "model": "KMeans",
+          "seed": 2027,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.56300000000192,
+          "model_seconds": 0.25,
+          "requested_clusters": 2,
+          "observed_clusters": 2,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "moons",
+      "family": "moons",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a5425311fcf8550bf48a81fad7bd904d6a9c516f453415786d2bc1015e0a19f9",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.49348344479695455
+      },
+      "error": null,
+      "wall_seconds": 6.6251,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.234000000000378,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance BIC gain below conservative margin",
+          "bic": {
+            "spherical": 3460.301443702365,
+            "full": 3432.4615318615965
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 2027,
+          "training_rows": 660,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 2,
+          "observed_clusters": 2,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.25,
+          "time_budget_seconds": 45.75
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "mixed_clusters",
+      "family": "mixed_clusters",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "621db89558adea8610bc492eaa4148963d7d41661d2a9b18b2640423854eeb38",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.48987887091529553
+      },
+      "error": null,
+      "wall_seconds": 6.7665,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.375,
+        "model": {
+          "model": "KMeans",
+          "seed": 2027,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 7,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.56299999999828,
+          "model_seconds": 0.23500000000058208,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "mixed_clusters",
+      "family": "mixed_clusters",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "621db89558adea8610bc492eaa4148963d7d41661d2a9b18b2640423854eeb38",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.48987887091529553
+      },
+      "error": null,
+      "wall_seconds": 6.8649,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.46900000000096,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "baseline geometry; covariance comparison not eligible",
+          "bic": {},
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 2027,
+          "training_rows": 660,
+          "input_features": 4,
+          "transformed_features": 7,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.25,
+          "time_budget_seconds": 45.7029999999977
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "ellipses",
+      "family": "ellipses",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "fresh confirmation",
+      "data_sha256": "6eebce53dda3e938cd0dfe5d32f3b7167984193b45a065f1e1fc1153282ddcf4",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.499844630050866
+      },
+      "error": null,
+      "wall_seconds": 6.6076,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.21900000000096,
+        "model": {
+          "model": "KMeans",
+          "seed": 2027,
+          "cpu_threads": 1,
+          "training_rows": 600,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.71900000000096,
+          "model_seconds": 0.23400000000037835,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "ellipses",
+      "family": "ellipses",
+      "task": "clustering",
+      "seed": 2027,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "fresh confirmation",
+      "data_sha256": "6eebce53dda3e938cd0dfe5d32f3b7167984193b45a065f1e1fc1153282ddcf4",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.4988101451457959
+      },
+      "error": null,
+      "wall_seconds": 6.6689,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 2027,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.312000000001717,
+        "model": {
+          "model": "GaussianMixtureFull",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance improves BIC by more than margin",
+          "bic": {
+            "spherical": 3414.2054793278503,
+            "full": 2928.7075716007084
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 2027,
+          "training_rows": 600,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.2970000000022992,
+          "time_budget_seconds": 45.7029999999977
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "noisy_blobs",
+      "family": "noisy_blobs",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "747277c1f806f9a79b827ff8045bddc659a4862a5953c378f56ec9b6aae0b1bb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.8367781252968773
+      },
+      "error": null,
+      "wall_seconds": 6.6549,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.265999999999622,
+        "model": {
+          "model": "KMeans",
+          "seed": 4099,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 8,
+          "retained_features": 8,
+          "transformed_features": 8,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.60900000000038,
+          "model_seconds": 0.21900000000096043,
+          "requested_clusters": 4,
+          "observed_clusters": 4,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "noisy_blobs",
+      "family": "noisy_blobs",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "747277c1f806f9a79b827ff8045bddc659a4862a5953c378f56ec9b6aae0b1bb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.8367781252968773
+      },
+      "error": null,
+      "wall_seconds": 6.8046,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.4209999999984575,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance BIC gain below conservative margin",
+          "bic": {
+            "spherical": 14610.141145035423,
+            "full": 14385.68225328737
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 4099,
+          "training_rows": 660,
+          "input_features": 8,
+          "transformed_features": 8,
+          "requested_clusters": 4,
+          "observed_clusters": 4,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.26600000000325963,
+          "time_budget_seconds": 45.68799999999828
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "anisotropic",
+      "family": "anisotropic",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "8171b603fd245dd94a7f64da7d2899916cd5858d0220cd8bae265a39062c7cbe",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.8994822983677618
+      },
+      "error": null,
+      "wall_seconds": 6.8984,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.546999999998661,
+        "model": {
+          "model": "KMeans",
+          "seed": 4099,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.53100000000268,
+          "model_seconds": 0.25,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "anisotropic",
+      "family": "anisotropic",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "8171b603fd245dd94a7f64da7d2899916cd5858d0220cd8bae265a39062c7cbe",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.9864154308054045
+      },
+      "error": null,
+      "wall_seconds": 6.8215,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.40599999999904,
+        "model": {
+          "model": "GaussianMixtureFull",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance improves BIC by more than margin",
+          "bic": {
+            "spherical": 1587.9260793418146,
+            "full": 168.52375016301858
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 4099,
+          "training_rows": 660,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.25,
+          "time_budget_seconds": 45.65699999999924
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "moons",
+      "family": "moons",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a4d77713feefb7d63ae753e0cc32fa18ce3b1beee7134fc79653ef7b2ac8b1d8",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.4682107500036703
+      },
+      "error": null,
+      "wall_seconds": 6.9428,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.5,
+        "model": {
+          "model": "KMeans",
+          "seed": 4099,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.71900000000096,
+          "model_seconds": 0.23399999999674037,
+          "requested_clusters": 2,
+          "observed_clusters": 2,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "moons",
+      "family": "moons",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "a4d77713feefb7d63ae753e0cc32fa18ce3b1beee7134fc79653ef7b2ac8b1d8",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.4682107500036703
+      },
+      "error": null,
+      "wall_seconds": 6.8185,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.453000000001339,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance BIC gain below conservative margin",
+          "bic": {
+            "spherical": 3462.560052170536,
+            "full": 3439.949568248009
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 4099,
+          "training_rows": 660,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 2,
+          "observed_clusters": 2,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.25,
+          "time_budget_seconds": 45.67199999999866
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "mixed_clusters",
+      "family": "mixed_clusters",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "d6690c6c6305baf0c47f163a2d781758757ec0a09a5f17ce6539d3af053f54eb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.43156814445437613
+      },
+      "error": null,
+      "wall_seconds": 7.3499,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 7.014999999999418,
+        "model": {
+          "model": "KMeans",
+          "seed": 4099,
+          "cpu_threads": 1,
+          "training_rows": 660,
+          "input_features": 4,
+          "retained_features": 4,
+          "transformed_features": 7,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.79699999999866,
+          "model_seconds": 0.3440000000009604,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "mixed_clusters",
+      "family": "mixed_clusters",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "confirmation",
+      "data_sha256": "d6690c6c6305baf0c47f163a2d781758757ec0a09a5f17ce6539d3af053f54eb",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.43156814445437613
+      },
+      "error": null,
+      "wall_seconds": 7.1212,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.718000000000757,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "baseline geometry; covariance comparison not eligible",
+          "bic": {},
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 4099,
+          "training_rows": 660,
+          "input_features": 4,
+          "transformed_features": 7,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.3290000000015425,
+          "time_budget_seconds": 45.67199999999866
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "ellipses",
+      "family": "ellipses",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "fresh confirmation",
+      "data_sha256": "3a70e564912124f77edc26c330f10266d1708cf9ffa08229d3f2b5739d20d957",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.4965322003511194
+      },
+      "error": null,
+      "wall_seconds": 6.7339,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.297000000002299,
+        "model": {
+          "model": "KMeans",
+          "seed": 4099,
+          "cpu_threads": 1,
+          "training_rows": 600,
+          "input_features": 2,
+          "retained_features": 2,
+          "transformed_features": 2,
+          "dropped_constant_columns": [],
+          "dropped_duplicate_columns": [],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 45.73500000000058,
+          "model_seconds": 0.23400000000037835,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "ellipses",
+      "family": "ellipses",
+      "task": "clustering",
+      "seed": 4099,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "fresh confirmation",
+      "data_sha256": "3a70e564912124f77edc26c330f10266d1708cf9ffa08229d3f2b5739d20d957",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 1.0
+      },
+      "error": null,
+      "wall_seconds": 7.3292,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 4099,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 6.860000000000582,
+        "model": {
+          "model": "GaussianMixtureFull",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "full covariance improves BIC by more than margin",
+          "bic": {
+            "spherical": 3345.0475633019537,
+            "full": 2017.3956989571689
+          },
+          "covariance_initialization": "generic plus baseline centroids",
+          "cpu_threads": 1,
+          "seed": 4099,
+          "training_rows": 600,
+          "input_features": 2,
+          "transformed_features": 2,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.26599999999962165,
+          "time_budget_seconds": 45.59400000000096
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    }
+  ],
+  "owned_source_unchanged": true
+}

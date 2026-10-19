@@ -1,0 +1,57 @@
+{
+  "scope": "Evaluator only; no model fits, production edits, network calls, or historical report overwrites.",
+  "tests": {
+    "command": ".\\.venv312\\Scripts\\python.exe -m unittest discover -s reports/grade-evaluation -p test_*.py",
+    "passed": 66,
+    "failed": 0,
+    "wall_seconds_reported_by_unittest": 0.213
+  },
+  "historical_comparisons_reviewed": 4,
+  "new_model_experiments": 0,
+  "modified_existing_files": [
+    "reports\\grade-evaluation\\analyze.py",
+    "reports\\grade-evaluation\\promotion.py",
+    "reports\\grade-evaluation\\test_promotion.py"
+  ],
+  "added_files": [
+    "reports\\grade-evaluation\\DEVELOPMENT_ROADMAP_P0.md",
+    "reports\\grade-evaluation\\P0_EVALUATOR.md",
+    "reports\\grade-evaluation\\assessment.py",
+    "reports\\grade-evaluation\\prediction_evidence.py",
+    "reports\\grade-evaluation\\reference_evidence.py",
+    "reports\\grade-evaluation\\run_p0_review.py",
+    "reports\\grade-evaluation\\test_assessment.py",
+    "reports\\grade-evaluation\\p0-review\\accuracy-objective-vs-baseline.json",
+    "reports\\grade-evaluation\\p0-review\\cross-objective.json",
+    "reports\\grade-evaluation\\p0-review\\historical-auto-vs-baseline.json",
+    "reports\\grade-evaluation\\p0-review\\objective-policy.json",
+    "reports\\grade-evaluation\\p0-review\\registry.json",
+    "reports\\grade-evaluation\\p0-review\\routed-vs-auto.json",
+    "reports\\grade-evaluation\\p0-review\\routed-vs-baseline.json",
+    "reports\\grade-evaluation\\p0-review\\summary.json",
+    "reports\\grade-evaluation\\p0-review\\verification.json"
+  ],
+  "unchanged_original_files_checked": 91,
+  "production_fingerprint": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+  "production_matches_frozen_router": true,
+  "file_sha256": {
+    "reports\\grade-evaluation\\analyze.py": "1bf0c4813b0b2aa44877dd06d753b922bf3cab9327a084ae5b60beb7ba02b5b3",
+    "reports\\grade-evaluation\\promotion.py": "51ee8387afb96dc2ac57af979b4fa236ccb5e63c4106461a8cb0bd9031ff8d66",
+    "reports\\grade-evaluation\\test_promotion.py": "ff0e89838751241c698665b6767737cfe899bb42f86c6189ed4bda8be7bbd8b8",
+    "reports\\grade-evaluation\\DEVELOPMENT_ROADMAP_P0.md": "d2ab7378cdecd8c2c1d102109b691b18f478e33a0156e2d822c16f12121d5d49",
+    "reports\\grade-evaluation\\P0_EVALUATOR.md": "ed28364eb2daff7cc5e7f757d98e2826fcaec0f0af781ba03698476fef0d8a78",
+    "reports\\grade-evaluation\\assessment.py": "993995f68c66989d050811ec5f46ac28048cb50e8ab6badb9aa6acd8b8bb0e3c",
+    "reports\\grade-evaluation\\prediction_evidence.py": "168885627e73321ac5d8ca994337cc043650366b8a7e54084c94738d3f0e5532",
+    "reports\\grade-evaluation\\reference_evidence.py": "15a0061772436a5a5bfd8d9dfb7253d0557369cd0043c70f2b62ba9c4e2e832c",
+    "reports\\grade-evaluation\\run_p0_review.py": "a99c0a2f0a2958a8cc2cd6e7182e9d75cfe79d87cf05f35c0e3b269f4f2b04d3",
+    "reports\\grade-evaluation\\test_assessment.py": "f75e545ebd8e79225876730409133807ff5acd82ed05e310f67a06327e92e640",
+    "reports\\grade-evaluation\\p0-review\\accuracy-objective-vs-baseline.json": "7aef9649df1a9ad4398640cb5440e06d9a9fe2568988d115c11f146334824faf",
+    "reports\\grade-evaluation\\p0-review\\cross-objective.json": "3433eb33d0a64b8095d7d86b08479f6457261577b45f64ec099b1402c9b7981a",
+    "reports\\grade-evaluation\\p0-review\\historical-auto-vs-baseline.json": "7eb16e3e2841894cd0ed2aed81214c787efec8911e3ef099887a159c33b39ca0",
+    "reports\\grade-evaluation\\p0-review\\objective-policy.json": "ba26dfa5b265581bf7d136e2ba9b393706035bd73076f0e2f48c7d502efd5efc",
+    "reports\\grade-evaluation\\p0-review\\registry.json": "34643516fc299699174d72f8288c6ba33300d01b62349beb6b4bd145fd04f032",
+    "reports\\grade-evaluation\\p0-review\\routed-vs-auto.json": "c836deadfcfbba4b74eb0b8de0701c0c641b48e4322aba2fbad761f991272d38",
+    "reports\\grade-evaluation\\p0-review\\routed-vs-baseline.json": "76b1f0f8defa153005ba789443ce3f67547e6fb9d55eaba2699db0ed35bd7d30",
+    "reports\\grade-evaluation\\p0-review\\summary.json": "b4e32b3f496b3a36dca66d5c2d08239de255b5558e3b25d23f0d864369f1a7a5"
+  }
+}

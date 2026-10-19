@@ -1,0 +1,386 @@
+{
+  "notice": "Offline development metrics only; not official contest scores or the official checker. Seed 42 is development; other seeds are confirmation, not a guarantee of independence.",
+  "config": {
+    "seed": 42,
+    "timeout_seconds": 60,
+    "time_budget_seconds": 50,
+    "git_commit": null,
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "generator_version": 2,
+    "source_sha256": "048af903cffd494244fcd2f9148293c3ca269852bccf9a43def3a40f105a32ac",
+    "platform": "win32",
+    "suite": "smoke",
+    "seeds": [
+      42
+    ],
+    "strategies": [
+      "baseline",
+      "auto"
+    ],
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1"
+    },
+    "source_sha256_after": "048af903cffd494244fcd2f9148293c3ca269852bccf9a43def3a40f105a32ac",
+    "source_unchanged": true
+  },
+  "datasets": [
+    {
+      "name": "classification",
+      "family": "smoke",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "9c47bfe3eb36e03f91f6f319892f489f97e5327a14f5b6dbd176ad54c28b3b2f",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.8466666666666667,
+        "balanced_accuracy": 0.7824754901960784,
+        "majority_accuracy": 0.68
+      },
+      "error": null,
+      "wall_seconds": 4.4531,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.062999999998283,
+        "model": {
+          "model": "ExtraTreesClassifier",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 8,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.25,
+          "model_seconds": 0.3440000000009604,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "classification",
+      "family": "smoke",
+      "task": "classification",
+      "seed": 42,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "9c47bfe3eb36e03f91f6f319892f489f97e5327a14f5b6dbd176ad54c28b3b2f",
+      "valid": true,
+      "metrics": {
+        "accuracy": 0.9266666666666666,
+        "balanced_accuracy": 0.9074754901960784,
+        "majority_accuracy": 0.68
+      },
+      "error": null,
+      "wall_seconds": 5.1741,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "classification",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.796999999998661,
+        "model": {
+          "model": "HistGradientBoostingClassifier",
+          "strategy": "auto",
+          "selected_candidate": "histogram",
+          "selection_metric": "balanced_accuracy",
+          "validation_scores": {
+            "extra_trees": 0.8172161172161172,
+            "linear": 0.6939560439560439,
+            "histogram": 0.8758241758241758
+          },
+          "candidate_errors": {},
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "fallback": false,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 8,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "seed": 42,
+          "cpu_threads": 1,
+          "time_budget_seconds": 46.2970000000023,
+          "model_seconds": 1.1559999999990396,
+          "n_estimators": null
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "regression",
+      "family": "smoke",
+      "task": "regression",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "062115eff9da0a8b79cca254a40cb83b112a1c872343b880d4379b821f792949",
+      "valid": true,
+      "metrics": {
+        "rmse": 1.501901124464975,
+        "r2": 0.8163599494200793,
+        "mean_baseline_rmse": 3.5626511323167307
+      },
+      "error": null,
+      "wall_seconds": 4.8352,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "regression",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.437000000001717,
+        "model": {
+          "model": "ExtraTreesRegressor",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 8,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.29699999999866,
+          "model_seconds": 0.5159999999996217,
+          "n_estimators": 96,
+          "max_depth": 24
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "regression",
+      "family": "smoke",
+      "task": "regression",
+      "seed": 42,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "062115eff9da0a8b79cca254a40cb83b112a1c872343b880d4379b821f792949",
+      "valid": true,
+      "metrics": {
+        "rmse": 1.501901124464975,
+        "r2": 0.8163599494200793,
+        "mean_baseline_rmse": 3.5626511323167307
+      },
+      "error": null,
+      "wall_seconds": 4.4973,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "regression",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 4.187000000001717,
+        "model": {
+          "model": "ExtraTreesRegressor",
+          "strategy": "auto",
+          "selected_candidate": "extra_trees",
+          "selection_metric": "negative_rmse",
+          "validation_scores": {
+            "extra_trees": -1.8740192688101125,
+            "linear": -4.180703739222758,
+            "histogram": -2.1991275254108458
+          },
+          "candidate_errors": {},
+          "selection_skipped": null,
+          "refit_fallback_reason": null,
+          "fallback": false,
+          "training_rows": 450,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 8,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "seed": 42,
+          "cpu_threads": 1,
+          "time_budget_seconds": 46.29699999999866,
+          "model_seconds": 0.7030000000013388,
+          "n_estimators": 96
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    },
+    {
+      "name": "clustering",
+      "family": "smoke",
+      "task": "clustering",
+      "seed": 42,
+      "strategy": "baseline",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "6af719e49f7d42b6327c8d66a8aed2793a51b1ade3fcb00da4a07e06f062d794",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.9509976515551885
+      },
+      "error": null,
+      "wall_seconds": 3.7521,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 3.389999999999418,
+        "model": {
+          "model": "KMeans",
+          "seed": 42,
+          "cpu_threads": 1,
+          "training_rows": 360,
+          "input_features": 7,
+          "retained_features": 4,
+          "transformed_features": 8,
+          "dropped_constant_columns": [
+            "constant",
+            "all_missing"
+          ],
+          "dropped_duplicate_columns": [
+            "x_duplicate"
+          ],
+          "categorical_max_categories": 32,
+          "time_budget_seconds": 46.36000000000058,
+          "model_seconds": 0.125,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0
+        },
+        "contract": "provisional-v1",
+        "strategy": "baseline"
+      },
+      "fallback": false
+    },
+    {
+      "name": "clustering",
+      "family": "smoke",
+      "task": "clustering",
+      "seed": 42,
+      "strategy": "auto",
+      "source": "synthetic",
+      "partition": "development",
+      "data_sha256": "6af719e49f7d42b6327c8d66a8aed2793a51b1ade3fcb00da4a07e06f062d794",
+      "valid": true,
+      "metrics": {
+        "adjusted_rand_index": 0.9509976515551885
+      },
+      "error": null,
+      "wall_seconds": 3.6882,
+      "exit_code": 0,
+      "profile_status": "Provisional raw-data semantics checked; official semantics unverified",
+      "run_info": {
+        "task": "clustering",
+        "seed": 42,
+        "time_budget_seconds": 50.0,
+        "elapsed_before_output_seconds": 3.3590000000003783,
+        "model": {
+          "model": "KMeans",
+          "strategy": "geometry",
+          "experimental": true,
+          "selection": "baseline geometry; covariance comparison not eligible",
+          "bic": {},
+          "cpu_threads": 1,
+          "seed": 42,
+          "training_rows": 360,
+          "input_features": 7,
+          "transformed_features": 8,
+          "requested_clusters": 3,
+          "observed_clusters": 3,
+          "empty_clusters_repaired": 0,
+          "model_seconds": 0.13999999999941792,
+          "time_budget_seconds": 46.34400000000096
+        },
+        "contract": "provisional-v1",
+        "strategy": "auto"
+      },
+      "fallback": false
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "classification": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 4.4531
+      },
+      "regression": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 4.8352
+      },
+      "clustering": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 3.7521
+      }
+    },
+    "auto": {
+      "classification": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 5.1741
+      },
+      "regression": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 4.4973
+      },
+      "clustering": {
+        "cases": 1,
+        "valid": 1,
+        "fallbacks": 0,
+        "mean_wall_seconds": 3.6882
+      }
+    }
+  }
+}

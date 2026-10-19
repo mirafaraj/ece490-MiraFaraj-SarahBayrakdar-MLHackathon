@@ -1,0 +1,8 @@
+{
+  "metrics": {
+    "classification": "accuracy"
+  },
+  "selection": {
+    "near_tie_tolerance": 0.0
+  }
+}

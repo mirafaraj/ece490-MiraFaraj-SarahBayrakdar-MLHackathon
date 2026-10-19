@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "meaning": "Read-only production incumbent plus provisional alternatives; not a claim of an objective-independent best model.",
+  "immutable_baseline": {
+    "path": "experiments/baseline.json",
+    "report_sha256": "a6a8da70332ed7ab3a8d12fcf1c4fdd39417e96218b8832a8b88bb484cf025aa",
+    "source_sha256": null
+  },
+  "tasks": {
+    "classification": {
+      "incumbent": {
+        "strategy": "baseline",
+        "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+        "status": "production_default_not_proven_score_optimal"
+      },
+      "frontier": [
+        {
+          "strategy": "baseline",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "auto",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "routed",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "routed",
+          "source_sha256": "e67b8bbe524e8cc450e55a770ba42224f0286f54d686ca847fdf7a3707141b53",
+          "config_sha256": "efc9edb8abf967a2fbed9f51f51521094508cee70efb6b77a513dc3463ac84f9",
+          "objective": "accuracy",
+          "status": "development_alternative_not_promoted"
+        }
+      ]
+    },
+    "regression": {
+      "incumbent": {
+        "strategy": "baseline",
+        "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+        "status": "production_default_not_proven_score_optimal"
+      },
+      "frontier": [
+        {
+          "strategy": "baseline",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "auto",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "routed",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        }
+      ]
+    },
+    "clustering": {
+      "incumbent": {
+        "strategy": "baseline",
+        "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+        "status": "production_default_not_proven_score_optimal"
+      },
+      "frontier": [
+        {
+          "strategy": "baseline",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "auto",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        },
+        {
+          "strategy": "routed",
+          "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609"
+        }
+      ]
+    }
+  }
+}

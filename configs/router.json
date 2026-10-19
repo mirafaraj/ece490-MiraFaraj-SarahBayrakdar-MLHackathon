@@ -1,0 +1,39 @@
+{
+  "policy_version": "1.0",
+  "metrics": {
+    "classification": "balanced_accuracy",
+    "regression": "rmse",
+    "clustering": "bic"
+  },
+  "selection": {
+    "near_tie_tolerance": 0.0
+  },
+  "experimental": {
+    "categorical_enabled": false,
+    "categorical_max_features": 4,
+    "categorical_max_cardinality": 512,
+    "categorical_alphas": [
+      1.0,
+      10.0
+    ]
+  },
+  "limits": {
+    "min_selection_seconds": 12.0,
+    "reserve_seconds": 5.0,
+    "selection_fraction": 0.25,
+    "selection_budget_fraction": 0.4,
+    "selection_sample_rows": 4000,
+    "max_training_rows": 100000,
+    "max_input_features": 1000,
+    "max_candidates": 3,
+    "dense_cells_limit": 2000000,
+    "working_memory_bytes": 268435456,
+    "min_validation_rows": 60,
+    "max_classes": 30,
+    "final_tree_count": 96,
+    "low_budget_tree_count": 32,
+    "gmm_max_rows": 5000,
+    "gmm_max_features": 12,
+    "gmm_max_clusters": 8
+  }
+}

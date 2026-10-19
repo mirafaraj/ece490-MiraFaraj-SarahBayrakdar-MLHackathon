@@ -1,0 +1,132 @@
+{
+  "routed-vs-baseline": [
+    {
+      "task": "classification",
+      "outcome": "tradeoff",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "macro_f1"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "regression",
+      "outcome": "improvement",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "mae"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "clustering",
+      "outcome": "tradeoff",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "adjusted_mutual_info"
+      ],
+      "severe_alerts": 0
+    }
+  ],
+  "routed-vs-auto": [
+    {
+      "task": "classification",
+      "outcome": "equivalent",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "macro_f1"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "regression",
+      "outcome": "equivalent",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "mae"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "clustering",
+      "outcome": "equivalent",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "adjusted_mutual_info"
+      ],
+      "severe_alerts": 0
+    }
+  ],
+  "accuracy-objective-vs-baseline": [
+    {
+      "task": "classification",
+      "outcome": "improvement",
+      "decision": "retain_alternative",
+      "families": 3,
+      "missing_scenarios": [
+        "macro_f1"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "regression",
+      "outcome": "inconclusive",
+      "decision": "insufficient_evidence",
+      "families": 0,
+      "missing_scenarios": [
+        "rmse",
+        "mae"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "clustering",
+      "outcome": "inconclusive",
+      "decision": "insufficient_evidence",
+      "families": 0,
+      "missing_scenarios": [
+        "adjusted_rand_index",
+        "adjusted_mutual_info"
+      ],
+      "severe_alerts": 0
+    }
+  ],
+  "historical-auto-vs-baseline": [
+    {
+      "task": "classification",
+      "outcome": "tradeoff",
+      "decision": "retain_alternative",
+      "families": 4,
+      "missing_scenarios": [
+        "macro_f1"
+      ],
+      "severe_alerts": 2
+    },
+    {
+      "task": "regression",
+      "outcome": "tradeoff",
+      "decision": "retain_alternative",
+      "families": 4,
+      "missing_scenarios": [
+        "mae"
+      ],
+      "severe_alerts": 0
+    },
+    {
+      "task": "clustering",
+      "outcome": "tradeoff",
+      "decision": "retain_alternative",
+      "families": 4,
+      "missing_scenarios": [
+        "adjusted_mutual_info"
+      ],
+      "severe_alerts": 1
+    }
+  ]
+}

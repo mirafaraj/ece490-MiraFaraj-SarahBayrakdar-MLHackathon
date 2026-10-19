@@ -1,0 +1,71 @@
+{
+  "default_report_sha256": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff",
+  "accuracy_report_sha256": "8800097792d3d747dc9c2af6958471f6e8870f1c24f6632e021f63eaae98982a",
+  "cases": [
+    {
+      "name": "router_iris",
+      "seed": 42,
+      "data_sha256": "87543ae803a1ef5642d36a106614b890cb8609fe35e858e66eee6e57f0f09939",
+      "accuracy_change": 0.0,
+      "balanced_accuracy_change": 0.0,
+      "default_model": "linear",
+      "accuracy_objective_model": "linear"
+    },
+    {
+      "name": "sparse_linear_classes",
+      "seed": 42,
+      "data_sha256": "a50ead4f71d92e23b48fa5a3d9deda9a6699d331958de8bdc47e8c4561d832ba",
+      "accuracy_change": 0.0,
+      "balanced_accuracy_change": 0.0,
+      "default_model": "histogram",
+      "accuracy_objective_model": "histogram"
+    },
+    {
+      "name": "missing_interactions",
+      "seed": 42,
+      "data_sha256": "ced97c8527d071307449579bc8af157f18e8e63cbc79077063242223c16c33b8",
+      "accuracy_change": -0.005555555555555536,
+      "balanced_accuracy_change": -0.02787162162162171,
+      "default_model": "histogram",
+      "accuracy_objective_model": "histogram"
+    },
+    {
+      "name": "router_iris",
+      "seed": 8081,
+      "data_sha256": "c54da6a3fef5ec2bd5effaed69a2d500f4c7a5ac0054276514dd4644933b323a",
+      "accuracy_change": 0.0,
+      "balanced_accuracy_change": 0.0,
+      "default_model": "linear",
+      "accuracy_objective_model": "linear"
+    },
+    {
+      "name": "sparse_linear_classes",
+      "seed": 8081,
+      "data_sha256": "118f0d50840f198e544e31d08fb5922f0bb2fa42a089b7db0477f3d35708af4b",
+      "accuracy_change": 0.0444444444444444,
+      "balanced_accuracy_change": 0.0444444444444444,
+      "default_model": "extra_trees",
+      "accuracy_objective_model": "linear"
+    },
+    {
+      "name": "missing_interactions",
+      "seed": 8081,
+      "data_sha256": "1480d70867021deb889d8a3572654567bf83a4180393531cb2737e070d033698",
+      "accuracy_change": 0.033333333333333326,
+      "balanced_accuracy_change": -0.1793444650587509,
+      "default_model": "linear",
+      "accuracy_objective_model": "extra_trees"
+    }
+  ],
+  "limitation": "Same inputs across sessions; objective changes fitting weights and selection jointly; timing is not causal evidence.",
+  "significant_regressions": [
+    {
+      "name": "missing_interactions",
+      "seed": 8081,
+      "metric": "balanced_accuracy_change",
+      "change": -0.1793444650587509,
+      "severity": "severe_regression",
+      "meaning": "Investigation alert; not a hard objective or a grading verdict."
+    }
+  ]
+}

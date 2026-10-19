@@ -1,0 +1,1415 @@
+{
+  "notice": "Development evidence only; no official grade estimate. Previously exposed confirmation seeds are development for future tuning.",
+  "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+  "source_unchanged": true,
+  "runs": 36,
+  "valid_runs": 36,
+  "fallback_runs": 0,
+  "wall_seconds": {
+    "min": 4.1514,
+    "max": 9.5461,
+    "median": 6.0112000000000005
+  },
+  "observed_shapes": {
+    "max_training_rows": 660,
+    "max_input_features": 110
+  },
+  "classification": {
+    "mean_accuracy_change": 0.009259259259259281,
+    "mean_balanced_accuracy_change": 0.07313498273319702,
+    "metric_reversals": [
+      {
+        "seed": 8081,
+        "name": "missing_interactions",
+        "accuracy_change": -0.016666666666666607,
+        "balanced_accuracy_change": 0.22479901051329632
+      }
+    ]
+  },
+  "regression": {
+    "mean_relative_rmse_reduction": 0.29392855689698133,
+    "excluding_linear_mean_relative_rmse_reduction": 0.29392855689698133
+  },
+  "aggregates": [
+    {
+      "partition": "confirmation",
+      "task": "classification",
+      "cases": 3,
+      "outcomes": {
+        "win": 1,
+        "tie": 2,
+        "loss": 0,
+        "invalid": 0
+      },
+      "mean_quality_change": 0.0749330035044321,
+      "mean_relative_rmse_reduction": null,
+      "mean_baseline_seconds": 4.856566666666667,
+      "mean_auto_seconds": 7.298
+    },
+    {
+      "partition": "confirmation",
+      "task": "clustering",
+      "cases": 3,
+      "outcomes": {
+        "win": 1,
+        "tie": 1,
+        "loss": 1,
+        "invalid": 0
+      },
+      "mean_quality_change": -0.027700246436754616,
+      "mean_relative_rmse_reduction": null,
+      "mean_baseline_seconds": 4.483633333333334,
+      "mean_auto_seconds": 6.5557
+    },
+    {
+      "partition": "confirmation",
+      "task": "regression",
+      "cases": 3,
+      "outcomes": {
+        "win": 2,
+        "tie": 1,
+        "loss": 0,
+        "invalid": 0
+      },
+      "mean_quality_change": null,
+      "mean_relative_rmse_reduction": 0.2720201399300109,
+      "mean_baseline_seconds": 5.057633333333333,
+      "mean_auto_seconds": 7.8805
+    },
+    {
+      "partition": "development",
+      "task": "classification",
+      "cases": 3,
+      "outcomes": {
+        "win": 2,
+        "tie": 1,
+        "loss": 0,
+        "invalid": 0
+      },
+      "mean_quality_change": 0.07133696196196193,
+      "mean_relative_rmse_reduction": null,
+      "mean_baseline_seconds": 4.605066666666667,
+      "mean_auto_seconds": 7.149133333333333
+    },
+    {
+      "partition": "development",
+      "task": "clustering",
+      "cases": 3,
+      "outcomes": {
+        "win": 0,
+        "tie": 2,
+        "loss": 1,
+        "invalid": 0
+      },
+      "mean_quality_change": -0.002243654370897482,
+      "mean_relative_rmse_reduction": null,
+      "mean_baseline_seconds": 4.4995,
+      "mean_auto_seconds": 6.573433333333333
+    },
+    {
+      "partition": "development",
+      "task": "regression",
+      "cases": 3,
+      "outcomes": {
+        "win": 2,
+        "tie": 1,
+        "loss": 0,
+        "invalid": 0
+      },
+      "mean_quality_change": null,
+      "mean_relative_rmse_reduction": 0.31583697386395176,
+      "mean_baseline_seconds": 4.786333333333333,
+      "mean_auto_seconds": 7.307666666666666
+    }
+  ],
+  "families": [
+    {
+      "task": "classification",
+      "name": "missing_interactions",
+      "cases": 2,
+      "mean_baseline": 0.6182752354627354,
+      "mean_auto": 0.8237912947734377,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "classification",
+      "name": "router_iris",
+      "cases": 2,
+      "mean_baseline": 0.9348290598290597,
+      "mean_auto": 0.9348290598290597,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "classification",
+      "name": "sparse_linear_classes",
+      "cases": 2,
+      "mean_baseline": 0.7555555555555555,
+      "mean_auto": 0.7694444444444444,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "clustering",
+      "name": "correlated_cluster_axes",
+      "cases": 2,
+      "mean_baseline": 0.9977255431440017,
+      "mean_auto": 1.0,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "clustering",
+      "name": "missing_cluster_axes",
+      "cases": 2,
+      "mean_baseline": 0.3894771570721676,
+      "mean_auto": 0.3422868490046912,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "clustering",
+      "name": "unequal_density",
+      "cases": 2,
+      "mean_baseline": 0.9789394952163963,
+      "mean_auto": 0.9789394952163963,
+      "mean_relative_rmse_reduction": null
+    },
+    {
+      "task": "regression",
+      "name": "heavy_tail_target",
+      "cases": 2,
+      "mean_baseline": 2.668146572852889,
+      "mean_auto": 2.4734234163729303,
+      "mean_relative_rmse_reduction": 0.07737482529445666
+    },
+    {
+      "task": "regression",
+      "name": "missing_product_target",
+      "cases": 2,
+      "mean_baseline": 2.0537578913311596,
+      "mean_auto": 2.0537578913311596,
+      "mean_relative_rmse_reduction": 0.0
+    },
+    {
+      "task": "regression",
+      "name": "sparse_linear_target",
+      "cases": 2,
+      "mean_baseline": 1.8605887364121483,
+      "mean_auto": 0.34918653236881364,
+      "mean_relative_rmse_reduction": 0.8044108453964873
+    }
+  ],
+  "pairs": [
+    {
+      "seed": 42,
+      "task": "classification",
+      "name": "router_iris",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.923076923076923,
+      "auto": 0.923076923076923,
+      "baseline_seconds": 4.8647,
+      "auto_seconds": 6.9128,
+      "auto_fallback": false,
+      "auto_model": "LogisticRegression",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.9210526315789473,
+      "auto_accuracy": 0.9210526315789473,
+      "accuracy_change": 0.0,
+      "accuracy_outcome": "tie",
+      "metric_reversal": false
+    },
+    {
+      "seed": 42,
+      "task": "classification",
+      "name": "sparse_linear_classes",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.7944444444444445,
+      "auto": 0.8222222222222222,
+      "baseline_seconds": 4.7991,
+      "auto_seconds": 7.3055,
+      "auto_fallback": false,
+      "auto_model": "HistGradientBoostingClassifier",
+      "quality_change": 0.02777777777777768,
+      "outcome": "win",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.7944444444444444,
+      "auto_accuracy": 0.8222222222222222,
+      "accuracy_change": 0.02777777777777779,
+      "accuracy_outcome": "win",
+      "metric_reversal": false
+    },
+    {
+      "seed": 42,
+      "task": "classification",
+      "name": "missing_interactions",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.6304898648648649,
+      "auto": 0.816722972972973,
+      "baseline_seconds": 4.1514,
+      "auto_seconds": 7.2291,
+      "auto_fallback": false,
+      "auto_model": "HistGradientBoostingClassifier",
+      "quality_change": 0.18623310810810811,
+      "outcome": "win",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.8555555555555555,
+      "auto_accuracy": 0.9,
+      "accuracy_change": 0.04444444444444451,
+      "accuracy_outcome": "win",
+      "metric_reversal": false
+    },
+    {
+      "seed": 42,
+      "task": "regression",
+      "name": "sparse_linear_target",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 2.1940700639565276,
+      "auto": 0.3322599241498483,
+      "baseline_seconds": 5.1687,
+      "auto_seconds": 8.4348,
+      "auto_fallback": false,
+      "auto_model": "Ridge",
+      "quality_change": 1.8618101398066793,
+      "outcome": "win",
+      "relative_rmse_reduction": 0.8485645788582112
+    },
+    {
+      "seed": 42,
+      "task": "regression",
+      "name": "heavy_tail_target",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 2.124641996154053,
+      "auto": 1.9144164410163005,
+      "baseline_seconds": 4.5187,
+      "auto_seconds": 7.0023,
+      "auto_fallback": false,
+      "auto_model": "Ridge",
+      "quality_change": 0.21022555513775254,
+      "outcome": "win",
+      "relative_rmse_reduction": 0.098946342733644
+    },
+    {
+      "seed": 42,
+      "task": "regression",
+      "name": "missing_product_target",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 2.0707181654283016,
+      "auto": 2.0707181654283016,
+      "baseline_seconds": 4.6716,
+      "auto_seconds": 6.4859,
+      "auto_fallback": false,
+      "auto_model": "ExtraTreesRegressor",
+      "quality_change": -0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": 0.0
+    },
+    {
+      "seed": 42,
+      "task": "clustering",
+      "name": "unequal_density",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 0.977736263682734,
+      "auto": 0.977736263682734,
+      "baseline_seconds": 4.4609,
+      "auto_seconds": 6.8649,
+      "auto_fallback": false,
+      "auto_model": "KMeans",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null
+    },
+    {
+      "seed": 42,
+      "task": "clustering",
+      "name": "missing_cluster_axes",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 0.395135891207367,
+      "auto": 0.38840492809467453,
+      "baseline_seconds": 4.4451,
+      "auto_seconds": 6.456,
+      "auto_fallback": false,
+      "auto_model": "GaussianMixtureFull",
+      "quality_change": -0.006730963112692445,
+      "outcome": "loss",
+      "relative_rmse_reduction": null
+    },
+    {
+      "seed": 42,
+      "task": "clustering",
+      "name": "correlated_cluster_axes",
+      "partition": "development",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 1.0,
+      "auto": 1.0,
+      "baseline_seconds": 4.5925,
+      "auto_seconds": 6.3994,
+      "auto_fallback": false,
+      "auto_model": "GaussianMixtureFull",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null
+    },
+    {
+      "seed": 8081,
+      "task": "classification",
+      "name": "router_iris",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.9465811965811964,
+      "auto": 0.9465811965811964,
+      "baseline_seconds": 4.7401,
+      "auto_seconds": 7.0886,
+      "auto_fallback": false,
+      "auto_model": "LogisticRegression",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.9473684210526315,
+      "auto_accuracy": 0.9473684210526315,
+      "accuracy_change": 0.0,
+      "accuracy_outcome": "tie",
+      "metric_reversal": false
+    },
+    {
+      "seed": 8081,
+      "task": "classification",
+      "name": "sparse_linear_classes",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.7166666666666667,
+      "auto": 0.7166666666666667,
+      "baseline_seconds": 5.0388,
+      "auto_seconds": 7.5445,
+      "auto_fallback": false,
+      "auto_model": "ExtraTreesClassifier",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.7166666666666667,
+      "auto_accuracy": 0.7166666666666667,
+      "accuracy_change": 0.0,
+      "accuracy_outcome": "tie",
+      "metric_reversal": false
+    },
+    {
+      "seed": 8081,
+      "task": "classification",
+      "name": "missing_interactions",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "balanced_accuracy",
+      "baseline": 0.6060606060606061,
+      "auto": 0.8308596165739024,
+      "baseline_seconds": 4.7908,
+      "auto_seconds": 7.2609,
+      "auto_fallback": false,
+      "auto_model": "LogisticRegression",
+      "quality_change": 0.22479901051329632,
+      "outcome": "win",
+      "relative_rmse_reduction": null,
+      "baseline_accuracy": 0.8555555555555555,
+      "auto_accuracy": 0.8388888888888889,
+      "accuracy_change": -0.016666666666666607,
+      "accuracy_outcome": "loss",
+      "metric_reversal": true
+    },
+    {
+      "seed": 8081,
+      "task": "regression",
+      "name": "sparse_linear_target",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 1.527107408867769,
+      "auto": 0.366113140587779,
+      "baseline_seconds": 5.623,
+      "auto_seconds": 9.5461,
+      "auto_fallback": false,
+      "auto_model": "Ridge",
+      "quality_change": 1.1609942682799899,
+      "outcome": "win",
+      "relative_rmse_reduction": 0.7602571119347634
+    },
+    {
+      "seed": 8081,
+      "task": "regression",
+      "name": "heavy_tail_target",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 3.211651149551724,
+      "auto": 3.0324303917295596,
+      "baseline_seconds": 4.5806,
+      "auto_seconds": 7.4257,
+      "auto_fallback": false,
+      "auto_model": "Ridge",
+      "quality_change": 0.1792207578221645,
+      "outcome": "win",
+      "relative_rmse_reduction": 0.055803307855269324
+    },
+    {
+      "seed": 8081,
+      "task": "regression",
+      "name": "missing_product_target",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "rmse",
+      "baseline": 2.0367976172340176,
+      "auto": 2.0367976172340176,
+      "baseline_seconds": 4.9693,
+      "auto_seconds": 6.6697,
+      "auto_fallback": false,
+      "auto_model": "ExtraTreesRegressor",
+      "quality_change": -0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": 0.0
+    },
+    {
+      "seed": 8081,
+      "task": "clustering",
+      "name": "unequal_density",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 0.9801427267500588,
+      "auto": 0.9801427267500588,
+      "baseline_seconds": 4.4297,
+      "auto_seconds": 6.4199,
+      "auto_fallback": false,
+      "auto_model": "KMeans",
+      "quality_change": 0.0,
+      "outcome": "tie",
+      "relative_rmse_reduction": null
+    },
+    {
+      "seed": 8081,
+      "task": "clustering",
+      "name": "missing_cluster_axes",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 0.3838184229369683,
+      "auto": 0.2961687699147079,
+      "baseline_seconds": 4.5409,
+      "auto_seconds": 6.6003,
+      "auto_fallback": false,
+      "auto_model": "GaussianMixtureFull",
+      "quality_change": -0.08764965302226035,
+      "outcome": "loss",
+      "relative_rmse_reduction": null
+    },
+    {
+      "seed": 8081,
+      "task": "clustering",
+      "name": "correlated_cluster_axes",
+      "partition": "confirmation",
+      "valid_pair": true,
+      "metric": "adjusted_rand_index",
+      "baseline": 0.9954510862880035,
+      "auto": 1.0,
+      "baseline_seconds": 4.4803,
+      "auto_seconds": 6.6469,
+      "auto_fallback": false,
+      "auto_model": "GaussianMixtureFull",
+      "quality_change": 0.004548913711996505,
+      "outcome": "win",
+      "relative_rmse_reduction": null
+    }
+  ],
+  "candidate_strategy": "routed",
+  "baseline_strategy": "baseline",
+  "gate_assessment": {
+    "candidate_strategy": "routed",
+    "baseline_strategy": "baseline",
+    "tolerance": 1e-12,
+    "measured_accuracy_gate": {
+      "decision": "rejected",
+      "scope": "Observed paired cases only; any single measured ordinary-accuracy loss rejects, even if the mean improves.",
+      "classification_cases": 6,
+      "measured_classification_cases": 6,
+      "mean_accuracy_change": 0.009259259259259281,
+      "worst_accuracy_change": -0.016666666666666607,
+      "mean_balanced_accuracy_change": 0.07313498273319702
+    },
+    "promotion": {
+      "decision": "insufficient_evidence",
+      "meaning": "Preserve beneficial task routes; review unresolved tradeoffs separately. Official alignment and new frozen confirmation are still required.",
+      "task_decisions": {
+        "classification": "retain_for_tradeoff_review",
+        "regression": "eligible_for_fresh_confirmation",
+        "clustering": "retain_for_tradeoff_review"
+      },
+      "required": [
+        "Official metric/profile alignment",
+        "Fresh unopened confirmation after candidate freeze",
+        "Official maximum-size/runtime/memory coverage"
+      ],
+      "hidden_set_guarantee": false
+    },
+    "candidate_failures": [],
+    "evidence_gaps": [],
+    "missing_coverage": {
+      "tasks": [],
+      "official_datasets": "Not established by this artifact",
+      "maximum_size": "Not established by this artifact",
+      "fresh_confirmation": "Not established by this artifact"
+    },
+    "classification_families": [
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "cases": 2,
+        "outcome": "tradeoff"
+      },
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "cases": 2,
+        "outcome": "equivalent"
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "cases": 2,
+        "outcome": "pareto_improvement"
+      }
+    ],
+    "cases": [
+      {
+        "seed": 42,
+        "task": "classification",
+        "name": "router_iris",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.2649999999994179
+        },
+        "accuracy_change": 0.0,
+        "balanced_accuracy_change": 0.0,
+        "metric": "accuracy",
+        "baseline": 0.9210526315789473,
+        "candidate": 0.9210526315789473,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.8647,
+        "candidate_seconds": 6.9128,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "accuracy": 0.0,
+          "balanced_accuracy": 0.0
+        }
+      },
+      {
+        "seed": 42,
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.5620000000017171
+        },
+        "accuracy_change": 0.02777777777777779,
+        "balanced_accuracy_change": 0.02777777777777768,
+        "metric": "accuracy",
+        "baseline": 0.7944444444444444,
+        "candidate": 0.8222222222222222,
+        "quality_change": 0.02777777777777779,
+        "baseline_seconds": 4.7991,
+        "candidate_seconds": 7.3055,
+        "quality_outcome": "pareto_improvement",
+        "metric_deltas_higher_is_better": {
+          "accuracy": 0.02777777777777779,
+          "balanced_accuracy": 0.02777777777777768
+        }
+      },
+      {
+        "seed": 42,
+        "task": "classification",
+        "name": "missing_interactions",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.34399999999732245
+        },
+        "accuracy_change": 0.04444444444444451,
+        "balanced_accuracy_change": 0.18623310810810811,
+        "metric": "accuracy",
+        "baseline": 0.8555555555555555,
+        "candidate": 0.9,
+        "quality_change": 0.04444444444444451,
+        "baseline_seconds": 4.1514,
+        "candidate_seconds": 7.2291,
+        "quality_outcome": "pareto_improvement",
+        "metric_deltas_higher_is_better": {
+          "accuracy": 0.04444444444444451,
+          "balanced_accuracy": 0.18623310810810811
+        }
+      },
+      {
+        "seed": 42,
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 1.375
+        },
+        "metric": "rmse",
+        "baseline": 2.1940700639565276,
+        "candidate": 0.3322599241498483,
+        "quality_change": 1.8618101398066793,
+        "baseline_seconds": 5.1687,
+        "candidate_seconds": 8.4348,
+        "relative_rmse_reduction": 0.8485645788582112,
+        "quality_outcome": "improvement",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.8485645788582112
+        }
+      },
+      {
+        "seed": 42,
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 0.4219999999986612
+        },
+        "metric": "rmse",
+        "baseline": 2.124641996154053,
+        "candidate": 1.9144164410163005,
+        "quality_change": 0.21022555513775254,
+        "baseline_seconds": 4.5187,
+        "candidate_seconds": 7.0023,
+        "relative_rmse_reduction": 0.098946342733644,
+        "quality_outcome": "improvement",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.098946342733644
+        }
+      },
+      {
+        "seed": 42,
+        "task": "regression",
+        "name": "missing_product_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "baseline_reused": true,
+          "baseline_fit_seconds": 0.3440000000009604,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 0.3899999999994179
+        },
+        "metric": "rmse",
+        "baseline": 2.0707181654283016,
+        "candidate": 2.0707181654283016,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.6716,
+        "candidate_seconds": 6.4859,
+        "relative_rmse_reduction": 0.0,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.0
+        }
+      },
+      {
+        "seed": 42,
+        "task": "clustering",
+        "name": "unequal_density",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.18700000000171713,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 0.977736263682734,
+        "candidate": 0.977736263682734,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.4609,
+        "candidate_seconds": 6.8649,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": 0.0
+        }
+      },
+      {
+        "seed": 42,
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.20300000000133878,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 0.395135891207367,
+        "candidate": 0.38840492809467453,
+        "quality_change": -0.006730963112692445,
+        "baseline_seconds": 4.4451,
+        "candidate_seconds": 6.456,
+        "quality_outcome": "harmful",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": -0.006730963112692445
+        }
+      },
+      {
+        "seed": 42,
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.18800000000192085,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.5925,
+        "candidate_seconds": 6.3994,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": 0.0
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "classification",
+        "name": "router_iris",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.31300000000192085
+        },
+        "accuracy_change": 0.0,
+        "balanced_accuracy_change": 0.0,
+        "metric": "accuracy",
+        "baseline": 0.9473684210526315,
+        "candidate": 0.9473684210526315,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.7401,
+        "candidate_seconds": 7.0886,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "accuracy": 0.0,
+          "balanced_accuracy": 0.0
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "baseline_reused": true,
+          "baseline_fit_seconds": 0.4059999999990396,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.6409999999996217
+        },
+        "accuracy_change": 0.0,
+        "balanced_accuracy_change": 0.0,
+        "metric": "accuracy",
+        "baseline": 0.7166666666666667,
+        "candidate": 0.7166666666666667,
+        "quality_change": 0.0,
+        "baseline_seconds": 5.0388,
+        "candidate_seconds": 7.5445,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "accuracy": 0.0,
+          "balanced_accuracy": 0.0
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "classification",
+        "name": "missing_interactions",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesClassifier",
+          "baseline_seconds": 0.35899999999674037
+        },
+        "accuracy_change": -0.016666666666666607,
+        "balanced_accuracy_change": 0.22479901051329632,
+        "metric": "accuracy",
+        "baseline": 0.8555555555555555,
+        "candidate": 0.8388888888888889,
+        "quality_change": -0.016666666666666607,
+        "baseline_seconds": 4.7908,
+        "candidate_seconds": 7.2609,
+        "quality_outcome": "tradeoff",
+        "metric_deltas_higher_is_better": {
+          "accuracy": -0.016666666666666607,
+          "balanced_accuracy": 0.22479901051329632
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 1.5469999999986612
+        },
+        "metric": "rmse",
+        "baseline": 1.527107408867769,
+        "candidate": 0.366113140587779,
+        "quality_change": 1.1609942682799899,
+        "baseline_seconds": 5.623,
+        "candidate_seconds": 9.5461,
+        "relative_rmse_reduction": 0.7602571119347634,
+        "quality_outcome": "improvement",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.7602571119347634
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 0.4219999999986612
+        },
+        "metric": "rmse",
+        "baseline": 3.211651149551724,
+        "candidate": 3.0324303917295596,
+        "quality_change": 0.1792207578221645,
+        "baseline_seconds": 4.5806,
+        "candidate_seconds": 7.4257,
+        "relative_rmse_reduction": 0.055803307855269324,
+        "quality_outcome": "improvement",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.055803307855269324
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "regression",
+        "name": "missing_product_target",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "fallback": false,
+          "baseline_reused": true,
+          "baseline_fit_seconds": 0.3280000000013388,
+          "refit_fallback_reason": null,
+          "baseline_model": "ExtraTreesRegressor",
+          "baseline_seconds": 0.4059999999990396
+        },
+        "metric": "rmse",
+        "baseline": 2.0367976172340176,
+        "candidate": 2.0367976172340176,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.9693,
+        "candidate_seconds": 6.6697,
+        "relative_rmse_reduction": 0.0,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "rmse": 0.0
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "clustering",
+        "name": "unequal_density",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.18700000000171713,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 0.9801427267500588,
+        "candidate": 0.9801427267500588,
+        "quality_change": 0.0,
+        "baseline_seconds": 4.4297,
+        "candidate_seconds": 6.4199,
+        "quality_outcome": "equivalent",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": 0.0
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.15599999999903957,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 0.3838184229369683,
+        "candidate": 0.2961687699147079,
+        "quality_change": -0.08764965302226035,
+        "baseline_seconds": 4.5409,
+        "candidate_seconds": 6.6003,
+        "quality_outcome": "harmful",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": -0.08764965302226035
+        }
+      },
+      {
+        "seed": 8081,
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "decision": "evidence_usable",
+        "issues": [],
+        "baseline_fallback": false,
+        "candidate_fallback": false,
+        "candidate_recovery_metadata": {
+          "baseline_model": "KMeans",
+          "baseline_seconds": 0.18700000000171713,
+          "fallback": false
+        },
+        "metric": "adjusted_rand_index",
+        "baseline": 0.9954510862880035,
+        "candidate": 1.0,
+        "quality_change": 0.004548913711996505,
+        "baseline_seconds": 4.4803,
+        "candidate_seconds": 6.6469,
+        "quality_outcome": "improvement",
+        "metric_deltas_higher_is_better": {
+          "adjusted_rand_index": 0.004548913711996505
+        }
+      }
+    ],
+    "ranked_advice": [
+      {
+        "priority": 1,
+        "action": "Keep classification gains and explicitly compare the configured objective against its secondary-metric losses; no all-task rejection. Freeze any acceptable secondary-loss budget before new confirmation.",
+        "evidence": {
+          "balanced_accuracy": {
+            "mean_change": 0.07313498273319702,
+            "worst_change": 0.0,
+            "wins": 3,
+            "ties": 3,
+            "losses": 0,
+            "units": "absolute metric delta"
+          },
+          "accuracy": {
+            "mean_change": 0.009259259259259281,
+            "worst_change": -0.016666666666666607,
+            "wins": 2,
+            "ties": 3,
+            "losses": 1,
+            "units": "absolute metric delta"
+          }
+        },
+        "budget_exceedances": [
+          {
+            "name": "missing_interactions",
+            "seed": 8081,
+            "metric": "accuracy",
+            "delta": -0.016666666666666607,
+            "budget": 0.0
+          }
+        ]
+      },
+      {
+        "priority": 1,
+        "action": "Review the current losing cluster cases and baseline-versus-selected geometry; keep gains independently and compare a frozen conservative route. Do not assume the historical GMM initialization issue remains unfixed.",
+        "evidence": {
+          "adjusted_rand_index": {
+            "mean_change": -0.014971950403826048,
+            "worst_change": -0.08764965302226035,
+            "wins": 1,
+            "ties": 3,
+            "losses": 2,
+            "units": "absolute metric delta"
+          }
+        },
+        "losing_cases": [
+          {
+            "name": "missing_cluster_axes",
+            "seed": 42,
+            "delta": -0.006730963112692445
+          },
+          {
+            "name": "missing_cluster_axes",
+            "seed": 8081,
+            "delta": -0.08764965302226035
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "action": "Preserve useful regression gains independently of classification; investigate only identified losing/tied families and test selector stability.",
+        "evidence": {
+          "rmse": {
+            "mean_change": 0.29392855689698133,
+            "worst_change": 0.0,
+            "wins": 4,
+            "ties": 2,
+            "losses": 0,
+            "units": "fractional RMSE reduction per case (raw decrease if baseline RMSE zero)"
+          }
+        },
+        "losing_cases": [],
+        "tied_cases": [
+          {
+            "name": "missing_product_target",
+            "seed": 42
+          },
+          {
+            "name": "missing_product_target",
+            "seed": 8081
+          }
+        ]
+      },
+      {
+        "priority": 4,
+        "action": "Measure whether classification routing overhead buys quality or recovery reliability; preserve completed-baseline recovery until deadline experiments establish the tradeoff.",
+        "mean_extra_wall_seconds": 2.49275,
+        "maximum_extra_wall_seconds": 3.0777
+      },
+      {
+        "priority": 4,
+        "action": "Measure whether regression routing overhead buys quality or recovery reliability; preserve completed-baseline recovery until deadline experiments establish the tradeoff.",
+        "mean_extra_wall_seconds": 2.6721,
+        "maximum_extra_wall_seconds": 3.923099999999999
+      },
+      {
+        "priority": 4,
+        "action": "Measure whether clustering routing overhead buys quality or recovery reliability; preserve completed-baseline recovery until deadline experiments establish the tradeoff.",
+        "mean_extra_wall_seconds": 2.073,
+        "maximum_extra_wall_seconds": 2.404
+      }
+    ],
+    "strict_accuracy_diagnostic": {
+      "measured_gate": {
+        "decision": "rejected",
+        "scope": "Observed paired cases only; any single measured ordinary-accuracy loss rejects, even if the mean improves.",
+        "classification_cases": 6,
+        "measured_classification_cases": 6,
+        "mean_accuracy_change": 0.009259259259259281,
+        "worst_accuracy_change": -0.016666666666666607,
+        "mean_balanced_accuracy_change": 0.07313498273319702
+      },
+      "promotion": {
+        "decision": "rejected",
+        "required": [
+          "Official metric/profile alignment",
+          "Fresh unopened confirmation after candidate freeze",
+          "Official maximum-size/runtime/memory coverage"
+        ],
+        "hidden_set_guarantee": false
+      },
+      "failures": [
+        {
+          "case": [
+            8081,
+            "classification",
+            "missing_interactions"
+          ],
+          "reason": "Ordinary accuracy decreases.",
+          "accuracy_change": -0.016666666666666607
+        }
+      ]
+    },
+    "assessment_mode": "tradeoff_aware",
+    "predeclared_policy": {
+      "classification_objective": "balanced_accuracy",
+      "secondary_loss_budgets": {
+        "accuracy": 0.0,
+        "balanced_accuracy": 0.0
+      },
+      "meaning": "Absolute metric-unit maximum per-case secondary losses; zero default. These are engineering policy, not official scoring tolerances."
+    },
+    "reliability": {
+      "decision": "passed",
+      "failures": [],
+      "gaps": []
+    },
+    "task_assessments": [
+      {
+        "task": "classification",
+        "outcome": "tradeoff",
+        "development_decision": "retain_for_tradeoff_review",
+        "cases": 6,
+        "measured_cases": 6,
+        "primary_metric": "balanced_accuracy",
+        "secondary_metric": "accuracy",
+        "secondary_loss_budget": 0.0,
+        "metrics": {
+          "balanced_accuracy": {
+            "mean_change": 0.07313498273319702,
+            "worst_change": 0.0,
+            "wins": 3,
+            "ties": 3,
+            "losses": 0,
+            "units": "absolute metric delta"
+          },
+          "accuracy": {
+            "mean_change": 0.009259259259259281,
+            "worst_change": -0.016666666666666607,
+            "wins": 2,
+            "ties": 3,
+            "losses": 1,
+            "units": "absolute metric delta"
+          }
+        },
+        "primary_losses": [],
+        "secondary_budget_exceedances": [
+          {
+            "name": "missing_interactions",
+            "seed": 8081,
+            "metric": "accuracy",
+            "delta": -0.016666666666666607,
+            "budget": 0.0
+          }
+        ],
+        "mean_extra_wall_seconds": 2.49275,
+        "worst_extra_wall_seconds": 3.0777,
+        "reliability_failures": [],
+        "observed_cost_verdict": "quality_time_tradeoff",
+        "recovery_value": "Recovery capability may differ; normal-suite runs do not quantify its value under deadline failures."
+      },
+      {
+        "task": "regression",
+        "outcome": "improvement",
+        "development_decision": "eligible_for_fresh_confirmation",
+        "cases": 6,
+        "measured_cases": 6,
+        "primary_metric": "rmse",
+        "secondary_metric": null,
+        "secondary_loss_budget": null,
+        "metrics": {
+          "rmse": {
+            "mean_change": 0.29392855689698133,
+            "worst_change": 0.0,
+            "wins": 4,
+            "ties": 2,
+            "losses": 0,
+            "units": "fractional RMSE reduction per case (raw decrease if baseline RMSE zero)"
+          }
+        },
+        "primary_losses": [],
+        "secondary_budget_exceedances": [],
+        "mean_extra_wall_seconds": 2.6721,
+        "worst_extra_wall_seconds": 3.923099999999999,
+        "reliability_failures": [],
+        "observed_cost_verdict": "quality_time_tradeoff",
+        "recovery_value": "Recovery capability may differ; normal-suite runs do not quantify its value under deadline failures."
+      },
+      {
+        "task": "clustering",
+        "outcome": "tradeoff",
+        "development_decision": "retain_for_tradeoff_review",
+        "cases": 6,
+        "measured_cases": 6,
+        "primary_metric": "adjusted_rand_index",
+        "secondary_metric": null,
+        "secondary_loss_budget": null,
+        "metrics": {
+          "adjusted_rand_index": {
+            "mean_change": -0.014971950403826048,
+            "worst_change": -0.08764965302226035,
+            "wins": 1,
+            "ties": 3,
+            "losses": 2,
+            "units": "absolute metric delta"
+          }
+        },
+        "primary_losses": [
+          {
+            "name": "missing_cluster_axes",
+            "seed": 42,
+            "delta": -0.006730963112692445
+          },
+          {
+            "name": "missing_cluster_axes",
+            "seed": 8081,
+            "delta": -0.08764965302226035
+          }
+        ],
+        "secondary_budget_exceedances": [],
+        "mean_extra_wall_seconds": 2.073,
+        "worst_extra_wall_seconds": 2.404,
+        "reliability_failures": [],
+        "observed_cost_verdict": "quality_time_tradeoff",
+        "recovery_value": "Recovery capability may differ; normal-suite runs do not quantify its value under deadline failures."
+      }
+    ],
+    "strict_classification_families": [
+      {
+        "name": "missing_interactions",
+        "cases": 2,
+        "measured_cases": 2,
+        "mean_accuracy_change": 0.01388888888888895,
+        "worst_accuracy_change": -0.016666666666666607,
+        "mean_balanced_accuracy_change": 0.20551605931070221,
+        "decision": "rejected"
+      },
+      {
+        "name": "router_iris",
+        "cases": 2,
+        "measured_cases": 2,
+        "mean_accuracy_change": 0.0,
+        "worst_accuracy_change": 0.0,
+        "mean_balanced_accuracy_change": 0.0,
+        "decision": "passed"
+      },
+      {
+        "name": "sparse_linear_classes",
+        "cases": 2,
+        "measured_cases": 2,
+        "mean_accuracy_change": 0.013888888888888895,
+        "worst_accuracy_change": 0.0,
+        "mean_balanced_accuracy_change": 0.01388888888888884,
+        "decision": "passed"
+      }
+    ],
+    "family_assessments": [
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "cases": 2,
+        "outcome": "tradeoff"
+      },
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "cases": 2,
+        "outcome": "equivalent"
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "cases": 2,
+        "outcome": "pareto_improvement"
+      },
+      {
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "cases": 2,
+        "outcome": "improvement"
+      },
+      {
+        "task": "regression",
+        "name": "missing_product_target",
+        "cases": 2,
+        "outcome": "equivalent"
+      },
+      {
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "cases": 2,
+        "outcome": "improvement"
+      },
+      {
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "cases": 2,
+        "outcome": "improvement"
+      },
+      {
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "cases": 2,
+        "outcome": "harmful"
+      },
+      {
+        "task": "clustering",
+        "name": "unequal_density",
+        "cases": 2,
+        "outcome": "equivalent"
+      }
+    ]
+  },
+  "report_sha256": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff"
+}

@@ -1,0 +1,280 @@
+{
+  "notice": "Artifact-derived diagnostics only. No official points. Offline 120s direct calls are not 60s CLI compliance. Seeds42/314/8081 exposed for future tuning.",
+  "cli_report_sha256": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff",
+  "source_sha256": "c7904fae62eb7f4e81b521fff47c83cd511469c5bcc15d25413d7e12ec90e609",
+  "summary_validation": [
+    {
+      "file": "router-vs-baseline.json",
+      "reference": "baseline",
+      "candidate": "routed",
+      "classification_metric": "balanced_accuracy",
+      "pairs": 18,
+      "aggregate_fields_verified": 36
+    },
+    {
+      "file": "router-vs-baseline-accuracy.json",
+      "reference": "baseline",
+      "candidate": "routed",
+      "classification_metric": "accuracy",
+      "pairs": 18,
+      "aggregate_fields_verified": 36
+    },
+    {
+      "file": "router-vs-auto.json",
+      "reference": "auto",
+      "candidate": "routed",
+      "classification_metric": "balanced_accuracy",
+      "pairs": 18,
+      "aggregate_fields_verified": 36
+    }
+  ],
+  "cli_strategies": {
+    "baseline": {
+      "runs": 18,
+      "valid": 18,
+      "fallbacks": 0,
+      "mean_wall_seconds": 4.714788888888889,
+      "max_wall_seconds": 5.623,
+      "max_training_rows": 660,
+      "max_input_features": 110
+    },
+    "auto": {
+      "runs": 18,
+      "valid": 18,
+      "fallbacks": 0,
+      "mean_wall_seconds": 4.972722222222222,
+      "max_wall_seconds": 6.392,
+      "max_training_rows": 660,
+      "max_input_features": 110
+    },
+    "routed": {
+      "runs": 18,
+      "valid": 18,
+      "fallbacks": 0,
+      "mean_wall_seconds": 7.127405555555556,
+      "max_wall_seconds": 9.5461,
+      "max_training_rows": 660,
+      "max_input_features": 110
+    }
+  },
+  "offline": {
+    "report_sha256": "26a3f7613f4fc27bb78a43426ff1303823384ea4da1f9fe6fd91e191974a99c3",
+    "runs": 148,
+    "valid": 148,
+    "time_budget": 120,
+    "comparisons": {
+      "routed_vs_baseline": {
+        "cases": 16,
+        "outcomes": {
+          "tie": 5,
+          "win": 10,
+          "loss": 1
+        },
+        "nonties": [
+          {
+            "name": "router_iris",
+            "split_seed": 314,
+            "task": "classification",
+            "quality_change": 0.02564102564102555,
+            "outcome": "win"
+          },
+          {
+            "name": "sparse_linear_classes",
+            "split_seed": 42,
+            "task": "classification",
+            "quality_change": 0.05555555555555558,
+            "outcome": "win"
+          },
+          {
+            "name": "sparse_linear_classes",
+            "split_seed": 314,
+            "task": "classification",
+            "quality_change": 0.033333333333333215,
+            "outcome": "win"
+          },
+          {
+            "name": "missing_interactions",
+            "split_seed": 42,
+            "task": "classification",
+            "quality_change": 0.15202702702702697,
+            "outcome": "win"
+          },
+          {
+            "name": "missing_interactions",
+            "split_seed": 314,
+            "task": "classification",
+            "quality_change": 0.11148648648648651,
+            "outcome": "win"
+          },
+          {
+            "name": "sparse_linear_target",
+            "split_seed": 42,
+            "task": "regression",
+            "quality_change": 1.7762148553992985,
+            "outcome": "win"
+          },
+          {
+            "name": "sparse_linear_target",
+            "split_seed": 314,
+            "task": "regression",
+            "quality_change": 1.6815981233171213,
+            "outcome": "win"
+          },
+          {
+            "name": "heavy_tail_target",
+            "split_seed": 42,
+            "task": "regression",
+            "quality_change": 0.11030167700003535,
+            "outcome": "win"
+          },
+          {
+            "name": "heavy_tail_target",
+            "split_seed": 314,
+            "task": "regression",
+            "quality_change": 0.18999168773100417,
+            "outcome": "win"
+          },
+          {
+            "name": "missing_product_target",
+            "split_seed": 42,
+            "task": "regression",
+            "quality_change": 0.150206013346736,
+            "outcome": "win"
+          },
+          {
+            "name": "high_cardinality",
+            "split_seed": 314,
+            "task": "classification",
+            "quality_change": -0.03990399039903991,
+            "outcome": "loss"
+          }
+        ]
+      },
+      "unrestricted_vs_routed": {
+        "cases": 16,
+        "outcomes": {
+          "tie": 16
+        },
+        "nonties": []
+      },
+      "routed_tie_vs_routed": {
+        "cases": 16,
+        "outcomes": {
+          "tie": 15,
+          "loss": 1
+        },
+        "nonties": [
+          {
+            "name": "sparse_linear_classes",
+            "split_seed": 42,
+            "task": "classification",
+            "quality_change": -0.03888888888888897,
+            "outcome": "loss"
+          }
+        ]
+      },
+      "routed_categorical_vs_routed": {
+        "cases": 2,
+        "outcomes": {
+          "tie": 2
+        },
+        "nonties": []
+      }
+    },
+    "candidate_selection_frequencies": {
+      "auto": {
+        "extra_trees": 6,
+        "histogram": 3,
+        "linear": 7
+      },
+      "routed": {
+        "linear": 9,
+        "histogram": 3,
+        "extra_trees": 4
+      },
+      "unrestricted": {
+        "linear": 9,
+        "histogram": 3,
+        "extra_trees": 4
+      },
+      "routed_tie": {
+        "linear": 10,
+        "histogram": 2,
+        "extra_trees": 4
+      }
+    }
+  },
+  "objective_variant_comparison": {
+    "report_sha256": "8800097792d3d747dc9c2af6958471f6e8870f1c24f6632e021f63eaae98982a",
+    "source_sha256": "e67b8bbe524e8cc450e55a770ba42224f0286f54d686ca847fdf7a3707141b53",
+    "production_and_override_fingerprints_reproduced": true,
+    "matched_cases": 6,
+    "cases": [
+      {
+        "name": "router_iris",
+        "seed": 42,
+        "default_accuracy": 0.9210526315789473,
+        "accuracy_objective_accuracy": 0.9210526315789473,
+        "accuracy_change": 0.0,
+        "default_balanced_accuracy": 0.923076923076923,
+        "accuracy_objective_balanced_accuracy": 0.923076923076923,
+        "balanced_accuracy_change": 0.0
+      },
+      {
+        "name": "sparse_linear_classes",
+        "seed": 42,
+        "default_accuracy": 0.8222222222222222,
+        "accuracy_objective_accuracy": 0.8222222222222222,
+        "accuracy_change": 0.0,
+        "default_balanced_accuracy": 0.8222222222222222,
+        "accuracy_objective_balanced_accuracy": 0.8222222222222222,
+        "balanced_accuracy_change": 0.0
+      },
+      {
+        "name": "missing_interactions",
+        "seed": 42,
+        "default_accuracy": 0.9,
+        "accuracy_objective_accuracy": 0.8944444444444445,
+        "accuracy_change": -0.005555555555555536,
+        "default_balanced_accuracy": 0.816722972972973,
+        "accuracy_objective_balanced_accuracy": 0.7888513513513513,
+        "balanced_accuracy_change": -0.02787162162162171
+      },
+      {
+        "name": "router_iris",
+        "seed": 8081,
+        "default_accuracy": 0.9473684210526315,
+        "accuracy_objective_accuracy": 0.9473684210526315,
+        "accuracy_change": 0.0,
+        "default_balanced_accuracy": 0.9465811965811964,
+        "accuracy_objective_balanced_accuracy": 0.9465811965811964,
+        "balanced_accuracy_change": 0.0
+      },
+      {
+        "name": "sparse_linear_classes",
+        "seed": 8081,
+        "default_accuracy": 0.7166666666666667,
+        "accuracy_objective_accuracy": 0.7611111111111111,
+        "accuracy_change": 0.0444444444444444,
+        "default_balanced_accuracy": 0.7166666666666667,
+        "accuracy_objective_balanced_accuracy": 0.7611111111111111,
+        "balanced_accuracy_change": 0.0444444444444444
+      },
+      {
+        "name": "missing_interactions",
+        "seed": 8081,
+        "default_accuracy": 0.8388888888888889,
+        "accuracy_objective_accuracy": 0.8722222222222222,
+        "accuracy_change": 0.033333333333333326,
+        "default_balanced_accuracy": 0.8308596165739024,
+        "accuracy_objective_balanced_accuracy": 0.6515151515151515,
+        "balanced_accuracy_change": -0.1793444650587509
+      }
+    ],
+    "mean_accuracy_change": 0.012037037037037032,
+    "mean_balanced_accuracy_change": -0.027128607039321368,
+    "outcome": "tradeoff",
+    "timing_notice": "Cross-session timing is observational; not causal evidence of objective configuration cost.",
+    "development_only": true
+  }
+}

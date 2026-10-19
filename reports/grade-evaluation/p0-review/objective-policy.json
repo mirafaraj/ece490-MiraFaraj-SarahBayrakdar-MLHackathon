@@ -1,0 +1,18 @@
+{
+  "status": "provisional",
+  "task_metrics": {
+    "classification": {
+      "accuracy": true,
+      "balanced_accuracy": true,
+      "macro_f1": true
+    },
+    "regression": {
+      "rmse": false,
+      "mae": false
+    },
+    "clustering": {
+      "adjusted_rand_index": true,
+      "adjusted_mutual_info": true
+    }
+  }
+}

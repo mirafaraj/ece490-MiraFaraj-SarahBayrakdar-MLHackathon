@@ -1,0 +1,324 @@
+[
+  {
+    "seed": 42,
+    "name": "noisy_blobs",
+    "baseline": 1.0,
+    "old_auto": 0.633747890441229,
+    "info": {
+      "model": "GaussianMixtureFull",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance improves BIC by more than margin",
+      "bic": {
+        "spherical": 13964.08779413215,
+        "full": 11747.578484563699
+      },
+      "cpu_threads": 1,
+      "seed": 42,
+      "training_rows": 660,
+      "input_features": 8,
+      "transformed_features": 8,
+      "requested_clusters": 4,
+      "observed_clusters": 4,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.0779999999977008,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 13801.326176743778,
+        "ari": 1.0,
+        "silhouette": 0.28446695103891345,
+        "agreement": 1.0
+      },
+      "tied": {
+        "bic": 10705.042415689059,
+        "ari": 1.0,
+        "silhouette": 0.28446695103891345,
+        "agreement": 1.0
+      },
+      "full": {
+        "bic": 11268.59240098485,
+        "ari": 1.0,
+        "silhouette": 0.28446695103891345,
+        "agreement": 1.0
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "name": "anisotropic",
+    "baseline": 0.831472057110823,
+    "old_auto": 1.0,
+    "info": {
+      "model": "GaussianMixtureFull",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance improves BIC by more than margin",
+      "bic": {
+        "spherical": 1321.1367572140234,
+        "full": -117.70597248712085
+      },
+      "cpu_threads": 1,
+      "seed": 42,
+      "training_rows": 660,
+      "input_features": 2,
+      "transformed_features": 2,
+      "requested_clusters": 3,
+      "observed_clusters": 3,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.0470000000022992,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 1321.1367572140234,
+        "ari": 0.9685980453942669,
+        "silhouette": 0.6755023916268996,
+        "agreement": 0.8061917112089313
+      },
+      "tied": {
+        "bic": 355.0342851782384,
+        "ari": 1.0,
+        "silhouette": 0.6906582370942922,
+        "agreement": 0.831472057110823
+      },
+      "full": {
+        "bic": -117.70597248712158,
+        "ari": 1.0,
+        "silhouette": 0.6906582370942922,
+        "agreement": 0.831472057110823
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "name": "moons",
+    "baseline": 0.45993349019716423,
+    "old_auto": 0.45993349019716423,
+    "info": {
+      "model": "KMeans",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance BIC gain below conservative margin",
+      "bic": {
+        "spherical": 3482.242199949336,
+        "full": 3458.0416155671396
+      },
+      "cpu_threads": 1,
+      "seed": 42,
+      "training_rows": 660,
+      "input_features": 2,
+      "transformed_features": 2,
+      "requested_clusters": 2,
+      "observed_clusters": 2,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.046999999998661224,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 3482.2421999493354,
+        "ari": 0.45582260708210226,
+        "silhouette": 0.4911875731856171,
+        "agreement": 0.9939393810649425
+      },
+      "tied": {
+        "bic": 3438.6550351963956,
+        "ari": 0.4682104828333068,
+        "silhouette": 0.4913221800200795,
+        "agreement": 0.9878971540273052
+      },
+      "full": {
+        "bic": 3458.0416155671396,
+        "ari": 0.46821060157572375,
+        "silhouette": 0.4913804434908887,
+        "agreement": 0.9878971566642165
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "name": "mixed_clusters",
+    "baseline": 0.4798767126437124,
+    "old_auto": 0.4798767126437124,
+    "info": {
+      "model": "KMeans",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "baseline geometry; covariance comparison not eligible",
+      "bic": {},
+      "cpu_threads": 1,
+      "seed": 42,
+      "training_rows": 660,
+      "input_features": 4,
+      "transformed_features": 7,
+      "requested_clusters": 3,
+      "observed_clusters": 3,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.0470000000022992,
+      "time_budget_seconds": 50.0
+    }
+  },
+  {
+    "seed": 314,
+    "name": "noisy_blobs",
+    "baseline": 0.9959534431418829,
+    "old_auto": 0.9959534431418829,
+    "info": {
+      "model": "GaussianMixtureFull",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance improves BIC by more than margin",
+      "bic": {
+        "spherical": 13987.587435485948,
+        "full": 12261.51815684414
+      },
+      "cpu_threads": 1,
+      "seed": 314,
+      "training_rows": 660,
+      "input_features": 8,
+      "transformed_features": 8,
+      "requested_clusters": 4,
+      "observed_clusters": 4,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.06199999999807915,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 13987.587435485948,
+        "ari": 0.9959534431418829,
+        "silhouette": 0.2505465589568329,
+        "agreement": 1.0
+      },
+      "tied": {
+        "bic": 11670.944285622994,
+        "ari": 0.9919314355677992,
+        "silhouette": 0.2503160102123131,
+        "agreement": 0.9959534431418829
+      },
+      "full": {
+        "bic": 12261.51815684414,
+        "ari": 0.9959534431418829,
+        "silhouette": 0.2505465589568329,
+        "agreement": 1.0
+      }
+    }
+  },
+  {
+    "seed": 314,
+    "name": "anisotropic",
+    "baseline": 0.9378362876432262,
+    "old_auto": 0.9954510862880035,
+    "info": {
+      "model": "GaussianMixtureFull",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance improves BIC by more than margin",
+      "bic": {
+        "spherical": 962.7992392684513,
+        "full": -472.4033127283745
+      },
+      "cpu_threads": 1,
+      "seed": 314,
+      "training_rows": 660,
+      "input_features": 2,
+      "transformed_features": 2,
+      "requested_clusters": 3,
+      "observed_clusters": 3,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.0470000000022992,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 962.7992392684489,
+        "ari": 0.9554439064931171,
+        "silhouette": 0.7121507190503482,
+        "agreement": 0.9293043813634464
+      },
+      "tied": {
+        "bic": -8.998882365026631,
+        "ari": 0.986415808441781,
+        "silhouette": 0.7115114452134293,
+        "agreement": 0.9421355951299338
+      },
+      "full": {
+        "bic": -472.4033127283746,
+        "ari": 0.9954510862880035,
+        "silhouette": 0.7073328151275184,
+        "agreement": 0.9335597200814857
+      }
+    }
+  },
+  {
+    "seed": 314,
+    "name": "moons",
+    "baseline": 0.47237665057050393,
+    "old_auto": 0.47237665057050393,
+    "info": {
+      "model": "KMeans",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "full covariance BIC gain below conservative margin",
+      "bic": {
+        "spherical": 3475.0018726538187,
+        "full": 3444.6375132356234
+      },
+      "cpu_threads": 1,
+      "seed": 314,
+      "training_rows": 660,
+      "input_features": 2,
+      "transformed_features": 2,
+      "requested_clusters": 2,
+      "observed_clusters": 2,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.06199999999807915,
+      "time_budget_seconds": 50.0
+    },
+    "models": {
+      "spherical": {
+        "bic": 3475.0018726538187,
+        "ari": 0.46821060157572375,
+        "silhouette": 0.4939509288614643,
+        "agreement": 0.9939393820245308
+      },
+      "tied": {
+        "bic": 3425.345265655688,
+        "ari": 0.4892249881653661,
+        "silhouette": 0.4942767280850876,
+        "agreement": 0.9758678861359014
+      },
+      "full": {
+        "bic": 3444.6375132356234,
+        "ari": 0.48922510221547394,
+        "silhouette": 0.4941979013204763,
+        "agreement": 0.9758678912304068
+      }
+    }
+  },
+  {
+    "seed": 314,
+    "name": "mixed_clusters",
+    "baseline": 0.49930377947044036,
+    "old_auto": 0.49930377947044036,
+    "info": {
+      "model": "KMeans",
+      "strategy": "geometry",
+      "experimental": true,
+      "selection": "baseline geometry; covariance comparison not eligible",
+      "bic": {},
+      "cpu_threads": 1,
+      "seed": 314,
+      "training_rows": 660,
+      "input_features": 4,
+      "transformed_features": 7,
+      "requested_clusters": 3,
+      "observed_clusters": 3,
+      "empty_clusters_repaired": 0,
+      "model_seconds": 0.0470000000022992,
+      "time_budget_seconds": 50.0
+    }
+  }
+]

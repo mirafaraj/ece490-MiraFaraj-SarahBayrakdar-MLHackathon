@@ -1,0 +1,1192 @@
+{
+  "report": "experiments/router-comparison.json",
+  "report_sha256": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff",
+  "manifest": {
+    "stage": "development",
+    "predeclared": false,
+    "previously_unopened": false,
+    "inventory_origin": "Retrospective inventory; cannot establish original coverage or fresh confirmation.",
+    "report_sha256": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff",
+    "comparison_pool": [
+      "baseline",
+      "auto",
+      "routed"
+    ],
+    "expected_cases": [
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "seed": 42
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "seed": 42
+      },
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "seed": 42
+      },
+      {
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "seed": 42
+      },
+      {
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "seed": 42
+      },
+      {
+        "task": "regression",
+        "name": "missing_product_target",
+        "seed": 42
+      },
+      {
+        "task": "clustering",
+        "name": "unequal_density",
+        "seed": 42
+      },
+      {
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "seed": 42
+      },
+      {
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "seed": 42
+      },
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "seed": 8081
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "seed": 8081
+      },
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "seed": 8081
+      },
+      {
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "seed": 8081
+      },
+      {
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "seed": 8081
+      },
+      {
+        "task": "regression",
+        "name": "missing_product_target",
+        "seed": 8081
+      },
+      {
+        "task": "clustering",
+        "name": "unequal_density",
+        "seed": 8081
+      },
+      {
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "seed": 8081
+      },
+      {
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "seed": 8081
+      }
+    ]
+  },
+  "assessment": {
+    "assessment_mode": "scoring_uncertainty",
+    "schema_version": 2,
+    "candidate_strategy": "routed",
+    "baseline_strategy": "baseline",
+    "objective_policy": {
+      "status": "provisional",
+      "source": null,
+      "meaning": "No official points estimated; metric scenarios express uncertainty, not protected objectives.",
+      "metrics": {
+        "classification": {
+          "accuracy": true,
+          "balanced_accuracy": true,
+          "macro_f1": true
+        },
+        "regression": {
+          "rmse": false,
+          "mae": false
+        },
+        "clustering": {
+          "adjusted_rand_index": true,
+          "adjusted_mutual_info": true
+        }
+      }
+    },
+    "reliability": {
+      "decision": "passed",
+      "failures": [],
+      "gaps": []
+    },
+    "candidate_failures": [],
+    "evidence_gaps": [],
+    "cases": [
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "seed": 42,
+        "family": "missing_interactions",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.8555555555555555,
+            "candidate": 0.9,
+            "raw_improvement": 0.04444444444444451,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.6304898648648649,
+            "candidate": 0.816722972972973,
+            "raw_improvement": 0.18623310810810811,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 1.0,
+            "routed": 0.25
+          },
+          "balanced_accuracy": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "ced97c8527d071307449579bc8af157f18e8e63cbc79077063242223c16c33b8",
+        "partition": "development",
+        "baseline_seconds": 4.1514,
+        "candidate_seconds": 7.2291,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "classification",
+        "name": "missing_interactions",
+        "seed": 8081,
+        "family": "missing_interactions",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.8555555555555555,
+            "candidate": 0.8388888888888889,
+            "raw_improvement": -0.016666666666666607,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.6060606060606061,
+            "candidate": 0.8308596165739024,
+            "raw_improvement": 0.22479901051329632,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 0.0,
+            "routed": 0.75
+          },
+          "balanced_accuracy": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "1480d70867021deb889d8a3572654567bf83a4180393531cb2737e070d033698",
+        "partition": "confirmation",
+        "baseline_seconds": 4.7908,
+        "candidate_seconds": 7.2609,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "tradeoff"
+      },
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "seed": 42,
+        "family": "router_iris",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.9210526315789473,
+            "candidate": 0.9210526315789473,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.923076923076923,
+            "candidate": 0.923076923076923,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          },
+          "balanced_accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "87543ae803a1ef5642d36a106614b890cb8609fe35e858e66eee6e57f0f09939",
+        "partition": "development",
+        "baseline_seconds": 4.8647,
+        "candidate_seconds": 6.9128,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "classification",
+        "name": "router_iris",
+        "seed": 8081,
+        "family": "router_iris",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.9473684210526315,
+            "candidate": 0.9473684210526315,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.9465811965811964,
+            "candidate": 0.9465811965811964,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          },
+          "balanced_accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "c54da6a3fef5ec2bd5effaed69a2d500f4c7a5ac0054276514dd4644933b323a",
+        "partition": "confirmation",
+        "baseline_seconds": 4.7401,
+        "candidate_seconds": 7.0886,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "seed": 42,
+        "family": "sparse_linear_classes",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.7944444444444444,
+            "candidate": 0.8222222222222222,
+            "raw_improvement": 0.02777777777777779,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.7944444444444445,
+            "candidate": 0.8222222222222222,
+            "raw_improvement": 0.02777777777777768,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 1.0,
+            "routed": 0.25
+          },
+          "balanced_accuracy": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "a50ead4f71d92e23b48fa5a3d9deda9a6699d331958de8bdc47e8c4561d832ba",
+        "partition": "development",
+        "baseline_seconds": 4.7991,
+        "candidate_seconds": 7.3055,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "classification",
+        "name": "sparse_linear_classes",
+        "seed": 8081,
+        "family": "sparse_linear_classes",
+        "issues": [],
+        "metrics": {
+          "accuracy": {
+            "baseline": 0.7166666666666667,
+            "candidate": 0.7166666666666667,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          },
+          "balanced_accuracy": {
+            "baseline": 0.7166666666666667,
+            "candidate": 0.7166666666666667,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          },
+          "balanced_accuracy": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "118f0d50840f198e544e31d08fb5922f0bb2fa42a089b7db0477f3d35708af4b",
+        "partition": "confirmation",
+        "baseline_seconds": 5.0388,
+        "candidate_seconds": 7.5445,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "seed": 42,
+        "family": "correlated_cluster_axes",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 1.0,
+            "candidate": 1.0,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "181a2f756dd8c7126d4cff2c81b6b058fc1f330a0ef836f53d6c27a586ac08d5",
+        "partition": "development",
+        "baseline_seconds": 4.5925,
+        "candidate_seconds": 6.3994,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "clustering",
+        "name": "correlated_cluster_axes",
+        "seed": 8081,
+        "family": "correlated_cluster_axes",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 0.9954510862880035,
+            "candidate": 1.0,
+            "raw_improvement": 0.004548913711996505,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "4380a3b0e1768b2c57b54955d01860796ee17504086604d012aa638f85300496",
+        "partition": "confirmation",
+        "baseline_seconds": 4.4803,
+        "candidate_seconds": 6.6469,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "seed": 42,
+        "family": "missing_cluster_axes",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 0.395135891207367,
+            "candidate": 0.38840492809467453,
+            "raw_improvement": -0.006730963112692445,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 0.0,
+            "routed": 0.75
+          }
+        },
+        "data_sha256": "91279724886ffe662204a040dc547177be87412cf3ed61fca4e198f644acd4ba",
+        "partition": "development",
+        "baseline_seconds": 4.4451,
+        "candidate_seconds": 6.456,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "harmful"
+      },
+      {
+        "task": "clustering",
+        "name": "missing_cluster_axes",
+        "seed": 8081,
+        "family": "missing_cluster_axes",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 0.3838184229369683,
+            "candidate": 0.2961687699147079,
+            "raw_improvement": -0.08764965302226035,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 0.0,
+            "routed": 0.75
+          }
+        },
+        "data_sha256": "27e92b8a88f0cffb7937ba1d64a6d39231d3709ba0715ccde9b2e72844be09e1",
+        "partition": "confirmation",
+        "baseline_seconds": 4.5409,
+        "candidate_seconds": 6.6003,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "harmful"
+      },
+      {
+        "task": "clustering",
+        "name": "unequal_density",
+        "seed": 42,
+        "family": "unequal_density",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 0.977736263682734,
+            "candidate": 0.977736263682734,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "80dcc3dcdb969c660787df430ead4664b01fe01928cd4e1cb5d1d22df2fe9160",
+        "partition": "development",
+        "baseline_seconds": 4.4609,
+        "candidate_seconds": 6.8649,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "clustering",
+        "name": "unequal_density",
+        "seed": 8081,
+        "family": "unequal_density",
+        "issues": [],
+        "metrics": {
+          "adjusted_rand_index": {
+            "baseline": 0.9801427267500588,
+            "candidate": 0.9801427267500588,
+            "raw_improvement": 0.0,
+            "relative_improvement": null
+          }
+        },
+        "rank_regrets": {
+          "adjusted_rand_index": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "ac884ce48483804cecd5975ffb73919401f3f2ba9e297bbd170dd7afbc5ad6ab",
+        "partition": "confirmation",
+        "baseline_seconds": 4.4297,
+        "candidate_seconds": 6.4199,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "seed": 42,
+        "family": "heavy_tail_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 2.124641996154053,
+            "candidate": 1.9144164410163005,
+            "raw_improvement": 0.21022555513775254,
+            "relative_improvement": 0.09894634273364403
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "adb07f59f5024b9aefe5e3014a7150df44f03aaa00b4c3d2b2a0652189e3f35d",
+        "partition": "development",
+        "baseline_seconds": 4.5187,
+        "candidate_seconds": 7.0023,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "regression",
+        "name": "heavy_tail_target",
+        "seed": 8081,
+        "family": "heavy_tail_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 3.211651149551724,
+            "candidate": 3.0324303917295596,
+            "raw_improvement": 0.1792207578221645,
+            "relative_improvement": 0.05580330785526933
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "70abaa9c270f79193c0b061d518c64a0275b7f71cdebcc3412eb6a3ac4d232a7",
+        "partition": "confirmation",
+        "baseline_seconds": 4.5806,
+        "candidate_seconds": 7.4257,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "regression",
+        "name": "missing_product_target",
+        "seed": 42,
+        "family": "missing_product_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 2.0707181654283016,
+            "candidate": 2.0707181654283016,
+            "raw_improvement": 0.0,
+            "relative_improvement": 0.0
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "93fa4b549476f2e3ed2c3221087e527c2f839f2e1e56c066661b5df13ff52bb4",
+        "partition": "development",
+        "baseline_seconds": 4.6716,
+        "candidate_seconds": 6.4859,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "regression",
+        "name": "missing_product_target",
+        "seed": 8081,
+        "family": "missing_product_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 2.0367976172340176,
+            "candidate": 2.0367976172340176,
+            "raw_improvement": 0.0,
+            "relative_improvement": 0.0
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 0.5,
+            "routed": 0.5
+          }
+        },
+        "data_sha256": "ae7f9db6d3d0d0452edd594550543b22d262682aa95f0902683790c6dcbce285",
+        "partition": "confirmation",
+        "baseline_seconds": 4.9693,
+        "candidate_seconds": 6.6697,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "equivalent"
+      },
+      {
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "seed": 42,
+        "family": "sparse_linear_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 2.1940700639565276,
+            "candidate": 0.3322599241498483,
+            "raw_improvement": 1.8618101398066793,
+            "relative_improvement": 0.8485645788582111
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "0566bf30a8b7e71ac1abaf0b2e73977cc162219804fa4725f0ef547229481a25",
+        "partition": "development",
+        "baseline_seconds": 5.1687,
+        "candidate_seconds": 8.4348,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      },
+      {
+        "task": "regression",
+        "name": "sparse_linear_target",
+        "seed": 8081,
+        "family": "sparse_linear_target",
+        "issues": [],
+        "metrics": {
+          "rmse": {
+            "baseline": 1.527107408867769,
+            "candidate": 0.366113140587779,
+            "raw_improvement": 1.1609942682799899,
+            "relative_improvement": 0.7602571119347633
+          }
+        },
+        "rank_regrets": {
+          "rmse": {
+            "baseline": 1.0,
+            "routed": 0.25
+          }
+        },
+        "data_sha256": "f8100c3477202a46c146c15d3dbb15315abe63a2d12f06f4ee9ac4cc3cd14fa1",
+        "partition": "confirmation",
+        "baseline_seconds": 5.623,
+        "candidate_seconds": 9.5461,
+        "baseline_recovery": "none",
+        "candidate_recovery": "none",
+        "outcome": "improvement"
+      }
+    ],
+    "task_assessments": [
+      {
+        "task": "classification",
+        "outcome": "tradeoff",
+        "development_decision": "retain_alternative",
+        "cases": 6,
+        "family_count": 3,
+        "metrics": {
+          "accuracy": {
+            "family_weighted_improvement": 0.009259259259259281,
+            "interval95": [
+              0.0,
+              0.01388888888888895
+            ],
+            "family_count": 3,
+            "units": "absolute metric improvement",
+            "zero_reference_cases": 0,
+            "wins": 2,
+            "ties": 3,
+            "losses": 1,
+            "worst_cases": [
+              {
+                "name": "missing_interactions",
+                "seed": 8081,
+                "baseline": 0.8555555555555555,
+                "candidate": 0.8388888888888889,
+                "raw_improvement": -0.016666666666666607,
+                "relative_improvement": null
+              },
+              {
+                "name": "router_iris",
+                "seed": 42,
+                "baseline": 0.9210526315789473,
+                "candidate": 0.9210526315789473,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "router_iris",
+                "seed": 8081,
+                "baseline": 0.9473684210526315,
+                "candidate": 0.9473684210526315,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "sparse_linear_classes",
+                "seed": 8081,
+                "baseline": 0.7166666666666667,
+                "candidate": 0.7166666666666667,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "sparse_linear_classes",
+                "seed": 42,
+                "baseline": 0.7944444444444444,
+                "candidate": 0.8222222222222222,
+                "raw_improvement": 0.02777777777777779,
+                "relative_improvement": null
+              }
+            ],
+            "family_values": {
+              "missing_interactions": 0.01388888888888895,
+              "router_iris": 0.0,
+              "sparse_linear_classes": 0.013888888888888895
+            }
+          },
+          "balanced_accuracy": {
+            "family_weighted_improvement": 0.07313498273319702,
+            "interval95": [
+              0.0,
+              0.20551605931070221
+            ],
+            "family_count": 3,
+            "units": "absolute metric improvement",
+            "zero_reference_cases": 0,
+            "wins": 3,
+            "ties": 3,
+            "losses": 0,
+            "worst_cases": [
+              {
+                "name": "router_iris",
+                "seed": 42,
+                "baseline": 0.923076923076923,
+                "candidate": 0.923076923076923,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "router_iris",
+                "seed": 8081,
+                "baseline": 0.9465811965811964,
+                "candidate": 0.9465811965811964,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "sparse_linear_classes",
+                "seed": 8081,
+                "baseline": 0.7166666666666667,
+                "candidate": 0.7166666666666667,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "sparse_linear_classes",
+                "seed": 42,
+                "baseline": 0.7944444444444445,
+                "candidate": 0.8222222222222222,
+                "raw_improvement": 0.02777777777777768,
+                "relative_improvement": null
+              },
+              {
+                "name": "missing_interactions",
+                "seed": 42,
+                "baseline": 0.6304898648648649,
+                "candidate": 0.816722972972973,
+                "raw_improvement": 0.18623310810810811,
+                "relative_improvement": null
+              }
+            ],
+            "family_values": {
+              "missing_interactions": 0.20551605931070221,
+              "router_iris": 0.0,
+              "sparse_linear_classes": 0.01388888888888884
+            }
+          }
+        },
+        "missing_scenarios": [
+          "macro_f1"
+        ],
+        "failures": [],
+        "evidence_gaps": [],
+        "significant_regression_alerts": [],
+        "incumbent_comparison": "verified",
+        "robust_ranking": {
+          "method": "Worst metric-scenario mean fractional rank regret; equal family weights; not official points.",
+          "comparison_pool": [
+            "baseline",
+            "auto",
+            "routed"
+          ],
+          "pool_frozen_by_manifest": true,
+          "worst_regret": {
+            "baseline": 0.75,
+            "routed": 0.4583333333333333
+          },
+          "improvement": 0.2916666666666667,
+          "interval95": [
+            0.0,
+            0.5
+          ],
+          "bootstrap_unit": "family",
+          "bootstrap_iterations": 10000,
+          "limited_independence": "Repeated seeds/splits are averaged within families; mechanisms may still be related."
+        },
+        "mean_extra_wall_seconds": 2.49275,
+        "observed_cost_verdict": "no_dominance_established"
+      },
+      {
+        "task": "regression",
+        "outcome": "improvement",
+        "development_decision": "retain_alternative",
+        "cases": 6,
+        "family_count": 3,
+        "metrics": {
+          "rmse": {
+            "family_weighted_improvement": 0.2939285568969813,
+            "interval95": [
+              0.0,
+              0.8044108453964872
+            ],
+            "family_count": 3,
+            "units": "relative loss reduction",
+            "zero_reference_cases": 0,
+            "wins": 4,
+            "ties": 2,
+            "losses": 0,
+            "worst_cases": [
+              {
+                "name": "missing_product_target",
+                "seed": 42,
+                "baseline": 2.0707181654283016,
+                "candidate": 2.0707181654283016,
+                "raw_improvement": 0.0,
+                "relative_improvement": 0.0
+              },
+              {
+                "name": "missing_product_target",
+                "seed": 8081,
+                "baseline": 2.0367976172340176,
+                "candidate": 2.0367976172340176,
+                "raw_improvement": 0.0,
+                "relative_improvement": 0.0
+              },
+              {
+                "name": "heavy_tail_target",
+                "seed": 8081,
+                "baseline": 3.211651149551724,
+                "candidate": 3.0324303917295596,
+                "raw_improvement": 0.1792207578221645,
+                "relative_improvement": 0.05580330785526933
+              },
+              {
+                "name": "heavy_tail_target",
+                "seed": 42,
+                "baseline": 2.124641996154053,
+                "candidate": 1.9144164410163005,
+                "raw_improvement": 0.21022555513775254,
+                "relative_improvement": 0.09894634273364403
+              },
+              {
+                "name": "sparse_linear_target",
+                "seed": 8081,
+                "baseline": 1.527107408867769,
+                "candidate": 0.366113140587779,
+                "raw_improvement": 1.1609942682799899,
+                "relative_improvement": 0.7602571119347633
+              }
+            ],
+            "family_values": {
+              "heavy_tail_target": 0.07737482529445668,
+              "missing_product_target": 0.0,
+              "sparse_linear_target": 0.8044108453964872
+            }
+          }
+        },
+        "missing_scenarios": [
+          "mae"
+        ],
+        "failures": [],
+        "evidence_gaps": [],
+        "significant_regression_alerts": [],
+        "incumbent_comparison": "verified",
+        "robust_ranking": {
+          "method": "Worst metric-scenario mean fractional rank regret; equal family weights; not official points.",
+          "comparison_pool": [
+            "baseline",
+            "auto",
+            "routed"
+          ],
+          "pool_frozen_by_manifest": true,
+          "worst_regret": {
+            "baseline": 0.8333333333333334,
+            "routed": 0.3333333333333333
+          },
+          "improvement": 0.5,
+          "interval95": [
+            0.0,
+            0.75
+          ],
+          "bootstrap_unit": "family",
+          "bootstrap_iterations": 10000,
+          "limited_independence": "Repeated seeds/splits are averaged within families; mechanisms may still be related."
+        },
+        "mean_extra_wall_seconds": 2.6721,
+        "observed_cost_verdict": "no_dominance_established"
+      },
+      {
+        "task": "clustering",
+        "outcome": "tradeoff",
+        "development_decision": "retain_alternative",
+        "cases": 6,
+        "family_count": 3,
+        "metrics": {
+          "adjusted_rand_index": {
+            "family_weighted_improvement": -0.014971950403826048,
+            "interval95": [
+              -0.0471903080674764,
+              0.0022744568559982525
+            ],
+            "family_count": 3,
+            "units": "absolute metric improvement",
+            "zero_reference_cases": 0,
+            "wins": 1,
+            "ties": 3,
+            "losses": 2,
+            "worst_cases": [
+              {
+                "name": "missing_cluster_axes",
+                "seed": 8081,
+                "baseline": 0.3838184229369683,
+                "candidate": 0.2961687699147079,
+                "raw_improvement": -0.08764965302226035,
+                "relative_improvement": null
+              },
+              {
+                "name": "missing_cluster_axes",
+                "seed": 42,
+                "baseline": 0.395135891207367,
+                "candidate": 0.38840492809467453,
+                "raw_improvement": -0.006730963112692445,
+                "relative_improvement": null
+              },
+              {
+                "name": "correlated_cluster_axes",
+                "seed": 42,
+                "baseline": 1.0,
+                "candidate": 1.0,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "unequal_density",
+                "seed": 42,
+                "baseline": 0.977736263682734,
+                "candidate": 0.977736263682734,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              },
+              {
+                "name": "unequal_density",
+                "seed": 8081,
+                "baseline": 0.9801427267500588,
+                "candidate": 0.9801427267500588,
+                "raw_improvement": 0.0,
+                "relative_improvement": null
+              }
+            ],
+            "family_values": {
+              "correlated_cluster_axes": 0.0022744568559982525,
+              "missing_cluster_axes": -0.0471903080674764,
+              "unequal_density": 0.0
+            }
+          }
+        },
+        "missing_scenarios": [
+          "adjusted_mutual_info"
+        ],
+        "failures": [],
+        "evidence_gaps": [],
+        "significant_regression_alerts": [],
+        "incumbent_comparison": "verified",
+        "robust_ranking": {
+          "method": "Worst metric-scenario mean fractional rank regret; equal family weights; not official points.",
+          "comparison_pool": [
+            "baseline",
+            "auto",
+            "routed"
+          ],
+          "pool_frozen_by_manifest": true,
+          "worst_regret": {
+            "baseline": 0.4166666666666667,
+            "routed": 0.5416666666666666
+          },
+          "improvement": -0.12499999999999994,
+          "interval95": [
+            -0.75,
+            0.375
+          ],
+          "bootstrap_unit": "family",
+          "bootstrap_iterations": 10000,
+          "limited_independence": "Repeated seeds/splits are averaged within families; mechanisms may still be related."
+        },
+        "mean_extra_wall_seconds": 2.073,
+        "observed_cost_verdict": "no_dominance_established"
+      }
+    ],
+    "significant_regressions": [],
+    "ranked_advice": [
+      {
+        "priority": 1,
+        "task": "classification",
+        "action": "Separate class-weight policy from estimator selection; score the same fitted candidates under all scenarios and inspect class recall.",
+        "evidence": [
+          {
+            "name": "missing_interactions",
+            "seed": 8081,
+            "metric": "accuracy",
+            "baseline": 0.8555555555555555,
+            "candidate": 0.8388888888888889,
+            "raw_improvement": -0.016666666666666607,
+            "relative_improvement": null
+          }
+        ],
+        "severe_alert_count": 0,
+        "experiment": "Change one factor; pair frozen candidates on identical inputs; reserve unopened families for confirmation.",
+        "acceptance": "Improve official score when available, otherwise improve robust scenario ranking with family-level uncertainty; no metric-specific zero-loss veto."
+      },
+      {
+        "priority": 1,
+        "task": "clustering",
+        "action": "Reproduce losing missing-axis cases; ablate indicators and covariance eligibility separately, retaining complete-data controls.",
+        "evidence": [
+          {
+            "name": "missing_cluster_axes",
+            "seed": 42,
+            "metric": "adjusted_rand_index",
+            "baseline": 0.395135891207367,
+            "candidate": 0.38840492809467453,
+            "raw_improvement": -0.006730963112692445,
+            "relative_improvement": null
+          },
+          {
+            "name": "missing_cluster_axes",
+            "seed": 8081,
+            "metric": "adjusted_rand_index",
+            "baseline": 0.3838184229369683,
+            "candidate": 0.2961687699147079,
+            "raw_improvement": -0.08764965302226035,
+            "relative_improvement": null
+          }
+        ],
+        "severe_alert_count": 0,
+        "experiment": "Change one factor; pair frozen candidates on identical inputs; reserve unopened families for confirmation.",
+        "acceptance": "Improve official score when available, otherwise improve robust scenario ranking with family-level uncertainty; no metric-specific zero-loss veto."
+      },
+      {
+        "priority": 2,
+        "task": "classification",
+        "action": "Measure checkpoint-first overhead and recovery quality at 10/25/50-second budgets before changing safeguards.",
+        "mean_extra_wall_seconds": 2.49275
+      },
+      {
+        "priority": 2,
+        "task": "regression",
+        "action": "Preserve linear-family gains; examine missing/product and heavy-tail failures with equal-budget repeated training-only holdouts.",
+        "evidence": [],
+        "severe_alert_count": 0,
+        "experiment": "Change one factor; pair frozen candidates on identical inputs; reserve unopened families for confirmation.",
+        "acceptance": "Improve official score when available, otherwise improve robust scenario ranking with family-level uncertainty; no metric-specific zero-loss veto."
+      },
+      {
+        "priority": 2,
+        "task": "regression",
+        "action": "Measure checkpoint-first overhead and recovery quality at 10/25/50-second budgets before changing safeguards.",
+        "mean_extra_wall_seconds": 2.6721
+      },
+      {
+        "priority": 2,
+        "task": "clustering",
+        "action": "Measure checkpoint-first overhead and recovery quality at 10/25/50-second budgets before changing safeguards.",
+        "mean_extra_wall_seconds": 2.073
+      }
+    ],
+    "promotion": {
+      "decision": "insufficient_evidence",
+      "task_decisions": {
+        "classification": "retain_alternative",
+        "regression": "retain_alternative",
+        "clustering": "retain_alternative"
+      },
+      "required": [
+        "Declared official scoring/normalization",
+        "Verified incumbent and immutable baseline comparison",
+        "Fresh frozen confirmation",
+        "Official contract/profile/environment/resource checks"
+      ],
+      "hidden_set_guarantee": false
+    },
+    "limitations": [
+      "Historical predictions, macro F1, MAE, AMI and class recalls cannot be reconstructed unless supplied.",
+      "No expected total score can be calculated without official formulas or defensible dataset-distribution weights.",
+      "Rank regret ignores effect magnitude; worst-case deltas and severe-regression review remain essential.",
+      "Missing scenarios and fewer than eight family groups preclude promotion; historical confirmation labels do not prove freshness.",
+      "No case manifest means entirely omitted families cannot be detected."
+    ],
+    "measured_accuracy_gate": {
+      "decision": "rejected",
+      "scope": "Observed paired cases only; any single measured ordinary-accuracy loss rejects, even if the mean improves.",
+      "classification_cases": 6,
+      "measured_classification_cases": 6,
+      "mean_accuracy_change": 0.009259259259259281,
+      "worst_accuracy_change": -0.016666666666666607,
+      "mean_balanced_accuracy_change": 0.07313498273319702
+    },
+    "strict_accuracy_diagnostic": {
+      "measured_gate": {
+        "decision": "rejected",
+        "scope": "Observed paired cases only; any single measured ordinary-accuracy loss rejects, even if the mean improves.",
+        "classification_cases": 6,
+        "measured_classification_cases": 6,
+        "mean_accuracy_change": 0.009259259259259281,
+        "worst_accuracy_change": -0.016666666666666607,
+        "mean_balanced_accuracy_change": 0.07313498273319702
+      },
+      "affects_promotion": false,
+      "meaning": "Optional historical no-drop diagnostic; never an optimization objective."
+    },
+    "legacy_diagnostics": {
+      "classification_objective": null,
+      "secondary_loss_budgets": null,
+      "affects_promotion": false
+    }
+  }
+}
