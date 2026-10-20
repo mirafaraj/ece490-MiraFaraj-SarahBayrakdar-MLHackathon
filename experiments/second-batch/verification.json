@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "documents": [
+    {
+      "path": "experiments\\second-batch\\classification.json",
+      "sha256": "69d84ce18add6c369bcc2d883c4b477b11df7e73d11a7703372ba6f57fadcab5",
+      "checks": {
+        "arithmetic_checks": 6096,
+        "training_only_selections_reconstructed": 264,
+        "case_input_and_split_records": 44,
+        "classification_prediction_records": 402
+      }
+    },
+    {
+      "path": "experiments\\second-batch\\clustering.json",
+      "sha256": "355b2bdca81740efa2d2a135643c163f1cf714990d30c85ada21dbe83fb78135",
+      "checks": {
+        "arithmetic_checks": 192,
+        "clustering_prediction_records": 192
+      }
+    },
+    {
+      "path": "experiments\\second-batch\\runtime-study.json",
+      "sha256": "552e3f3a7408691deb9f3f787876e3511a283c318c17d2c99189545b79abb52d",
+      "checks": {
+        "arithmetic_checks": 160,
+        "runtime_prediction_records": 40
+      }
+    },
+    {
+      "path": "experiments\\second-batch\\runtime-supplement.json",
+      "sha256": "1c1418c0bc6403e32a1cef7760a9585157d8971e956e140e54d987e31e34be55",
+      "checks": {
+        "arithmetic_checks": 80,
+        "runtime_prediction_records": 20
+      }
+    }
+  ]
+}

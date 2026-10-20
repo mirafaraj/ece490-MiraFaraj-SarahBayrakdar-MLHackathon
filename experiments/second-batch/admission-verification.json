@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "documents": [
+    {
+      "path": "experiments\\second-batch\\runtime-admission-study.json",
+      "sha256": "47f5ea98d59ddc72a16259ec46457ddf91fc4a42191fe5e1e483bfd8209a7988",
+      "checks": {
+        "arithmetic_checks": 64,
+        "runtime_prediction_records": 16
+      }
+    }
+  ]
+}

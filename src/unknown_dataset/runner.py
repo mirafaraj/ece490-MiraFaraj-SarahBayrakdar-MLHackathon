@@ -24,7 +24,7 @@ def _clear_artifacts(directory):
 
 
 def _model_worker(dataset, budget, seed, result_path, strategy, route_config=None, checkpoint_path=None,
-                  instrument_runtime=False):
+                  instrument_runtime=False, execution_deadline=None):
     worker_started = time.monotonic()
     try:
         from .models import fit_predict
@@ -36,6 +36,8 @@ def _model_worker(dataset, budget, seed, result_path, strategy, route_config=Non
             extra = {"route_config": route_config,
                      "checkpoint_callback": lambda predictions, info: write_checkpoint(
                          checkpoint_path, dataset, predictions, info)}
+            if execution_deadline is not None:
+                extra["execution_deadline"] = execution_deadline
         fit_started = time.monotonic()
         predictions, info = fit_predict(
             task=dataset.task,
@@ -87,26 +89,42 @@ def main(argv=None):
     parser.add_argument("--strategy", choices=("baseline", "auto", "routed"), default="baseline")
     parser.add_argument("--router-config", type=Path)
     parser.add_argument("--timings", action="store_true", help="Opt in to diagnostic phase timings")
+    parser.add_argument("--lazy-router-imports", action="store_true",
+                        help="Experimental: load routed configuration without parent modeling imports")
     args = parser.parse_args(argv)
     if not 0 < args.time_budget <= 3600:
         parser.error("--time-budget must be positive and at most 3600 seconds")
     if args.router_config is not None and args.strategy != "routed":
         parser.error("--router-config requires --strategy routed")
+    if args.lazy_router_imports and args.strategy != "routed":
+        parser.error("--lazy-router-imports requires --strategy routed")
 
     process = None
     phases = {}
     try:
         _clear_artifacts(args.output)
+        stage_started = time.monotonic()
         from .contract import load_dataset, write_outputs
         from .profiling import build_profile
         from .checkpoints import validate_predictions
+        if args.timings:
+            phases["parent_data_imports"] = time.monotonic() - stage_started
 
         route_config = None
         if args.strategy == "routed":
-            from .routing import load_router_config
+            stage_started = time.monotonic()
+            if args.lazy_router_imports:
+                from .lightweight_config import load_router_config
+            else:
+                from .routing import load_router_config
 
+            if args.timings:
+                phases["parent_router_imports"] = time.monotonic() - stage_started
+
+            stage_started = time.monotonic()
             route_config = load_router_config(args.router_config)
             if args.timings:
+                phases["parent_router_configuration"] = time.monotonic() - stage_started
                 route_config["experimental"]["runtime_instrumentation"] = True
 
         stage_started = time.monotonic()
@@ -127,6 +145,10 @@ def main(argv=None):
             worker_args = (dataset, remaining, args.seed, result_path, args.strategy)
             if args.strategy == "routed" or args.timings:
                 worker_args += (route_config, checkpoint_path, args.timings)
+            if args.strategy == "routed" and route_config["experimental"].get("refit_admission", False):
+                # Same monotonic deadline used by parent enforcement. Includes
+                # spawn, unpickling and imports, unlike model-local elapsed time.
+                worker_args += (started + args.time_budget - reserve,)
             process = mp.get_context("spawn").Process(
                 target=_model_worker,
                 args=worker_args,

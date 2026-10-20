@@ -104,7 +104,8 @@ def _fit(name, task, frame, labels, feature_types, seed, final=False, final_tree
 
 def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_types=None,
                            n_clusters=None, time_budget=50, seed=42, route_plan=None,
-                           completed_baseline=None, classification_controls=None):
+                           completed_baseline=None, classification_controls=None,
+                           execution_deadline=None):
     """Choose using train-only holdout, then refit once on all supplied labels.
 
     The caller must enforce a process deadline. Checks between candidate fits
@@ -121,11 +122,14 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
     if classification_controls is not None:
         if task != "classification" or route_plan is None:
             raise ValueError("Classification controls require a classification route plan")
+        if route_plan.experimental.get("refit_admission", False):
+            raise ValueError("refit_admission supports the original selector only")
         return _fit_predict_classification_experiment(X_train, y_train, X_test, feature_types,
             time_budget, seed, route_plan, classification_controls, completed_baseline)
     if route_plan is not None:
         return _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types,
-                                             time_budget, seed, route_plan, completed_baseline)
+                                             time_budget, seed, route_plan, completed_baseline,
+                                             execution_deadline)
     started = time.monotonic()
     if task not in {"classification", "regression"}:
         raise ValueError("Supervised selection requires classification or regression")
@@ -373,7 +377,8 @@ def fit_baseline_supervised(task, X_train, y_train=None, X_test=None, feature_ty
 
 
 def _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types,
-                                   time_budget, seed, route_plan, completed_baseline=None):
+                                   time_budget, seed, route_plan, completed_baseline=None,
+                                   execution_deadline=None):
     _validate_supervised(task, X_train, y_train, X_test, time_budget)
     if route_plan.task != task:
         raise ValueError("Route plan task does not match supplied task")
@@ -447,6 +452,18 @@ def _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types
             timings[name] = time.monotonic() - candidate_started
     selection_seconds = time.monotonic() - started
     selected = select_candidate(scores, route_plan.metric, route_plan.near_tie_tolerance)
+    admission = None
+    if task == "classification" and route_plan.experimental.get("refit_admission", False):
+        if completed_baseline is None:
+            admission = {"skipped": "no completed baseline available"}
+        else:
+            deadline = started + time_budget if execution_deadline is None else execution_deadline
+            if isinstance(deadline, bool) or not np.isfinite(deadline):
+                raise ValueError("Execution deadline must be finite")
+            selected, admission = admit_refit_candidate(scores, route_plan.metric, timings,
+                deadline - time.monotonic() - route_plan.reserve_seconds,
+                route_plan.near_tie_tolerance)
+            admission["deadline_source"] = "local_budget" if execution_deadline is None else "parent_absolute"
     refit_fallback = None
     try:
         if selected == "extra_trees" and completed_baseline is not None:
@@ -469,11 +486,39 @@ def _fit_predict_routed_supervised(task, X_train, y_train, X_test, feature_types
                 model_seconds=time.monotonic() - started,
                 selection_direction="maximize" if task == "classification" else "minimize",
                 near_tie_tolerance=route_plan.near_tie_tolerance)
+    if admission is not None:
+        info["refit_admission"] = admission
     if route_plan.experimental.get("runtime_instrumentation", False):
         info["phase_seconds"] = {"selection": selection_seconds,
             "refit": info.get("fit_seconds", 0.0),
             "prediction": info.get("prediction_seconds", 0.0)}
     return prediction, info
+
+
+def admit_refit_candidate(scores, metric, timings, headroom, tolerance=0.0):
+    """Training-only refit eligibility, with an already completed tree baseline.
+
+    The fixed 1.5 multiplier was declared from first-batch fit-cost ratios, not
+    optimized against reference labels. It is a heuristic, not an execution
+    guarantee; the parent still enforces the hard deadline and owns recovery.
+    """
+    available = max(0.0, float(headroom))
+    estimates, rejected, eligible = {}, {}, {}
+    for name, score in scores.items():
+        elapsed = timings.get(name)
+        estimate = (0.0 if name == "extra_trees" else
+                    1.5 * float(elapsed) if elapsed is not None and np.isfinite(elapsed) and elapsed >= 0
+                    else None)
+        estimates[name] = estimate
+        if estimate is not None and estimate <= available:
+            eligible[name] = score
+        else:
+            rejected[name] = "estimated refit exceeds headroom" if estimate is not None else "missing finite fit cost"
+    selected = select_candidate(eligible, metric, tolerance)
+    return selected, {"multiplier": 1.5, "headroom_seconds": available,
+        "estimated_refit_seconds": estimates, "eligible_candidates": list(eligible),
+        "rejected_candidates": rejected,
+        "selected_before": select_candidate(scores, metric, tolerance), "selected_after": selected}
 
 
 def _fit_predict_classification_experiment(X_train, y_train, X_test, feature_types,

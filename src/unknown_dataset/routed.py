@@ -7,7 +7,7 @@ import time
 
 def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=None,
                        n_clusters=None, time_budget=50.0, seed=42, route_config=None,
-                       checkpoint_callback=None):
+                       checkpoint_callback=None, execution_deadline=None):
     """Build a training-only plan, checkpoint its baseline, then try eligible work.
 
     The outer worker owns the hard deadline. A checkpoint contains complete ordered
@@ -72,7 +72,9 @@ def fit_predict_routed(task, X_train, y_train=None, X_test=None, feature_types=N
 
             replacement, info = fit_predict_supervised(**common, time_budget=remaining,
                                                        route_plan=plan,
-                                                       completed_baseline=(predictions, baseline_info))
+                                                       completed_baseline=(predictions, baseline_info),
+                                                       **({"execution_deadline": execution_deadline}
+                                                          if execution_deadline is not None else {}))
         info = dict(info)
         phase_seconds["optional_total"] = time.monotonic() - phase_started
         if instrument:

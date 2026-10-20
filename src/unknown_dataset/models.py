@@ -17,7 +17,7 @@ from .preprocessing import TableCleaner, build_preprocessor
 
 def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
                 n_clusters=None, time_budget=50.0, seed=42, strategy="baseline",
-                route_config=None, checkpoint_callback=None):
+                route_config=None, checkpoint_callback=None, execution_deadline=None):
     """Fit on training features and return ordered predictions plus run metadata.
 
     The caller owns the hard process deadline. The budget here bounds estimator
@@ -31,7 +31,9 @@ def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
         return fit_predict_routed(task=task, X_train=X_train, y_train=y_train, X_test=X_test,
                                   feature_types=feature_types, n_clusters=n_clusters,
                                   time_budget=time_budget, seed=seed, route_config=route_config,
-                                  checkpoint_callback=checkpoint_callback)
+                                  checkpoint_callback=checkpoint_callback,
+                                  **({"execution_deadline": execution_deadline}
+                                     if execution_deadline is not None else {}))
     if strategy == "auto":
         if task == "clustering":
             from .clustering import fit_predict_clustering as candidate

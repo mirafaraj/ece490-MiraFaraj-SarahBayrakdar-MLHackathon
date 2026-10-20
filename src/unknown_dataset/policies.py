@@ -13,7 +13,7 @@ DEFAULT_CONFIG = {
                      "classification_weighting": "objective", "classification_holdouts": 1,
                      "classification_objective": "route", "clustering_missing_indicators": True,
                      "clustering_covariance": "full", "clustering_kmeans_only": False,
-                     "runtime_instrumentation": False},
+                     "runtime_instrumentation": False, "refit_admission": False},
     "limits": {
         "min_selection_seconds": 12.0, "reserve_seconds": 5.0,
         "selection_fraction": 0.25, "selection_budget_fraction": 0.4,
@@ -63,7 +63,7 @@ def validate_config(config=None):
     if isinstance(tolerance, bool) or not isinstance(tolerance, (float, int)) or not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("Near-tie tolerance must be finite and nonnegative")
     experimental = result["experimental"]
-    for key in ("clustering_missing_indicators", "clustering_kmeans_only", "runtime_instrumentation"):
+    for key in ("clustering_missing_indicators", "clustering_kmeans_only", "runtime_instrumentation", "refit_admission"):
         if not isinstance(experimental[key], bool):
             raise ValueError(f"{key} must be boolean")
     choices = {
@@ -76,6 +76,11 @@ def validate_config(config=None):
             raise ValueError(f"Unsupported experimental {key}")
     if type(experimental["classification_holdouts"]) is not int or experimental["classification_holdouts"] not in (1, 2):
         raise ValueError("classification_holdouts must be one or two")
+    if experimental["refit_admission"] and (experimental["classification_weighting"] != "objective"
+            or experimental["classification_holdouts"] != 1
+            or experimental["classification_objective"] != "route"
+            or experimental["categorical_enabled"]):
+        raise ValueError("refit_admission supports the original three-family selector only")
     if not isinstance(experimental["categorical_enabled"], bool):
         raise ValueError("categorical_enabled must be boolean")
     for key in ("categorical_max_features", "categorical_max_cardinality"):

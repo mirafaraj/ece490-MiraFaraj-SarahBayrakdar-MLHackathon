@@ -87,6 +87,9 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
         selected = type(model).__name__
         selection = "baseline geometry; covariance comparison not eligible"
         bics = {}
+        # Observational diagnostics use training features only and do not change
+        # starts, BIC comparisons, selected models or fitting-time admission.
+        gmm_diagnostics = []
         # Bound dense conversion, covariance dimension, EM iterations, and fit rows.
         eligible = (not cleaner.categorical_columns_ and
                     1 <= len(cleaner.numeric_columns_) <= 16 and
@@ -116,6 +119,15 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                 try:
                     candidate.fit(sample)
                     score = float(candidate.bic(sample))
+                    if instrument:
+                        gmm_diagnostics.append({
+                            "covariance": covariance,
+                            "initialization": "baseline_centroids" if means is not None else "generic",
+                            "restarts": restarts, "converged": bool(candidate.converged_),
+                            "iterations": int(candidate.n_iter_), "bic": score,
+                            "lower_bound": float(candidate.lower_bound_),
+                            "weights": candidate.weights_.tolist(),
+                        })
                     if (candidate.converged_ and np.isfinite(score) and
                             score < bics.get(covariance, float("inf"))):
                         bics[covariance] = score
@@ -150,5 +162,6 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                 "clustering_kmeans_only": kmeans_only}}
            if not indicators or covariance_kind != "full" or kmeans_only else {}),
         **({"phase_timings": timings} if instrument else {}),
+        **({"gmm_diagnostics": gmm_diagnostics} if instrument else {}),
         **({"routing": route_plan.to_dict()} if route_plan is not None else {}),
     }

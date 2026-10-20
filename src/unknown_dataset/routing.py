@@ -2,9 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
-import json
 import math
-from pathlib import Path
 
 import numpy as np
 
@@ -61,13 +59,9 @@ def load_router_config(path=None):
 
     An explicit path must exist. Partial configurations merge into versioned defaults.
     """
-    if path is None:
-        repository_default = Path(__file__).resolve().parents[2] / "configs" / "router.json"
-        if not repository_default.is_file():
-            return validate_config()
-        path = repository_default
-    with Path(path).open(encoding="utf-8") as handle:
-        return validate_config(json.load(handle))
+    from .lightweight_config import load_router_config as load_lightweight
+
+    return load_lightweight(path)
 
 
 def summarize_training(task, X_train, y_train=None, feature_types=None):
