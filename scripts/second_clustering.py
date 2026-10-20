@@ -33,10 +33,34 @@ POLICIES = {
                               "clustering_kmeans_only": True},
 }
 FRESH_SEEDS = (7201, 7211)
+HISTORICAL_INPUTS = ROOT / "experiments/fixtures/historical-clustering-inputs-v1.npz"
+HISTORICAL_INPUTS_SHA256 = "54cdc3d72271e2b452656ff0b0702883b1024f28ac8c8a4193b3c6ffa8fd3c8f"
 
 
 def digest_frame(frame):
     return hashlib.sha256(pd.util.hash_pandas_object(frame, index=True).to_numpy().tobytes()).hexdigest()
+
+
+def load_historical_case(case):
+    """Replay exact evidence inputs, independent of BLAS/libm generation drift.
+
+    The lossless, little-endian arrays retain the original pandas fingerprints.
+    Fresh generation remains separate; never round inputs or rewrite old hashes.
+    """
+    if hashlib.sha256(HISTORICAL_INPUTS.read_bytes()).hexdigest() != HISTORICAL_INPUTS_SHA256:
+        raise ValueError("Historical input fixture checksum mismatch")
+    identity = json.dumps([case[key] for key in ("family", "seed", "mechanism", "fraction")],
+                          separators=(",", ":"))
+    with np.load(HISTORICAL_INPUTS, allow_pickle=False) as saved:
+        metadata = json.loads(str(saved["metadata"]))
+        record = metadata["cases"][identity]
+        prefix = record["prefix"]
+        frame = pd.DataFrame(saved[prefix + "_data"].copy(),
+                             columns=saved[prefix + "_columns"].tolist())
+        reference = saved[prefix + "_reference"].copy()
+    if digest_frame(frame) != record["input_sha256"]:
+        raise ValueError("Historical frame fingerprint mismatch")
+    return frame, reference, record["clusters"]
 
 
 def historical_losses(report):
@@ -109,14 +133,14 @@ def run(output):
     losses = historical_losses(historical)
     if len(losses) != 8:
         raise AssertionError(f"Expected eight historical losses, got {len(losses)}")
-    sources = [Path(__file__), ROOT / "scripts/batch_clustering.py",
+    sources = [Path(__file__), ROOT / "scripts/batch_clustering.py", HISTORICAL_INPUTS,
                ROOT / "src/unknown_dataset/clustering.py", ROOT / "src/unknown_dataset/preprocessing.py"]
     source_sha256 = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
     rows, reproduction = [], []
     started = time.monotonic()
     for previous, baseline in losses:
         case = {key: previous[key] for key in ("family", "mechanism", "fraction", "seed")}
-        frame, reference, k = generate(**case)
+        frame, reference, k = load_historical_case(case)
         if digest_frame(frame) != previous["input_sha256"]:
             raise AssertionError(f"Historical input hash changed: {case}")
         for repeat in range(2):

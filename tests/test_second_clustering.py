@@ -5,6 +5,7 @@ import sys
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from unknown_dataset.clustering import fit_predict_clustering
 
@@ -73,9 +74,32 @@ def test_historical_loss_count_and_input_fingerprints():
     losses = harness.historical_losses(report)
     assert len(losses) == 8
     for row, baseline in losses:
-        frame, _, _ = harness.generate(**{key: row[key] for key in
-            ("family", "seed", "mechanism", "fraction")})
+        case = {key: row[key] for key in ("family", "seed", "mechanism", "fraction")}
+        frame, reference, k = harness.load_historical_case(case)
         assert harness.digest_frame(frame) == row["input_sha256"] == baseline["input_sha256"]
+        regenerated, generated_reference, generated_k = harness.generate(**case)
+        assert list(frame.columns) == list(regenerated.columns)
+        assert frame.index.equals(regenerated.index)
+        assert frame.dtypes.equals(regenerated.dtypes)
+        np.testing.assert_array_equal(frame.isna(), regenerated.isna())
+        # multivariate_normal uses platform/CPU-dependent LAPACK and BLAS.
+        # Keep historical bytes exact; separately constrain regeneration drift.
+        np.testing.assert_allclose(frame.to_numpy(), regenerated.to_numpy(),
+                                   rtol=1e-14, atol=1e-14, equal_nan=True)
+        np.testing.assert_array_equal(reference, generated_reference)
+        assert k == generated_k
+
+
+def test_historical_fixture_corruption_is_rejected(tmp_path, monkeypatch):
+    harness = _harness()
+    damaged = tmp_path / "damaged.npz"
+    payload = bytearray(harness.HISTORICAL_INPUTS.read_bytes())
+    payload[len(payload) // 2] ^= 1
+    damaged.write_bytes(payload)
+    monkeypatch.setattr(harness, "HISTORICAL_INPUTS", damaged)
+    with pytest.raises(ValueError, match="fixture checksum mismatch"):
+        harness.load_historical_case(dict(family="correlated", seed=6101,
+                                          mechanism="feature", fraction=.3))
 
 
 def test_gmm_seed_override_holds_sample_and_kmeans_centers_fixed(monkeypatch):

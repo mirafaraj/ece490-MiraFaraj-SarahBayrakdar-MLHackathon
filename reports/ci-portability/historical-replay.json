@@ -1,0 +1,198 @@
+{
+  "scope": "Correctness replay of existing historical cases only; no new model alternatives",
+  "checks": [
+    {
+      "case": {
+        "family": "spherical",
+        "seed": 6101,
+        "mechanism": "random",
+        "fraction": 0.1
+      },
+      "policy": "current",
+      "prediction_sha256": "8b3df6a80a7ee7f615766f018c008722f503bcb88665ec50542d853d704e8264",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "spherical",
+        "seed": 6101,
+        "mechanism": "random",
+        "fraction": 0.1
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "f54d4e826a5939ffd436dc5398db910a6d955b4ea0a0394e9e766909717bb6d0",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6101,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "b6e283b9215e44f37cfb3d343115b295469c62832d17f8224f8eb19125482f94",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6101,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "d7908460924a556391679ac5ce474736eefdaf8de1aff7e44d33989b25e6d017",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6103,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "8ec70751425760d3f1004738b6b016c0f07a55ec6027dc95a296dbef683907bd",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6103,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "e44750fb18cfec748d3d8ed6a92c13f05358ba1db2a18d7146f855b5476e16cf",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6107,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "87d7a42e4da1b23b14d7b95d79fe4de4822b80b162de3d0695ce09c53b419de0",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "correlated",
+        "seed": 6107,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "bba1c1368ae0783940f19caa6767bfdc6275aa7960b2379f009bf0694083183e",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6101,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "fbd1fe6d92a71a05c6ec436798eeaec4fe626bc63c5d0e33722599d28a1f01a8",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6101,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "e9e1a33c159657480a541e097a4585050c70a0ce3711340c9e01ffc773cef39b",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6103,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "300c2e54dd00f3dbd32abb7cbc44f11b2064d404780b8ba6f743244156b024e1",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6103,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "fc50e98286deaca8b7dad2392b30dfa263111833c5ffceffda1789d0c92d26f9",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6107,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "current",
+      "prediction_sha256": "1fcbb2560de3d6d710201374d5e830f3db7de1ff5f63a0fbc1f961675e3f7e85",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "curved",
+        "seed": 6107,
+        "mechanism": "feature",
+        "fraction": 0.3
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "b0132669b361498dd4a6a8bb9693ab873d1768b2a13918779b31fd310c3e40c1",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "missing_axis",
+        "seed": 6101,
+        "mechanism": "none",
+        "fraction": 0.0
+      },
+      "policy": "current",
+      "prediction_sha256": "a12412058367c09b28277a3a69a87e2698b58745aa3ca33c416c170e7f92eb2a",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    },
+    {
+      "case": {
+        "family": "missing_axis",
+        "seed": 6101,
+        "mechanism": "none",
+        "fraction": 0.0
+      },
+      "policy": "no_indicators",
+      "prediction_sha256": "61bc6d9f1e16ac56b0e71ba2da63af036a7cfd504c66c0fa7a47249349ea8bae",
+      "model": "GaussianMixtureFull",
+      "selection_unchanged": true
+    }
+  ],
+  "all_predictions_and_selections_unchanged": true
+}
