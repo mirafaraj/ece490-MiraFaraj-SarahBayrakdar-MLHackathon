@@ -1,0 +1,17 @@
+{
+  "benchmark_runs": 147,
+  "real_runs": 108,
+  "real_valid": 108,
+  "stress_runs": 39,
+  "stress_valid": 37,
+  "emergency_outputs": 7,
+  "over_45_seconds": 9,
+  "over_60_seconds": 0,
+  "maximum_seconds_by_strategy": {
+    "baseline": 50.899151799996616,
+    "auto": 47.56156850000116,
+    "routed": 54.011448199998995
+  },
+  "all_preexisting_files_preserved": true,
+  "head_unchanged": "a49253cbab7579ad407ca0c02d012998b55b918d"
+}

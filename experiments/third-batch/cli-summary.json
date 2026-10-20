@@ -1,0 +1,141 @@
+{
+  "calls": 18,
+  "valid": 18,
+  "implementation_failures": 0,
+  "maximum_seconds": 12.485000000000582,
+  "summary": [
+    {
+      "budget": 25,
+      "policy": "baseline",
+      "median_seconds": 5.765999999999622,
+      "metrics": {
+        "accuracy": 0.9466666666666667,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_f1": 0.3242009132420091
+      },
+      "class_recall": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "ExtraTreesClassifier",
+        "ExtraTreesClassifier",
+        "ExtraTreesClassifier"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    },
+    {
+      "budget": 25,
+      "policy": "current",
+      "median_seconds": 8.9220000000023,
+      "metrics": {
+        "accuracy": 0.9333333333333333,
+        "balanced_accuracy": 0.3286384976525822,
+        "macro_f1": 0.3218390804597701
+      },
+      "class_recall": [
+        0.9859154929577465,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "linear",
+        "linear",
+        "linear"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    },
+    {
+      "budget": 25,
+      "policy": "challenger",
+      "median_seconds": 11.53099999999904,
+      "metrics": {
+        "accuracy": 0.9466666666666667,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_f1": 0.3242009132420091
+      },
+      "class_recall": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "histogram",
+        "histogram",
+        "histogram"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    },
+    {
+      "budget": 50,
+      "policy": "baseline",
+      "median_seconds": 6.672000000002299,
+      "metrics": {
+        "accuracy": 0.9466666666666667,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_f1": 0.3242009132420091
+      },
+      "class_recall": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "ExtraTreesClassifier",
+        "ExtraTreesClassifier",
+        "ExtraTreesClassifier"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    },
+    {
+      "budget": 50,
+      "policy": "current",
+      "median_seconds": 9.235000000000582,
+      "metrics": {
+        "accuracy": 0.9333333333333333,
+        "balanced_accuracy": 0.3286384976525822,
+        "macro_f1": 0.3218390804597701
+      },
+      "class_recall": [
+        0.9859154929577465,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "linear",
+        "linear",
+        "linear"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    },
+    {
+      "budget": 50,
+      "policy": "challenger",
+      "median_seconds": 11.579000000001543,
+      "metrics": {
+        "accuracy": 0.9466666666666667,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_f1": 0.3242009132420091
+      },
+      "class_recall": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "selected": [
+        "histogram",
+        "histogram",
+        "histogram"
+      ],
+      "fallback_count": 0,
+      "checkpoint_recoveries": 0
+    }
+  ],
+  "independent_metrics_verified": true
+}

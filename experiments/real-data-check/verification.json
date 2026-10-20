@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "benchmark_calls": 147,
+  "valid_outputs": 145,
+  "independently_verified_metrics": {
+    "classification": 73,
+    "regression": 36,
+    "clustering": 36
+  },
+  "auto_routed_identical_real_prediction_files": 36,
+  "input_label_isolation_checked_cases": 49,
+  "profile_edge_checks": {
+    "categorical5000:auto": "5000 training categories profiled",
+    "categorical5000:baseline": "5000 training categories profiled",
+    "categorical5000:routed": "5000 training categories profiled",
+    "constant_duplicate:auto": "constant and exact duplicate recognized",
+    "constant_duplicate:baseline": "constant and exact duplicate recognized",
+    "constant_duplicate:routed": "constant and exact duplicate recognized",
+    "classes25:baseline": "25 classes preserved",
+    "classes25:auto": "25 classes preserved",
+    "classes25:routed": "25 classes preserved",
+    "numeric_looking_labels:baseline": "all six lexical training classes remain distinct",
+    "numeric_looking_labels:auto": "all six lexical training classes remain distinct",
+    "numeric_looking_labels:routed": "all six lexical training classes remain distinct",
+    "all_missing_column:routed": "all-missing column retained in raw profile",
+    "all_missing_column:baseline": "all-missing column retained in raw profile",
+    "all_missing_column:auto": "all-missing column retained in raw profile"
+  },
+  "all_prior_files_preserved": true,
+  "production_sources_configs_and_harness_match_frozen_hashes": true,
+  "no_external_timeouts": true
+}

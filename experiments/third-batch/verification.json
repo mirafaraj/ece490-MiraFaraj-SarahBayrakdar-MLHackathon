@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "documents": [
+    {
+      "path": "experiments\\third-batch\\classification.json",
+      "sha256": "9940f0434c7c64851a99e78db9798449440caa7ea6dd2ba4ee738b88e97c0dea",
+      "checks": {
+        "classification_records": 288,
+        "training_only_classification_selections": 216
+      }
+    },
+    {
+      "path": "experiments\\third-batch\\regression.json",
+      "sha256": "b30f0f625ce194ef30ec8639028a23884b84d0c37f4d893465de149c8dc8a68c",
+      "checks": {
+        "regression_records": 144,
+        "training_only_regression_selections": 72
+      }
+    },
+    {
+      "path": "experiments\\third-batch\\clustering.json",
+      "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a",
+      "checks": {
+        "clustering_records": 72
+      }
+    }
+  ]
+}

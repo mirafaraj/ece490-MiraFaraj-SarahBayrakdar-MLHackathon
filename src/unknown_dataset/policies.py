@@ -13,7 +13,9 @@ DEFAULT_CONFIG = {
                      "classification_weighting": "objective", "classification_holdouts": 1,
                      "classification_objective": "route", "clustering_missing_indicators": True,
                      "clustering_covariance": "full", "clustering_kmeans_only": False,
-                     "runtime_instrumentation": False, "refit_admission": False},
+                     "runtime_instrumentation": False, "refit_admission": False,
+                     "histogram_min_samples_leaf": None, "histogram_max_leaf_nodes": 15,
+                     "clustering_indicator_amplitude": 1.0},
     "limits": {
         "min_selection_seconds": 12.0, "reserve_seconds": 5.0,
         "selection_fraction": 0.25, "selection_budget_fraction": 0.4,
@@ -76,10 +78,19 @@ def validate_config(config=None):
             raise ValueError(f"Unsupported experimental {key}")
     if type(experimental["classification_holdouts"]) is not int or experimental["classification_holdouts"] not in (1, 2):
         raise ValueError("classification_holdouts must be one or two")
+    leaf_minimum = experimental["histogram_min_samples_leaf"]
+    if leaf_minimum is not None and (type(leaf_minimum) is not int or leaf_minimum != 5):
+        raise ValueError("histogram_min_samples_leaf must be null or 5")
+    leaf_nodes = experimental["histogram_max_leaf_nodes"]
+    if type(leaf_nodes) is not int or leaf_nodes not in (15, 31):
+        raise ValueError("histogram_max_leaf_nodes must be 15 or 31")
+    amplitude = experimental["clustering_indicator_amplitude"]
+    if isinstance(amplitude, bool) or not isinstance(amplitude, (float, int)) or not math.isfinite(amplitude) or not 0 < amplitude <= 1:
+        raise ValueError("clustering_indicator_amplitude must be finite and in (0, 1]")
     if experimental["refit_admission"] and (experimental["classification_weighting"] != "objective"
             or experimental["classification_holdouts"] != 1
             or experimental["classification_objective"] != "route"
-            or experimental["categorical_enabled"]):
+            or experimental["categorical_enabled"] or leaf_minimum is not None):
         raise ValueError("refit_admission supports the original three-family selector only")
     if not isinstance(experimental["categorical_enabled"], bool):
         raise ValueError("categorical_enabled must be boolean")

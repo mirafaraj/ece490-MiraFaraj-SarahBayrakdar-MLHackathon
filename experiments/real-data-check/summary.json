@@ -1,0 +1,1293 @@
+{
+  "completed": 147,
+  "planned": 147,
+  "real": {
+    "classification": {
+      "baseline": {
+        "runs": 18,
+        "valid": 18,
+        "mean_wall_seconds": 6.03651504444416,
+        "maximum_wall_seconds": 8.132643999997526,
+        "fallbacks": 0,
+        "metrics": {
+          "accuracy": {
+            "mean": 0.9222799985681723,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "breast_cancer",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.958041958041958,
+              "candidate": 0.958041958041958
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0,
+              "wine": 0.0,
+              "digits": 0.0,
+              "iris": 0.0,
+              "mammography": 0.0,
+              "blood_transfusion": 0.0
+            },
+            "worst_dataset_mean": [
+              "breast_cancer",
+              0.0
+            ]
+          },
+          "balanced_accuracy": {
+            "mean": 0.862379615524876,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "breast_cancer",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.9511530398322852,
+              "candidate": 0.9511530398322852
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0,
+              "wine": 0.0,
+              "digits": 0.0,
+              "iris": 0.0,
+              "mammography": 0.0,
+              "blood_transfusion": 0.0
+            },
+            "worst_dataset_mean": [
+              "breast_cancer",
+              0.0
+            ]
+          },
+          "macro_f1": {
+            "mean": 0.8722945336815501,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "breast_cancer",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.9546703296703296,
+              "candidate": 0.9546703296703296
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0,
+              "wine": 0.0,
+              "digits": 0.0,
+              "iris": 0.0,
+              "mammography": 0.0,
+              "blood_transfusion": 0.0
+            },
+            "worst_dataset_mean": [
+              "breast_cancer",
+              0.0
+            ]
+          },
+          "minority_recall": {
+            "mean": 0.7651552408609598,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "breast_cancer",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.9245283018867925,
+              "candidate": 0.9245283018867925
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0,
+              "wine": 0.0,
+              "digits": 0.0,
+              "iris": 0.0,
+              "mammography": 0.0,
+              "blood_transfusion": 0.0
+            },
+            "worst_dataset_mean": [
+              "breast_cancer",
+              0.0
+            ]
+          }
+        }
+      },
+      "auto": {
+        "runs": 18,
+        "valid": 18,
+        "mean_wall_seconds": 7.317063227777301,
+        "maximum_wall_seconds": 10.318655200004287,
+        "fallbacks": 0,
+        "metrics": {
+          "accuracy": {
+            "mean": 0.9065948844701995,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": -0.015685114097972814,
+            "worst_case": {
+              "dataset": "mammography",
+              "seed": 314,
+              "gain": -0.08512160228898424,
+              "baseline": 0.9853361945636624,
+              "candidate": 0.9002145922746781
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0023310023310023262,
+              "wine": 0.0,
+              "digits": -0.012592592592592636,
+              "iris": 0.0,
+              "mammography": -0.058893657606103954,
+              "blood_transfusion": -0.024955436720142627
+            },
+            "worst_dataset_mean": [
+              "mammography",
+              -0.058893657606103954
+            ]
+          },
+          "balanced_accuracy": {
+            "mean": 0.901396756046146,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.03901714052126999,
+            "worst_case": {
+              "dataset": "digits",
+              "seed": 2027,
+              "gain": -0.015769014717447516,
+              "baseline": 0.9729131558251882,
+              "candidate": 0.9571441411077407
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.005730258560447214,
+              "wine": 0.0030864197530863966,
+              "digits": -0.012618415363612598,
+              "iris": 0.0,
+              "mammography": 0.1275460289740773,
+              "blood_transfusion": 0.11035855120362163
+            },
+            "worst_dataset_mean": [
+              "digits",
+              -0.012618415363612598
+            ]
+          },
+          "macro_f1": {
+            "mean": 0.8577825262330088,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": -0.014512007448541255,
+            "worst_case": {
+              "dataset": "mammography",
+              "seed": 42,
+              "gain": -0.19828971654693917,
+              "baseline": 0.8204379181962561,
+              "candidate": 0.622148201649317
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.002756532242615295,
+              "wine": 0.0003491425060052622,
+              "digits": -0.012542449497009852,
+              "iris": 0.0,
+              "mammography": -0.1280695736613736,
+              "blood_transfusion": 0.05043430371851535
+            },
+            "worst_dataset_mean": [
+              "mammography",
+              -0.1280695736613736
+            ]
+          },
+          "minority_recall": {
+            "mean": 0.8829432977707075,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.11778805690974772,
+            "worst_case": {
+              "dataset": "digits",
+              "seed": 2027,
+              "gain": -0.06976744186046513,
+              "baseline": 0.8837209302325582,
+              "candidate": 0.813953488372093
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.018867924528301883,
+              "wine": 0.02777777777777779,
+              "digits": -0.03100775193798448,
+              "iris": 0.0,
+              "mammography": 0.3230769230769231,
+              "blood_transfusion": 0.368013468013468
+            },
+            "worst_dataset_mean": [
+              "digits",
+              -0.03100775193798448
+            ]
+          }
+        }
+      },
+      "routed": {
+        "runs": 18,
+        "valid": 18,
+        "mean_wall_seconds": 10.375878383333555,
+        "maximum_wall_seconds": 15.255823300001794,
+        "fallbacks": 0,
+        "metrics": {
+          "accuracy": {
+            "mean": 0.9065948844701995,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": -0.015685114097972814,
+            "worst_case": {
+              "dataset": "mammography",
+              "seed": 314,
+              "gain": -0.08512160228898424,
+              "baseline": 0.9853361945636624,
+              "candidate": 0.9002145922746781
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.0023310023310023262,
+              "wine": 0.0,
+              "digits": -0.012592592592592636,
+              "iris": 0.0,
+              "mammography": -0.058893657606103954,
+              "blood_transfusion": -0.024955436720142627
+            },
+            "worst_dataset_mean": [
+              "mammography",
+              -0.058893657606103954
+            ]
+          },
+          "balanced_accuracy": {
+            "mean": 0.901396756046146,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.03901714052126999,
+            "worst_case": {
+              "dataset": "digits",
+              "seed": 2027,
+              "gain": -0.015769014717447516,
+              "baseline": 0.9729131558251882,
+              "candidate": 0.9571441411077407
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.005730258560447214,
+              "wine": 0.0030864197530863966,
+              "digits": -0.012618415363612598,
+              "iris": 0.0,
+              "mammography": 0.1275460289740773,
+              "blood_transfusion": 0.11035855120362163
+            },
+            "worst_dataset_mean": [
+              "digits",
+              -0.012618415363612598
+            ]
+          },
+          "macro_f1": {
+            "mean": 0.8577825262330088,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": -0.014512007448541255,
+            "worst_case": {
+              "dataset": "mammography",
+              "seed": 42,
+              "gain": -0.19828971654693917,
+              "baseline": 0.8204379181962561,
+              "candidate": 0.622148201649317
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.002756532242615295,
+              "wine": 0.0003491425060052622,
+              "digits": -0.012542449497009852,
+              "iris": 0.0,
+              "mammography": -0.1280695736613736,
+              "blood_transfusion": 0.05043430371851535
+            },
+            "worst_dataset_mean": [
+              "mammography",
+              -0.1280695736613736
+            ]
+          },
+          "minority_recall": {
+            "mean": 0.8829432977707075,
+            "paired_cases": 18,
+            "mean_gain_vs_baseline": 0.11778805690974772,
+            "worst_case": {
+              "dataset": "digits",
+              "seed": 2027,
+              "gain": -0.06976744186046513,
+              "baseline": 0.8837209302325582,
+              "candidate": 0.813953488372093
+            },
+            "dataset_mean_gain": {
+              "breast_cancer": 0.018867924528301883,
+              "wine": 0.02777777777777779,
+              "digits": -0.03100775193798448,
+              "iris": 0.0,
+              "mammography": 0.3230769230769231,
+              "blood_transfusion": 0.368013468013468
+            },
+            "worst_dataset_mean": [
+              "digits",
+              -0.03100775193798448
+            ]
+          }
+        }
+      }
+    },
+    "regression": {
+      "baseline": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 12.578047188888174,
+        "maximum_wall_seconds": 25.195959399999992,
+        "fallbacks": 0,
+        "metrics": {
+          "rmse": {
+            "mean": 10281.559756216393,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 51.72851164533967,
+              "candidate": 51.72851164533967
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.0,
+              "california_housing": 0.0,
+              "house_prices": 0.0
+            },
+            "worst_dataset_mean": [
+              "diabetes",
+              0.0
+            ]
+          },
+          "mae": {
+            "mean": 6265.511267491716,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 42.04973723723723,
+              "candidate": 42.04973723723723
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.0,
+              "california_housing": 0.0,
+              "house_prices": 0.0
+            },
+            "worst_dataset_mean": [
+              "diabetes",
+              0.0
+            ]
+          },
+          "r2": {
+            "mean": 0.7108169494026273,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.5160960171662197,
+              "candidate": 0.5160960171662197
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.0,
+              "california_housing": 0.0,
+              "house_prices": 0.0
+            },
+            "worst_dataset_mean": [
+              "diabetes",
+              0.0
+            ]
+          }
+        }
+      },
+      "auto": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 10.09195271110851,
+        "maximum_wall_seconds": 23.122226300001785,
+        "fallbacks": 0,
+        "metrics": {
+          "rmse": {
+            "mean": 10114.447765144658,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.023151738471409278,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": -0.0307321345510839,
+              "baseline": 51.72851164533967,
+              "candidate": 53.31823922535156
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.02135194700118973,
+              "california_housing": 0.029444290984335562,
+              "house_prices": 0.018658977428702546
+            },
+            "worst_dataset_mean": [
+              "house_prices",
+              0.018658977428702546
+            ]
+          },
+          "mae": {
+            "mean": 5968.265465295638,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.02468128952420574,
+            "worst_case": {
+              "dataset": "california_housing",
+              "seed": 2027,
+              "gain": -0.022586779581569908,
+              "baseline": 0.32274601576820156,
+              "candidate": 0.3300358088871878
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.037566847795920455,
+              "california_housing": -0.013801083831101218,
+              "house_prices": 0.05027810460779798
+            },
+            "worst_dataset_mean": [
+              "california_housing",
+              -0.013801083831101218
+            ]
+          },
+          "r2": {
+            "mean": 0.7245266935111583,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.013709744108530986,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": -0.03019983455726838,
+              "baseline": 0.5160960171662197,
+              "candidate": 0.4858961826089513
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.026171913969295302,
+              "california_housing": 0.010932077179373426,
+              "house_prices": 0.0040252411769242285
+            },
+            "worst_dataset_mean": [
+              "house_prices",
+              0.0040252411769242285
+            ]
+          }
+        }
+      },
+      "routed": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 18.29546182222273,
+        "maximum_wall_seconds": 36.52925640000467,
+        "fallbacks": 0,
+        "metrics": {
+          "rmse": {
+            "mean": 10114.447765144658,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.023151738471409278,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": -0.0307321345510839,
+              "baseline": 51.72851164533967,
+              "candidate": 53.31823922535156
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.02135194700118973,
+              "california_housing": 0.029444290984335562,
+              "house_prices": 0.018658977428702546
+            },
+            "worst_dataset_mean": [
+              "house_prices",
+              0.018658977428702546
+            ]
+          },
+          "mae": {
+            "mean": 5968.265465295638,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.02468128952420574,
+            "worst_case": {
+              "dataset": "california_housing",
+              "seed": 2027,
+              "gain": -0.022586779581569908,
+              "baseline": 0.32274601576820156,
+              "candidate": 0.3300358088871878
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.037566847795920455,
+              "california_housing": -0.013801083831101218,
+              "house_prices": 0.05027810460779798
+            },
+            "worst_dataset_mean": [
+              "california_housing",
+              -0.013801083831101218
+            ]
+          },
+          "r2": {
+            "mean": 0.7245266935111583,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.013709744108530986,
+            "worst_case": {
+              "dataset": "diabetes",
+              "seed": 42,
+              "gain": -0.03019983455726838,
+              "baseline": 0.5160960171662197,
+              "candidate": 0.4858961826089513
+            },
+            "dataset_mean_gain": {
+              "diabetes": 0.026171913969295302,
+              "california_housing": 0.010932077179373426,
+              "house_prices": 0.0040252411769242285
+            },
+            "worst_dataset_mean": [
+              "house_prices",
+              0.0040252411769242285
+            ]
+          }
+        }
+      }
+    },
+    "clustering": {
+      "baseline": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 5.382168133334037,
+        "maximum_wall_seconds": 5.58159240000532,
+        "fallbacks": 0,
+        "metrics": {
+          "ari": {
+            "mean": 0.6823270034188502,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "iris",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.6100728505285608,
+              "candidate": 0.6100728505285608
+            },
+            "dataset_mean_gain": {
+              "iris": 0.0,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "iris",
+              0.0
+            ]
+          },
+          "ami": {
+            "mean": 0.731082716613766,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0,
+            "worst_case": {
+              "dataset": "iris",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.64820886384727,
+              "candidate": 0.64820886384727
+            },
+            "dataset_mean_gain": {
+              "iris": 0.0,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "iris",
+              0.0
+            ]
+          }
+        }
+      },
+      "auto": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 5.368080555555126,
+        "maximum_wall_seconds": 5.599031199999445,
+        "fallbacks": 0,
+        "metrics": {
+          "ari": {
+            "mean": 0.7780247237546059,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.09569772033575563,
+            "worst_case": {
+              "dataset": "wine",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.8974949815093207,
+              "candidate": 0.8974949815093207
+            },
+            "dataset_mean_gain": {
+              "iris": 0.2870931610072669,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "wine",
+              0.0
+            ]
+          },
+          "ami": {
+            "mean": 0.8129331333258378,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0818504167120719,
+            "worst_case": {
+              "dataset": "wine",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.874579440437926,
+              "candidate": 0.874579440437926
+            },
+            "dataset_mean_gain": {
+              "iris": 0.24555125013621568,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "wine",
+              0.0
+            ]
+          }
+        }
+      },
+      "routed": {
+        "runs": 9,
+        "valid": 9,
+        "mean_wall_seconds": 7.735804944444681,
+        "maximum_wall_seconds": 8.386826699999801,
+        "fallbacks": 0,
+        "metrics": {
+          "ari": {
+            "mean": 0.7780247237546059,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.09569772033575563,
+            "worst_case": {
+              "dataset": "wine",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.8974949815093207,
+              "candidate": 0.8974949815093207
+            },
+            "dataset_mean_gain": {
+              "iris": 0.2870931610072669,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "wine",
+              0.0
+            ]
+          },
+          "ami": {
+            "mean": 0.8129331333258378,
+            "paired_cases": 9,
+            "mean_gain_vs_baseline": 0.0818504167120719,
+            "worst_case": {
+              "dataset": "wine",
+              "seed": 42,
+              "gain": 0.0,
+              "baseline": 0.874579440437926,
+              "candidate": 0.874579440437926
+            },
+            "dataset_mean_gain": {
+              "iris": 0.24555125013621568,
+              "wine": 0.0,
+              "digits": 0.0
+            },
+            "worst_dataset_mean": [
+              "wine",
+              0.0
+            ]
+          }
+        }
+      }
+    }
+  },
+  "losses": [
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.015555555555555545,
+      "baseline": 0.9822222222222222,
+      "candidate": 0.9666666666666667
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.00666666666666671,
+      "baseline": 0.9844444444444445,
+      "candidate": 0.9777777777777777
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015555555555555656,
+      "baseline": 0.9733333333333334,
+      "candidate": 0.9577777777777777
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 42,
+      "gain": -0.08226037195994274,
+      "baseline": 0.9867668097281831,
+      "candidate": 0.9045064377682404
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 314,
+      "gain": -0.08512160228898424,
+      "baseline": 0.9853361945636624,
+      "candidate": 0.9002145922746781
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 2027,
+      "gain": -0.009298998569384875,
+      "baseline": 0.984620886981402,
+      "candidate": 0.9753218884120172
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "blood_transfusion",
+      "seed": 314,
+      "gain": -0.03743315508021394,
+      "baseline": 0.679144385026738,
+      "candidate": 0.6417112299465241
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "accuracy",
+      "dataset": "blood_transfusion",
+      "seed": 2027,
+      "gain": -0.042780748663101664,
+      "baseline": 0.7005347593582888,
+      "candidate": 0.6577540106951871
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.01551398719245034,
+      "baseline": 0.9818570947084597,
+      "candidate": 0.9663431075160094
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.0065722441809399346,
+      "baseline": 0.9842377260981913,
+      "candidate": 0.9776654819172513
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015769014717447516,
+      "baseline": 0.9729131558251882,
+      "candidate": 0.9571441411077407
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.015697097926061776,
+      "baseline": 0.981976880402877,
+      "candidate": 0.9662797824768152
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.006643654771284591,
+      "baseline": 0.9842387782790978,
+      "candidate": 0.9775951235078132
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015286595793683189,
+      "baseline": 0.9728498319667453,
+      "candidate": 0.9575632361730622
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 42,
+      "gain": -0.19828971654693917,
+      "baseline": 0.8204379181962561,
+      "candidate": 0.622148201649317
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 314,
+      "gain": -0.18056259008946818,
+      "baseline": 0.7932963210726462,
+      "candidate": 0.6127337309831781
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 2027,
+      "gain": -0.00535641434771339,
+      "baseline": 0.787345211163722,
+      "candidate": 0.7819887968160086
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "minority_recall",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.023255813953488302,
+      "baseline": 0.9069767441860465,
+      "candidate": 0.8837209302325582
+    },
+    {
+      "task": "classification",
+      "strategy": "auto",
+      "metric": "minority_recall",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.06976744186046513,
+      "baseline": 0.8837209302325582,
+      "candidate": 0.813953488372093
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.015555555555555545,
+      "baseline": 0.9822222222222222,
+      "candidate": 0.9666666666666667
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.00666666666666671,
+      "baseline": 0.9844444444444445,
+      "candidate": 0.9777777777777777
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015555555555555656,
+      "baseline": 0.9733333333333334,
+      "candidate": 0.9577777777777777
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 42,
+      "gain": -0.08226037195994274,
+      "baseline": 0.9867668097281831,
+      "candidate": 0.9045064377682404
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 314,
+      "gain": -0.08512160228898424,
+      "baseline": 0.9853361945636624,
+      "candidate": 0.9002145922746781
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "mammography",
+      "seed": 2027,
+      "gain": -0.009298998569384875,
+      "baseline": 0.984620886981402,
+      "candidate": 0.9753218884120172
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "blood_transfusion",
+      "seed": 314,
+      "gain": -0.03743315508021394,
+      "baseline": 0.679144385026738,
+      "candidate": 0.6417112299465241
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "accuracy",
+      "dataset": "blood_transfusion",
+      "seed": 2027,
+      "gain": -0.042780748663101664,
+      "baseline": 0.7005347593582888,
+      "candidate": 0.6577540106951871
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.01551398719245034,
+      "baseline": 0.9818570947084597,
+      "candidate": 0.9663431075160094
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.0065722441809399346,
+      "baseline": 0.9842377260981913,
+      "candidate": 0.9776654819172513
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "balanced_accuracy",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015769014717447516,
+      "baseline": 0.9729131558251882,
+      "candidate": 0.9571441411077407
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.015697097926061776,
+      "baseline": 0.981976880402877,
+      "candidate": 0.9662797824768152
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 314,
+      "gain": -0.006643654771284591,
+      "baseline": 0.9842387782790978,
+      "candidate": 0.9775951235078132
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.015286595793683189,
+      "baseline": 0.9728498319667453,
+      "candidate": 0.9575632361730622
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 42,
+      "gain": -0.19828971654693917,
+      "baseline": 0.8204379181962561,
+      "candidate": 0.622148201649317
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 314,
+      "gain": -0.18056259008946818,
+      "baseline": 0.7932963210726462,
+      "candidate": 0.6127337309831781
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "macro_f1",
+      "dataset": "mammography",
+      "seed": 2027,
+      "gain": -0.00535641434771339,
+      "baseline": 0.787345211163722,
+      "candidate": 0.7819887968160086
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "minority_recall",
+      "dataset": "digits",
+      "seed": 42,
+      "gain": -0.023255813953488302,
+      "baseline": 0.9069767441860465,
+      "candidate": 0.8837209302325582
+    },
+    {
+      "task": "classification",
+      "strategy": "routed",
+      "metric": "minority_recall",
+      "dataset": "digits",
+      "seed": 2027,
+      "gain": -0.06976744186046513,
+      "baseline": 0.8837209302325582,
+      "candidate": 0.813953488372093
+    },
+    {
+      "task": "regression",
+      "strategy": "auto",
+      "metric": "rmse",
+      "dataset": "diabetes",
+      "seed": 42,
+      "gain": -0.0307321345510839,
+      "baseline": 51.72851164533967,
+      "candidate": 53.31823922535156
+    },
+    {
+      "task": "regression",
+      "strategy": "auto",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 42,
+      "gain": -0.0025394557599622406,
+      "baseline": 0.33110652036028443,
+      "candidate": 0.3319473507205744
+    },
+    {
+      "task": "regression",
+      "strategy": "auto",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 314,
+      "gain": -0.016277016151771503,
+      "baseline": 0.3308241799121538,
+      "candidate": 0.3362090104319805
+    },
+    {
+      "task": "regression",
+      "strategy": "auto",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 2027,
+      "gain": -0.022586779581569908,
+      "baseline": 0.32274601576820156,
+      "candidate": 0.3300358088871878
+    },
+    {
+      "task": "regression",
+      "strategy": "auto",
+      "metric": "r2",
+      "dataset": "diabetes",
+      "seed": 42,
+      "gain": -0.03019983455726838,
+      "baseline": 0.5160960171662197,
+      "candidate": 0.4858961826089513
+    },
+    {
+      "task": "regression",
+      "strategy": "routed",
+      "metric": "rmse",
+      "dataset": "diabetes",
+      "seed": 42,
+      "gain": -0.0307321345510839,
+      "baseline": 51.72851164533967,
+      "candidate": 53.31823922535156
+    },
+    {
+      "task": "regression",
+      "strategy": "routed",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 42,
+      "gain": -0.0025394557599622406,
+      "baseline": 0.33110652036028443,
+      "candidate": 0.3319473507205744
+    },
+    {
+      "task": "regression",
+      "strategy": "routed",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 314,
+      "gain": -0.016277016151771503,
+      "baseline": 0.3308241799121538,
+      "candidate": 0.3362090104319805
+    },
+    {
+      "task": "regression",
+      "strategy": "routed",
+      "metric": "mae",
+      "dataset": "california_housing",
+      "seed": 2027,
+      "gain": -0.022586779581569908,
+      "baseline": 0.32274601576820156,
+      "candidate": 0.3300358088871878
+    },
+    {
+      "task": "regression",
+      "strategy": "routed",
+      "metric": "r2",
+      "dataset": "diabetes",
+      "seed": 42,
+      "gain": -0.03019983455726838,
+      "baseline": 0.5160960171662197,
+      "candidate": 0.4858961826089513
+    }
+  ],
+  "alerts": [
+    {
+      "case_id": "stress-classification-shape_100000x50-7001",
+      "strategy": "baseline",
+      "wall_seconds": 50.899151799996616,
+      "valid": false,
+      "external_timeout": false,
+      "returncode": 1,
+      "fallback_kind": null,
+      "validation_error": null,
+      "stderr": "ERROR: Output serialization exceeded the execution budget\n"
+    },
+    {
+      "case_id": "stress-classification-shape_100000x50-7001",
+      "strategy": "routed",
+      "wall_seconds": 54.011448199998995,
+      "valid": false,
+      "external_timeout": false,
+      "returncode": 1,
+      "fallback_kind": null,
+      "validation_error": null,
+      "stderr": "ERROR: Output serialization exceeded the execution budget\n"
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "baseline",
+      "wall_seconds": 47.33436890000303,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "routed",
+      "wall_seconds": 47.579800100000284,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "auto",
+      "wall_seconds": 47.407592000003206,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-classification-shape_5000x500-7001",
+      "strategy": "auto",
+      "wall_seconds": 47.56156850000116,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "auto",
+      "wall_seconds": 47.38428350000322,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "baseline",
+      "wall_seconds": 47.368267499994545,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "routed",
+      "wall_seconds": 47.516618599998765,
+      "valid": true,
+      "external_timeout": false,
+      "returncode": 0,
+      "fallback_kind": "emergency",
+      "validation_error": null,
+      "stderr": null
+    }
+  ],
+  "maximum_wall_seconds": {
+    "baseline": 50.899151799996616,
+    "auto": 47.56156850000116,
+    "routed": 54.011448199998995
+  },
+  "stress_maximum_seconds": {
+    "baseline": 50.899151799996616,
+    "auto": 47.56156850000116,
+    "routed": 54.011448199998995
+  },
+  "protected_files_preserved": true,
+  "unexpected_changed": [],
+  "unexpected_added": [],
+  "source_matches": true
+}

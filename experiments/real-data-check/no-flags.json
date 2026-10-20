@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\.venv312\\Scripts\\python.exe",
+    "main.py"
+  ],
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "usage: main.py [-h] --input INPUT --output OUTPUT [--time-budget TIME_BUDGET]\n               [--seed SEED] [--strategy {baseline,auto,routed}]\n               [--router-config ROUTER_CONFIG] [--timings]\n               [--lazy-router-imports]\nmain.py: error: the following arguments are required: --input, --output\n"
+}

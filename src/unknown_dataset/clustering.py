@@ -13,6 +13,28 @@ from threadpoolctl import threadpool_limits
 from .preprocessing import TableCleaner, build_preprocessor
 
 
+def _scale_missing_indicators(preprocessor, matrix, amplitude):
+    """Scale fitted numeric indicators only, after their StandardScaler."""
+    if amplitude == 1.0 or not hasattr(preprocessor, "named_transformers_"):
+        return matrix
+    numeric = preprocessor.named_transformers_.get("numeric")
+    if numeric is None:
+        return matrix
+    imputer = numeric.named_steps["impute"]
+    count = len(imputer.indicator_.features_) if imputer.add_indicator else 0
+    if not count:
+        return matrix
+    numeric_slice = preprocessor.output_indices_["numeric"]
+    columns = np.arange(numeric_slice.stop - count, numeric_slice.stop)
+    if sparse.issparse(matrix):
+        factors = np.ones(matrix.shape[1])
+        factors[columns] = amplitude
+        return matrix.multiply(factors).tocsr()
+    result = matrix.copy()
+    result[:, columns] *= amplitude
+    return result
+
+
 def _occupy_groups(labels, k, seed):
     labels = np.asarray(labels, dtype=np.int64).copy()
     counts = np.bincount(labels, minlength=k)
@@ -48,6 +70,11 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
     covariance_kind = controls.get("clustering_covariance", "full")
     kmeans_only = controls.get("clustering_kmeans_only", False)
     instrument = controls.get("runtime_instrumentation", False)
+    indicator_amplitude = controls.get("clustering_indicator_amplitude", 1.0)
+    if (isinstance(indicator_amplitude, (bool, np.bool_)) or
+            not isinstance(indicator_amplitude, (int, float, np.integer, np.floating)) or
+            not np.isfinite(indicator_amplitude) or not 0 < indicator_amplitude <= 1):
+        raise ValueError("Clustering indicator amplitude must be finite and in (0, 1]")
     if not isinstance(indicators, bool) or not isinstance(kmeans_only, bool):
         raise ValueError("Clustering indicator and kmeans-only controls must be boolean")
     if covariance_kind not in {"full", "diag"}:
@@ -73,6 +100,7 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                 if name == "numeric":
                     transformer.set_params(impute__add_indicator=False)
         matrix = preprocessor.fit_transform(cleaner.transform(X_train))
+        matrix = _scale_missing_indicators(preprocessor, matrix, indicator_amplitude)
         timings["preprocessing_seconds"] = time.monotonic() - started
         phase_started = time.monotonic()
         if len(X_train) <= 5000 and matrix.shape[1] <= 256:
@@ -161,6 +189,8 @@ def fit_predict_clustering(task, X_train, y_train=None, X_test=None,
                 "clustering_covariance": covariance_kind,
                 "clustering_kmeans_only": kmeans_only}}
            if not indicators or covariance_kind != "full" or kmeans_only else {}),
+        **({"clustering_indicator_amplitude": float(indicator_amplitude)}
+           if indicator_amplitude != 1.0 else {}),
         **({"phase_timings": timings} if instrument else {}),
         **({"gmm_diagnostics": gmm_diagnostics} if instrument else {}),
         **({"routing": route_plan.to_dict()} if route_plan is not None else {}),

@@ -68,7 +68,8 @@ def _matrix(cleaner, preprocessor, frame, dense=False, dense_cells_limit=None):
 
 
 def _fit(name, task, frame, labels, feature_types, seed, final=False, final_tree_count=96,
-         class_weight="balanced", dense_cells_limit=None):
+         class_weight="balanced", dense_cells_limit=None,
+         histogram_min_samples_leaf=None, histogram_max_leaf_nodes=15):
     dense_cells_limit = _DENSE_CELLS if dense_cells_limit is None else dense_cells_limit
     cleaner = TableCleaner(feature_types).fit(frame)
     preprocessor = build_preprocessor(cleaner, scale_numeric=(name == "linear"))
@@ -89,8 +90,16 @@ def _fit(name, task, frame, labels, feature_types, seed, final=False, final_tree
         estimator = (LogisticRegression(class_weight=class_weight, max_iter=200, random_state=seed)
                      if classification else Ridge(alpha=1.0, solver="lsqr"))
     elif name == "histogram":
-        kwargs = dict(max_iter=100 if final else 60, max_leaf_nodes=15, max_depth=8,
-                      min_samples_leaf=max(5, min(20, len(frame) // 20)), early_stopping=False,
+        minimum = max(5, min(20, len(frame) // 20))
+        if classification and histogram_min_samples_leaf is not None:
+            if type(histogram_min_samples_leaf) is not int or histogram_min_samples_leaf != 5:
+                raise ValueError("histogram_min_samples_leaf must be null or 5")
+            minimum = histogram_min_samples_leaf
+        if type(histogram_max_leaf_nodes) is not int or histogram_max_leaf_nodes not in (15, 31):
+            raise ValueError("histogram_max_leaf_nodes must be 15 or 31")
+        kwargs = dict(max_iter=100 if final else 60,
+                      max_leaf_nodes=15 if classification else histogram_max_leaf_nodes, max_depth=8,
+                      min_samples_leaf=minimum, early_stopping=False,
                       random_state=seed)
         estimator = (HistGradientBoostingClassifier(class_weight=class_weight, **kwargs)
                      if classification else HistGradientBoostingRegressor(**kwargs))
@@ -326,9 +335,16 @@ def fit_predict_fixed_candidate(name, task, X_train, y_train, X_test, feature_ty
             cleaner = None
             width = len(estimator.counts_)
         else:
+            histogram_controls = {}
+            if name == "histogram":
+                if task == "classification" and route_plan.experimental.get("histogram_min_samples_leaf") is not None:
+                    histogram_controls["histogram_min_samples_leaf"] = route_plan.experimental["histogram_min_samples_leaf"]
+                if task == "regression" and route_plan.experimental.get("histogram_max_leaf_nodes", 15) != 15:
+                    histogram_controls["histogram_max_leaf_nodes"] = route_plan.experimental["histogram_max_leaf_nodes"]
             cleaner, processor, estimator, dense, width = _fit(name, task, X_train, target,
                 feature_types, seed, final=final, final_tree_count=route_plan.final_tree_count,
-                class_weight=weight, dense_cells_limit=route_plan.dense_cells_limit)
+                class_weight=weight, dense_cells_limit=route_plan.dense_cells_limit,
+                **histogram_controls)
         fitting_seconds = time.monotonic() - fitting_started
         prediction_started = time.monotonic()
         # Bound transformation and probability allocation for every model family.
@@ -355,7 +371,8 @@ def fit_predict_fixed_candidate(name, task, X_train, y_train, X_test, feature_ty
         "dropped_constant_columns": cleaner.constant_columns_ if cleaner is not None else [],
         "dropped_duplicate_columns": cleaner.duplicate_columns_ if cleaner is not None else [],
         "n_estimators": getattr(estimator, "n_estimators", None),
-        "candidate_parameters": {"feature": str(categorical_feature), "alpha": float(categorical_alpha)} if name == "categorical" else {},
+        "candidate_parameters": ({"feature": str(categorical_feature), "alpha": float(categorical_alpha)}
+                                 if name == "categorical" else histogram_controls if name == "histogram" else {}),
         "fit_seconds": fitting_seconds, "prediction_seconds": time.monotonic() - prediction_started,
         "model_seconds": time.monotonic() - started, "routing": route_plan.to_dict(),
     }

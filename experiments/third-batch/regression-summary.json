@@ -1,0 +1,139 @@
+{
+  "seconds": 93.23400000000038,
+  "fit_calls": 144,
+  "errors": 0,
+  "rmse": {
+    "metrics": [
+      {
+        "metric": "rmse",
+        "before_mean": 3.038150795442923,
+        "after_mean": 3.06650176026037,
+        "mean_relative_improvement": -0.008531604944242672
+      },
+      {
+        "metric": "mae",
+        "before_mean": 1.9923371545442647,
+        "after_mean": 2.036705197745578,
+        "mean_relative_improvement": -0.018659478671369575
+      },
+      {
+        "metric": "absolute_error_p90",
+        "before_mean": 4.291900094192039,
+        "after_mean": 4.340436475352054,
+        "mean_relative_improvement": -0.011281477066719793
+      },
+      {
+        "metric": "absolute_error_p99",
+        "before_mean": 11.141806291175545,
+        "after_mean": 10.838937057207193,
+        "mean_relative_improvement": 0.021574375211592577
+      },
+      {
+        "metric": "dummy_relative_rmse",
+        "before_mean": 0.563689351821167,
+        "after_mean": 0.569014037312083,
+        "mean_relative_improvement": -0.00853160494424269
+      },
+      {
+        "metric": "dummy_relative_mae",
+        "before_mean": 0.4905213867283237,
+        "after_mean": 0.5014362653545177,
+        "mean_relative_improvement": -0.018659478671369557
+      }
+    ],
+    "baseline_relative_improvement_mean": 0.11908834557013828,
+    "challenger_vs_baseline_mean": 0.11201238125411592,
+    "linear_baseline_improvement_mean": 0.17785203169034003,
+    "15": {
+      "selection_seconds_median": 1.125,
+      "refit_seconds_median": 0.28950000000077125,
+      "regret_mean": 0.0,
+      "exclusions": 0
+    },
+    "31": {
+      "selection_seconds_median": 1.1555000000007567,
+      "refit_seconds_median": 0.3515000000006694,
+      "regret_mean": 0.0,
+      "exclusions": 0
+    },
+    "missing_groups": {
+      "missing": {
+        "15": 2.2739341496907417,
+        "31": 2.3129898575718952
+      },
+      "observed": {
+        "15": 1.633244820965164,
+        "31": 1.6706587051789414
+      }
+    }
+  },
+  "mae": {
+    "metrics": [
+      {
+        "metric": "rmse",
+        "before_mean": 3.038150795442923,
+        "after_mean": 3.06650176026037,
+        "mean_relative_improvement": -0.008531604944242672
+      },
+      {
+        "metric": "mae",
+        "before_mean": 1.9923371545442647,
+        "after_mean": 2.036705197745578,
+        "mean_relative_improvement": -0.018659478671369575
+      },
+      {
+        "metric": "absolute_error_p90",
+        "before_mean": 4.291900094192039,
+        "after_mean": 4.340436475352054,
+        "mean_relative_improvement": -0.011281477066719793
+      },
+      {
+        "metric": "absolute_error_p99",
+        "before_mean": 11.141806291175545,
+        "after_mean": 10.838937057207193,
+        "mean_relative_improvement": 0.021574375211592577
+      },
+      {
+        "metric": "dummy_relative_rmse",
+        "before_mean": 0.563689351821167,
+        "after_mean": 0.569014037312083,
+        "mean_relative_improvement": -0.00853160494424269
+      },
+      {
+        "metric": "dummy_relative_mae",
+        "before_mean": 0.4905213867283237,
+        "after_mean": 0.5014362653545177,
+        "mean_relative_improvement": -0.018659478671369557
+      }
+    ],
+    "baseline_relative_improvement_mean": 0.15529123652307003,
+    "challenger_vs_baseline_mean": 0.14002151002361035,
+    "linear_baseline_improvement_mean": 0.2763105199906109,
+    "15": {
+      "selection_seconds_median": 1.125,
+      "refit_seconds_median": 0.28950000000077125,
+      "regret_mean": 0.0,
+      "exclusions": 0
+    },
+    "31": {
+      "selection_seconds_median": 1.1555000000007567,
+      "refit_seconds_median": 0.3515000000006694,
+      "regret_mean": 0.0,
+      "exclusions": 0
+    },
+    "missing_groups": {
+      "missing": {
+        "15": 2.2739341496907417,
+        "31": 2.3129898575718952
+      },
+      "observed": {
+        "15": 1.633244820965164,
+        "31": 1.6706587051789414
+      }
+    }
+  },
+  "histogram_fixed": {
+    "rmse": -0.01973062676334468,
+    "mae": -0.03585122276595968
+  }
+}

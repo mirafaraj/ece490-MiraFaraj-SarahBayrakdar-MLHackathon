@@ -1,0 +1,9 @@
+{
+  "all_frozen_sources_still_match": {
+    "classification.json": 3,
+    "regression.json": 16,
+    "clustering.json": 5,
+    "cli-study.json": 26
+  },
+  "cli_predictions_and_selection_repeat_exactly": true
+}

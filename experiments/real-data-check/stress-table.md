@@ -1,0 +1,43 @@
+# Stress checks: actual CLI, 60-second external guard
+
+| Case | Task | Strategy | Seconds | Valid | Pass | Fallback | Selected |
+|---|---|---|---:|---|---|---|---|
+| shape_100000x50 | classification | baseline | 50.90 | False | False | none | — |
+| shape_100000x50 | classification | routed | 54.01 | False | False | none | — |
+| shape_100000x50 | classification | auto | 27.33 | True | True | none | linear |
+| shape_100000x50 | regression | baseline | 47.33 | True | True | emergency | EmergencyMeanRegressor |
+| shape_100000x50 | regression | routed | 47.58 | True | True | emergency | EmergencyMeanRegressor |
+| shape_100000x50 | regression | auto | 47.41 | True | True | emergency | EmergencyMeanRegressor |
+| shape_100000x50 | clustering | auto | 9.11 | True | True | none | MiniBatchKMeans |
+| shape_100000x50 | clustering | baseline | 9.35 | True | True | none | MiniBatchKMeans |
+| shape_100000x50 | clustering | routed | 12.94 | True | True | none | MiniBatchKMeans |
+| shape_5000x500 | classification | routed | 23.99 | True | True | none | linear |
+| shape_5000x500 | classification | baseline | 13.55 | True | True | none | ExtraTreesClassifier |
+| shape_5000x500 | classification | auto | 47.56 | True | True | emergency | EmergencyMajorityClass |
+| shape_5000x500 | regression | auto | 47.38 | True | True | emergency | EmergencyMeanRegressor |
+| shape_5000x500 | regression | baseline | 47.37 | True | True | emergency | EmergencyMeanRegressor |
+| shape_5000x500 | regression | routed | 47.52 | True | True | emergency | EmergencyMeanRegressor |
+| shape_5000x500 | clustering | routed | 12.07 | True | True | none | MiniBatchKMeans |
+| shape_5000x500 | clustering | baseline | 8.15 | True | True | none | MiniBatchKMeans |
+| shape_5000x500 | clustering | auto | 8.02 | True | True | none | MiniBatchKMeans |
+| missing40 | classification | baseline | 5.77 | True | True | none | ExtraTreesClassifier |
+| missing40 | classification | auto | 7.46 | True | True | none | linear |
+| missing40 | classification | routed | 10.00 | True | True | none | linear |
+| categorical5000 | classification | auto | 8.31 | True | True | none | extra_trees |
+| categorical5000 | classification | baseline | 7.15 | True | True | none | ExtraTreesClassifier |
+| categorical5000 | classification | routed | 11.31 | True | True | none | extra_trees |
+| constant_duplicate | clustering | auto | 6.06 | True | True | none | GaussianMixtureFull |
+| constant_duplicate | clustering | baseline | 5.29 | True | True | none | KMeans |
+| constant_duplicate | clustering | routed | 7.02 | True | True | none | GaussianMixtureFull |
+| tiny50 | classification | routed | 8.00 | True | True | none | extra_trees |
+| tiny50 | classification | baseline | 5.26 | True | True | none | ExtraTreesClassifier |
+| tiny50 | classification | auto | 5.29 | True | True | none | extra_trees |
+| classes25 | classification | baseline | 5.55 | True | True | none | ExtraTreesClassifier |
+| classes25 | classification | auto | 15.33 | True | True | none | histogram |
+| classes25 | classification | routed | 18.30 | True | True | none | histogram |
+| numeric_looking_labels | classification | baseline | 5.28 | True | True | none | ExtraTreesClassifier |
+| numeric_looking_labels | classification | auto | 6.67 | True | True | none | linear |
+| numeric_looking_labels | classification | routed | 9.66 | True | True | none | linear |
+| all_missing_column | regression | routed | 8.45 | True | True | none | linear |
+| all_missing_column | regression | baseline | 5.60 | True | True | none | ExtraTreesRegressor |
+| all_missing_column | regression | auto | 5.47 | True | True | none | linear |

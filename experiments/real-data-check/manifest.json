@@ -1,0 +1,2134 @@
+{
+  "seeds": [
+    42,
+    314,
+    2027
+  ],
+  "strategies": [
+    "baseline",
+    "auto",
+    "routed"
+  ],
+  "internal_budget": 50,
+  "external_limit": 60,
+  "source_sha256": {
+    "main.py": "eaae6f7b36735625d337f630fd1c54fca9a6a20f367b293ac941d559ecedca19",
+    "src/unknown_dataset/categorical.py": "762a29482208e3fbfafacb32c10ab9020c4bcac642ed90bb7bc86e84200a1b2b",
+    "src/unknown_dataset/checkpoints.py": "1ea404d7cd286509364b6a60f7ac8d3313197afb82f734680d4bc7f45ecf4216",
+    "src/unknown_dataset/clustering.py": "c4df5c0fde625b392a23c3f5ef05c9c3e7cd634b937634442ed10aa43a12ad61",
+    "src/unknown_dataset/contract.py": "7c1e57a55a662cd58ed2c422aaaa0d3b290db8d8ac8800c869607ed481964076",
+    "src/unknown_dataset/fallback.py": "be4a75c7ad4980bc929027d61b8661c1bdd014054b98a7bbad3cbb517cec649c",
+    "src/unknown_dataset/lightweight_config.py": "e5fabf185a3267a80eabd0ea9b449dfe4cc433381589a9083e346d02145b3a3d",
+    "src/unknown_dataset/models.py": "24130ef9f360ec530d02dd7d037b33c369fcd0e5991be9d5c02d8b0bd1cdb2cc",
+    "src/unknown_dataset/policies.py": "541c99cc0abdadb3d5bc342b3dd8b94523bd820fd69b5670e23bf2ec2f60861e",
+    "src/unknown_dataset/preprocessing.py": "c6327fe726bf34ad9a068712f9cf2efddecac72d5de8643ca1ad24a9e3e586a5",
+    "src/unknown_dataset/profiling.py": "9b7ff27b42021774a5c2c518532bfb805baa454546b0be94bdb910a7b02bdf1e",
+    "src/unknown_dataset/routed.py": "5d6da50bb2616d8852cddd3528e9a34f4397c3e321038fc26266d0836cfb0a74",
+    "src/unknown_dataset/routing.py": "d6c6ef3f395753d5579b09f4ef034310240cc21cca051dd1627be58afd09f5a5",
+    "src/unknown_dataset/runner.py": "da9946270c5bbe0533b0eda139012e6da4e84725f865fc78af56023ed9894b33",
+    "src/unknown_dataset/supervised.py": "f17da5ba5154a7f9f1ac19f0f585324b47bd6eefc30010d965440451bc2f577e",
+    "src/unknown_dataset/__init__.py": "7a8e565dccd13b5c66f4c0a5a66a4bcf1591596d73bf2bf844055ef612e491da",
+    "configs/router-accuracy.json": "8aa522e97eeef15bf313aaecabb923737d7f11360612d6e670c239a2bb0bc5ca",
+    "configs/router-categorical.json": "a3ce3342edd6c5d63fc3eafe6567066dc83552dbe7b44338b5b8fb0b01e49d59",
+    "configs/router.json": "2523b727d7136dbe1f2bbfc002033c015d4e59682062e0dc1e60c3c7812b8d33"
+  },
+  "harness_sha256": "0aef9325500385c9003153ab7d3dfd07f40f5f9f440e778df8ce90458bbf3714",
+  "protected_start": {
+    "experiments/third-batch/classification-summary.json": "1b5dfab6960c5f8fc4db677c131540bc0b232194307ce70cfb5a73761f4fd828",
+    "experiments/third-batch/classification.json": "9940f0434c7c64851a99e78db9798449440caa7ea6dd2ba4ee738b88e97c0dea",
+    "experiments/third-batch/cli-study.json": "f2d09423ef7a6c86bb2c99b4819da9910ed4b84ebe21e8e2d23baf4b646412e1",
+    "experiments/third-batch/cli-summary.json": "05c789dda3891b2bb574813f6828287dfc7538fb25a624f71f9a1d61394333d4",
+    "experiments/third-batch/clustering-summary.json": "34efe6853abb405a0bf2989b879641194b9a6f4c2671cb2853262e8ba2080e63",
+    "experiments/third-batch/clustering.json": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a",
+    "experiments/third-batch/default-equivalence.json": "8f90cb30b0d721701eb92a3ae717ac3ed29d0721061051b1b7e5c072b9e7e842",
+    "experiments/third-batch/final-source-checks.json": "17c0f375324715d7fe5165c1fa551a9d4ebde3c30772720bcced13d1a577e422",
+    "experiments/third-batch/integration-tests.xml": "9aff7346f335bf01f6c78348829bc5ee5678236db7db4d411887bc3972d8e1f6",
+    "experiments/third-batch/preservation.json": "6c195db38833d0227fffe7b690a78a4a8a892dcba3aef34db86843e7df1b56d9",
+    "experiments/third-batch/regression-summary.json": "8995cd78bf2a6d176794f2daed463f51bfc92aaeeb626c65ea8dc401899cc234",
+    "experiments/third-batch/regression.json": "b30f0f625ce194ef30ec8639028a23884b84d0c37f4d893465de149c8dc8a68c",
+    "experiments/third-batch/verification.json": "e2da9b2ff4c7345654188352cf64d0d2dd66bd16ca56a0dc3111003a7e84ef37",
+    "reports/third-batch/README.md": "75f8995a2f6d1f4b394a743cb66f052759a391a2a6df325e6effff5b7ba2c6a1",
+    "reports/third-batch/SUMMARY.md": "f18f0b911c7c8735661be28ae7dc181c1cc640ac0975de8e3cf7963fd8977f78",
+    "reports/third-batch/classification.md": "61cc882ba88a52f744c7baa0f1f023df9b61e75f535a96828106ff4084839e67",
+    "reports/third-batch/clustering.md": "fb2f359766d3812249cbbea36461cafc054bfbb0880a7f59e1979eac9b60aeae",
+    "reports/third-batch/regression.md": "46202696f93896de574ab602b42ca8ec5cb132f7b5f2a35f299cb178d28aa4d6",
+    "scripts/third_classification.py": "1aaf5ec5510b12188f5dcc6df3e8ed31919152a6a4e9634cd7d68c9ab4642bf7",
+    "scripts/third_clustering.py": "618d49d2a2103fd458ceb166c0ca02465772cbfa4aba51193d62e27f62eb2a69",
+    "scripts/third_compatibility.py": "cc8ad6834ffa96a4a6b866f25e3a0f8cf2d104543ca36b960864a62d3e00411b",
+    "scripts/third_regression.py": "2540b19cbf01b2bc9848263c9166d7ebf45135aa0db1206536aba6262c6b1a82",
+    "scripts/third_runtime.py": "06cc560d35a9b9861ff1445f76406aca92c2068d0d0daaa6a577534595a8e69a",
+    "scripts/third_verify.py": "be29a430e53256217ff11d1e6f05f937521c5d35b27091ee2be60ec86e46144b",
+    "tests/test_third_classification.py": "8dc48cbfd0e5421a0a43dababa539dde9305b02d1f5b39b31494942dca4adfbd",
+    "tests/test_third_clustering.py": "7df55509d74ba27ba00afdfce3b3aca52e142a1c0507ded79e44362ebf53b6c7",
+    "tests/test_third_controls.py": "12a032f8588b4537d7791dd84d45c0e7b187eab37b97b8a380b8d2e767826b00",
+    "tests/test_third_integration.py": "0b850918ff56a2e094a58c25369ad0bff240738388664ac42de89f986f9a731f",
+    "tests/test_third_regression.py": "8374c30a40b4343052c1f7816fa56b76cdbc902589b03aca5e8056541be99a18",
+    ".gitattributes": "930e496152b58f8231de244110cbfe87dbd12101719475a1adbc0e4fec8c8246",
+    ".github/workflows/checks.yml": "f98c4c458b0dae3d37cbb8696b7ea133117d05da29effa4d3999b6bcfa05064e",
+    ".gitignore": "20cbbdbdaf17441ae6258e15d2cbbbb69b2513ba06fe055db90af15ec93280bc",
+    "MODEL_CARD.md": "8a4648edcbbed47638d811b5818a9868ebe7bd9cf55d95399d182c544c50d643",
+    "PHASES.md": "091504c375d2e7ec0c66955c8f44367b4883e7d6f3a23915b6f4923a145eaffc",
+    "README.md": "10f192be8f69fbe85689c1ba0c6c2bcac864f48a4a10f7e1130e94f476e620a8",
+    "configs/router-accuracy.json": "8aa522e97eeef15bf313aaecabb923737d7f11360612d6e670c239a2bb0bc5ca",
+    "configs/router-categorical.json": "a3ce3342edd6c5d63fc3eafe6567066dc83552dbe7b44338b5b8fb0b01e49d59",
+    "configs/router.json": "2523b727d7136dbe1f2bbfc002033c015d4e59682062e0dc1e60c3c7812b8d33",
+    "experiments/baseline.json": "a6a8da70332ed7ab3a8d12fcf1c4fdd39417e96218b8832a8b88bb484cf025aa",
+    "experiments/broad-comparison.json": "8563a97a8583422b856b554218143a6bbb66d58a34e9fbbb5606d3f94b506ac2",
+    "experiments/clustering-development42.json": "a97713f76d8e19fd7026565441138219cf9fbf58ff68558ac2bff458bf9647a7",
+    "experiments/clustering-improvement-before.json": "e7162bdbdd46c28d4b63937ec4196f722379ea3cb606d185973d61fd06848d74",
+    "experiments/clustering-improvement-confirmation.json": "c85b78bf77a08cb588ee3faf51d08962b1c2367480898a1a57c2b9bb33fc5437",
+    "experiments/clustering-improvement-development.json": "cc67775e94c0767427a1e455997778f9a61a005642b13b3ef765310e4ffc39b6",
+    "experiments/clustering-improvement-evaluate.py": "ba769dd7d6e5dc6192f35184d2692830f637afa4bc73ebe14d60e6022ad82815",
+    "experiments/comparison_summary.json": "e2d102b71f8f2875fca977f4d90ba4f89aa62108d3cb45b13b0c67b920de9f73",
+    "experiments/first-batch/classification-known8081.json": "b0b9c845efbc925da26e7e2409fd7004aaa02cf6b082b562c009704f9d34b734",
+    "experiments/first-batch/classification.json": "b56630ff7101fcff70c66a38916cb1e26ffc763e4791cffd8a1e4649db5e510c",
+    "experiments/first-batch/clustering-diagnostic.json": "3215f66ef8aa7144cefa69aae3f834f8728f1cd70d30bc9fd0892ca7a5194061",
+    "experiments/first-batch/clustering-diagnostic.py": "a75d6d9a91e30521d707923ecd8785454819d1771672d6883bc11e68f513e43b",
+    "experiments/first-batch/clustering.json": "097363ba5898abf636f26f3b30106bfb541075a0e44a1a304efa832984ae280c",
+    "experiments/first-batch/default-equivalence.json": "f94db50600a8c5c91ecf146fe2ea807680e147983fd0537a4ca65b63514e383a",
+    "experiments/first-batch/integration-tests.xml": "1cfdbbd95b7df0e9389c82f3dd5998ca9e3a27170fbedbf5248f2808ae81f2eb",
+    "experiments/first-batch/preservation.json": "10bd1f87d09093137beee15ad8e45220af2e700de3ff06eac34702bd583d1450",
+    "experiments/first-batch/runtime-combined.json": "bc94e54415d06810008fb75f492887a7713663948f8409cda2a7b0e559577638",
+    "experiments/first-batch/runtime-study.json": "3242b9bf0cce5b6bdc30db91b24299ce93ee35257c7d11c72cb0e5e1ee6589e3",
+    "experiments/first-batch/runtime-supplement-2.json": "1dc4d36d5cb89ab64a95138741c51c117f3dd6d14e703b69bf23767bc3c37d41",
+    "experiments/first-batch/runtime-supplement.json": "954e27600c0ebf951f7352645bb7e9b9659db7f3a8de5e9de63ffcfa206f28f5",
+    "experiments/fixtures/historical-clustering-inputs-v1.npz": "54cdc3d72271e2b452656ff0b0702883b1024f28ac8c8a4193b3c6ffa8fd3c8f",
+    "experiments/post-review-smoke.json": "f0667856cde8cc7d3d8d8ee0bf3e760e7ea70d6bdb444ed1cb2769cfa9cbcd00",
+    "experiments/review-high-cardinality.json": "ea15158c9117df997b758ceff3adc1d25013df0c72d26a077193f7c64cad00a7",
+    "experiments/router-comparison.json": "6a64697037599173497bbc3285ae00c4781323255a95ce325a4bc88428b4b9ff",
+    "experiments/router-source-c7904fae62eb7f4e.zip": "867b8a20a5070ba41ebc0134373484b977aa26b7f2444f5f714c227eabd2576e",
+    "experiments/router-vs-auto.json": "597a231e2cac81c280c7288cf70f166b753f563b08f6bfefcee6c2c684555f12",
+    "experiments/router-vs-baseline-accuracy.json": "b406aa7d9782bcd3f3aa6f352dea6af985153d4ba7ece9d75d5e6f38e82cbc91",
+    "experiments/router-vs-baseline.json": "9b8807f4d768ae52c53445a94b936c2f436badcf676c88317293446f6773926e",
+    "experiments/second-batch/admission-verification.json": "2f3c7beb55a4802614182a056316a5da6f4037d522a73d678cf111518bcc2e2e",
+    "experiments/second-batch/classification.json": "69d84ce18add6c369bcc2d883c4b477b11df7e73d11a7703372ba6f57fadcab5",
+    "experiments/second-batch/clustering-summary.json": "2ca3b788ad92ad1afe26390fdc94cf219358a586d380d3e503e59ae543fa38a9",
+    "experiments/second-batch/clustering.json": "355b2bdca81740efa2d2a135643c163f1cf714990d30c85ada21dbe83fb78135",
+    "experiments/second-batch/default-equivalence.json": "60d1e4b72c4cfc59197ff3e7da1fa0074abbfd6169ab93c4922f0a3792801cfc",
+    "experiments/second-batch/evidence-tests-corrected.xml": "da75bf2685e3b889aa23236bdba62b5195141b6b755836d4943dfdd5fd3334b1",
+    "experiments/second-batch/integration-tests.xml": "18f09daf4d00152749c8f7f3e78388ac0eed479d81d55379b8f4a64cd6c8cb0b",
+    "experiments/second-batch/preservation.json": "ee34730f4f8514c777fdfc86daf9bbc264e7d917ad2570e247b2cfcdb33d9791",
+    "experiments/second-batch/runtime-admission-source.zip": "7d0b7dc58ce0d58114b8f378d3af325eb5acb0da7d2a40730965f96b38029754",
+    "experiments/second-batch/runtime-admission-study.json": "47f5ea98d59ddc72a16259ec46457ddf91fc4a42191fe5e1e483bfd8209a7988",
+    "experiments/second-batch/runtime-admission-summary.json": "42cc13fe58a56536becbb946c3cef29e1e67232e6b4703b0e969771f2236125a",
+    "experiments/second-batch/runtime-source.zip": "b006f03d42078f8806def4fb665d50ef570f3d93d9f9f8caa66ff42d574c5bab",
+    "experiments/second-batch/runtime-study.json": "552e3f3a7408691deb9f3f787876e3511a283c318c17d2c99189545b79abb52d",
+    "experiments/second-batch/runtime-summary.json": "270f7e327e2b4d41558cd7e147b17d15de212a5c155da9841dcb8d17bf6a8cb8",
+    "experiments/second-batch/runtime-supplement.json": "1c1418c0bc6403e32a1cef7760a9585157d8971e956e140e54d987e31e34be55",
+    "experiments/second-batch/verification.json": "1041d5a4cc6a794ac24b8354645d5d60ade5622b57b6f616d91e3aeaf11dc403",
+    "experiments/selector_stability.json": "26a3f7613f4fc27bb78a43426ff1303823384ea4da1f9fe6fd91e191974a99c3",
+    "experiments/source-81a8a622c85eca5d.zip": "4962e16887bf9f9b7cbe16a962f40a6d8717a0fc05a19d90cc6ad6de96bd35fc",
+    "main.py": "eaae6f7b36735625d337f630fd1c54fca9a6a20f367b293ac941d559ecedca19",
+    "pyproject.toml": "aea8800aff462ba3872d6d06056da23be3e57f67eeef0cb88fa9b06c2fecf479",
+    "reports/IMPLEMENTATION_RESUME.md": "1bbbb31b678df9e03e17a5367e97c31f4869366a7a6d9a7a55e74c64abeb9e7a",
+    "reports/RESULTS.md": "6854af925cc1dd93d8978285a19d18d32d2684352a6136eefed8a4d0db08d0fe",
+    "reports/ROUTER_INTERFACES.md": "d2353199bfc6248b7f7568d4643694f0a922430ccb08ae7278316286c090c232",
+    "reports/ROUTER_PLAN.md": "4720713f727bcc23c74ec8d736d833984b3d7dc915b5804179bcffc0577da332",
+    "reports/VALIDATION_PLAN.md": "888716e409adcc321093bfce8d24ea86cb5755bca8da512d669226763faf1b36",
+    "reports/candidate_cross_review_clustering.md": "9163129e086d8a6533e6a90bcfd4ba7acff98103ad34654c09bac0f0e6710454",
+    "reports/candidate_cross_review_supervised.md": "ed420fa101c81f69c8427f7ff428d767ef683c764f5dfc7336b25a33bb630a5e",
+    "reports/ci-portability/REPORT.md": "ec8c6fc33b52555fa96f15be0d881fd2fccd77377f028c4b4cbf1cfddb4e9cd2",
+    "reports/ci-portability/haswell-tests.xml": "da5d04729be6426508f1a2b4cac590ceb487d22d53450438d48739fa231729a6",
+    "reports/ci-portability/historical-replay.json": "a57813a5382feecd044e48a6f7824100d9f8e5d266b119b6bd7a86f60fa70b16",
+    "reports/clustering_experiments.md": "e56de96154b5918bef2ebd6ede819e9c9da1815871f9f16c89b8f0e4d6727e4f",
+    "reports/clustering_improvement.md": "4f773da3fc6eb533d161c8cc2bf74f2fad499395da69c473f1806e1e6a947cd4",
+    "reports/first-batch/README.md": "9e60290d888ea3adb866173d49e3745a1b1c9efc7914ecd33d02025fd74bc7fc",
+    "reports/first-batch/SUMMARY.md": "69116caeea6c5dd2ba3c3f696bd89fcc2de94280d502d12a7ff4209f6a321f06",
+    "reports/first-batch/classification.md": "939449b3a9f712c744c44c3986515c9330a0d69d941bb931a46e71ec5ed30ddd",
+    "reports/first-batch/clustering.md": "2d39d3751da491824165b84d264345fc2c7f92fc0bf007b70f016ec3c32a5971",
+    "reports/first-batch/runtime.md": "967d6204216ff107af3eaadd2b4254cdf2d1c857f01f29554cafd5281c7c4e33",
+    "reports/grade-evaluation/ACCURACY_POLICY.md": "b21e4e1fea0667844b16bc586b4194f6600fcdf7387a2b625da13881f3c9c091",
+    "reports/grade-evaluation/DEVELOPMENT_ROADMAP_P0.md": "d2ab7378cdecd8c2c1d102109b691b18f478e33a0156e2d822c16f12121d5d49",
+    "reports/grade-evaluation/GUARDED_REVIEW.md": "8778773ee58a5105cd676e060019e681aeff40ddb25c33dc3f4436fce2039124",
+    "reports/grade-evaluation/LATEST_EVALUATION.md": "8e060072df389bd440fdaf7f6187f34ce4cdf49245693c8aa73ac2c1f461dd38",
+    "reports/grade-evaluation/P0_EVALUATOR.md": "ed28364eb2daff7cc5e7f757d98e2826fcaec0f0af781ba03698476fef0d8a78",
+    "reports/grade-evaluation/REPORT.md": "052c27b7999d2351f3cd66cd68c2dca4c3a72989c74b67dfb79c06390a81aabf",
+    "reports/grade-evaluation/STAGE_REVIEW.md": "b82cb7b821990876c81a14c70abc1be23622893f9a4b22e64ffc90688f50a239",
+    "reports/grade-evaluation/accuracy-objective-development.json": "8800097792d3d747dc9c2af6958471f6e8870f1c24f6632e021f63eaae98982a",
+    "reports/grade-evaluation/accuracy-objective.json": "efc9edb8abf967a2fbed9f51f51521094508cee70efb6b77a513dc3463ac84f9",
+    "reports/grade-evaluation/analyze.py": "1bf0c4813b0b2aa44877dd06d753b922bf3cab9327a084ae5b60beb7ba02b5b3",
+    "reports/grade-evaluation/assessment.py": "993995f68c66989d050811ec5f46ac28048cb50e8ab6badb9aa6acd8b8bb0e3c",
+    "reports/grade-evaluation/first-batch-review/REPORT.md": "8facb80a3595aeaa99f6f34908f89b8a067c9db0425ee85aec15418865f693b4",
+    "reports/grade-evaluation/first-batch-review/evidence.json": "a753c50006460148e395b735921c58ab2e8033ddd7bed24fcab69fcb9fbd5a37",
+    "reports/grade-evaluation/first-batch-review/verify.py": "8e9379b36f41dc534dd43f32840dddd94bfadf9424566fa069adeb962246caa0",
+    "reports/grade-evaluation/guarded-historical-scorecard.json": "da5d093b57073078c14db0651dc4844bc123c8d479f28cebbf8f7a0e859dd51e",
+    "reports/grade-evaluation/latest-accuracy-objective-vs-baseline.json": "c406c4606c9a14cd091ec183fb128eecc4769cbc06d3ae58f575e9e54679ef2e",
+    "reports/grade-evaluation/latest-independent-evidence.json": "141e55f5b91238cc67b27ccdae7abb05c2b0cb4c76b7c5dd9d970adb2776b948",
+    "reports/grade-evaluation/latest-routed-vs-auto.json": "a66544550ffdea5b87de1c6a9313e01057a47fab55506da6b48280d919d5e6a1",
+    "reports/grade-evaluation/latest-routed-vs-baseline.json": "0b414982558373953c401c9c16d6fe2a3a10cd0cd139a54b3f77da42dcf36159",
+    "reports/grade-evaluation/p0-review/accuracy-objective-vs-baseline.json": "7aef9649df1a9ad4398640cb5440e06d9a9fe2568988d115c11f146334824faf",
+    "reports/grade-evaluation/p0-review/cross-objective.json": "3433eb33d0a64b8095d7d86b08479f6457261577b45f64ec099b1402c9b7981a",
+    "reports/grade-evaluation/p0-review/historical-auto-vs-baseline.json": "7eb16e3e2841894cd0ed2aed81214c787efec8911e3ef099887a159c33b39ca0",
+    "reports/grade-evaluation/p0-review/objective-policy.json": "ba26dfa5b265581bf7d136e2ba9b393706035bd73076f0e2f48c7d502efd5efc",
+    "reports/grade-evaluation/p0-review/registry.json": "34643516fc299699174d72f8288c6ba33300d01b62349beb6b4bd145fd04f032",
+    "reports/grade-evaluation/p0-review/routed-vs-auto.json": "c836deadfcfbba4b74eb0b8de0701c0c641b48e4322aba2fbad761f991272d38",
+    "reports/grade-evaluation/p0-review/routed-vs-baseline.json": "76b1f0f8defa153005ba789443ce3f67547e6fb9d55eaba2699db0ed35bd7d30",
+    "reports/grade-evaluation/p0-review/summary.json": "b4e32b3f496b3a36dca66d5c2d08239de255b5558e3b25d23f0d864369f1a7a5",
+    "reports/grade-evaluation/p0-review/verification.json": "8d122516bf86102aed53655b635c4267482f83fd19091769b0eea8c10e694d2e",
+    "reports/grade-evaluation/prediction_evidence.py": "168885627e73321ac5d8ca994337cc043650366b8a7e54084c94738d3f0e5532",
+    "reports/grade-evaluation/promotion.py": "51ee8387afb96dc2ac57af979b4fa236ccb5e63c4106461a8cb0bd9031ff8d66",
+    "reports/grade-evaluation/reference_evidence.py": "15a0061772436a5a5bfd8d9dfb7253d0557369cd0043c70f2b62ba9c4e2e832c",
+    "reports/grade-evaluation/run_p0_review.py": "a99c0a2f0a2958a8cc2cd6e7182e9d75cfe79d87cf05f35c0e3b269f4f2b04d3",
+    "reports/grade-evaluation/scorecard.json": "97791e27109dacf64f0778f10d9b60a412826b3dfc75a526602eac5962603cbc",
+    "reports/grade-evaluation/summarize_latest.py": "56b7d9233fd0076c9aac10b94c9e40ed716ae6bfa1e2ca01e0aafe125c18b6e3",
+    "reports/grade-evaluation/test_assessment.py": "f75e545ebd8e79225876730409133807ff5acd82ed05e310f67a06327e92e640",
+    "reports/grade-evaluation/test_promotion.py": "ff0e89838751241c698665b6767737cfe899bb42f86c6189ed4bda8be7bbd8b8",
+    "reports/parallel-readiness/PLAN.md": "c2d7b69817bd70cd415b7dfdafd2b4300797006a1f285f2a1d5ada7b953014a3",
+    "reports/review_data.md": "68f9dcdcea30490aa101fd6cbe60322d1b28ad40d99ffc72766f0734bbb109b5",
+    "reports/review_evaluation.md": "8f4bf79d17d3f73a03ac3234632ed1177bf26e8a868c7f0a8f5e8e77b8f6b487",
+    "reports/review_runtime.md": "f1c1c65a2faffa212a2befe4bf1ac90dde285fa99ae53b81f414c45a2b4ac780",
+    "reports/router_cross_review.md": "15b039395625f7341ef799ae4f4f15318a55dc9d32eaf46be9420daa8397d4d9",
+    "reports/router_policy.md": "d61064860a3231582a58558199a5592f58a90e8333243514c09d36de638b87cf",
+    "reports/router_validation.md": "7fcbeb239da0562b979fa5fa0034fcf5d5c394526da3fb56fbcebac62def5937",
+    "reports/second-batch/README.md": "bcf75b0eb20457d7c3cebe33e27ba07cf4387501519379cc00afebc94795bddf",
+    "reports/second-batch/SUMMARY.md": "e82d263cc3fa2f522c2998e9e0f216f4f60feaaa790ef62b665364c534070ab5",
+    "reports/second-batch/admission-protocol.md": "d879045fa7f8b97f9f21baba7d442e6ba07e94ac22b553a6d084a69cb5aea1ce",
+    "reports/second-batch/admission.md": "bc14a5ca499538debd2c67f2721f84cf943ca20257e09feed472b505526c9fdd",
+    "reports/second-batch/classification.md": "c7e424e3fc9ad881c612fb7048055ab0577bf4b1a301cb8f8523cc36ccadb54b",
+    "reports/second-batch/clustering.md": "281b7158547980de61f60cb4064fe06c517f33f756f01cf3d57bbf11a6f5cb5b",
+    "reports/second-batch/runtime.md": "53b3ace80241113a9e8ef114d4e29d1f84896e71e643ce9fd03829c470bac342",
+    "reports/supervised_experiments.md": "57abec278f7ed337a6ec2883ebb93a835cb7d0e1832a46ba313c17307b1e0275",
+    "requirements.lock": "cdf42e548725eac10c6f0a87f2e98db23213e302fb7d00ed670f3cfc463578da",
+    "scripts/batch_classification.py": "3b6be69b83dd287ec0c6a5f50464cf4f818cc59666577ad480c26720bd702de5",
+    "scripts/batch_clustering.py": "c73b4ab8023ccfeb096d22c4f5d526711a2e5a1f97988368e553cdf7516cb04e",
+    "scripts/batch_default_equivalence.py": "857d7ca9c77d18a3221e62d96430acf6de3b984a60ea7a3848cd05d149468ea9",
+    "scripts/batch_runtime.py": "1ca2327519cd71c04e15d6f2d5c52872d3d5787baeecf4c0c68d4890bba571f9",
+    "scripts/datasets.py": "139552ec36c29118d5a7fee6e3e57ad9c6ff2a7d4e0722721f7d6b690184f7a7",
+    "scripts/evaluate.py": "c74196d2e89e069c3fb014de56a0d6faf227b043533f990428a792dc44da9c87",
+    "scripts/second_admission.py": "f6d9109d35e7e21b543a60d653e84c4d3da654efc78e9a15e3f53b7cdd523dae",
+    "scripts/second_classification.py": "aa4b8c12af0c94cc456f33d347f7ab6f3c0f396023a42a754fb44821a11aa677",
+    "scripts/second_clustering.py": "8b9b67e011fe22cd8b7baeb10aedbefc1dd8a749aa58fc0b515d3115f523e9ae",
+    "scripts/second_compatibility.py": "c035e4735b96811d08dd62b7323acb525913497b4b74759d660ae5bc21732ca8",
+    "scripts/second_preservation.py": "38a0987c1b1cc5fa7332f6c0f1653392061f5971eefea818b457d84e81e8605d",
+    "scripts/second_runtime.py": "c20040aa26cde2c84dd9db6d330eda870703057021ff8d6391ba1084a7fb4795",
+    "scripts/second_verify_evidence.py": "400da9bd2c9f5441721ad9a4d84670de717198e467bbe54541b285b5ff8bb89d",
+    "scripts/selector_stability.py": "33bc1e075e1a8befc7239610f285683f336257e41fd48c2a0154932063ef5ece",
+    "scripts/summarize_comparison.py": "cf80b022364a4cac79be9cf340c35a420620672022da6a8913ea1a566cd22927",
+    "src/unknown_dataset/__init__.py": "7a8e565dccd13b5c66f4c0a5a66a4bcf1591596d73bf2bf844055ef612e491da",
+    "src/unknown_dataset/categorical.py": "762a29482208e3fbfafacb32c10ab9020c4bcac642ed90bb7bc86e84200a1b2b",
+    "src/unknown_dataset/checkpoints.py": "1ea404d7cd286509364b6a60f7ac8d3313197afb82f734680d4bc7f45ecf4216",
+    "src/unknown_dataset/clustering.py": "c4df5c0fde625b392a23c3f5ef05c9c3e7cd634b937634442ed10aa43a12ad61",
+    "src/unknown_dataset/contract.py": "7c1e57a55a662cd58ed2c422aaaa0d3b290db8d8ac8800c869607ed481964076",
+    "src/unknown_dataset/fallback.py": "be4a75c7ad4980bc929027d61b8661c1bdd014054b98a7bbad3cbb517cec649c",
+    "src/unknown_dataset/lightweight_config.py": "e5fabf185a3267a80eabd0ea9b449dfe4cc433381589a9083e346d02145b3a3d",
+    "src/unknown_dataset/models.py": "24130ef9f360ec530d02dd7d037b33c369fcd0e5991be9d5c02d8b0bd1cdb2cc",
+    "src/unknown_dataset/policies.py": "541c99cc0abdadb3d5bc342b3dd8b94523bd820fd69b5670e23bf2ec2f60861e",
+    "src/unknown_dataset/preprocessing.py": "c6327fe726bf34ad9a068712f9cf2efddecac72d5de8643ca1ad24a9e3e586a5",
+    "src/unknown_dataset/profiling.py": "9b7ff27b42021774a5c2c518532bfb805baa454546b0be94bdb910a7b02bdf1e",
+    "src/unknown_dataset/routed.py": "5d6da50bb2616d8852cddd3528e9a34f4397c3e321038fc26266d0836cfb0a74",
+    "src/unknown_dataset/routing.py": "d6c6ef3f395753d5579b09f4ef034310240cc21cca051dd1627be58afd09f5a5",
+    "src/unknown_dataset/runner.py": "da9946270c5bbe0533b0eda139012e6da4e84725f865fc78af56023ed9894b33",
+    "src/unknown_dataset/supervised.py": "f17da5ba5154a7f9f1ac19f0f585324b47bd6eefc30010d965440451bc2f577e",
+    "tests/test_batch_classification.py": "95fcb13454642282d63fb2ff9be40f94a5121a69d0ce1c0d29b7ac02cd7267dc",
+    "tests/test_batch_clustering.py": "1de6fcd637b76b949ba8abb9f9d7b77e813d4cb4ce0f0879a2a0c423ae1a9dca",
+    "tests/test_batch_config.py": "82357735bec3daa9bc56797b076c8f7413f1e6290d4e28301095760becf2f829",
+    "tests/test_batch_runtime.py": "403bb90ce908acc426de3145076375e22d4e09f08f824066bf70552e5c87771b",
+    "tests/test_categorical.py": "34894863c0b672145d2d710791a4f70a61db1584fe25742847dbcbfc9696e179",
+    "tests/test_cli.py": "bd0de0111bcc9d5debe7674935463a043205710eadc574e4c6aba12fe7497f58",
+    "tests/test_clustering_candidates.py": "a94008634f289d474bdc6a97aeba7e640c0aec4c8ee4415c92e3f2db360f7f79",
+    "tests/test_contract.py": "b82cf6eb6956e469a106ec3e2dc8a3a6d92f3fa3aa595c22eb0c3ef761bc8e34",
+    "tests/test_evaluation.py": "c43e71684b3f3b046537cfc14fa3d507a56afae686c3aa652f7691606dec9ad8",
+    "tests/test_leakage_invariance.py": "2c2712740ec2214aadcdcbeb7314e7be7f49dc99db6683f0d0552cefc1084cd5",
+    "tests/test_models.py": "e499a473af5ea5ecf9c367c0750ff5dba7dc4e9b62ba023189fc6f5762543351",
+    "tests/test_profiling.py": "e3ab0b68dd7e067d11655528518a56f6fd11bd9b87ff50856dcc4a445d1b43bf",
+    "tests/test_review_data.py": "a3c47744aae8b5ad0d7bb74172b11461ec168a013578f40292b3d4ff5ce1dce9",
+    "tests/test_routed_checkpoint.py": "41f0d736aa17fab94c98b51c507b782e9b7bb290d5d650f9720a6698195696d1",
+    "tests/test_routed_evaluation.py": "88319a41ccc3cc253bab9f67fb9f255c759187a9a3761c25e1fa6fea7b01c3d7",
+    "tests/test_routed_executor.py": "22cd6b59f0fc58424ff627f3db3ef886149e48f25dc0773598f80ab768f59be2",
+    "tests/test_routed_supervised.py": "315fc4f9302ce8d05be53f0508b710a51f93a92b1cd4557ef50fd1f2633f2f1d",
+    "tests/test_routing.py": "ae3f1d8c0a6fd7fdd6fb085605e434d8389863dcdfb56403dd5ef291272942de",
+    "tests/test_runner_review.py": "562c37dcd9f38427b5b5f1a5655079e074c1ae71ff586aa025cc6539f822e3fc",
+    "tests/test_second_admission.py": "8e00a793588d8ed82d3620f9f1b7e48ae3578929bd5d42bdd96983f9b733a7f1",
+    "tests/test_second_classification.py": "97cca604e8b2eca5ef2d094e8cf766f748ba786f53f82c4df2eaa9235992ff41",
+    "tests/test_second_clustering.py": "b17399c4145f41f57af735703fd4f18d390dcf26444c2b98b14cc0506742ed26",
+    "tests/test_second_evidence.py": "ac6ee593101dbc1047b26918efe740737702cb4b5e712f173f2e1374dfb43655",
+    "tests/test_second_runtime.py": "e0f0ba6aaa6b85badd13cfc7a93d89020ec795f51b5713f5c857a821fd030e13",
+    "tests/test_selector_stability.py": "2bb1b0928743b493da2bf5067f9b0b345f953f76b8834cd2f42fafce67cbc12a",
+    "tests/test_supervised_candidates.py": "6c22a0682e074d24b6f7f599fde1d99b6d506d9f605d43d4c2317106c25a4c08"
+  },
+  "checkpoint": "a49253cbab7579ad407ca0c02d012998b55b918d",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1"
+    }
+  },
+  "minority_recall_definition": "Mean recall for the least frequent training class(es); ties averaged",
+  "clustering_protocol": "All feature rows, no reference labels in inputs; row permutation and model seed change",
+  "provenance": [
+    {
+      "dataset": "breast_cancer",
+      "task": "classification",
+      "status": "available",
+      "rows": 569,
+      "features": 30,
+      "categories": 0,
+      "source_class_counts": {
+        "0": 212,
+        "1": 357
+      },
+      "source": "sklearn bundled real dataset"
+    },
+    {
+      "dataset": "wine",
+      "task": "classification",
+      "status": "available",
+      "rows": 178,
+      "features": 13,
+      "categories": 0,
+      "source_class_counts": {
+        "0": 59,
+        "1": 71,
+        "2": 48
+      },
+      "source": "sklearn bundled real dataset"
+    },
+    {
+      "dataset": "digits",
+      "task": "classification",
+      "status": "available",
+      "rows": 1797,
+      "features": 64,
+      "categories": 0,
+      "source_class_counts": {
+        "0": 178,
+        "1": 182,
+        "2": 177,
+        "3": 183,
+        "4": 181,
+        "5": 182,
+        "6": 181,
+        "7": 179,
+        "8": 174,
+        "9": 180
+      },
+      "source": "sklearn bundled real dataset"
+    },
+    {
+      "dataset": "iris",
+      "task": "classification",
+      "status": "available",
+      "rows": 150,
+      "features": 4,
+      "categories": 0,
+      "source_class_counts": {
+        "0": 50,
+        "1": 50,
+        "2": 50
+      },
+      "source": "sklearn bundled real dataset"
+    },
+    {
+      "dataset": "mammography",
+      "task": "classification",
+      "status": "available",
+      "rows": 11183,
+      "features": 6,
+      "categories": 0,
+      "source_class_counts": {
+        "-1": 10923,
+        "1": 260
+      },
+      "source": "OpenML real dataset",
+      "data_id": 310,
+      "reported_name": "mammography",
+      "url": "https://www.openml.org/d/310"
+    },
+    {
+      "dataset": "blood_transfusion",
+      "task": "classification",
+      "status": "available",
+      "rows": 748,
+      "features": 4,
+      "categories": 0,
+      "source_class_counts": {
+        "2": 178,
+        "1": 570
+      },
+      "source": "OpenML real dataset",
+      "data_id": 1464,
+      "reported_name": "blood-transfusion-service-center",
+      "url": "https://www.openml.org/d/1464"
+    },
+    {
+      "dataset": "diabetes",
+      "task": "regression",
+      "status": "available",
+      "rows": 442,
+      "features": 10,
+      "categories": 0,
+      "source_class_counts": null,
+      "source": "sklearn bundled real dataset"
+    },
+    {
+      "dataset": "california_housing",
+      "task": "regression",
+      "status": "available",
+      "rows": 20640,
+      "features": 8,
+      "categories": 0,
+      "source_class_counts": null,
+      "source": "sklearn fetched real dataset"
+    },
+    {
+      "dataset": "house_prices",
+      "task": "regression",
+      "status": "available",
+      "rows": 1460,
+      "features": 80,
+      "categories": 43,
+      "source_class_counts": null,
+      "source": "OpenML real categorical regression",
+      "data_id": 42165,
+      "url": "https://www.openml.org/d/42165",
+      "reported_name": "house_prices"
+    }
+  ],
+  "cases": [
+    {
+      "id": "real-classification-breast_cancer-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "breast_cancer",
+      "seed": 42,
+      "input": "inputs\\real-classification-breast_cancer-42",
+      "reference": "references\\real-classification-breast_cancer-42.json",
+      "training_rows": 426,
+      "evaluation_rows": 143,
+      "features": 30,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "7d5c1a2b57c5379b50ca33df48980cd0d0e5dc51c06aa188219f4e998b17a5bb",
+        "train.csv": "59d2d91395bdd6d98ddbd979c1d3593ecd305900cf7036887ba1087374fe3557"
+      },
+      "reference_sha256": "63a7d9465e6cb07ccb10901721e6eca95cf5c2844be97264281bffe8e8bbf469"
+    },
+    {
+      "id": "real-classification-breast_cancer-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "breast_cancer",
+      "seed": 314,
+      "input": "inputs\\real-classification-breast_cancer-314",
+      "reference": "references\\real-classification-breast_cancer-314.json",
+      "training_rows": 426,
+      "evaluation_rows": 143,
+      "features": 30,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "8d11c13992d639ce3716e2986025700a11cc676e3673a982eb7e4933a656e769",
+        "train.csv": "4266aa7bd61ce0a1bcce39d748739754dbe7f6381d97e88b7a654831cdb4a55b"
+      },
+      "reference_sha256": "7cb204a82e5f90a954d1791e6758af3b3923b2c6e558535322d7e078969f091a"
+    },
+    {
+      "id": "real-classification-breast_cancer-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "breast_cancer",
+      "seed": 2027,
+      "input": "inputs\\real-classification-breast_cancer-2027",
+      "reference": "references\\real-classification-breast_cancer-2027.json",
+      "training_rows": 426,
+      "evaluation_rows": 143,
+      "features": 30,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "8b8616abf044cde12004e64755e8a3acedc4501ec4b15682906544d6d9c56b1d",
+        "train.csv": "57aaa87892abe1d2988011813cac1871a609d4a54cbfc771e4202e68f340613b"
+      },
+      "reference_sha256": "a9a81622bc9d970521e3b4cfd292941cb42046a7f4f91c23b6d6ca23d505e4fe"
+    },
+    {
+      "id": "real-classification-wine-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "wine",
+      "seed": 42,
+      "input": "inputs\\real-classification-wine-42",
+      "reference": "references\\real-classification-wine-42.json",
+      "training_rows": 133,
+      "evaluation_rows": 45,
+      "features": 13,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "d5932e2900b5afbc0a954a1970efc9f17d503f5bce1c05fdc69fe3a3160cbf7b",
+        "train.csv": "75c8a07b0cb51287f71c2cbfc48446e710cb44b3a75051286f6fdb7e33a8a8de"
+      },
+      "reference_sha256": "c9ee4e027ccf3b8ddf0d27e7ccfe8433ae3a8326f3a7d905bd051e41284ff123"
+    },
+    {
+      "id": "real-classification-wine-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "wine",
+      "seed": 314,
+      "input": "inputs\\real-classification-wine-314",
+      "reference": "references\\real-classification-wine-314.json",
+      "training_rows": 133,
+      "evaluation_rows": 45,
+      "features": 13,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "94550485a9e7704ddcdb222fbe7702daf802d6f6e7b164dcff642396c3d9e460",
+        "train.csv": "d5d6d0d350968a7dfff7352bc654797a4e9683dd167f4c7213e41e4a17cf0a04"
+      },
+      "reference_sha256": "8be60f92cd65c7e76e54455c780a5443996ad157b30ba6a5d11328356ec3a6c7"
+    },
+    {
+      "id": "real-classification-wine-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "wine",
+      "seed": 2027,
+      "input": "inputs\\real-classification-wine-2027",
+      "reference": "references\\real-classification-wine-2027.json",
+      "training_rows": 133,
+      "evaluation_rows": 45,
+      "features": 13,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "c5eda88b729e852fad660a8934e9bee04bcf75c1cb74938954e0c80388c48636",
+        "train.csv": "4c998bf4db5dd4901a485f897cdd14aa9eedb4e816d5da742e2868a340a2ee50"
+      },
+      "reference_sha256": "e9d0b3cb759bfee06d6db66c8404542052fbde12ae65e548812efe7a86d4b621"
+    },
+    {
+      "id": "real-classification-digits-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "digits",
+      "seed": 42,
+      "input": "inputs\\real-classification-digits-42",
+      "reference": "references\\real-classification-digits-42.json",
+      "training_rows": 1347,
+      "evaluation_rows": 450,
+      "features": 64,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "1e3a76cc1a6c7a6ff2ff146249d6c6049c04a2150533fc59365a0884eee3b995",
+        "train.csv": "cebb70e3d799c91467af589cd6bd8880e2a61e50933369d66614caf7624cec79"
+      },
+      "reference_sha256": "1e9406dfc13c96a1af743e8d88c54430ad3b587178deacb8a89048d08daa7eba"
+    },
+    {
+      "id": "real-classification-digits-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "digits",
+      "seed": 314,
+      "input": "inputs\\real-classification-digits-314",
+      "reference": "references\\real-classification-digits-314.json",
+      "training_rows": 1347,
+      "evaluation_rows": 450,
+      "features": 64,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "4b4c83ad9d837a98a92e5faa01c962c762ce5356cb39344706f03f174797a7f4",
+        "train.csv": "08b78b47bdd66cfe540245b77657626700c4087a3f3e1dcafa9c66daf9cf0f94"
+      },
+      "reference_sha256": "a5b702e4f732d5a984abab8e7a4569d07615447a6c3dbecf603ab306d05d4cee"
+    },
+    {
+      "id": "real-classification-digits-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "digits",
+      "seed": 2027,
+      "input": "inputs\\real-classification-digits-2027",
+      "reference": "references\\real-classification-digits-2027.json",
+      "training_rows": 1347,
+      "evaluation_rows": 450,
+      "features": 64,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "e1483bb6e6d756cb5f2f4d7678d2e10d5ca87bd4995a88a454c2f30f2992869c",
+        "train.csv": "6920d9fbbf606820fe5ed9dc9339ebac2b736b646473240453a3e5a9ac08b514"
+      },
+      "reference_sha256": "70f01719fde7c1f2e27d9e1a6ab8f82f3963262ee1181e5644ea9f8b1f60fe63"
+    },
+    {
+      "id": "real-classification-iris-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "iris",
+      "seed": 42,
+      "input": "inputs\\real-classification-iris-42",
+      "reference": "references\\real-classification-iris-42.json",
+      "training_rows": 112,
+      "evaluation_rows": 38,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "edee859c542389507d45350163e02aa6050e1f90d369bfec1cbea2aeab439263",
+        "train.csv": "69c8c39535713e6ae2a8240052d07cb13677977400d974b57517ccb1845cc7b1"
+      },
+      "reference_sha256": "b3068ce2d73089c54e20a28f12f8a96aac626b6ac147934973c19e79cf9b6b28"
+    },
+    {
+      "id": "real-classification-iris-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "iris",
+      "seed": 314,
+      "input": "inputs\\real-classification-iris-314",
+      "reference": "references\\real-classification-iris-314.json",
+      "training_rows": 112,
+      "evaluation_rows": 38,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "44a92b308fc3e25032112e90cc03a0f051665f67d2a8fbc11548c9dd9bd143e4",
+        "train.csv": "2b30ada533f95831151e3b9b3b0a52f28a565b18121b68824f1bf404e771b339"
+      },
+      "reference_sha256": "6fe4b400b9cd33986292821ff4420b197134f3d7f51376bd4986653840b11a25"
+    },
+    {
+      "id": "real-classification-iris-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "iris",
+      "seed": 2027,
+      "input": "inputs\\real-classification-iris-2027",
+      "reference": "references\\real-classification-iris-2027.json",
+      "training_rows": 112,
+      "evaluation_rows": 38,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "deca93bce2c359c220fa22e65362297fa616037fe7076113ed3d8796229a4784",
+        "train.csv": "8da7b37efc3991e6f9ebfc61c78be8bbd4477d22855df1739e0eb4ce11a3a678"
+      },
+      "reference_sha256": "3d43b54bfa3dfdb124870465401edffb5c80d02417ab25e58f02c656b0c398b1"
+    },
+    {
+      "id": "real-classification-mammography-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "mammography",
+      "seed": 42,
+      "input": "inputs\\real-classification-mammography-42",
+      "reference": "references\\real-classification-mammography-42.json",
+      "training_rows": 8387,
+      "evaluation_rows": 2796,
+      "features": 6,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 310,
+        "reported_name": "mammography",
+        "url": "https://www.openml.org/d/310"
+      },
+      "input_sha256": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "299f9a86ba633a76b790b1c2971ceefa00ffc1173dc05ea50dc64fd69031a0ce",
+        "train.csv": "f28c6812c9751fdbdda540568b45ecc760539626f068b55f4d50b2a2e7bbc565"
+      },
+      "reference_sha256": "9c02669be09190f9afb9543668fe6399e841c2ec01845c89119fe876506656f9"
+    },
+    {
+      "id": "real-classification-mammography-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "mammography",
+      "seed": 314,
+      "input": "inputs\\real-classification-mammography-314",
+      "reference": "references\\real-classification-mammography-314.json",
+      "training_rows": 8387,
+      "evaluation_rows": 2796,
+      "features": 6,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 310,
+        "reported_name": "mammography",
+        "url": "https://www.openml.org/d/310"
+      },
+      "input_sha256": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "38720f3ce8f1289b67f774c27f3625afdcdc63e8c4c45ec0d9f8451ea84a6047",
+        "train.csv": "e17df355048057e74287102d8b227bb41befa33803d0f9daad878a620389d966"
+      },
+      "reference_sha256": "c361950769f70cef47ddb5875e910e28d3c00ce9639d7b4311698811644455d2"
+    },
+    {
+      "id": "real-classification-mammography-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "mammography",
+      "seed": 2027,
+      "input": "inputs\\real-classification-mammography-2027",
+      "reference": "references\\real-classification-mammography-2027.json",
+      "training_rows": 8387,
+      "evaluation_rows": 2796,
+      "features": 6,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 310,
+        "reported_name": "mammography",
+        "url": "https://www.openml.org/d/310"
+      },
+      "input_sha256": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "9d4373e1a87f342671d852b290b413a41f8767e6b1ffcb17fffa02601e2cdf7c",
+        "train.csv": "f8ea078b68f594a972d6ca8b9385f753eac71af4db6737deeb2e77a0f0afa93b"
+      },
+      "reference_sha256": "dd05a0acd337fcb45420b972c3b7b912e1492297798d04d30fea24a6e8f69618"
+    },
+    {
+      "id": "real-classification-blood_transfusion-42",
+      "group": "real",
+      "task": "classification",
+      "dataset": "blood_transfusion",
+      "seed": 42,
+      "input": "inputs\\real-classification-blood_transfusion-42",
+      "reference": "references\\real-classification-blood_transfusion-42.json",
+      "training_rows": 561,
+      "evaluation_rows": 187,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 1464,
+        "reported_name": "blood-transfusion-service-center",
+        "url": "https://www.openml.org/d/1464"
+      },
+      "input_sha256": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "834f9a2df6f75e92feee194783484382533679e0518b3507cde3fac0d9e43d23",
+        "train.csv": "7fda5d9b8234951078a1bcf0fbef292aa26b9804e325b312cd25d84a247da521"
+      },
+      "reference_sha256": "93f297d6bfbfb45048a882999baed9efe4de39c3ebe98cffaf08dd36fc8702e1"
+    },
+    {
+      "id": "real-classification-blood_transfusion-314",
+      "group": "real",
+      "task": "classification",
+      "dataset": "blood_transfusion",
+      "seed": 314,
+      "input": "inputs\\real-classification-blood_transfusion-314",
+      "reference": "references\\real-classification-blood_transfusion-314.json",
+      "training_rows": 561,
+      "evaluation_rows": 187,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 1464,
+        "reported_name": "blood-transfusion-service-center",
+        "url": "https://www.openml.org/d/1464"
+      },
+      "input_sha256": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "a2962e52dba78f988812b91099daae5fb01f6dd07ed9b42447a5f8af0fe2ef62",
+        "train.csv": "29ea6a3eaec5d36545cccab2324fdecef33ef6ca58bc764330feba6efbf19229"
+      },
+      "reference_sha256": "2ee542f5ad9ca11e923bf77d882238c004ff5dea44cbcb51412a25582f5fcec5"
+    },
+    {
+      "id": "real-classification-blood_transfusion-2027",
+      "group": "real",
+      "task": "classification",
+      "dataset": "blood_transfusion",
+      "seed": 2027,
+      "input": "inputs\\real-classification-blood_transfusion-2027",
+      "reference": "references\\real-classification-blood_transfusion-2027.json",
+      "training_rows": 561,
+      "evaluation_rows": 187,
+      "features": 4,
+      "k": null,
+      "details": {
+        "source": "OpenML real dataset",
+        "data_id": 1464,
+        "reported_name": "blood-transfusion-service-center",
+        "url": "https://www.openml.org/d/1464"
+      },
+      "input_sha256": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "1e6ebc479a25629f4d3d44c90da68dd7b5e328aa9df97ff3010ccf2969131fe9",
+        "train.csv": "d9ca52cfcf58ce8bb528b603567dbdcd076de102fc23d7b9a326b4a801072e5f"
+      },
+      "reference_sha256": "b39f92ef9ed53a657349a7bcaa8f593b7f56236c6298386fe99cf44fb6867c53"
+    },
+    {
+      "id": "real-regression-diabetes-42",
+      "group": "real",
+      "task": "regression",
+      "dataset": "diabetes",
+      "seed": 42,
+      "input": "inputs\\real-regression-diabetes-42",
+      "reference": "references\\real-regression-diabetes-42.json",
+      "training_rows": 331,
+      "evaluation_rows": 111,
+      "features": 10,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "c8c6323050442fee99be9ea8863c69bdaa8a2fbe8babba0cab4c2bcdc64ec75b",
+        "train.csv": "00cdf53fbf7017eb2781066f434995d76696685a72f2437d951a1108b0efd071"
+      },
+      "reference_sha256": "334107dbebc2e809ba230db1f62ea8597858a94146d6076920321d43575bcb2c"
+    },
+    {
+      "id": "real-regression-diabetes-314",
+      "group": "real",
+      "task": "regression",
+      "dataset": "diabetes",
+      "seed": 314,
+      "input": "inputs\\real-regression-diabetes-314",
+      "reference": "references\\real-regression-diabetes-314.json",
+      "training_rows": 331,
+      "evaluation_rows": 111,
+      "features": 10,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "6e2dd76fa3482d3b7cadc873474b8fe35e1433638c0d4ab15c631889d1ded36e",
+        "train.csv": "335ff0dc7b5b919c59bd27b98c8553a9a243131276445d0aa5d54cabb7fbf5a4"
+      },
+      "reference_sha256": "b01718d7be38eff43ab317334bcea4b2ff1f3ad3919c8f841a40d8558bb7cc13"
+    },
+    {
+      "id": "real-regression-diabetes-2027",
+      "group": "real",
+      "task": "regression",
+      "dataset": "diabetes",
+      "seed": 2027,
+      "input": "inputs\\real-regression-diabetes-2027",
+      "reference": "references\\real-regression-diabetes-2027.json",
+      "training_rows": 331,
+      "evaluation_rows": 111,
+      "features": 10,
+      "k": null,
+      "details": {
+        "source": "sklearn bundled real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "48b73c7fb28e87e67b42faa05b00c0eaba3dbfd6e20e990c69b1bae29b6ba0a5",
+        "train.csv": "c91a830fa3aafb70595fe301a14ffa8e0ee5638a5ed1f573a9dc41cb84708e19"
+      },
+      "reference_sha256": "a682a5b77c1b3adf3efc40d2714fe73ca3bcb30e05cc60ff00fb655f8fa8e034"
+    },
+    {
+      "id": "real-regression-california_housing-42",
+      "group": "real",
+      "task": "regression",
+      "dataset": "california_housing",
+      "seed": 42,
+      "input": "inputs\\real-regression-california_housing-42",
+      "reference": "references\\real-regression-california_housing-42.json",
+      "training_rows": 15480,
+      "evaluation_rows": 5160,
+      "features": 8,
+      "k": null,
+      "details": {
+        "source": "sklearn fetched real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "39a1e55345c2d4090e52fe909956d7c9017eda1f1f1ba5cccd8da8f88783510e",
+        "train.csv": "9d0e270ff3becaf44d469f5e83e7ace4fb9a660194e02c40b75c71c5d482aeae"
+      },
+      "reference_sha256": "a22243f71077742fcedf70b86f842c1154a77b30d9c7b439a97768eb22b00f9e"
+    },
+    {
+      "id": "real-regression-california_housing-314",
+      "group": "real",
+      "task": "regression",
+      "dataset": "california_housing",
+      "seed": 314,
+      "input": "inputs\\real-regression-california_housing-314",
+      "reference": "references\\real-regression-california_housing-314.json",
+      "training_rows": 15480,
+      "evaluation_rows": 5160,
+      "features": 8,
+      "k": null,
+      "details": {
+        "source": "sklearn fetched real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "ae35e42414c219567b189fec8304992dd04bc8653de749c9af0f81df72c84060",
+        "train.csv": "1d2e15904d93a51920127fdcbc6453da29e75f90a8f3dd63ed94e32ac91943a2"
+      },
+      "reference_sha256": "946da46781bf62f1a6be0293011ee1181922be0699d876c82ac82ee51abae18f"
+    },
+    {
+      "id": "real-regression-california_housing-2027",
+      "group": "real",
+      "task": "regression",
+      "dataset": "california_housing",
+      "seed": 2027,
+      "input": "inputs\\real-regression-california_housing-2027",
+      "reference": "references\\real-regression-california_housing-2027.json",
+      "training_rows": 15480,
+      "evaluation_rows": 5160,
+      "features": 8,
+      "k": null,
+      "details": {
+        "source": "sklearn fetched real dataset"
+      },
+      "input_sha256": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "9175aaa0548cdca81ea33402d6f9bbca6928b885e02881d19ace36151a2bd977",
+        "train.csv": "d6bdb4866cdf3f6323bda23a6e9dba77ffba9a2fda58e87150dbbd8991ada666"
+      },
+      "reference_sha256": "944cd8447fe458be5802d7f1e32aed69242161796ac119d4547d5dee0e980173"
+    },
+    {
+      "id": "real-regression-house_prices-42",
+      "group": "real",
+      "task": "regression",
+      "dataset": "house_prices",
+      "seed": 42,
+      "input": "inputs\\real-regression-house_prices-42",
+      "reference": "references\\real-regression-house_prices-42.json",
+      "training_rows": 1095,
+      "evaluation_rows": 365,
+      "features": 80,
+      "k": null,
+      "details": {
+        "source": "OpenML real categorical regression",
+        "data_id": 42165,
+        "url": "https://www.openml.org/d/42165",
+        "reported_name": "house_prices"
+      },
+      "input_sha256": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "b301026dd850a04081accc5989d7f31582f873fd5ef26ed749a9a64c6778ecdb",
+        "train.csv": "3622b98b536bebfb4a12163d493614f981c782586b712507ba5d93e98d17fdfc"
+      },
+      "reference_sha256": "b0a57ff979ac231fbc641546c042b8554098b251c8dc58e03e7e2db4aecdfefc"
+    },
+    {
+      "id": "real-regression-house_prices-314",
+      "group": "real",
+      "task": "regression",
+      "dataset": "house_prices",
+      "seed": 314,
+      "input": "inputs\\real-regression-house_prices-314",
+      "reference": "references\\real-regression-house_prices-314.json",
+      "training_rows": 1095,
+      "evaluation_rows": 365,
+      "features": 80,
+      "k": null,
+      "details": {
+        "source": "OpenML real categorical regression",
+        "data_id": 42165,
+        "url": "https://www.openml.org/d/42165",
+        "reported_name": "house_prices"
+      },
+      "input_sha256": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "490a8268d54a2bfce45c75ec502e779191d8fcba7779589c75cf8c98129d4849",
+        "train.csv": "1889e12aae790a5b189485cba32144aed027b588712618dc65389429408fec91"
+      },
+      "reference_sha256": "bca8c1d3fb32fd8bc848b92d2404783483e949a2073df71673f03ae57486724f"
+    },
+    {
+      "id": "real-regression-house_prices-2027",
+      "group": "real",
+      "task": "regression",
+      "dataset": "house_prices",
+      "seed": 2027,
+      "input": "inputs\\real-regression-house_prices-2027",
+      "reference": "references\\real-regression-house_prices-2027.json",
+      "training_rows": 1095,
+      "evaluation_rows": 365,
+      "features": 80,
+      "k": null,
+      "details": {
+        "source": "OpenML real categorical regression",
+        "data_id": 42165,
+        "url": "https://www.openml.org/d/42165",
+        "reported_name": "house_prices"
+      },
+      "input_sha256": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "95f6982e74e4912d31df4caf32bcc1f4c32f9d5ddf19c9d6c1681de0d654ef91",
+        "train.csv": "170f97df0770ef1f9020ddb3c72ce712416e4e1c1a2c9b26863aef719ae04f3e"
+      },
+      "reference_sha256": "7ccdb91aea78cec1a73a43384c1e0670d4fa22254e13bdd029ecc36d57830aea"
+    },
+    {
+      "id": "real-clustering-iris-42",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "iris",
+      "seed": 42,
+      "input": "inputs\\real-clustering-iris-42",
+      "reference": "references\\real-clustering-iris-42.json",
+      "training_rows": 150,
+      "evaluation_rows": 150,
+      "features": 4,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "483fb6d51e522ba310bf522bd89d3b6a73bcfac6bb152f83c6a5fc054eb10397"
+      },
+      "reference_sha256": "1d2531f03cded583b191e05530131a3cd614353c2ffb3d5c682dd65fbee5f0af"
+    },
+    {
+      "id": "real-clustering-iris-314",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "iris",
+      "seed": 314,
+      "input": "inputs\\real-clustering-iris-314",
+      "reference": "references\\real-clustering-iris-314.json",
+      "training_rows": 150,
+      "evaluation_rows": 150,
+      "features": 4,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "c5b074192a9f7377334c175ace8f1e4946015e107d08258f7c7e1064a676c9df"
+      },
+      "reference_sha256": "fe1bcae12ad6c075f3481d98ef76bb75b73f6e9ecfe48c5e348b94bdf5bdadad"
+    },
+    {
+      "id": "real-clustering-iris-2027",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "iris",
+      "seed": 2027,
+      "input": "inputs\\real-clustering-iris-2027",
+      "reference": "references\\real-clustering-iris-2027.json",
+      "training_rows": 150,
+      "evaluation_rows": 150,
+      "features": 4,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "133053747fb7bff9b7cd317229c365f6aa156312767be55f50e0f8c249e4a515"
+      },
+      "reference_sha256": "238fc593c6c716c8440968b7e2b88e58b6dfe915e8875b36bef28f9f946a726c"
+    },
+    {
+      "id": "real-clustering-wine-42",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "wine",
+      "seed": 42,
+      "input": "inputs\\real-clustering-wine-42",
+      "reference": "references\\real-clustering-wine-42.json",
+      "training_rows": 178,
+      "evaluation_rows": 178,
+      "features": 13,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "79ec4bfc7ca88a1429e4296f3da3128653bdc1c74639e3c78e42518d571be8a7"
+      },
+      "reference_sha256": "82b67b928922727c9d6462f64b1a142f706fd2ddb3c3e0865042b49d7664532e"
+    },
+    {
+      "id": "real-clustering-wine-314",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "wine",
+      "seed": 314,
+      "input": "inputs\\real-clustering-wine-314",
+      "reference": "references\\real-clustering-wine-314.json",
+      "training_rows": 178,
+      "evaluation_rows": 178,
+      "features": 13,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "1ce95a2643b6c6a4203bb9707491bc656d29dcb2c5c6ab4aa3e37c40d39d9899"
+      },
+      "reference_sha256": "182acf6fa76a992d5260c4486dd4c75a1ce16055b4b57d52acae9a6cca6ec2e3"
+    },
+    {
+      "id": "real-clustering-wine-2027",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "wine",
+      "seed": 2027,
+      "input": "inputs\\real-clustering-wine-2027",
+      "reference": "references\\real-clustering-wine-2027.json",
+      "training_rows": 178,
+      "evaluation_rows": 178,
+      "features": 13,
+      "k": 3,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "db200e711440c79538be8c67b5c7d4c61e211d7f4481a9e44efcc90d0014884c"
+      },
+      "reference_sha256": "78e79e75812e1c2b9521cd5fd86fe0be31084b61a237dac952101626bb1d3c28"
+    },
+    {
+      "id": "real-clustering-digits-42",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "digits",
+      "seed": 42,
+      "input": "inputs\\real-clustering-digits-42",
+      "reference": "references\\real-clustering-digits-42.json",
+      "training_rows": 1797,
+      "evaluation_rows": 1797,
+      "features": 64,
+      "k": 10,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "7e81fd0ccdf8f5b6c3399da29e387a73b450b46cd9f7c688635abdb2187ec08f"
+      },
+      "reference_sha256": "639eb586ffa369c35b9e5d39eef950f81b35d8c115977acc8ffc8022d2e03ead"
+    },
+    {
+      "id": "real-clustering-digits-314",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "digits",
+      "seed": 314,
+      "input": "inputs\\real-clustering-digits-314",
+      "reference": "references\\real-clustering-digits-314.json",
+      "training_rows": 1797,
+      "evaluation_rows": 1797,
+      "features": 64,
+      "k": 10,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "75220a60d94a91879faebf509279d1e74726f88c7f7575e71cf898079c9998cb"
+      },
+      "reference_sha256": "66c05731011df5de84c5a77810c1a30a4f2b8496941dab967ce0ff876fb4a760"
+    },
+    {
+      "id": "real-clustering-digits-2027",
+      "group": "real",
+      "task": "clustering",
+      "dataset": "digits",
+      "seed": 2027,
+      "input": "inputs\\real-clustering-digits-2027",
+      "reference": "references\\real-clustering-digits-2027.json",
+      "training_rows": 1797,
+      "evaluation_rows": 1797,
+      "features": 64,
+      "k": 10,
+      "details": {
+        "source": "sklearn bundled real dataset",
+        "rows": "All unlabeled feature rows; seed changes row order and model initialization",
+        "k": "True class count supplied, labels remain evaluator-only"
+      },
+      "input_sha256": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "75e211f3fa26ee712d468819d96a1deeead600b9c6f770988efe76d9d3cd5f3f"
+      },
+      "reference_sha256": "7e670ea392285f880eb1c67f12c7580f10112188adbb08e7125fdca3518f507e"
+    },
+    {
+      "id": "stress-classification-shape_100000x50-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "shape_100000x50",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-shape_100000x50-7001",
+      "reference": "references\\stress-classification-shape_100000x50-7001.json",
+      "training_rows": 100000,
+      "evaluation_rows": 2000,
+      "features": 50,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "100000 training rows x 50 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "e08389b4581d574f3cd513537cd2e288e63a62271689a501fa1c4f05ae1cea03",
+        "test.csv": "05308a1e9f1ebdfb7a82b497a64397142c4d8f324f70a420a4f1ab5052dc7b5e",
+        "train.csv": "8d79a406cb9ea2845d8c57edd252f0a1ff17193fb5858cddac7c4d2166dd05ba"
+      },
+      "reference_sha256": "1616346965e3c4d21b276e80ba33680d11e2ff3eb13126321ad1f9e5f0d07481"
+    },
+    {
+      "id": "stress-regression-shape_100000x50-7001",
+      "group": "stress",
+      "task": "regression",
+      "dataset": "shape_100000x50",
+      "seed": 7001,
+      "input": "inputs\\stress-regression-shape_100000x50-7001",
+      "reference": "references\\stress-regression-shape_100000x50-7001.json",
+      "training_rows": 100000,
+      "evaluation_rows": 2000,
+      "features": 50,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "100000 training rows x 50 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "5d3fb1fce0101d026b2d8f987c17eeb24dc5ba9e89ed88c19bff0c5f6289790d",
+        "test.csv": "05308a1e9f1ebdfb7a82b497a64397142c4d8f324f70a420a4f1ab5052dc7b5e",
+        "train.csv": "fc40707f485cfc10d214240cf0c4a5a914cd9ff0e9a994639a53acf778564d15"
+      },
+      "reference_sha256": "2b4073f85b40558ad797c45f0f5923a4b3be2498a71ae8dcc5bdb8fdfcaebf8a"
+    },
+    {
+      "id": "stress-clustering-shape_100000x50-7001",
+      "group": "stress",
+      "task": "clustering",
+      "dataset": "shape_100000x50",
+      "seed": 7001,
+      "input": "inputs\\stress-clustering-shape_100000x50-7001",
+      "reference": "references\\stress-clustering-shape_100000x50-7001.json",
+      "training_rows": 100000,
+      "evaluation_rows": 100000,
+      "features": 50,
+      "k": 3,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "100000 training rows x 50 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "44c8b999686cdeb62f9fa5e55a58cc7996b17c635048fa1d183aeb4c3a033309",
+        "train.csv": "2f239365396560f2f1d072483d5238d227fdec5adbd90aed3a81f28fb723a183"
+      },
+      "reference_sha256": "bf0a98f3f3c198a74828627c40de44edba3742caaaff679fc068a119f37afe68"
+    },
+    {
+      "id": "stress-classification-shape_5000x500-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "shape_5000x500",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-shape_5000x500-7001",
+      "reference": "references\\stress-classification-shape_5000x500-7001.json",
+      "training_rows": 5000,
+      "evaluation_rows": 1000,
+      "features": 500,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "5000 training rows x 500 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "106e56c27efbc593f64bd7c62330c0ba4977168763c8889b34abb3f945672fbb",
+        "test.csv": "5013c180e4770711d6af27c9887e284ff84137cf4fa0f9626923b77c9286637e",
+        "train.csv": "1e0a169f172d5f126ef9ba6a8e32685a42e8d02f6d3ca1971679d713b0517a3b"
+      },
+      "reference_sha256": "3ce2a6e610214f11c129685fbaa3046ce7d349163c80a4c5ecacc71aba3bc7b9"
+    },
+    {
+      "id": "stress-regression-shape_5000x500-7001",
+      "group": "stress",
+      "task": "regression",
+      "dataset": "shape_5000x500",
+      "seed": 7001,
+      "input": "inputs\\stress-regression-shape_5000x500-7001",
+      "reference": "references\\stress-regression-shape_5000x500-7001.json",
+      "training_rows": 5000,
+      "evaluation_rows": 1000,
+      "features": 500,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "5000 training rows x 500 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "c93525415dd89d735491f0d648a86650cb748bf7f9be24d48560c2608c391ef8",
+        "test.csv": "5013c180e4770711d6af27c9887e284ff84137cf4fa0f9626923b77c9286637e",
+        "train.csv": "74e92659d3cc7237ace08564d05318eb85cd46ec2d08dc802b38cf4e15663869"
+      },
+      "reference_sha256": "1f066df3b978eda571608ba9454af800749705b5de71b319eae35a396fbfc0aa"
+    },
+    {
+      "id": "stress-clustering-shape_5000x500-7001",
+      "group": "stress",
+      "task": "clustering",
+      "dataset": "shape_5000x500",
+      "seed": 7001,
+      "input": "inputs\\stress-clustering-shape_5000x500-7001",
+      "reference": "references\\stress-clustering-shape_5000x500-7001.json",
+      "training_rows": 5000,
+      "evaluation_rows": 5000,
+      "features": 500,
+      "k": 3,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "5000 training rows x 500 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "f3646adccc072155f077335ac7f34830667a96edca0c4f227e024da6ddee70f1",
+        "train.csv": "31404c609460e8dbfd91b2b394f34be7d8f5af8df60c938105f7c5badcd84139"
+      },
+      "reference_sha256": "43ec0966454be5e21784e9ad9b6cf185eb28384ee1a72468c95b79800b46a584"
+    },
+    {
+      "id": "stress-classification-missing40-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "missing40",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-missing40-7001",
+      "reference": "references\\stress-classification-missing40-7001.json",
+      "training_rows": 1000,
+      "evaluation_rows": 200,
+      "features": 20,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": "missing40",
+        "specification": "1000 training rows x 20 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "6de2a44fddc00b429484cecfd076aacaa1d1efa3cf5d538a3e061a7012790f4d",
+        "test.csv": "e36a665cc24e23cd37d388ff4c53f46ce1a918fc16c0ed6163fa56ba369c1670",
+        "train.csv": "c1d5cc1602bd7fece9ec6b5071f7452f5d08550a45beb9cbae0d6af4b9c978ff"
+      },
+      "reference_sha256": "615c8127962b4f878132f7dea233f5d7836711c7a841bced8083184cccab6301"
+    },
+    {
+      "id": "stress-classification-categorical5000-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "categorical5000",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-categorical5000-7001",
+      "reference": "references\\stress-classification-categorical5000-7001.json",
+      "training_rows": 5000,
+      "evaluation_rows": 1000,
+      "features": 5,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": "categorical5000",
+        "specification": "5000 training rows x 4 generated numeric features",
+        "categorical_note": "5000 distinct training categories and 1000 unseen test categories"
+      },
+      "input_sha256": {
+        "metadata.json": "00f50a2ed797a86940242865715bf0ea508c81d0a2d06d5cd7a01a5b6df2cdb5",
+        "test.csv": "66ade135d3c935cd55a3a0123cca6c34f9a99e1772e6351f3bbea5a405a4e2ef",
+        "train.csv": "659f4054c0d4627ba54870c92e234f6c0f8122e0310682f343d4085776a2244b"
+      },
+      "reference_sha256": "55108827cdd36dd9a32249b981cef2acf05a924880acb0adcd340cd59482ece8"
+    },
+    {
+      "id": "stress-clustering-constant_duplicate-7001",
+      "group": "stress",
+      "task": "clustering",
+      "dataset": "constant_duplicate",
+      "seed": 7001,
+      "input": "inputs\\stress-clustering-constant_duplicate-7001",
+      "reference": "references\\stress-clustering-constant_duplicate-7001.json",
+      "training_rows": 1000,
+      "evaluation_rows": 1000,
+      "features": 10,
+      "k": 3,
+      "details": {
+        "synthetic": true,
+        "special": "constants_duplicates",
+        "specification": "1000 training rows x 8 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "cd0c1f4f16a74729ecf4197f402817f1a06a849a905c74a90f57b300f2aea545",
+        "train.csv": "18cad118028568d689480a7e36e67b4e0359e6e4219180a590710bc445133803"
+      },
+      "reference_sha256": "b1b0f8c4dc5aa1153c3dcb42584802b997e8dee0322e3c7adb7343e7395cfd7b"
+    },
+    {
+      "id": "stress-classification-tiny50-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "tiny50",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-tiny50-7001",
+      "reference": "references\\stress-classification-tiny50-7001.json",
+      "training_rows": 50,
+      "evaluation_rows": 20,
+      "features": 8,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": null,
+        "specification": "50 training rows x 8 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "a0265e77a5232f992ad229a9135f8b3576c71da978a47337c5dfbda2778faaea",
+        "test.csv": "c9ef7a17ad5f6e682839fd2d9442909d2b1f6886ccffcebbad604197816e79a3",
+        "train.csv": "ec1ed7a246191fad2bac242819156dba27508636dfd3b07442c1466f951c7069"
+      },
+      "reference_sha256": "428c85873dce71bd74d617fd411e29030252d0ebd6ca9abfd8f29509dfe0f15d"
+    },
+    {
+      "id": "stress-classification-classes25-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "classes25",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-classes25-7001",
+      "reference": "references\\stress-classification-classes25-7001.json",
+      "training_rows": 1250,
+      "evaluation_rows": 200,
+      "features": 12,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": "many_classes",
+        "specification": "1250 training rows x 12 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "cfb4bcaff631e0c564911c364266d1e87abd2d2445f9fddc850aa33057362fe3",
+        "test.csv": "4b7946882dfb75136b4b5b8ec722ced0f638445892af47cd3b47b1486c335d5c",
+        "train.csv": "4f147feb0921a1b6f68576063e8e7bcf18e94ecc45db0bbd92672afb8d2f9967"
+      },
+      "reference_sha256": "e4d870c240259b0d9d91208fed1dcb37b36eef4a5ef98b6277e7dbab2c2f61cc"
+    },
+    {
+      "id": "stress-classification-numeric_looking_labels-7001",
+      "group": "stress",
+      "task": "classification",
+      "dataset": "numeric_looking_labels",
+      "seed": 7001,
+      "input": "inputs\\stress-classification-numeric_looking_labels-7001",
+      "reference": "references\\stress-classification-numeric_looking_labels-7001.json",
+      "training_rows": 1200,
+      "evaluation_rows": 200,
+      "features": 8,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": "lexical",
+        "specification": "1200 training rows x 8 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "a0265e77a5232f992ad229a9135f8b3576c71da978a47337c5dfbda2778faaea",
+        "test.csv": "159842ec895581b42f6c0ef4ed847018dde6059f4e2972008b89fe5a4620446c",
+        "train.csv": "ffa1323cee0f976c09201d027cf0ff821306691f302718da5e0cd8f6b895d745"
+      },
+      "reference_sha256": "6cd0e411e20a70a5c6694b3f3adef918f4d332ca40769eed84f719d379834c49"
+    },
+    {
+      "id": "stress-regression-all_missing_column-7001",
+      "group": "stress",
+      "task": "regression",
+      "dataset": "all_missing_column",
+      "seed": 7001,
+      "input": "inputs\\stress-regression-all_missing_column-7001",
+      "reference": "references\\stress-regression-all_missing_column-7001.json",
+      "training_rows": 1000,
+      "evaluation_rows": 200,
+      "features": 9,
+      "k": null,
+      "details": {
+        "synthetic": true,
+        "special": "all_missing",
+        "specification": "1000 training rows x 8 generated numeric features",
+        "categorical_note": null
+      },
+      "input_sha256": {
+        "metadata.json": "5e6beda7b72e8db5a939c59b525ef94dede3735574a159e28f2dff0a68ce0405",
+        "test.csv": "7d80436ee997a4700a7b9178b56aa8949373eb71c0bb221d12e54f17d21f9f1e",
+        "train.csv": "e48932d441b3d98e791bc70e5242837f60d49e35404e824ce9caedacae04bbb0"
+      },
+      "reference_sha256": "a5884af3cbef014fb4c48b228330a759c1a61b5535dadb20f2287fc903762846"
+    }
+  ],
+  "inventory": [
+    {
+      "case_id": "real-classification-breast_cancer-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-breast_cancer-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-wine-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-wine-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-wine-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-wine-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-wine-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-wine-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-wine-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-wine-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-wine-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-digits-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-digits-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-digits-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-digits-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-digits-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-digits-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-digits-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-digits-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-digits-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-iris-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-iris-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-iris-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-iris-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-iris-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-iris-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-iris-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-iris-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-iris-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-mammography-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-mammography-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-mammography-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-mammography-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-mammography-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-mammography-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-mammography-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-mammography-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-mammography-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-classification-blood_transfusion-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-diabetes-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-diabetes-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-diabetes-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-diabetes-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-diabetes-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-diabetes-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-diabetes-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-diabetes-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-diabetes-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-california_housing-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-california_housing-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-california_housing-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-california_housing-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-california_housing-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-california_housing-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-california_housing-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-california_housing-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-california_housing-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-house_prices-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-house_prices-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-house_prices-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-house_prices-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-house_prices-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-house_prices-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-regression-house_prices-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-regression-house_prices-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-regression-house_prices-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-iris-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-iris-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-iris-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-iris-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-iris-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-iris-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-iris-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-iris-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-iris-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-wine-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-wine-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-wine-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-wine-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-wine-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-wine-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-wine-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-wine-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-wine-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-digits-42",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-digits-42",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-digits-42",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-digits-314",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "real-clustering-digits-314",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-digits-314",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-digits-2027",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "real-clustering-digits-2027",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "real-clustering-digits-2027",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-shape_100000x50-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-shape_100000x50-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-shape_100000x50-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-regression-shape_100000x50-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-clustering-shape_100000x50-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-clustering-shape_100000x50-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-clustering-shape_100000x50-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-shape_5000x500-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-shape_5000x500-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-shape_5000x500-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-regression-shape_5000x500-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-clustering-shape_5000x500-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-clustering-shape_5000x500-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-clustering-shape_5000x500-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-missing40-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-missing40-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-missing40-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-categorical5000-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-categorical5000-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-categorical5000-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-clustering-constant_duplicate-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-clustering-constant_duplicate-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-clustering-constant_duplicate-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-tiny50-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-tiny50-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-tiny50-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-classes25-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-classes25-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-classes25-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-classification-numeric_looking_labels-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-classification-numeric_looking_labels-7001",
+      "strategy": "auto"
+    },
+    {
+      "case_id": "stress-classification-numeric_looking_labels-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-regression-all_missing_column-7001",
+      "strategy": "routed"
+    },
+    {
+      "case_id": "stress-regression-all_missing_column-7001",
+      "strategy": "baseline"
+    },
+    {
+      "case_id": "stress-regression-all_missing_column-7001",
+      "strategy": "auto"
+    }
+  ],
+  "preparation_correction": "Retry count 0 was invalid; corrected to1 before any benchmark. First manifest and all inputs preserved."
+}
