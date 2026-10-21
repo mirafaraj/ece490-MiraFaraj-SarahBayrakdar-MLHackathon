@@ -1,0 +1,187 @@
+[
+  {
+    "case_id": "stress-classification-shape_100000x50-7001",
+    "strategy": "auto",
+    "fields": 564
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "baseline",
+    "fields": 565
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "auto",
+    "fields": 565
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "routed",
+    "fields": 565
+  },
+  {
+    "case_id": "stress-clustering-shape_100000x50-7001",
+    "strategy": "baseline",
+    "fields": 557
+  },
+  {
+    "case_id": "stress-clustering-shape_100000x50-7001",
+    "strategy": "auto",
+    "fields": 557
+  },
+  {
+    "case_id": "stress-clustering-shape_100000x50-7001",
+    "strategy": "routed",
+    "fields": 557
+  },
+  {
+    "case_id": "stress-classification-shape_5000x500-7001",
+    "strategy": "baseline",
+    "fields": 5514
+  },
+  {
+    "case_id": "stress-classification-shape_5000x500-7001",
+    "strategy": "auto",
+    "fields": 5514
+  },
+  {
+    "case_id": "stress-classification-shape_5000x500-7001",
+    "strategy": "routed",
+    "fields": 5514
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "baseline",
+    "fields": 5515
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "auto",
+    "fields": 5515
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "routed",
+    "fields": 5515
+  },
+  {
+    "case_id": "stress-clustering-shape_5000x500-7001",
+    "strategy": "baseline",
+    "fields": 5507
+  },
+  {
+    "case_id": "stress-clustering-shape_5000x500-7001",
+    "strategy": "auto",
+    "fields": 5507
+  },
+  {
+    "case_id": "stress-clustering-shape_5000x500-7001",
+    "strategy": "routed",
+    "fields": 5507
+  },
+  {
+    "case_id": "stress-classification-missing40-7001",
+    "strategy": "baseline",
+    "fields": 234
+  },
+  {
+    "case_id": "stress-classification-missing40-7001",
+    "strategy": "auto",
+    "fields": 234
+  },
+  {
+    "case_id": "stress-classification-missing40-7001",
+    "strategy": "routed",
+    "fields": 234
+  },
+  {
+    "case_id": "stress-classification-categorical5000-7001",
+    "strategy": "baseline",
+    "fields": 64
+  },
+  {
+    "case_id": "stress-classification-categorical5000-7001",
+    "strategy": "auto",
+    "fields": 64
+  },
+  {
+    "case_id": "stress-classification-categorical5000-7001",
+    "strategy": "routed",
+    "fields": 64
+  },
+  {
+    "case_id": "stress-clustering-constant_duplicate-7001",
+    "strategy": "baseline",
+    "fields": 120
+  },
+  {
+    "case_id": "stress-clustering-constant_duplicate-7001",
+    "strategy": "auto",
+    "fields": 120
+  },
+  {
+    "case_id": "stress-clustering-constant_duplicate-7001",
+    "strategy": "routed",
+    "fields": 120
+  },
+  {
+    "case_id": "stress-classification-tiny50-7001",
+    "strategy": "baseline",
+    "fields": 102
+  },
+  {
+    "case_id": "stress-classification-tiny50-7001",
+    "strategy": "auto",
+    "fields": 102
+  },
+  {
+    "case_id": "stress-classification-tiny50-7001",
+    "strategy": "routed",
+    "fields": 102
+  },
+  {
+    "case_id": "stress-classification-classes25-7001",
+    "strategy": "baseline",
+    "fields": 192
+  },
+  {
+    "case_id": "stress-classification-classes25-7001",
+    "strategy": "auto",
+    "fields": 192
+  },
+  {
+    "case_id": "stress-classification-classes25-7001",
+    "strategy": "routed",
+    "fields": 192
+  },
+  {
+    "case_id": "stress-classification-numeric_looking_labels-7001",
+    "strategy": "baseline",
+    "fields": 110
+  },
+  {
+    "case_id": "stress-classification-numeric_looking_labels-7001",
+    "strategy": "auto",
+    "fields": 110
+  },
+  {
+    "case_id": "stress-classification-numeric_looking_labels-7001",
+    "strategy": "routed",
+    "fields": 110
+  },
+  {
+    "case_id": "stress-regression-all_missing_column-7001",
+    "strategy": "baseline",
+    "fields": 115
+  },
+  {
+    "case_id": "stress-regression-all_missing_column-7001",
+    "strategy": "auto",
+    "fields": 115
+  },
+  {
+    "case_id": "stress-regression-all_missing_column-7001",
+    "strategy": "routed",
+    "fields": 115
+  }
+]

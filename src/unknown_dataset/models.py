@@ -17,14 +17,21 @@ from .preprocessing import TableCleaner, build_preprocessor
 
 def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
                 n_clusters=None, time_budget=50.0, seed=42, strategy="baseline",
-                route_config=None, checkpoint_callback=None, execution_deadline=None):
+                route_config=None, checkpoint_callback=None, execution_deadline=None,
+                _bounded_forest=False, reliability_mode=None):
     """Fit on training features and return ordered predictions plus run metadata.
 
     The caller owns the hard process deadline. The budget here bounds estimator
     complexity; it is not a promise that an arbitrary input finishes in time.
     """
-    if strategy not in {"baseline", "auto", "routed"}:
+    if strategy not in {"baseline", "auto", "routed", "submission"}:
         raise ValueError(f"Unknown strategy: {strategy}")
+    from .reliability import effective_strategy, needs_bounded_forest
+    strategy = effective_strategy(task, strategy)
+    if not _bounded_forest and needs_bounded_forest(task, len(X_train), X_train.shape[1], strategy):
+        from .reliability import fit_predict_bounded
+        return fit_predict_bounded(task, X_train, y_train, X_test, feature_types, seed,
+                                   time_budget, reliability_mode or 'forest', checkpoint_callback)
     if strategy == "routed":
         from .routed import fit_predict_routed
 
@@ -67,10 +74,14 @@ def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
             test = preprocessor.transform(cleaner.transform(X_test))
 
         tree_count = 32 if time_budget < 15 else 96
+        if _bounded_forest:
+            tree_count = 16
         tree_parameters = dict(
             n_estimators=tree_count, max_depth=24, min_samples_leaf=1,
             n_jobs=1, random_state=seed,
         )
+        if _bounded_forest:
+            tree_parameters['max_features'] = 'sqrt'
         if task == "classification":
             target = np.asarray(y_train)
             label_encoder = LabelEncoder()
@@ -129,6 +140,8 @@ def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
         if isinstance(model, (ExtraTreesClassifier, ExtraTreesRegressor)):
             info["n_estimators"] = tree_count
             info["max_depth"] = 24
+            if _bounded_forest:
+                info['max_features'] = 'sqrt'
         if task == "clustering":
             info["requested_clusters"] = int(n_clusters)
             info["observed_clusters"] = int(len(np.unique(predictions)))

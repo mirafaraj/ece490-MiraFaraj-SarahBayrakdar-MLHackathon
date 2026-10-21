@@ -1,0 +1,33 @@
+{
+  "environment": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\reliability-preparation\\clean-env",
+  "packages_are_isolated": true,
+  "rows": [
+    {
+      "case_id": "real-classification-breast_cancer-42",
+      "seconds": 10.155999999999949,
+      "valid": true,
+      "profile_fields": 344,
+      "model": "ExtraTreesClassifier",
+      "prediction_sha256": "f34b3ae887b742b6a1b563c0ea7a58309a04ddf4db4b69548a0a4e913bb275b2",
+      "normal_size_equivalent": true
+    },
+    {
+      "case_id": "real-regression-diabetes-42",
+      "seconds": 6.2650000000001,
+      "valid": true,
+      "profile_fields": 125,
+      "model": "Ridge",
+      "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+      "normal_size_equivalent": true
+    },
+    {
+      "case_id": "real-clustering-iris-42",
+      "seconds": 5.9370000000001255,
+      "valid": true,
+      "profile_fields": 51,
+      "model": "GaussianMixtureFull",
+      "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+      "normal_size_equivalent": true
+    }
+  ]
+}

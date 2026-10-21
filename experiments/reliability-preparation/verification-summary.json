@@ -1,0 +1,1160 @@
+{
+  "nine": {
+    "calls": 9,
+    "valid": 9,
+    "maximum_seconds": 15.171999999998661,
+    "over_45": [],
+    "emergency_outputs": 0,
+    "linear_recoveries": 0,
+    "historical_equivalence_count": 0,
+    "delegation_equivalence_count": 0,
+    "selected_models": {
+      "ExtraTreesClassifier": 2,
+      "ExtraTreesRegressor": 6,
+      "LogisticRegression": 1
+    }
+  },
+  "stress": {
+    "calls": 39,
+    "valid": 39,
+    "maximum_seconds": 19.593999999997322,
+    "over_45": [],
+    "emergency_outputs": 0,
+    "linear_recoveries": 0,
+    "historical_equivalence_count": 0,
+    "delegation_equivalence_count": 0,
+    "selected_models": {
+      "ExtraTreesClassifier": 12,
+      "LogisticRegression": 7,
+      "ExtraTreesRegressor": 7,
+      "MiniBatchKMeans": 6,
+      "KMeans": 1,
+      "GaussianMixtureFull": 2,
+      "HistGradientBoostingClassifier": 2,
+      "Ridge": 2
+    },
+    "dummy_comparisons": [
+      {
+        "case_id": "stress-classification-shape_100000x50-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.497,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.331997327989312,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.9075,
+          "balanced_accuracy": 0.9075476717161818,
+          "macro_f1": 0.9074994218713867,
+          "minority_recall": 0.8996023856858847,
+          "class_recall": {
+            "negative": 0.9154929577464789,
+            "positive": 0.8996023856858847
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-shape_100000x50-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.497,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.331997327989312,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.9595,
+          "balanced_accuracy": 0.9595195427035373,
+          "macro_f1": 0.9594997468734179,
+          "minority_recall": 0.9562624254473161,
+          "class_recall": {
+            "negative": 0.9627766599597586,
+            "positive": 0.9562624254473161
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-shape_100000x50-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.497,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.331997327989312,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.9075,
+          "balanced_accuracy": 0.9075476717161818,
+          "macro_f1": 0.9074994218713867,
+          "minority_recall": 0.8996023856858847,
+          "class_recall": {
+            "negative": 0.9154929577464789,
+            "positive": 0.8996023856858847
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_100000x50-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "rmse": 2.3046461847466895,
+          "mae": 1.8453477989377156,
+          "r2": -0.00017240864695944325
+        },
+        "learned_metrics": {
+          "rmse": 1.1150265070268177,
+          "mae": 0.8844097402350278,
+          "r2": 0.7658809616322049
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_100000x50-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "rmse": 2.3046461847466895,
+          "mae": 1.8453477989377156,
+          "r2": -0.00017240864695944325
+        },
+        "learned_metrics": {
+          "rmse": 1.1150265070268177,
+          "mae": 0.8844097402350278,
+          "r2": 0.7658809616322049
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_100000x50-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "rmse": 2.3046461847466895,
+          "mae": 1.8453477989377156,
+          "r2": -0.00017240864695944325
+        },
+        "learned_metrics": {
+          "rmse": 1.1150265070268177,
+          "mae": 0.8844097402350278,
+          "r2": 0.7658809616322049
+        }
+      },
+      {
+        "case_id": "stress-classification-shape_5000x500-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.491,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.32930918846411805,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.825,
+          "balanced_accuracy": 0.8262216958294487,
+          "macro_f1": 0.8245070402761356,
+          "minority_recall": 0.7583497053045186,
+          "class_recall": {
+            "negative": 0.8940936863543788,
+            "positive": 0.7583497053045186
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-shape_5000x500-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.491,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.32930918846411805,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.931,
+          "balanced_accuracy": 0.9311757009271003,
+          "macro_f1": 0.9309966188343228,
+          "minority_recall": 0.9214145383104125,
+          "class_recall": {
+            "negative": 0.9409368635437881,
+            "positive": 0.9214145383104125
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-shape_5000x500-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.491,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.32930918846411805,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.931,
+          "balanced_accuracy": 0.9311757009271003,
+          "macro_f1": 0.9309966188343228,
+          "minority_recall": 0.9214145383104125,
+          "class_recall": {
+            "negative": 0.9409368635437881,
+            "positive": 0.9214145383104125
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_5000x500-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "rmse": 2.402061789965562,
+          "mae": 1.9201318693321305,
+          "r2": -0.0003221121401502103
+        },
+        "learned_metrics": {
+          "rmse": 1.9859173515292263,
+          "mae": 1.587397680264684,
+          "r2": 0.3162554778227642
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_5000x500-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "rmse": 2.402061789965562,
+          "mae": 1.9201318693321305,
+          "r2": -0.0003221121401502103
+        },
+        "learned_metrics": {
+          "rmse": 1.9859173515292263,
+          "mae": 1.587397680264684,
+          "r2": 0.3162554778227642
+        }
+      },
+      {
+        "case_id": "stress-regression-shape_5000x500-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "rmse": 2.402061789965562,
+          "mae": 1.9201318693321305,
+          "r2": -0.0003221121401502103
+        },
+        "learned_metrics": {
+          "rmse": 1.9859173515292263,
+          "mae": 1.587397680264684,
+          "r2": 0.3162554778227642
+        }
+      },
+      {
+        "case_id": "stress-classification-missing40-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.435,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.30313588850174217,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.75,
+          "balanced_accuracy": 0.7562811514596683,
+          "macro_f1": 0.7493734335839599,
+          "minority_recall": 0.7079646017699115,
+          "class_recall": {
+            "negative": 0.8045977011494253,
+            "positive": 0.7079646017699115
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-missing40-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.435,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.30313588850174217,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.78,
+          "balanced_accuracy": 0.7762180856474418,
+          "macro_f1": 0.7762180856474418,
+          "minority_recall": 0.8053097345132744,
+          "class_recall": {
+            "negative": 0.7471264367816092,
+            "positive": 0.8053097345132744
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-missing40-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.435,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.30313588850174217,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.78,
+          "balanced_accuracy": 0.7762180856474418,
+          "macro_f1": 0.7762180856474418,
+          "minority_recall": 0.8053097345132744,
+          "class_recall": {
+            "negative": 0.7471264367816092,
+            "positive": 0.8053097345132744
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-categorical5000-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.485,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3265993265993266,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.96,
+          "balanced_accuracy": 0.95990391352217,
+          "macro_f1": 0.9599589980139663,
+          "minority_recall": 0.9631067961165048,
+          "class_recall": {
+            "negative": 0.9567010309278351,
+            "positive": 0.9631067961165048
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-categorical5000-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.485,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3265993265993266,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.96,
+          "balanced_accuracy": 0.95990391352217,
+          "macro_f1": 0.9599589980139663,
+          "minority_recall": 0.9631067961165048,
+          "class_recall": {
+            "negative": 0.9567010309278351,
+            "positive": 0.9631067961165048
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-categorical5000-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.485,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3265993265993266,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 1.0,
+            "positive": 0.0
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.96,
+          "balanced_accuracy": 0.95990391352217,
+          "macro_f1": 0.9599589980139663,
+          "minority_recall": 0.9631067961165048,
+          "class_recall": {
+            "negative": 0.9567010309278351,
+            "positive": 0.9631067961165048
+          },
+          "minority_classes": [
+            "positive"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-tiny50-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 0.0,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.95,
+          "balanced_accuracy": 0.95,
+          "macro_f1": 0.949874686716792,
+          "minority_recall": 0.9,
+          "class_recall": {
+            "negative": 0.9,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-tiny50-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 0.0,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.95,
+          "balanced_accuracy": 0.95,
+          "macro_f1": 0.949874686716792,
+          "minority_recall": 0.9,
+          "class_recall": {
+            "negative": 0.9,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-tiny50-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "negative": 0.0,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.95,
+          "balanced_accuracy": 0.95,
+          "macro_f1": 0.949874686716792,
+          "minority_recall": 0.9,
+          "class_recall": {
+            "negative": 0.9,
+            "positive": 1.0
+          },
+          "minority_classes": [
+            "negative"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-classes25-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.04,
+          "balanced_accuracy": 0.04,
+          "macro_f1": 0.003076923076923077,
+          "minority_recall": 0.04,
+          "class_recall": {
+            "class_0": 1.0,
+            "class_1": 0.0,
+            "class_10": 0.0,
+            "class_11": 0.0,
+            "class_12": 0.0,
+            "class_13": 0.0,
+            "class_14": 0.0,
+            "class_15": 0.0,
+            "class_16": 0.0,
+            "class_17": 0.0,
+            "class_18": 0.0,
+            "class_19": 0.0,
+            "class_2": 0.0,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.0,
+            "class_23": 0.0,
+            "class_24": 0.0,
+            "class_3": 0.0,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.0,
+            "class_7": 0.0,
+            "class_8": 0.0,
+            "class_9": 0.0
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.09,
+          "balanced_accuracy": 0.09,
+          "macro_f1": 0.08060149767822403,
+          "minority_recall": 0.09,
+          "class_recall": {
+            "class_0": 0.25,
+            "class_1": 0.0,
+            "class_10": 0.125,
+            "class_11": 0.0,
+            "class_12": 0.0,
+            "class_13": 0.0,
+            "class_14": 0.125,
+            "class_15": 0.0,
+            "class_16": 0.0,
+            "class_17": 0.25,
+            "class_18": 0.0,
+            "class_19": 0.125,
+            "class_2": 0.0,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.125,
+            "class_23": 0.375,
+            "class_24": 0.25,
+            "class_3": 0.125,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.25,
+            "class_7": 0.125,
+            "class_8": 0.0,
+            "class_9": 0.125
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-classes25-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.04,
+          "balanced_accuracy": 0.04,
+          "macro_f1": 0.003076923076923077,
+          "minority_recall": 0.04,
+          "class_recall": {
+            "class_0": 1.0,
+            "class_1": 0.0,
+            "class_10": 0.0,
+            "class_11": 0.0,
+            "class_12": 0.0,
+            "class_13": 0.0,
+            "class_14": 0.0,
+            "class_15": 0.0,
+            "class_16": 0.0,
+            "class_17": 0.0,
+            "class_18": 0.0,
+            "class_19": 0.0,
+            "class_2": 0.0,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.0,
+            "class_23": 0.0,
+            "class_24": 0.0,
+            "class_3": 0.0,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.0,
+            "class_7": 0.0,
+            "class_8": 0.0,
+            "class_9": 0.0
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.1,
+          "balanced_accuracy": 0.1,
+          "macro_f1": 0.09296474595236205,
+          "minority_recall": 0.1,
+          "class_recall": {
+            "class_0": 0.125,
+            "class_1": 0.25,
+            "class_10": 0.125,
+            "class_11": 0.0,
+            "class_12": 0.125,
+            "class_13": 0.0,
+            "class_14": 0.25,
+            "class_15": 0.0,
+            "class_16": 0.125,
+            "class_17": 0.0,
+            "class_18": 0.125,
+            "class_19": 0.125,
+            "class_2": 0.125,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.125,
+            "class_23": 0.125,
+            "class_24": 0.25,
+            "class_3": 0.125,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.125,
+            "class_7": 0.0,
+            "class_8": 0.125,
+            "class_9": 0.25
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-classes25-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.04,
+          "balanced_accuracy": 0.04,
+          "macro_f1": 0.003076923076923077,
+          "minority_recall": 0.04,
+          "class_recall": {
+            "class_0": 1.0,
+            "class_1": 0.0,
+            "class_10": 0.0,
+            "class_11": 0.0,
+            "class_12": 0.0,
+            "class_13": 0.0,
+            "class_14": 0.0,
+            "class_15": 0.0,
+            "class_16": 0.0,
+            "class_17": 0.0,
+            "class_18": 0.0,
+            "class_19": 0.0,
+            "class_2": 0.0,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.0,
+            "class_23": 0.0,
+            "class_24": 0.0,
+            "class_3": 0.0,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.0,
+            "class_7": 0.0,
+            "class_8": 0.0,
+            "class_9": 0.0
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.1,
+          "balanced_accuracy": 0.1,
+          "macro_f1": 0.09296474595236205,
+          "minority_recall": 0.1,
+          "class_recall": {
+            "class_0": 0.125,
+            "class_1": 0.25,
+            "class_10": 0.125,
+            "class_11": 0.0,
+            "class_12": 0.125,
+            "class_13": 0.0,
+            "class_14": 0.25,
+            "class_15": 0.0,
+            "class_16": 0.125,
+            "class_17": 0.0,
+            "class_18": 0.125,
+            "class_19": 0.125,
+            "class_2": 0.125,
+            "class_20": 0.0,
+            "class_21": 0.0,
+            "class_22": 0.125,
+            "class_23": 0.125,
+            "class_24": 0.25,
+            "class_3": 0.125,
+            "class_4": 0.0,
+            "class_5": 0.0,
+            "class_6": 0.125,
+            "class_7": 0.0,
+            "class_8": 0.125,
+            "class_9": 0.25
+          },
+          "minority_classes": [
+            "class_0",
+            "class_1",
+            "class_10",
+            "class_11",
+            "class_12",
+            "class_13",
+            "class_14",
+            "class_15",
+            "class_16",
+            "class_17",
+            "class_18",
+            "class_19",
+            "class_2",
+            "class_20",
+            "class_21",
+            "class_22",
+            "class_23",
+            "class_24",
+            "class_3",
+            "class_4",
+            "class_5",
+            "class_6",
+            "class_7",
+            "class_8",
+            "class_9"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-numeric_looking_labels-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "accuracy": 0.135,
+          "balanced_accuracy": 0.16666666666666666,
+          "macro_f1": 0.03964757709251101,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "0001": 1.0,
+            "001": 0.0,
+            "01": 0.0,
+            "1": 0.0,
+            "1.0": 0.0,
+            "1e0": 0.0
+          },
+          "minority_classes": [
+            "1"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.81,
+          "balanced_accuracy": 0.8128800800401678,
+          "macro_f1": 0.8102194800509678,
+          "minority_recall": 0.7,
+          "class_recall": {
+            "0001": 0.8518518518518519,
+            "001": 0.7666666666666667,
+            "01": 0.868421052631579,
+            "1": 0.7,
+            "1.0": 0.78125,
+            "1e0": 0.9090909090909091
+          },
+          "minority_classes": [
+            "1"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-numeric_looking_labels-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "accuracy": 0.135,
+          "balanced_accuracy": 0.16666666666666666,
+          "macro_f1": 0.03964757709251101,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "0001": 1.0,
+            "001": 0.0,
+            "01": 0.0,
+            "1": 0.0,
+            "1.0": 0.0,
+            "1e0": 0.0
+          },
+          "minority_classes": [
+            "1"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.845,
+          "balanced_accuracy": 0.8437005286785989,
+          "macro_f1": 0.8425792509178586,
+          "minority_recall": 0.825,
+          "class_recall": {
+            "0001": 0.8148148148148148,
+            "001": 0.8666666666666667,
+            "01": 0.8947368421052632,
+            "1": 0.825,
+            "1.0": 0.8125,
+            "1e0": 0.8484848484848485
+          },
+          "minority_classes": [
+            "1"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-classification-numeric_looking_labels-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "accuracy": 0.135,
+          "balanced_accuracy": 0.16666666666666666,
+          "macro_f1": 0.03964757709251101,
+          "minority_recall": 0.0,
+          "class_recall": {
+            "0001": 1.0,
+            "001": 0.0,
+            "01": 0.0,
+            "1": 0.0,
+            "1.0": 0.0,
+            "1e0": 0.0
+          },
+          "minority_classes": [
+            "1"
+          ]
+        },
+        "learned_metrics": {
+          "accuracy": 0.845,
+          "balanced_accuracy": 0.8437005286785989,
+          "macro_f1": 0.8425792509178586,
+          "minority_recall": 0.825,
+          "class_recall": {
+            "0001": 0.8148148148148148,
+            "001": 0.8666666666666667,
+            "01": 0.8947368421052632,
+            "1": 0.825,
+            "1.0": 0.8125,
+            "1e0": 0.8484848484848485
+          },
+          "minority_classes": [
+            "1"
+          ]
+        }
+      },
+      {
+        "case_id": "stress-regression-all_missing_column-7001",
+        "strategy": "baseline",
+        "dummy_metrics": {
+          "rmse": 2.4835928897981514,
+          "mae": 2.0609868536718823,
+          "r2": -0.004580368630181519
+        },
+        "learned_metrics": {
+          "rmse": 0.6158433892460947,
+          "mae": 0.447372374632977,
+          "r2": 0.9382318720577276
+        }
+      },
+      {
+        "case_id": "stress-regression-all_missing_column-7001",
+        "strategy": "auto",
+        "dummy_metrics": {
+          "rmse": 2.4835928897981514,
+          "mae": 2.0609868536718823,
+          "r2": -0.004580368630181519
+        },
+        "learned_metrics": {
+          "rmse": 0.5873025370871352,
+          "mae": 0.42927333087135894,
+          "r2": 0.9438244122269225
+        }
+      },
+      {
+        "case_id": "stress-regression-all_missing_column-7001",
+        "strategy": "routed",
+        "dummy_metrics": {
+          "rmse": 2.4835928897981514,
+          "mae": 2.0609868536718823,
+          "r2": -0.004580368630181519
+        },
+        "learned_metrics": {
+          "rmse": 0.5873025370871352,
+          "mae": 0.42927333087135894,
+          "r2": 0.9438244122269225
+        }
+      }
+    ],
+    "losses_vs_successful_originals": []
+  },
+  "real": {
+    "calls": 108,
+    "valid": 108,
+    "maximum_seconds": 28.609000000004016,
+    "over_45": [],
+    "emergency_outputs": 0,
+    "linear_recoveries": 0,
+    "historical_equivalence_count": 108,
+    "delegation_equivalence_count": 0,
+    "selected_models": {
+      "ExtraTreesClassifier": 28,
+      "LogisticRegression": 16,
+      "HistGradientBoostingClassifier": 10,
+      "ExtraTreesRegressor": 11,
+      "Ridge": 6,
+      "HistGradientBoostingRegressor": 10,
+      "KMeans": 21,
+      "GaussianMixtureFull": 6
+    }
+  },
+  "submission": {
+    "calls": 49,
+    "valid": 49,
+    "maximum_seconds": 26.953000000000088,
+    "over_45": [],
+    "emergency_outputs": 0,
+    "linear_recoveries": 0,
+    "historical_equivalence_count": 36,
+    "delegation_equivalence_count": 13,
+    "selected_models": {
+      "ExtraTreesClassifier": 25,
+      "Ridge": 4,
+      "HistGradientBoostingRegressor": 5,
+      "ExtraTreesRegressor": 3,
+      "GaussianMixtureFull": 4,
+      "KMeans": 6,
+      "MiniBatchKMeans": 2
+    }
+  },
+  "final": {
+    "calls": 57,
+    "valid": 57,
+    "maximum_seconds": 28.375,
+    "over_45": [],
+    "emergency_outputs": 0,
+    "linear_recoveries": 0,
+    "historical_equivalence_count": 36,
+    "delegation_equivalence_count": 21,
+    "selected_models": {
+      "ExtraTreesClassifier": 29,
+      "ExtraTreesRegressor": 7,
+      "MiniBatchKMeans": 2,
+      "GaussianMixtureFull": 4,
+      "Ridge": 4,
+      "HistGradientBoostingRegressor": 5,
+      "KMeans": 6
+    }
+  }
+}

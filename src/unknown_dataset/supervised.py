@@ -183,6 +183,10 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
         if skip is None:
             best = -np.inf
             for name in ("extra_trees", "linear", "histogram"):
+                from .reliability import guard_histogram
+                if name == "histogram" and guard_histogram(len(X_train), X_train.shape[1]):
+                    errors[name] = "expensive-input histogram binning guard"
+                    continue
                 if time.monotonic() - started > time_budget * 0.4:
                     errors[name] = "selection budget exhausted; reserved remaining time for refit"
                     break

@@ -1,0 +1,484 @@
+{
+  "frozen_at_utc": "2026-10-21T05:33:11.688889+00:00",
+  "deadline_utc": "2026-10-21T20:00:00+00:00",
+  "cutoff_utc": "2026-10-21T12:00:00+00:00",
+  "checkpoint": "4c76b2fd83ad2db7f6c427f839858a2d135a05c2",
+  "source_sha256": {
+    "configs\\router-accuracy.json": "8aa522e97eeef15bf313aaecabb923737d7f11360612d6e670c239a2bb0bc5ca",
+    "configs\\router-categorical.json": "a3ce3342edd6c5d63fc3eafe6567066dc83552dbe7b44338b5b8fb0b01e49d59",
+    "configs\\router.json": "2523b727d7136dbe1f2bbfc002033c015d4e59682062e0dc1e60c3c7812b8d33",
+    "experiments\\reliability-preparation\\campaign.py": "870ad8b322441b7e1afb5f21adfe1bb4bb572abdbc566177603c7a071fe37639",
+    "experiments\\reliability-preparation\\clean_smoke.py": "70d667f4384b6f2516d5b8bcba29c732ac7c0ccf74b9edf375e365955fe9eead",
+    "experiments\\reliability-preparation\\diagnose.py": "0451f3ee0abdea4690a6a02a1cf07b9055ef085f27868dfd0439e5d429d9edd6",
+    "experiments\\reliability-preparation\\freeze_candidate.py": "f71f18d29de4a0b16ed61d6f716d971d8c840981b971b8657dfce39c0315dd89",
+    "experiments\\reliability-preparation\\profile_reference.py": "08d2e6dffa890982594e71bc86c77e4b8631fa8f2c14f62b9c0801265456b1b1",
+    "experiments\\reliability-preparation\\summarize_diagnosis.py": "163828abca93845396cc8ee762ff5ae61f1c30f325aef2896ffaf65a0549a27b",
+    "experiments\\reliability-preparation\\summarize_verification.py": "84c306016ec5c9fcb8e380cf50305acf9f03b9c439cda9cc7cdbd4d2f5cfd85f",
+    "experiments\\reliability-preparation\\trace\\sitecustomize.py": "3d3059c46958dc98aede9982c7697da80e2f669f9726d23d1172cf7989e553cf",
+    "experiments\\reliability-preparation\\verify.py": "12000f3d9e5ba5b1904b84cf349e84fdfe813046fc767da7f7294ddaa13867e2",
+    "main.py": "eaae6f7b36735625d337f630fd1c54fca9a6a20f367b293ac941d559ecedca19",
+    "MODEL_CARD.md": "8381944ea740bf2d33fd8cafee33838fc2e69ff7f4dd9cacb2c6ab0e24d3a393",
+    "pyproject.toml": "aea8800aff462ba3872d6d06056da23be3e57f67eeef0cb88fa9b06c2fecf479",
+    "README.md": "a8bb4424d9077b682513f1bed910d38645a887080ba174c5ce6981113c2fa9d4",
+    "requirements.lock": "cdf42e548725eac10c6f0a87f2e98db23213e302fb7d00ed670f3cfc463578da",
+    "src\\unknown_dataset\\__init__.py": "7a8e565dccd13b5c66f4c0a5a66a4bcf1591596d73bf2bf844055ef612e491da",
+    "src\\unknown_dataset\\categorical.py": "762a29482208e3fbfafacb32c10ab9020c4bcac642ed90bb7bc86e84200a1b2b",
+    "src\\unknown_dataset\\checkpoints.py": "c237479ea60db33fc83b2a72d49f62e7b1fe4037cbba9f85eeebf09ffc76cb05",
+    "src\\unknown_dataset\\clustering.py": "c4df5c0fde625b392a23c3f5ef05c9c3e7cd634b937634442ed10aa43a12ad61",
+    "src\\unknown_dataset\\contract.py": "7c1e57a55a662cd58ed2c422aaaa0d3b290db8d8ac8800c869607ed481964076",
+    "src\\unknown_dataset\\fallback.py": "be4a75c7ad4980bc929027d61b8661c1bdd014054b98a7bbad3cbb517cec649c",
+    "src\\unknown_dataset\\lightweight_config.py": "e5fabf185a3267a80eabd0ea9b449dfe4cc433381589a9083e346d02145b3a3d",
+    "src\\unknown_dataset\\models.py": "65686eeb00147a29ba3abcf76af132d25a232acdbf993df1cfdc559e08b9746c",
+    "src\\unknown_dataset\\policies.py": "541c99cc0abdadb3d5bc342b3dd8b94523bd820fd69b5670e23bf2ec2f60861e",
+    "src\\unknown_dataset\\preprocessing.py": "c6327fe726bf34ad9a068712f9cf2efddecac72d5de8643ca1ad24a9e3e586a5",
+    "src\\unknown_dataset\\profiling.py": "9b7ff27b42021774a5c2c518532bfb805baa454546b0be94bdb910a7b02bdf1e",
+    "src\\unknown_dataset\\reliability.py": "d82850632f28200ef7e8b093e5d78ed14bf515b40ddc2147deae94afa44d86a5",
+    "src\\unknown_dataset\\routed.py": "5d6da50bb2616d8852cddd3528e9a34f4397c3e321038fc26266d0836cfb0a74",
+    "src\\unknown_dataset\\routing.py": "d6c6ef3f395753d5579b09f4ef034310240cc21cca051dd1627be58afd09f5a5",
+    "src\\unknown_dataset\\runner.py": "298cb13b0e5b18893fe28131b3a859227a675637757ec8e3901d93dd16cafc4e",
+    "src\\unknown_dataset\\supervised.py": "03dc6313186c57358158a2d85b0f0bec995f69e9afccbc2f1ea2534d30ef3175",
+    "tests\\test_batch_classification.py": "95fcb13454642282d63fb2ff9be40f94a5121a69d0ce1c0d29b7ac02cd7267dc",
+    "tests\\test_batch_clustering.py": "1de6fcd637b76b949ba8abb9f9d7b77e813d4cb4ce0f0879a2a0c423ae1a9dca",
+    "tests\\test_batch_config.py": "82357735bec3daa9bc56797b076c8f7413f1e6290d4e28301095760becf2f829",
+    "tests\\test_batch_runtime.py": "403bb90ce908acc426de3145076375e22d4e09f08f824066bf70552e5c87771b",
+    "tests\\test_categorical.py": "34894863c0b672145d2d710791a4f70a61db1584fe25742847dbcbfc9696e179",
+    "tests\\test_cli.py": "bd0de0111bcc9d5debe7674935463a043205710eadc574e4c6aba12fe7497f58",
+    "tests\\test_clustering_candidates.py": "a94008634f289d474bdc6a97aeba7e640c0aec4c8ee4415c92e3f2db360f7f79",
+    "tests\\test_contract.py": "b82cf6eb6956e469a106ec3e2dc8a3a6d92f3fa3aa595c22eb0c3ef761bc8e34",
+    "tests\\test_evaluation.py": "c43e71684b3f3b046537cfc14fa3d507a56afae686c3aa652f7691606dec9ad8",
+    "tests\\test_leakage_invariance.py": "2c2712740ec2214aadcdcbeb7314e7be7f49dc99db6683f0d0552cefc1084cd5",
+    "tests\\test_models.py": "e499a473af5ea5ecf9c367c0750ff5dba7dc4e9b62ba023189fc6f5762543351",
+    "tests\\test_profiling.py": "e3ab0b68dd7e067d11655528518a56f6fd11bd9b87ff50856dcc4a445d1b43bf",
+    "tests\\test_reliability_preparation.py": "8db53fc0dd29a1b5ad1700d5dba3a9d9d206b80f6755fbe59644260d620255e6",
+    "tests\\test_review_data.py": "a3c47744aae8b5ad0d7bb74172b11461ec168a013578f40292b3d4ff5ce1dce9",
+    "tests\\test_routed_checkpoint.py": "41f0d736aa17fab94c98b51c507b782e9b7bb290d5d650f9720a6698195696d1",
+    "tests\\test_routed_evaluation.py": "88319a41ccc3cc253bab9f67fb9f255c759187a9a3761c25e1fa6fea7b01c3d7",
+    "tests\\test_routed_executor.py": "22cd6b59f0fc58424ff627f3db3ef886149e48f25dc0773598f80ab768f59be2",
+    "tests\\test_routed_supervised.py": "315fc4f9302ce8d05be53f0508b710a51f93a92b1cd4557ef50fd1f2633f2f1d",
+    "tests\\test_routing.py": "ae3f1d8c0a6fd7fdd6fb085605e434d8389863dcdfb56403dd5ef291272942de",
+    "tests\\test_runner_review.py": "562c37dcd9f38427b5b5f1a5655079e074c1ae71ff586aa025cc6539f822e3fc",
+    "tests\\test_second_admission.py": "8e00a793588d8ed82d3620f9f1b7e48ae3578929bd5d42bdd96983f9b733a7f1",
+    "tests\\test_second_classification.py": "97cca604e8b2eca5ef2d094e8cf766f748ba786f53f82c4df2eaa9235992ff41",
+    "tests\\test_second_clustering.py": "b17399c4145f41f57af735703fd4f18d390dcf26444c2b98b14cc0506742ed26",
+    "tests\\test_second_evidence.py": "ac6ee593101dbc1047b26918efe740737702cb4b5e712f173f2e1374dfb43655",
+    "tests\\test_second_runtime.py": "e0f0ba6aaa6b85badd13cfc7a93d89020ec795f51b5713f5c857a821fd030e13",
+    "tests\\test_selector_stability.py": "2bb1b0928743b493da2bf5067f9b0b345f953f76b8834cd2f42fafce67cbc12a",
+    "tests\\test_supervised_candidates.py": "6c22a0682e074d24b6f7f599fde1d99b6d506d9f605d43d4c2317106c25a4c08",
+    "tests\\test_third_classification.py": "8dc48cbfd0e5421a0a43dababa539dde9305b02d1f5b39b31494942dca4adfbd",
+    "tests\\test_third_clustering.py": "7df55509d74ba27ba00afdfce3b3aca52e142a1c0507ded79e44362ebf53b6c7",
+    "tests\\test_third_controls.py": "12a032f8588b4537d7791dd84d45c0e7b187eab37b97b8a380b8d2e767826b00",
+    "tests\\test_third_integration.py": "0b850918ff56a2e094a58c25369ad0bff240738388664ac42de89f986f9a731f",
+    "tests\\test_third_regression.py": "8374c30a40b4343052c1f7816fa56b76cdbc902589b03aca5e8056541be99a18"
+  },
+  "source_manifest_sha256": "355fe705d2e1b69625004c7fdbd15571a6564a27f1a9dfc39b68a51832deeab1",
+  "archive_sha256": "ca5a8964cb30aa41ac6d9df037d4c1cabf10a590c6b3f34c307d394c3022b830",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "pytest": "9.1.1",
+      "joblib": "1.6.0",
+      "narwhals": "2.27.1",
+      "threadpoolctl": "3.7.0",
+      "colorama": "0.4.6",
+      "iniconfig": "2.3.1",
+      "packaging": "26.3",
+      "pluggy": "1.7.0",
+      "pygments": "2.21.0",
+      "cloudpickle": "3.1.2",
+      "python-dateutil": "2.9.0.post0",
+      "six": "1.17.0",
+      "tzdata": "2026.5"
+    },
+    "numerical_threads": "main.py enforces one thread before numerical imports"
+  },
+  "command": "python main.py --input INPUT --output OUTPUT --strategy submission --time-budget 50 --seed SEED",
+  "input_manifest_sha256": "06002ecf8d96fc141566a53e50fdced5d16c0349b8b2d0e4924f5ffcadffafa5",
+  "input_hashes": {
+    "real-classification-breast_cancer-42": {
+      "files": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "7d5c1a2b57c5379b50ca33df48980cd0d0e5dc51c06aa188219f4e998b17a5bb",
+        "train.csv": "59d2d91395bdd6d98ddbd979c1d3593ecd305900cf7036887ba1087374fe3557"
+      },
+      "reference_sha256": "63a7d9465e6cb07ccb10901721e6eca95cf5c2844be97264281bffe8e8bbf469"
+    },
+    "real-classification-breast_cancer-314": {
+      "files": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "8d11c13992d639ce3716e2986025700a11cc676e3673a982eb7e4933a656e769",
+        "train.csv": "4266aa7bd61ce0a1bcce39d748739754dbe7f6381d97e88b7a654831cdb4a55b"
+      },
+      "reference_sha256": "7cb204a82e5f90a954d1791e6758af3b3923b2c6e558535322d7e078969f091a"
+    },
+    "real-classification-breast_cancer-2027": {
+      "files": {
+        "metadata.json": "84a94871189f56f567ab52b16fb01423dfe23bc8f77df525da24d537aac75eeb",
+        "test.csv": "8b8616abf044cde12004e64755e8a3acedc4501ec4b15682906544d6d9c56b1d",
+        "train.csv": "57aaa87892abe1d2988011813cac1871a609d4a54cbfc771e4202e68f340613b"
+      },
+      "reference_sha256": "a9a81622bc9d970521e3b4cfd292941cb42046a7f4f91c23b6d6ca23d505e4fe"
+    },
+    "real-classification-wine-42": {
+      "files": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "d5932e2900b5afbc0a954a1970efc9f17d503f5bce1c05fdc69fe3a3160cbf7b",
+        "train.csv": "75c8a07b0cb51287f71c2cbfc48446e710cb44b3a75051286f6fdb7e33a8a8de"
+      },
+      "reference_sha256": "c9ee4e027ccf3b8ddf0d27e7ccfe8433ae3a8326f3a7d905bd051e41284ff123"
+    },
+    "real-classification-wine-314": {
+      "files": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "94550485a9e7704ddcdb222fbe7702daf802d6f6e7b164dcff642396c3d9e460",
+        "train.csv": "d5d6d0d350968a7dfff7352bc654797a4e9683dd167f4c7213e41e4a17cf0a04"
+      },
+      "reference_sha256": "8be60f92cd65c7e76e54455c780a5443996ad157b30ba6a5d11328356ec3a6c7"
+    },
+    "real-classification-wine-2027": {
+      "files": {
+        "metadata.json": "79cc3de07b607cf85ec194044ee425015b3b37c897189c785267311b15769ca2",
+        "test.csv": "c5eda88b729e852fad660a8934e9bee04bcf75c1cb74938954e0c80388c48636",
+        "train.csv": "4c998bf4db5dd4901a485f897cdd14aa9eedb4e816d5da742e2868a340a2ee50"
+      },
+      "reference_sha256": "e9d0b3cb759bfee06d6db66c8404542052fbde12ae65e548812efe7a86d4b621"
+    },
+    "real-classification-digits-42": {
+      "files": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "1e3a76cc1a6c7a6ff2ff146249d6c6049c04a2150533fc59365a0884eee3b995",
+        "train.csv": "cebb70e3d799c91467af589cd6bd8880e2a61e50933369d66614caf7624cec79"
+      },
+      "reference_sha256": "1e9406dfc13c96a1af743e8d88c54430ad3b587178deacb8a89048d08daa7eba"
+    },
+    "real-classification-digits-314": {
+      "files": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "4b4c83ad9d837a98a92e5faa01c962c762ce5356cb39344706f03f174797a7f4",
+        "train.csv": "08b78b47bdd66cfe540245b77657626700c4087a3f3e1dcafa9c66daf9cf0f94"
+      },
+      "reference_sha256": "a5b702e4f732d5a984abab8e7a4569d07615447a6c3dbecf603ab306d05d4cee"
+    },
+    "real-classification-digits-2027": {
+      "files": {
+        "metadata.json": "0a495b37c8cea6b3d938e19f4a703afa8bdf27c2cacd7dd6fe3fa896986e3da9",
+        "test.csv": "e1483bb6e6d756cb5f2f4d7678d2e10d5ca87bd4995a88a454c2f30f2992869c",
+        "train.csv": "6920d9fbbf606820fe5ed9dc9339ebac2b736b646473240453a3e5a9ac08b514"
+      },
+      "reference_sha256": "70f01719fde7c1f2e27d9e1a6ab8f82f3963262ee1181e5644ea9f8b1f60fe63"
+    },
+    "real-classification-iris-42": {
+      "files": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "edee859c542389507d45350163e02aa6050e1f90d369bfec1cbea2aeab439263",
+        "train.csv": "69c8c39535713e6ae2a8240052d07cb13677977400d974b57517ccb1845cc7b1"
+      },
+      "reference_sha256": "b3068ce2d73089c54e20a28f12f8a96aac626b6ac147934973c19e79cf9b6b28"
+    },
+    "real-classification-iris-314": {
+      "files": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "44a92b308fc3e25032112e90cc03a0f051665f67d2a8fbc11548c9dd9bd143e4",
+        "train.csv": "2b30ada533f95831151e3b9b3b0a52f28a565b18121b68824f1bf404e771b339"
+      },
+      "reference_sha256": "6fe4b400b9cd33986292821ff4420b197134f3d7f51376bd4986653840b11a25"
+    },
+    "real-classification-iris-2027": {
+      "files": {
+        "metadata.json": "9c8987d422e96896fd0674b5352ebe6809c96b56bde805b6283b6a087d077427",
+        "test.csv": "deca93bce2c359c220fa22e65362297fa616037fe7076113ed3d8796229a4784",
+        "train.csv": "8da7b37efc3991e6f9ebfc61c78be8bbd4477d22855df1739e0eb4ce11a3a678"
+      },
+      "reference_sha256": "3d43b54bfa3dfdb124870465401edffb5c80d02417ab25e58f02c656b0c398b1"
+    },
+    "real-classification-mammography-42": {
+      "files": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "299f9a86ba633a76b790b1c2971ceefa00ffc1173dc05ea50dc64fd69031a0ce",
+        "train.csv": "f28c6812c9751fdbdda540568b45ecc760539626f068b55f4d50b2a2e7bbc565"
+      },
+      "reference_sha256": "9c02669be09190f9afb9543668fe6399e841c2ec01845c89119fe876506656f9"
+    },
+    "real-classification-mammography-314": {
+      "files": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "38720f3ce8f1289b67f774c27f3625afdcdc63e8c4c45ec0d9f8451ea84a6047",
+        "train.csv": "e17df355048057e74287102d8b227bb41befa33803d0f9daad878a620389d966"
+      },
+      "reference_sha256": "c361950769f70cef47ddb5875e910e28d3c00ce9639d7b4311698811644455d2"
+    },
+    "real-classification-mammography-2027": {
+      "files": {
+        "metadata.json": "7ed3a070cb4e3deedb8e9b5d736d87f66ebf82b6504dcc5c537860f16e846a44",
+        "test.csv": "9d4373e1a87f342671d852b290b413a41f8767e6b1ffcb17fffa02601e2cdf7c",
+        "train.csv": "f8ea078b68f594a972d6ca8b9385f753eac71af4db6737deeb2e77a0f0afa93b"
+      },
+      "reference_sha256": "dd05a0acd337fcb45420b972c3b7b912e1492297798d04d30fea24a6e8f69618"
+    },
+    "real-classification-blood_transfusion-42": {
+      "files": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "834f9a2df6f75e92feee194783484382533679e0518b3507cde3fac0d9e43d23",
+        "train.csv": "7fda5d9b8234951078a1bcf0fbef292aa26b9804e325b312cd25d84a247da521"
+      },
+      "reference_sha256": "93f297d6bfbfb45048a882999baed9efe4de39c3ebe98cffaf08dd36fc8702e1"
+    },
+    "real-classification-blood_transfusion-314": {
+      "files": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "a2962e52dba78f988812b91099daae5fb01f6dd07ed9b42447a5f8af0fe2ef62",
+        "train.csv": "29ea6a3eaec5d36545cccab2324fdecef33ef6ca58bc764330feba6efbf19229"
+      },
+      "reference_sha256": "2ee542f5ad9ca11e923bf77d882238c004ff5dea44cbcb51412a25582f5fcec5"
+    },
+    "real-classification-blood_transfusion-2027": {
+      "files": {
+        "metadata.json": "59216aa0554efc23a3f071c2073f19af206309cad9c321961004dc86a4cd47e1",
+        "test.csv": "1e6ebc479a25629f4d3d44c90da68dd7b5e328aa9df97ff3010ccf2969131fe9",
+        "train.csv": "d9ca52cfcf58ce8bb528b603567dbdcd076de102fc23d7b9a326b4a801072e5f"
+      },
+      "reference_sha256": "b39f92ef9ed53a657349a7bcaa8f593b7f56236c6298386fe99cf44fb6867c53"
+    },
+    "real-regression-diabetes-42": {
+      "files": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "c8c6323050442fee99be9ea8863c69bdaa8a2fbe8babba0cab4c2bcdc64ec75b",
+        "train.csv": "00cdf53fbf7017eb2781066f434995d76696685a72f2437d951a1108b0efd071"
+      },
+      "reference_sha256": "334107dbebc2e809ba230db1f62ea8597858a94146d6076920321d43575bcb2c"
+    },
+    "real-regression-diabetes-314": {
+      "files": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "6e2dd76fa3482d3b7cadc873474b8fe35e1433638c0d4ab15c631889d1ded36e",
+        "train.csv": "335ff0dc7b5b919c59bd27b98c8553a9a243131276445d0aa5d54cabb7fbf5a4"
+      },
+      "reference_sha256": "b01718d7be38eff43ab317334bcea4b2ff1f3ad3919c8f841a40d8558bb7cc13"
+    },
+    "real-regression-diabetes-2027": {
+      "files": {
+        "metadata.json": "9065349f6748a88d280dbc19654c9e8a71722a3cae629264223d7c4a9bef12b6",
+        "test.csv": "48b73c7fb28e87e67b42faa05b00c0eaba3dbfd6e20e990c69b1bae29b6ba0a5",
+        "train.csv": "c91a830fa3aafb70595fe301a14ffa8e0ee5638a5ed1f573a9dc41cb84708e19"
+      },
+      "reference_sha256": "a682a5b77c1b3adf3efc40d2714fe73ca3bcb30e05cc60ff00fb655f8fa8e034"
+    },
+    "real-regression-california_housing-42": {
+      "files": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "39a1e55345c2d4090e52fe909956d7c9017eda1f1f1ba5cccd8da8f88783510e",
+        "train.csv": "9d0e270ff3becaf44d469f5e83e7ace4fb9a660194e02c40b75c71c5d482aeae"
+      },
+      "reference_sha256": "a22243f71077742fcedf70b86f842c1154a77b30d9c7b439a97768eb22b00f9e"
+    },
+    "real-regression-california_housing-314": {
+      "files": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "ae35e42414c219567b189fec8304992dd04bc8653de749c9af0f81df72c84060",
+        "train.csv": "1d2e15904d93a51920127fdcbc6453da29e75f90a8f3dd63ed94e32ac91943a2"
+      },
+      "reference_sha256": "946da46781bf62f1a6be0293011ee1181922be0699d876c82ac82ee51abae18f"
+    },
+    "real-regression-california_housing-2027": {
+      "files": {
+        "metadata.json": "6f22bef83336cbc97ce6c2af8f3d344128e89dc681c3226e7ff37e236e42211b",
+        "test.csv": "9175aaa0548cdca81ea33402d6f9bbca6928b885e02881d19ace36151a2bd977",
+        "train.csv": "d6bdb4866cdf3f6323bda23a6e9dba77ffba9a2fda58e87150dbbd8991ada666"
+      },
+      "reference_sha256": "944cd8447fe458be5802d7f1e32aed69242161796ac119d4547d5dee0e980173"
+    },
+    "real-regression-house_prices-42": {
+      "files": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "b301026dd850a04081accc5989d7f31582f873fd5ef26ed749a9a64c6778ecdb",
+        "train.csv": "3622b98b536bebfb4a12163d493614f981c782586b712507ba5d93e98d17fdfc"
+      },
+      "reference_sha256": "b0a57ff979ac231fbc641546c042b8554098b251c8dc58e03e7e2db4aecdfefc"
+    },
+    "real-regression-house_prices-314": {
+      "files": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "490a8268d54a2bfce45c75ec502e779191d8fcba7779589c75cf8c98129d4849",
+        "train.csv": "1889e12aae790a5b189485cba32144aed027b588712618dc65389429408fec91"
+      },
+      "reference_sha256": "bca8c1d3fb32fd8bc848b92d2404783483e949a2073df71673f03ae57486724f"
+    },
+    "real-regression-house_prices-2027": {
+      "files": {
+        "metadata.json": "e34e56e8b21a9dfd3fbef5981fc20724471ed0c631f13e4ccb3c2181ea81e0a9",
+        "test.csv": "95f6982e74e4912d31df4caf32bcc1f4c32f9d5ddf19c9d6c1681de0d654ef91",
+        "train.csv": "170f97df0770ef1f9020ddb3c72ce712416e4e1c1a2c9b26863aef719ae04f3e"
+      },
+      "reference_sha256": "7ccdb91aea78cec1a73a43384c1e0670d4fa22254e13bdd029ecc36d57830aea"
+    },
+    "real-clustering-iris-42": {
+      "files": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "483fb6d51e522ba310bf522bd89d3b6a73bcfac6bb152f83c6a5fc054eb10397"
+      },
+      "reference_sha256": "1d2531f03cded583b191e05530131a3cd614353c2ffb3d5c682dd65fbee5f0af"
+    },
+    "real-clustering-iris-314": {
+      "files": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "c5b074192a9f7377334c175ace8f1e4946015e107d08258f7c7e1064a676c9df"
+      },
+      "reference_sha256": "fe1bcae12ad6c075f3481d98ef76bb75b73f6e9ecfe48c5e348b94bdf5bdadad"
+    },
+    "real-clustering-iris-2027": {
+      "files": {
+        "metadata.json": "6e0c3f5d8f0da6fceddca0c02d3d66a21228dae98f049244abb3cdd8065f359b",
+        "train.csv": "133053747fb7bff9b7cd317229c365f6aa156312767be55f50e0f8c249e4a515"
+      },
+      "reference_sha256": "238fc593c6c716c8440968b7e2b88e58b6dfe915e8875b36bef28f9f946a726c"
+    },
+    "real-clustering-wine-42": {
+      "files": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "79ec4bfc7ca88a1429e4296f3da3128653bdc1c74639e3c78e42518d571be8a7"
+      },
+      "reference_sha256": "82b67b928922727c9d6462f64b1a142f706fd2ddb3c3e0865042b49d7664532e"
+    },
+    "real-clustering-wine-314": {
+      "files": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "1ce95a2643b6c6a4203bb9707491bc656d29dcb2c5c6ab4aa3e37c40d39d9899"
+      },
+      "reference_sha256": "182acf6fa76a992d5260c4486dd4c75a1ce16055b4b57d52acae9a6cca6ec2e3"
+    },
+    "real-clustering-wine-2027": {
+      "files": {
+        "metadata.json": "9fb2622b6f2ead44436efaacc5c17e26cc76f263d18d40726a6c6b30aa20a5d2",
+        "train.csv": "db200e711440c79538be8c67b5c7d4c61e211d7f4481a9e44efcc90d0014884c"
+      },
+      "reference_sha256": "78e79e75812e1c2b9521cd5fd86fe0be31084b61a237dac952101626bb1d3c28"
+    },
+    "real-clustering-digits-42": {
+      "files": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "7e81fd0ccdf8f5b6c3399da29e387a73b450b46cd9f7c688635abdb2187ec08f"
+      },
+      "reference_sha256": "639eb586ffa369c35b9e5d39eef950f81b35d8c115977acc8ffc8022d2e03ead"
+    },
+    "real-clustering-digits-314": {
+      "files": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "75220a60d94a91879faebf509279d1e74726f88c7f7575e71cf898079c9998cb"
+      },
+      "reference_sha256": "66c05731011df5de84c5a77810c1a30a4f2b8496941dab967ce0ff876fb4a760"
+    },
+    "real-clustering-digits-2027": {
+      "files": {
+        "metadata.json": "1910aa455c2fcf144783db6560846f60cdf5228284d6e4f1201bd9604364c493",
+        "train.csv": "75e211f3fa26ee712d468819d96a1deeead600b9c6f770988efe76d9d3cd5f3f"
+      },
+      "reference_sha256": "7e670ea392285f880eb1c67f12c7580f10112188adbb08e7125fdca3518f507e"
+    },
+    "stress-classification-shape_100000x50-7001": {
+      "files": {
+        "metadata.json": "e08389b4581d574f3cd513537cd2e288e63a62271689a501fa1c4f05ae1cea03",
+        "test.csv": "05308a1e9f1ebdfb7a82b497a64397142c4d8f324f70a420a4f1ab5052dc7b5e",
+        "train.csv": "8d79a406cb9ea2845d8c57edd252f0a1ff17193fb5858cddac7c4d2166dd05ba"
+      },
+      "reference_sha256": "1616346965e3c4d21b276e80ba33680d11e2ff3eb13126321ad1f9e5f0d07481"
+    },
+    "stress-regression-shape_100000x50-7001": {
+      "files": {
+        "metadata.json": "5d3fb1fce0101d026b2d8f987c17eeb24dc5ba9e89ed88c19bff0c5f6289790d",
+        "test.csv": "05308a1e9f1ebdfb7a82b497a64397142c4d8f324f70a420a4f1ab5052dc7b5e",
+        "train.csv": "fc40707f485cfc10d214240cf0c4a5a914cd9ff0e9a994639a53acf778564d15"
+      },
+      "reference_sha256": "2b4073f85b40558ad797c45f0f5923a4b3be2498a71ae8dcc5bdb8fdfcaebf8a"
+    },
+    "stress-clustering-shape_100000x50-7001": {
+      "files": {
+        "metadata.json": "44c8b999686cdeb62f9fa5e55a58cc7996b17c635048fa1d183aeb4c3a033309",
+        "train.csv": "2f239365396560f2f1d072483d5238d227fdec5adbd90aed3a81f28fb723a183"
+      },
+      "reference_sha256": "bf0a98f3f3c198a74828627c40de44edba3742caaaff679fc068a119f37afe68"
+    },
+    "stress-classification-shape_5000x500-7001": {
+      "files": {
+        "metadata.json": "106e56c27efbc593f64bd7c62330c0ba4977168763c8889b34abb3f945672fbb",
+        "test.csv": "5013c180e4770711d6af27c9887e284ff84137cf4fa0f9626923b77c9286637e",
+        "train.csv": "1e0a169f172d5f126ef9ba6a8e32685a42e8d02f6d3ca1971679d713b0517a3b"
+      },
+      "reference_sha256": "3ce2a6e610214f11c129685fbaa3046ce7d349163c80a4c5ecacc71aba3bc7b9"
+    },
+    "stress-regression-shape_5000x500-7001": {
+      "files": {
+        "metadata.json": "c93525415dd89d735491f0d648a86650cb748bf7f9be24d48560c2608c391ef8",
+        "test.csv": "5013c180e4770711d6af27c9887e284ff84137cf4fa0f9626923b77c9286637e",
+        "train.csv": "74e92659d3cc7237ace08564d05318eb85cd46ec2d08dc802b38cf4e15663869"
+      },
+      "reference_sha256": "1f066df3b978eda571608ba9454af800749705b5de71b319eae35a396fbfc0aa"
+    },
+    "stress-clustering-shape_5000x500-7001": {
+      "files": {
+        "metadata.json": "f3646adccc072155f077335ac7f34830667a96edca0c4f227e024da6ddee70f1",
+        "train.csv": "31404c609460e8dbfd91b2b394f34be7d8f5af8df60c938105f7c5badcd84139"
+      },
+      "reference_sha256": "43ec0966454be5e21784e9ad9b6cf185eb28384ee1a72468c95b79800b46a584"
+    },
+    "stress-classification-missing40-7001": {
+      "files": {
+        "metadata.json": "6de2a44fddc00b429484cecfd076aacaa1d1efa3cf5d538a3e061a7012790f4d",
+        "test.csv": "e36a665cc24e23cd37d388ff4c53f46ce1a918fc16c0ed6163fa56ba369c1670",
+        "train.csv": "c1d5cc1602bd7fece9ec6b5071f7452f5d08550a45beb9cbae0d6af4b9c978ff"
+      },
+      "reference_sha256": "615c8127962b4f878132f7dea233f5d7836711c7a841bced8083184cccab6301"
+    },
+    "stress-classification-categorical5000-7001": {
+      "files": {
+        "metadata.json": "00f50a2ed797a86940242865715bf0ea508c81d0a2d06d5cd7a01a5b6df2cdb5",
+        "test.csv": "66ade135d3c935cd55a3a0123cca6c34f9a99e1772e6351f3bbea5a405a4e2ef",
+        "train.csv": "659f4054c0d4627ba54870c92e234f6c0f8122e0310682f343d4085776a2244b"
+      },
+      "reference_sha256": "55108827cdd36dd9a32249b981cef2acf05a924880acb0adcd340cd59482ece8"
+    },
+    "stress-clustering-constant_duplicate-7001": {
+      "files": {
+        "metadata.json": "cd0c1f4f16a74729ecf4197f402817f1a06a849a905c74a90f57b300f2aea545",
+        "train.csv": "18cad118028568d689480a7e36e67b4e0359e6e4219180a590710bc445133803"
+      },
+      "reference_sha256": "b1b0f8c4dc5aa1153c3dcb42584802b997e8dee0322e3c7adb7343e7395cfd7b"
+    },
+    "stress-classification-tiny50-7001": {
+      "files": {
+        "metadata.json": "a0265e77a5232f992ad229a9135f8b3576c71da978a47337c5dfbda2778faaea",
+        "test.csv": "c9ef7a17ad5f6e682839fd2d9442909d2b1f6886ccffcebbad604197816e79a3",
+        "train.csv": "ec1ed7a246191fad2bac242819156dba27508636dfd3b07442c1466f951c7069"
+      },
+      "reference_sha256": "428c85873dce71bd74d617fd411e29030252d0ebd6ca9abfd8f29509dfe0f15d"
+    },
+    "stress-classification-classes25-7001": {
+      "files": {
+        "metadata.json": "cfb4bcaff631e0c564911c364266d1e87abd2d2445f9fddc850aa33057362fe3",
+        "test.csv": "4b7946882dfb75136b4b5b8ec722ced0f638445892af47cd3b47b1486c335d5c",
+        "train.csv": "4f147feb0921a1b6f68576063e8e7bcf18e94ecc45db0bbd92672afb8d2f9967"
+      },
+      "reference_sha256": "e4d870c240259b0d9d91208fed1dcb37b36eef4a5ef98b6277e7dbab2c2f61cc"
+    },
+    "stress-classification-numeric_looking_labels-7001": {
+      "files": {
+        "metadata.json": "a0265e77a5232f992ad229a9135f8b3576c71da978a47337c5dfbda2778faaea",
+        "test.csv": "159842ec895581b42f6c0ef4ed847018dde6059f4e2972008b89fe5a4620446c",
+        "train.csv": "ffa1323cee0f976c09201d027cf0ff821306691f302718da5e0cd8f6b895d745"
+      },
+      "reference_sha256": "6cd0e411e20a70a5c6694b3f3adef918f4d332ca40769eed84f719d379834c49"
+    },
+    "stress-regression-all_missing_column-7001": {
+      "files": {
+        "metadata.json": "5e6beda7b72e8db5a939c59b525ef94dede3735574a159e28f2dff0a68ce0405",
+        "test.csv": "7d80436ee997a4700a7b9178b56aa8949373eb71c0bb221d12e54f17d21f9f1e",
+        "train.csv": "e48932d441b3d98e791bc70e5242837f60d49e35404e824ce9caedacae04bbb0"
+      },
+      "reference_sha256": "a5884af3cbef014fb4c48b228330a759c1a61b5535dadb20f2287fc903762846"
+    }
+  },
+  "status": "frozen; final verification pending; no post-freeze source/config/README/dependency edits permitted"
+}

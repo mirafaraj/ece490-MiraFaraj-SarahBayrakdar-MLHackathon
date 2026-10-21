@@ -1,0 +1,151 @@
+{
+  "status": "complete",
+  "completed_at_utc": "2026-10-21T05:44:18.478603+00:00",
+  "checkpoint": "4c76b2fd83ad2db7f6c427f839858a2d135a05c2",
+  "frozen_at_utc": "2026-10-21T05:33:11.688889+00:00",
+  "source_manifest_sha256": "355fe705d2e1b69625004c7fdbd15571a6564a27f1a9dfc39b68a51832deeab1",
+  "archive_sha256": "ca5a8964cb30aa41ac6d9df037d4c1cabf10a590c6b3f34c307d394c3022b830",
+  "verification": {
+    "nine": {
+      "calls": 9,
+      "valid": 9,
+      "maximum_seconds": 15.171999999998661,
+      "over_45": [],
+      "emergency_outputs": 0,
+      "linear_recoveries": 0,
+      "historical_equivalence_count": 0,
+      "delegation_equivalence_count": 0,
+      "selected_models": {
+        "ExtraTreesClassifier": 2,
+        "ExtraTreesRegressor": 6,
+        "LogisticRegression": 1
+      }
+    },
+    "stress": {
+      "calls": 39,
+      "valid": 39,
+      "maximum_seconds": 19.593999999997322,
+      "over_45": [],
+      "emergency_outputs": 0,
+      "linear_recoveries": 0,
+      "historical_equivalence_count": 0,
+      "delegation_equivalence_count": 0,
+      "selected_models": {
+        "ExtraTreesClassifier": 12,
+        "LogisticRegression": 7,
+        "ExtraTreesRegressor": 7,
+        "MiniBatchKMeans": 6,
+        "KMeans": 1,
+        "GaussianMixtureFull": 2,
+        "HistGradientBoostingClassifier": 2,
+        "Ridge": 2
+      }
+    },
+    "real": {
+      "calls": 108,
+      "valid": 108,
+      "maximum_seconds": 28.609000000004016,
+      "over_45": [],
+      "emergency_outputs": 0,
+      "linear_recoveries": 0,
+      "historical_equivalence_count": 108,
+      "delegation_equivalence_count": 0,
+      "selected_models": {
+        "ExtraTreesClassifier": 28,
+        "LogisticRegression": 16,
+        "HistGradientBoostingClassifier": 10,
+        "ExtraTreesRegressor": 11,
+        "Ridge": 6,
+        "HistGradientBoostingRegressor": 10,
+        "KMeans": 21,
+        "GaussianMixtureFull": 6
+      }
+    },
+    "submission": {
+      "calls": 49,
+      "valid": 49,
+      "maximum_seconds": 26.953000000000088,
+      "over_45": [],
+      "emergency_outputs": 0,
+      "linear_recoveries": 0,
+      "historical_equivalence_count": 36,
+      "delegation_equivalence_count": 13,
+      "selected_models": {
+        "ExtraTreesClassifier": 25,
+        "Ridge": 4,
+        "HistGradientBoostingRegressor": 5,
+        "ExtraTreesRegressor": 3,
+        "GaussianMixtureFull": 4,
+        "KMeans": 6,
+        "MiniBatchKMeans": 2
+      }
+    },
+    "final": {
+      "calls": 57,
+      "valid": 57,
+      "maximum_seconds": 28.375,
+      "over_45": [],
+      "emergency_outputs": 0,
+      "linear_recoveries": 0,
+      "historical_equivalence_count": 36,
+      "delegation_equivalence_count": 21,
+      "selected_models": {
+        "ExtraTreesClassifier": 29,
+        "ExtraTreesRegressor": 7,
+        "MiniBatchKMeans": 2,
+        "GaussianMixtureFull": 4,
+        "Ridge": 4,
+        "HistGradientBoostingRegressor": 5,
+        "KMeans": 6
+      }
+    }
+  },
+  "clean_smoke": {
+    "environment": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\reliability-preparation\\clean-env",
+    "packages_are_isolated": true,
+    "rows": [
+      {
+        "case_id": "real-classification-breast_cancer-42",
+        "seconds": 10.155999999999949,
+        "valid": true,
+        "profile_fields": 344,
+        "model": "ExtraTreesClassifier",
+        "prediction_sha256": "f34b3ae887b742b6a1b563c0ea7a58309a04ddf4db4b69548a0a4e913bb275b2",
+        "normal_size_equivalent": true
+      },
+      {
+        "case_id": "real-regression-diabetes-42",
+        "seconds": 6.2650000000001,
+        "valid": true,
+        "profile_fields": 125,
+        "model": "Ridge",
+        "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+        "normal_size_equivalent": true
+      },
+      {
+        "case_id": "real-clustering-iris-42",
+        "seconds": 5.9370000000001255,
+        "valid": true,
+        "profile_fields": 51,
+        "model": "GaussianMixtureFull",
+        "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+        "normal_size_equivalent": true
+      }
+    ]
+  },
+  "original_prediction_files_preserved": 145,
+  "other_historical_protected_files_preserved": 205,
+  "tests_passed": 295,
+  "source_hashes_unchanged": true,
+  "archive_hash_unchanged": true,
+  "submission_is_default": false,
+  "commits_made_after_initial_checkpoint": [],
+  "pushes_made": false,
+  "repository_visibility_changed": false,
+  "unresolved": [
+    "Official per-task metrics, normalization and failed-run penalties unspecified",
+    "Exact interface, concrete size limits and CPU hardware unspecified",
+    "Repository remains private; publication and push require approval",
+    "Third team member name not supplied"
+  ]
+}

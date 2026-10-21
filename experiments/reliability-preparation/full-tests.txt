@@ -1,0 +1,20 @@
+........................................................................ [ 24%]
+........................................................................ [ 48%]
+........................................................................ [ 73%]
+........................................................................ [ 97%]
+.......                                                                  [100%]
+============================== warnings summary ===============================
+tests/test_clustering_candidates.py::test_constant_table_occupies_requested_groups_even_with_no_geometry
+  C:\Users\User\Desktop\ECE490 Hackathon\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (1) found smaller than n_clusters (6). Possibly due to duplicate points in X.
+    return fit_method(estimator, *args, **kwargs)
+
+tests/test_models.py::test_identical_rows_still_receive_required_number_of_groups
+  C:\Users\User\Desktop\ECE490 Hackathon\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (1) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+    return fit_method(estimator, *args, **kwargs)
+
+tests/test_second_classification.py::test_independent_metrics_lexical_labels_and_missing_class
+  C:\Users\User\Desktop\ECE490 Hackathon\.venv312\Lib\site-packages\sklearn\metrics\_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+    warnings.warn("y_pred contains classes not in y_true")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+295 passed, 3 warnings in 142.91s (0:02:22)

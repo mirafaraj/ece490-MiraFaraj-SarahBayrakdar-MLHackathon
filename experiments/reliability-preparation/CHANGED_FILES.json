@@ -1,0 +1,41 @@
+{
+  "modified_tracked_files": [
+    "MODEL_CARD.md",
+    "README.md",
+    "src/unknown_dataset/checkpoints.py",
+    "src/unknown_dataset/models.py",
+    "src/unknown_dataset/runner.py",
+    "src/unknown_dataset/supervised.py"
+  ],
+  "new_runtime_and_test_files": [
+    "src/unknown_dataset/reliability.py",
+    "tests/test_reliability_preparation.py"
+  ],
+  "new_reusable_verification_scripts": [
+    "experiments/reliability-preparation/campaign.py",
+    "experiments/reliability-preparation/clean_smoke.py",
+    "experiments/reliability-preparation/diagnose.py",
+    "experiments/reliability-preparation/freeze_candidate.py",
+    "experiments/reliability-preparation/profile_reference.py",
+    "experiments/reliability-preparation/summarize_diagnosis.py",
+    "experiments/reliability-preparation/summarize_verification.py",
+    "experiments/reliability-preparation/verify.py",
+    "experiments/reliability-preparation/trace/sitecustomize.py"
+  ],
+  "evidence_location": "experiments/reliability-preparation",
+  "local_only_directories": [
+    "clean-env",
+    "wheel-cache",
+    "install-temp",
+    "test-work",
+    "diagnosis",
+    "nine",
+    "stress",
+    "real",
+    "submission",
+    "final",
+    "clean-smoke",
+    "profile-reference"
+  ],
+  "note": "No commit or push authorized. Runtime/test/document changes and reusable scripts listed exactly; generated evidence and isolated environment remain local."
+}

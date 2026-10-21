@@ -1,0 +1,768 @@
+[
+  {
+    "case_id": "stress-classification-shape_100000x50-7001",
+    "strategy": "baseline",
+    "seconds": 45.82800000000134,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-35296",
+        "start": 56676.171,
+        "last_event": 56721.812,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.4219999999986612,
+          "profiling.py:build_profile:": 0.6569999999992433,
+          "checkpoints.py:validate_predictions:": 7.485000000000582,
+          "contract.py:write_outputs:": 0.06199999999807915
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 2,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      },
+      {
+        "pid": "events-37576",
+        "start": 56679.921,
+        "last_event": 56714.0,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 0.5160000000032596,
+          "preprocessing.py:transform:TableCleaner": 0.2180000000007567,
+          "_forest.py:_parallel_build_trees:": 25.202999999994063,
+          "_forest.py:fit:ExtraTreesClassifier": 25.468999999997322,
+          "_forest.py:predict:ExtraTreesClassifier": 0.09399999999732245,
+          "models.py:fit_predict:": 27.48399999999674,
+          "runner.py:_model_worker:": 32.42199999999866
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 1,
+          "preprocessing.py:transform:TableCleaner": 2,
+          "_forest.py:_parallel_build_trees:": 96,
+          "_forest.py:fit:ExtraTreesClassifier": 1,
+          "_forest.py:predict:ExtraTreesClassifier": 1,
+          "models.py:fit_predict:": 1,
+          "runner.py:_model_worker:": 1
+        },
+        "active_calls": {}
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.4220000000059372,
+      "load": 1.4369999999980791,
+      "profile": 0.6569999999992433,
+      "spawn_and_wait": 34.38999999999942,
+      "recovery_or_result_validation": 3.7969999999986612
+    },
+    "worker_phases": {
+      "imports": 4.921999999998661,
+      "fit_predict": 27.5
+    },
+    "final_model": {
+      "model": "ExtraTreesClassifier",
+      "seed": 7001,
+      "cpu_threads": 1,
+      "training_rows": 100000,
+      "input_features": 50,
+      "retained_features": 50,
+      "transformed_features": 50,
+      "dropped_constant_columns": [],
+      "dropped_duplicate_columns": [],
+      "categorical_max_categories": 32,
+      "time_budget_seconds": 43.48399999999674,
+      "model_seconds": 27.48399999999674,
+      "n_estimators": 96,
+      "max_depth": 24
+    }
+  },
+  {
+    "case_id": "stress-classification-shape_100000x50-7001",
+    "strategy": "routed",
+    "seconds": 51.42199999999866,
+    "returncode": 1,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-29656",
+        "start": 56722.171,
+        "last_event": 56773.25,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.375,
+          "profiling.py:build_profile:": 0.6869999999980791,
+          "checkpoints.py:load_checkpoint:": 0.0,
+          "runner.py:_recover_checkpoint:": 0.0,
+          "checkpoints.py:validate_predictions:": 3.7339999999967404,
+          "contract.py:write_outputs:": 0.06300000000192085
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:load_checkpoint:": 1,
+          "runner.py:_recover_checkpoint:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      },
+      {
+        "pid": "events-35432",
+        "start": 56730.359,
+        "last_event": 56766.062,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 0.9530000000013388,
+          "preprocessing.py:transform:TableCleaner": 0.35900000000401633,
+          "routing.py:summarize_training:": 0.6560000000026776,
+          "routing.py:make_route_plan:": 0.0,
+          "_forest.py:_parallel_build_trees:": 26.62300000000687,
+          "_forest.py:fit:ExtraTreesClassifier": 26.889999999999418,
+          "supervised.py:_fit:extra_trees": 28.468000000000757,
+          "supervised.py:_matrix:": 0.0940000000045984,
+          "_forest.py:predict:ExtraTreesClassifier": 0.0930000000007567,
+          "supervised.py:fit_baseline_supervised:": 28.890999999995984
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 2,
+          "preprocessing.py:transform:TableCleaner": 3,
+          "routing.py:summarize_training:": 1,
+          "routing.py:make_route_plan:": 1,
+          "_forest.py:_parallel_build_trees:": 96,
+          "_forest.py:fit:ExtraTreesClassifier": 1,
+          "supervised.py:_fit:extra_trees": 1,
+          "supervised.py:_matrix:": 1,
+          "_forest.py:predict:ExtraTreesClassifier": 1,
+          "supervised.py:fit_baseline_supervised:": 1
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56731.921
+          ],
+          "models.py:fit_predict:": [
+            56736.484
+          ],
+          "routed.py:fit_predict_routed:": [
+            56736.484
+          ],
+          "checkpoints.py:write_checkpoint:": [
+            56766.062
+          ],
+          "checkpoints.py:validate_predictions:": [
+            56766.062
+          ]
+        }
+      }
+    ],
+    "parent_phases": null,
+    "worker_phases": null,
+    "final_model": null
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "baseline",
+    "seconds": 47.5,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-16820",
+        "start": 56777.437,
+        "last_event": 56820.843,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 0.48399999999674037,
+          "preprocessing.py:transform:TableCleaner": 0.2180000000007567,
+          "_forest.py:_parallel_build_trees:": 34.90600000000268
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 1,
+          "preprocessing.py:transform:TableCleaner": 2,
+          "_forest.py:_parallel_build_trees:": 21
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56779.109
+          ],
+          "models.py:fit_predict:": [
+            56783.984
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            56785.734
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            56820.843
+          ]
+        }
+      },
+      {
+        "pid": "events-37764",
+        "start": 56773.703,
+        "last_event": 56821.0,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.4219999999986612,
+          "profiling.py:build_profile:": 0.6409999999959837,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.06300000000192085
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.375,
+      "load": 1.4369999999980791,
+      "profile": 0.6409999999959837,
+      "spawn_and_wait": 43.53100000000268,
+      "recovery_or_result_validation": 0.046999999998661224
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 100000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "auto",
+    "seconds": 47.5,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-12912",
+        "start": 56821.312,
+        "last_event": 56868.625,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.4530000000013388,
+          "profiling.py:build_profile:": 0.6409999999959837,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.07899999999790452
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      },
+      {
+        "pid": "events-27832",
+        "start": 56825.0,
+        "last_event": 56866.828,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 1.3440000000045984,
+          "preprocessing.py:transform:TableCleaner": 0.7479999999995925,
+          "_forest.py:_parallel_build_trees:": 30.718999999997322,
+          "_forest.py:fit:ExtraTreesRegressor": 1.687999999994645,
+          "supervised.py:_fit:extra_trees": 2.0,
+          "supervised.py:_matrix:": 0.27999999999883585,
+          "_forest.py:predict:ExtraTreesRegressor": 0.01599999999598367,
+          "_ridge.py:fit:Ridge": 0.029999999998835847,
+          "supervised.py:_fit:linear": 0.2649999999994179,
+          "_base.py:predict:Ridge": 0.01600000000325963,
+          "_ridge.py:predict:Ridge": 0.01600000000325963,
+          "binning.py:fit:_BinMapper": 0.06199999999807915,
+          "gradient_boosting.py:fit:HistGradientBoostingRegressor": 0.375,
+          "supervised.py:_fit:histogram": 2.0780000000013388,
+          "predictor.py:predict:TreePredictor": 0.0,
+          "gradient_boosting.py:predict:HistGradientBoostingRegressor": 0.01599999999598367
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 5,
+          "preprocessing.py:transform:TableCleaner": 8,
+          "_forest.py:_parallel_build_trees:": 58,
+          "_forest.py:fit:ExtraTreesRegressor": 1,
+          "supervised.py:_fit:extra_trees": 1,
+          "supervised.py:_matrix:": 3,
+          "_forest.py:predict:ExtraTreesRegressor": 1,
+          "_ridge.py:fit:Ridge": 2,
+          "supervised.py:_fit:linear": 1,
+          "_base.py:predict:Ridge": 1,
+          "_ridge.py:predict:Ridge": 1,
+          "binning.py:fit:_BinMapper": 1,
+          "gradient_boosting.py:fit:HistGradientBoostingRegressor": 1,
+          "supervised.py:_fit:histogram": 2,
+          "predictor.py:predict:TreePredictor": 60,
+          "gradient_boosting.py:predict:HistGradientBoostingRegressor": 1
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56826.593
+          ],
+          "models.py:fit_predict:": [
+            56831.156
+          ],
+          "supervised.py:fit_predict_supervised:": [
+            56831.171
+          ],
+          "supervised.py:_fit:extra_trees": [
+            56836.062
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            56837.5
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            56866.828
+          ]
+        }
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.3430000000007567,
+      "load": 1.4530000000013388,
+      "profile": 0.6409999999959837,
+      "spawn_and_wait": 43.57800000000134,
+      "recovery_or_result_validation": 0.031000000002677552
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 100000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-regression-shape_100000x50-7001",
+    "strategy": "routed",
+    "seconds": 47.70300000000134,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-12656",
+        "start": 56868.968,
+        "last_event": 56916.359,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.5160000000032596,
+          "profiling.py:build_profile:": 0.7030000000013388,
+          "checkpoints.py:load_checkpoint:": 0.0,
+          "runner.py:_recover_checkpoint:": 0.0,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.10899999999674037
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:load_checkpoint:": 1,
+          "runner.py:_recover_checkpoint:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      },
+      {
+        "pid": "events-39036",
+        "start": 56877.765,
+        "last_event": 56915.906,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 0.9219999999986612,
+          "preprocessing.py:transform:TableCleaner": 0.26600000000325963,
+          "routing.py:summarize_training:": 0.6089999999967404,
+          "routing.py:make_route_plan:": 0.0,
+          "_forest.py:_parallel_build_trees:": 29.39100000000326
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 2,
+          "preprocessing.py:transform:TableCleaner": 2,
+          "routing.py:summarize_training:": 1,
+          "routing.py:make_route_plan:": 1,
+          "_forest.py:_parallel_build_trees:": 19
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56879.437
+          ],
+          "models.py:fit_predict:": [
+            56884.078
+          ],
+          "routed.py:fit_predict_routed:": [
+            56884.078
+          ],
+          "supervised.py:fit_baseline_supervised:": [
+            56884.734
+          ],
+          "supervised.py:_fit:extra_trees": [
+            56884.843
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            56886.312
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            56915.906
+          ]
+        }
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.4219999999986612,
+      "parent_router_imports": 4.828000000001339,
+      "parent_router_configuration": 0.0,
+      "load": 1.5310000000026776,
+      "profile": 0.7030000000013388,
+      "spawn_and_wait": 38.515999999995984,
+      "recovery_or_result_validation": 0.06300000000192085
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 100000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "baseline",
+    "seconds": 47.63999999999942,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-25268",
+        "start": 56921.546,
+        "last_event": 56963.562,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 1.360000000000582,
+          "preprocessing.py:transform:TableCleaner": 1.75,
+          "_forest.py:_parallel_build_trees:": 31.968999999997322
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 1,
+          "preprocessing.py:transform:TableCleaner": 2,
+          "_forest.py:_parallel_build_trees:": 47
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56923.109
+          ],
+          "models.py:fit_predict:": [
+            56927.593
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            56931.359
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            56963.562
+          ]
+        }
+      },
+      {
+        "pid": "events-27476",
+        "start": 56916.734,
+        "last_event": 56964.203,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.6410000000032596,
+          "profiling.py:build_profile:": 1.6089999999967404,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.25
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.2809999999954016,
+      "load": 1.6410000000032596,
+      "profile": 1.625,
+      "spawn_and_wait": 42.46800000000076,
+      "recovery_or_result_validation": 0.0319999999992433
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 5000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "auto",
+    "seconds": 47.63999999999942,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-29844",
+        "start": 56969.281,
+        "last_event": 57011.421,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 2.811999999998079,
+          "preprocessing.py:transform:TableCleaner": 2.609999999993306,
+          "_forest.py:_parallel_build_trees:": 29.186999999990803,
+          "_forest.py:fit:ExtraTreesRegressor": 15.85899999999674,
+          "supervised.py:_fit:extra_trees": 18.452999999994063,
+          "supervised.py:_matrix:": 1.0469999999986612,
+          "_forest.py:predict:ExtraTreesRegressor": 0.046999999998661224
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 2,
+          "preprocessing.py:transform:TableCleaner": 3,
+          "_forest.py:_parallel_build_trees:": 59,
+          "_forest.py:fit:ExtraTreesRegressor": 1,
+          "supervised.py:_fit:extra_trees": 1,
+          "supervised.py:_matrix:": 1,
+          "_forest.py:predict:ExtraTreesRegressor": 1
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            56970.859
+          ],
+          "models.py:fit_predict:": [
+            56975.328
+          ],
+          "supervised.py:fit_predict_supervised:": [
+            56975.328
+          ],
+          "supervised.py:_fit:extra_trees": [
+            56995.125
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            56997.781
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            57011.421
+          ]
+        }
+      },
+      {
+        "pid": "events-9280",
+        "start": 56964.453,
+        "last_event": 57011.937,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.5630000000019209,
+          "profiling.py:build_profile:": 1.639999999999418,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.25
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.3119999999980791,
+      "load": 1.5630000000019209,
+      "profile": 1.639999999999418,
+      "spawn_and_wait": 42.48500000000058,
+      "recovery_or_result_validation": 0.030999999995401595
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 5000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-regression-shape_5000x500-7001",
+    "strategy": "routed",
+    "seconds": 47.84300000000076,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-22160",
+        "start": 57021.437,
+        "last_event": 57059.125,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 2.6409999999959837,
+          "preprocessing.py:transform:TableCleaner": 1.6080000000001746,
+          "routing.py:summarize_training:": 2.125,
+          "routing.py:make_route_plan:": 0.0,
+          "_forest.py:_parallel_build_trees:": 26.5
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 2,
+          "preprocessing.py:transform:TableCleaner": 2,
+          "routing.py:summarize_training:": 1,
+          "routing.py:make_route_plan:": 1,
+          "_forest.py:_parallel_build_trees:": 37
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            57023.031
+          ],
+          "models.py:fit_predict:": [
+            57027.484
+          ],
+          "routed.py:fit_predict_routed:": [
+            57027.484
+          ],
+          "supervised.py:fit_baseline_supervised:": [
+            57029.671
+          ],
+          "supervised.py:_fit:extra_trees": [
+            57029.796
+          ],
+          "_forest.py:fit:ExtraTreesRegressor": [
+            57032.421
+          ],
+          "_forest.py:_parallel_build_trees:": [
+            57059.125
+          ]
+        }
+      },
+      {
+        "pid": "events-25348",
+        "start": 57012.203,
+        "last_event": 57059.656,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.5939999999973224,
+          "profiling.py:build_profile:": 1.6090000000040163,
+          "checkpoints.py:load_checkpoint:": 0.0,
+          "runner.py:_recover_checkpoint:": 0.0,
+          "checkpoints.py:validate_predictions:": 0.0,
+          "contract.py:write_outputs:": 0.23500000000058208
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:load_checkpoint:": 1,
+          "runner.py:_recover_checkpoint:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.2810000000026776,
+      "parent_router_imports": 4.4539999999979045,
+      "parent_router_configuration": 0.014999999999417923,
+      "load": 1.5939999999973224,
+      "profile": 1.6090000000040163,
+      "spawn_and_wait": 38.03199999999924,
+      "recovery_or_result_validation": 0.031000000002677552
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMeanRegressor",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 5000,
+      "time_budget_seconds": 0.0
+    }
+  },
+  {
+    "case_id": "stress-classification-shape_5000x500-7001",
+    "strategy": "auto",
+    "seconds": 47.70300000000134,
+    "returncode": 0,
+    "timeout": false,
+    "processes": [
+      {
+        "pid": "events-2708",
+        "start": 57060.078,
+        "last_event": 57107.625,
+        "completed_seconds": {
+          "contract.py:load_dataset:": 1.9219999999986612,
+          "profiling.py:build_profile:": 1.7189999999973224,
+          "checkpoints.py:validate_predictions:": 0.10899999999674037,
+          "contract.py:write_outputs:": 0.18800000000192085
+        },
+        "completed_calls": {
+          "contract.py:load_dataset:": 1,
+          "profiling.py:build_profile:": 1,
+          "checkpoints.py:validate_predictions:": 1,
+          "contract.py:write_outputs:": 1
+        },
+        "active_calls": {}
+      },
+      {
+        "pid": "events-37992",
+        "start": 57065.515,
+        "last_event": 57083.312,
+        "completed_seconds": {
+          "preprocessing.py:fit:TableCleaner": 4.0789999999979045,
+          "preprocessing.py:transform:TableCleaner": 4.437000000012631,
+          "_forest.py:_parallel_build_trees:": 0.7810000000026776,
+          "_forest.py:fit:ExtraTreesClassifier": 0.875,
+          "supervised.py:_fit:extra_trees": 3.313000000001921,
+          "supervised.py:_matrix:": 1.9540000000051805,
+          "_forest.py:predict:ExtraTreesClassifier": 0.031000000002677552,
+          "_logistic.py:fit:LogisticRegression": 0.07800000000133878,
+          "supervised.py:_fit:linear": 2.7190000000045984,
+          "_base.py:predict:LogisticRegression": 0.0
+        },
+        "completed_calls": {
+          "preprocessing.py:fit:TableCleaner": 3,
+          "preprocessing.py:transform:TableCleaner": 5,
+          "_forest.py:_parallel_build_trees:": 40,
+          "_forest.py:fit:ExtraTreesClassifier": 1,
+          "supervised.py:_fit:extra_trees": 1,
+          "supervised.py:_matrix:": 2,
+          "_forest.py:predict:ExtraTreesClassifier": 1,
+          "_logistic.py:fit:LogisticRegression": 1,
+          "supervised.py:_fit:linear": 1,
+          "_base.py:predict:LogisticRegression": 1
+        },
+        "active_calls": {
+          "runner.py:_model_worker:": [
+            57067.359
+          ],
+          "models.py:fit_predict:": [
+            57072.296
+          ],
+          "supervised.py:fit_predict_supervised:": [
+            57072.312
+          ],
+          "supervised.py:_fit:histogram": [
+            57080.656
+          ],
+          "gradient_boosting.py:fit:HistGradientBoostingClassifier": [
+            57083.312
+          ],
+          "binning.py:fit:_BinMapper": [
+            57083.312
+          ]
+        }
+      }
+    ],
+    "parent_phases": {
+      "parent_data_imports": 1.5,
+      "load": 1.9219999999986612,
+      "profile": 1.7189999999973224,
+      "spawn_and_wait": 41.859000000004016,
+      "recovery_or_result_validation": 0.0319999999992433
+    },
+    "worker_phases": null,
+    "final_model": {
+      "model": "EmergencyMajorityClass",
+      "fallback": true,
+      "fallback_reason": "model worker deadline",
+      "seed": 7001,
+      "training_rows": 5000,
+      "time_budget_seconds": 0.0
+    }
+  }
+]

@@ -9,8 +9,10 @@ Rows retain their input order. Classification labels are opaque strings in CSV; 
 must be finite numeric values. CSV/JSON is the supported file interface; mostly-zero features do
 not imply support for sparse file formats. See README.md for the complete provisional contract.
 
-Official contract, profile schema, scoring formulae, input-size/memory limits, checker and nine
-practice datasets have not been supplied. **Official compatibility is unverified.** No clinical,
+The student announcement is the complete supplied specification. It leaves the machine-readable
+contract, profile schema, per-task scoring formulae, concrete size limits and CPU details
+unspecified. The repository interface and diagnostic metrics are implementation assumptions.
+**Official interface compatibility is unverified.** No clinical,
 financial, or production decision use is claimed.
 
 ## Preprocessing and selection
@@ -38,6 +40,20 @@ all counts and priors; feature/smoothing choices use inner validation only. Expl
 decisions may differ from posterior argmax while the reported probabilities retain prior smoothing.
 None of these features replaces the baseline default.
 
+Explicit `submission` delegates classification to baseline and regression/clustering to auto;
+the CLI and API defaults remain baseline. This task mapping is conservative development judgment
+under unknown grading metrics; classification baseline's measured balanced-accuracy disadvantage
+remains relevant. See README for fixed expensive-input forest/sample rules, histogram eligibility,
+absolute worker deadline, existing linear recovery and full-data profiling. These guards address
+local stress failures, not unspecified maximum assessment sizes. No new model family is added.
+
+Reliability candidate checks: 295 tests passed; 39/39 stress runs produced learned outputs
+without emergency recovery; 108/108 ordinary real-data runs retained exact prediction hashes
+and selected models. Independent full-data profile checks passed. The fixed bounded forest's
+large-classification accuracy .9075 is lower than the successful 96-tree diagnostic run's
+.9565; this is a documented quality/runtime tradeoff. Frozen verification results are recorded
+separately and do not establish organizer-environment or official-score compatibility.
+
 Current development metrics are provisional: classification accuracy/balanced accuracy,
 regression RMSE/R2 (and explicit alternative objectives where configured), clustering ARI for
 offline reference-labelled evaluation and BIC for optional unsupervised selection. Better balanced
@@ -48,8 +64,9 @@ Neither relationship establishes an official-scoring gain.
 
 Previously verified local environment: Windows, Python 3.12.14, exact versions in requirements.lock,
 seeded estimators/splits, one numerical/estimator CPU thread. Verification used .venv312 and bundled
-NumPy/pandas. A completely clean assessment-environment install and successful remote CI remain
-unverified. No AI/network service is needed for inference.
+NumPy/pandas. The pinned dependencies also install in a new isolated local environment; final
+entry-point smoke results are recorded separately. Assessment-hardware compatibility and CI for
+the present uncommitted candidate remain unverified. No AI/network service is needed for inference.
 
 The CLI default internal budget is 50 seconds with an output reserve; the announced external limit
 is 60 seconds. A parent process can terminate model work. Python startup, imports, scheduling and
@@ -74,7 +91,7 @@ a validated completed baseline when available, marked `fallback_kind=completed_b
 refit failures are also counted. Corrupt checkpoints are rejected. Invalid inputs fail
 with nonzero status, and stale/partial generated artifacts are cleaned up.
 
-Current implementation verification: **153 tests passed**, including real subprocess recovery,
+Historical implementation verification: **153 tests passed**, including real subprocess recovery,
 contract/parity checks, fold isolation, lexical/fractional labels, prediction-row permutation,
 test-feature invariance of fitted state/selection, and evaluation-label invariance of predictions.
 Only expected identical-point clustering warnings were observed.

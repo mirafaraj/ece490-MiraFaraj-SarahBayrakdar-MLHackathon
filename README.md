@@ -3,9 +3,13 @@
 A CPU-only MVP for automatic classification, regression, and clustering on unfamiliar tables.
 It produces ordered predictions, a structured training-data profile, and reproducibility metadata.
 
-**Status:** development baseline. The official kickoff contract, nine practice datasets, scoring
-formulae, and assessment environment are not available in this repository. The local contract
-and evaluation metrics below are provisional; official compatibility has not been verified.
+**Supplied specification:** the Unknown Dataset Hackathon student announcement is the complete
+supplied specification. It specifies 18 private datasets, 85 quality points, 10 profiling points,
+5 speed points, equal task contributions to quality, and a 60-second per-dataset CPU limit.
+It leaves per-task metrics, normalization, failed-run penalties, concrete size limits, hardware,
+and the exact machine-readable interface unspecified. The CSV/JSON interface, profile schema,
+diagnostic metrics and resource rules below are our implementation interpretations. Compatibility
+with an unspecified assessment interface has not been established.
 
 ## Setup
 
@@ -24,8 +28,10 @@ In this workspace, the verified environment is `.venv312`; use
 `.\.venv312\Scripts\python.exe -m pytest -q` and
 `.\.venv312\Scripts\python.exe scripts/evaluate.py --output experiments/baseline.json`.
 The initial `.venv` used Python 3.14 and hit Windows Application Control blocks in NumPy.
-The verified Python 3.12 environment reuses bundled NumPy/pandas; installation into a completely
-clean environment and the CI workflow remain separate verification steps.
+The original verified Python 3.12 environment reuses bundled NumPy/pandas. The pinned dependencies
+also install in a new isolated local environment; final smoke evidence is kept separately.
+This does not certify unspecified assessment hardware. CI for the present uncommitted candidate
+has not been run; earlier checkpoint CI results apply to their recorded commits.
 No network access or AI service is needed for prediction. Dependency installation requires internet
 or a prepopulated wheel cache. The official Python version may require a separately verified lock.
 
@@ -39,6 +45,58 @@ The default remains `--strategy baseline`. The opt-in `--strategy routed` applie
 task-specific eligibility/metric rules, completes a baseline first, and preserves its predictions
 while optional candidates run. `--strategy auto` remains available for earlier experiments.
 See [MODEL_CARD.md](MODEL_CARD.md) for intended inputs, evidence and limitations.
+
+The explicit submission strategy delegates only by the declared task: classification uses
+baseline; regression and clustering use auto. It remains **non-default pending confirmation**:
+
+```sh
+python main.py --input INPUT --output OUTPUT --strategy submission --time-budget 50 --seed SEED
+```
+
+This command and the input/output file names are implementation assumptions.
+`INPUT`, `OUTPUT` and `SEED` are per-run parameters; omitting seed uses 42. Local frozen checks
+use the saved case seed (42/314/2027 for real tables and 7001 for stress inputs).
+Classification
+baseline is a conservative choice under unknown grading metrics, not a proven optimum: the
+existing real-data check found auto gained 3.90 balanced-accuracy and 11.78 minority-recall points,
+while losing 1.57 accuracy and 1.45 macro-F1 points. Regression/clustering comparisons use
+RMSE/MAE/R2 and ARI/AMI diagnostically; these are not verified organizer scoring metrics.
+
+### Expensive-input safeguards (engineering assumptions)
+
+At 2,500,000 or more training feature cells, regression uses a fixed Extra Trees preset:
+16 trees, max_features="sqrt", depth 24, and at most 20,000 fitting rows. Classification uses
+this preset only with at least 50,000 training rows under baseline/routed (including submission's
+baseline mapping). Sampling is deterministic by seed and preserves observed classification
+classes. Existing successful large-classification auto and wide baseline/routed paths are retained.
+Auto skips histogram selection when there are at least 256 features and 2,500,000 training
+feature cells, avoiding the diagnosed binning stall. No dataset names or reference labels are used.
+
+For guarded forests, one fixed attempt receives at most 25 seconds and 65% of available worker
+time. If it fails, the existing linear estimator is retried on the bounded sample. Emergency
+mean/majority remains the final explicitly reported recovery. The parent uses one absolute
+deadline and reserves up to 8 seconds (20% of the requested budget) for recovery validation and
+complete output publication. Ordinary paths retain their existing output reserve. The 50-second
+internal budget targets headroom below the announced 60 seconds; it does not certify unspecified
+assessment sizes or hardware. Profiling always describes the full training data before sampling.
+
+Our structured profile is `provisional-1`: training row/feature counts, declared/inferred types,
+per-column missingness, cardinality, constants, exact duplicates, numeric min/max/mean/population
+standard deviation/median, and target summaries/distributions with lexical classes preserved.
+This schema is our interpretation of the announcement, not an organizer-provided schema.
+
+### Local reliability verification
+
+The repaired candidate passed 295 correctness tests. All 39 existing stress strategy runs
+returned valid learned outputs with no emergency recovery (maximum 19.59 seconds), and all
+108 existing real-data strategy runs preserved their historical prediction hashes and selected
+models (maximum 28.61 seconds). Full-data profiles passed independent reconstruction; discrete
+fields compare exactly and numeric summaries use relative tolerance 1e-10 / absolute 1e-12.
+These measurements describe the recorded Windows CPU environment, not unspecified assessment
+limits or hardware. The bounded forest trades some quality for headroom: on the 100k x50
+classification fixture, accuracy was .9075 versus .9565 for the successful 96-tree diagnostic
+run. No model-size sweep was performed. Detailed evidence and freeze/final-verification records
+are kept separately in `experiments/reliability-preparation/`.
 
 ```powershell
 .\.venv312\Scripts\python.exe main.py --input data/example --output outputs/example --strategy routed
@@ -58,8 +116,10 @@ use its prior posterior, with the final decision rule following the configured o
 This candidate is disabled by default and has not been promoted.
 
 When optional work fails or is terminated, valid completed-baseline predictions are recovered
-and marked `fallback_kind=completed_baseline`. Weak emergency predictions are used only for
-timeouts with no valid checkpoint. Other failures without a checkpoint remain nonzero errors.
+and marked `fallback_kind=completed_baseline`. Ordinary worker timeouts without a valid checkpoint
+use marked emergency predictions; other ordinary failures without a checkpoint remain nonzero
+errors. Guarded expensive-input work first tries its bounded forest, then existing linear recovery,
+then marked emergency predictions if neither learned attempt succeeds.
 `run.json` records the route, metric, exclusions, selected model, validation scores, timing and cause.
 
 The input folder contains `metadata.json`, `train.csv`, and, for supervised tasks, `test.csv`.
@@ -96,8 +156,9 @@ Output files:
   exact duplicate columns, aggregate counts, and optional target summaries.
 - `run.json`: task, seed, budget, model choices, preprocessing decisions, and timing.
 
-Malformed input and model errors return a nonzero exit code with an error on stderr. The CLI
-does not silently turn unexpected model failures into successful predictions.
+Malformed input and unrecovered errors return a nonzero exit code with an error on stderr.
+Successful checkpoint, learned or emergency recovery can return zero; inspect `run.json` for
+the recovery type and cause. A zero exit code alone does not establish predictive usefulness.
 
 ## Modelling and runtime
 
@@ -219,6 +280,10 @@ or official assessment performance. See `experiments/baseline.json` for full met
 orchestration. `tests/` covers meaningful edge cases and contract behavior. See `PHASES.md` for
 implementation gates, agent ownership, and remaining official-submission work.
 
-Team names: **to be supplied before submission**. No GitHub repository has been created or published.
-Before submission, add names, adapt and pass the official checker, verify all nine practice datasets
-and size limits, install from scratch on the official environment, and record the submitted commit.
+Names identified by the supplied repository: **Mira Faraj and Sarah Bayrakdar**; any third member's
+name remains to be supplied. The existing GitHub repository is private. The announcement requires
+a public repository at submission; pushing or changing visibility requires separate user approval.
+Retain runnable source, pinned dependencies, entry point, lightweight tests, reusable evaluation
+scripts and concise reports. Raw evaluation data, references, caches and bulky outputs are not
+required by the announcement and remain local unless separately approved. Record the submitted
+commit once approved; exact assessment-interface and hardware compatibility remain unresolved.

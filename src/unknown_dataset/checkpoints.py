@@ -22,7 +22,9 @@ def validate_predictions(dataset, predictions):
     if pd.isna(values).any():
         raise ValueError("Predictions must not contain missing values")
     if dataset.task == "classification":
-        if not np.isin(values, np.asarray(dataset.y_train)).all():
+        # Membership depends on distinct labels, not their repeated row counts.
+        # Preserve scalar types: object predictions must not become strings.
+        if not np.isin(values, pd.unique(np.asarray(dataset.y_train))).all():
             raise ValueError("Predicted class is absent from the training labels")
         if any(isinstance(value, (float, np.floating)) and not np.isfinite(value) for value in values):
             raise ValueError("Predictions must be finite")
