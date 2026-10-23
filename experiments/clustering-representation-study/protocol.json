@@ -1,0 +1,566 @@
+{
+  "registered_before_fitting": true,
+  "policies": {
+    "full": {},
+    "quarter": {
+      "clustering_indicator_amplitude": 0.25
+    },
+    "omitted": {
+      "clustering_missing_indicators": false
+    }
+  },
+  "cases": [
+    {
+      "id": "old-correlated-none-99013",
+      "family": "correlated",
+      "condition": "none",
+      "seed": 99013,
+      "k": 3,
+      "rows": 240,
+      "features": 2,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2cb1352ec4d3dad30372f069bf01e7bc30440217755f039eced9793c156aaffe",
+        "train.csv": "3ab3999f6898af0cccb7e44920e475683a97ae0e020074aec2b2853768f81107"
+      }
+    },
+    {
+      "id": "old-curved-none-99013",
+      "family": "curved",
+      "condition": "none",
+      "seed": 99013,
+      "k": 2,
+      "rows": 240,
+      "features": 2,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2bfdc0a6f2af715de33a6aa760ac985870402cd83b2bebb534c757fbb2999a2e",
+        "train.csv": "c2e2c7ce554dba4ed6e43d2890b3c0aa5cb507761db7dd23067f594944065902"
+      }
+    },
+    {
+      "id": "old-anisotropic_noise-random-99013",
+      "family": "anisotropic_noise",
+      "condition": "random",
+      "seed": 99013,
+      "k": 3,
+      "rows": 240,
+      "features": 6,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "69a4c787053693eb929117c94344f6507b3f227cf258cf95fcfe85d126a7cb3c",
+        "train.csv": "0c24bc8c12db54cd1bd5d3d804d224dc88666286bac5638d80add79c7d8a413c"
+      }
+    },
+    {
+      "id": "old-anisotropic_noise-informative-99013",
+      "family": "anisotropic_noise",
+      "condition": "informative",
+      "seed": 99013,
+      "k": 3,
+      "rows": 240,
+      "features": 6,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "69a4c787053693eb929117c94344f6507b3f227cf258cf95fcfe85d126a7cb3c",
+        "train.csv": "5152834aa3e2c56bbe7e2e90a26abb3059d1b886574619d62a456aa76369f32b"
+      }
+    },
+    {
+      "id": "old-anisotropic_noise-random-99041",
+      "family": "anisotropic_noise",
+      "condition": "random",
+      "seed": 99041,
+      "k": 3,
+      "rows": 240,
+      "features": 6,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "69a4c787053693eb929117c94344f6507b3f227cf258cf95fcfe85d126a7cb3c",
+        "train.csv": "b43f83f5a60b1852e0b786eddb5147da95727caeacc52861b72d5be737050ba0"
+      }
+    },
+    {
+      "id": "old-anisotropic_noise-informative-99041",
+      "family": "anisotropic_noise",
+      "condition": "informative",
+      "seed": 99041,
+      "k": 3,
+      "rows": 240,
+      "features": 6,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "69a4c787053693eb929117c94344f6507b3f227cf258cf95fcfe85d126a7cb3c",
+        "train.csv": "b7ed4acca5dd726eeea92296d8df3bd7d2b3183fa306e56ba7ce8cf9b1d706cf"
+      }
+    },
+    {
+      "id": "old-mixed-random-99013",
+      "family": "mixed",
+      "condition": "random",
+      "seed": 99013,
+      "k": 3,
+      "rows": 240,
+      "features": 3,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2b1856579d63a856349d11b22d522fa852f21c94561dc2ff2e866a4684a964b0",
+        "train.csv": "498cbed66fb8195a58cefa8fddf79e4958490ada5abd2e91ebb4b97cad60df8f"
+      }
+    },
+    {
+      "id": "old-mixed-informative-99013",
+      "family": "mixed",
+      "condition": "informative",
+      "seed": 99013,
+      "k": 3,
+      "rows": 240,
+      "features": 3,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2b1856579d63a856349d11b22d522fa852f21c94561dc2ff2e866a4684a964b0",
+        "train.csv": "18027a848d9417085d95f3bd5be5ea7dec816342f32f49383c76362c66f9070a"
+      }
+    },
+    {
+      "id": "old-mixed-random-99041",
+      "family": "mixed",
+      "condition": "random",
+      "seed": 99041,
+      "k": 3,
+      "rows": 240,
+      "features": 3,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2b1856579d63a856349d11b22d522fa852f21c94561dc2ff2e866a4684a964b0",
+        "train.csv": "cc2a920f0ac55523906f61dc6ea5f05edf86060992ad0f319fab16b102c96f79"
+      }
+    },
+    {
+      "id": "old-mixed-informative-99041",
+      "family": "mixed",
+      "condition": "informative",
+      "seed": 99041,
+      "k": 3,
+      "rows": 240,
+      "features": 3,
+      "reference": true,
+      "source": {
+        "path": "C:\\Users\\User\\Desktop\\ECE490 Hackathon\\experiments\\third-batch\\clustering.json",
+        "sha256": "064336f0980e9b707a5653b44cf05ffdef0aa76380daa0b18dcc2a709e89043a"
+      },
+      "input_sha256": {
+        "metadata.json": "2b1856579d63a856349d11b22d522fa852f21c94561dc2ff2e866a4684a964b0",
+        "train.csv": "3c41a7a7aa286696e91c751eaa9603f4e582f61a8da89e6fdee450cf7697e624"
+      }
+    },
+    {
+      "id": "old-missing-axis-6101",
+      "family": "missing_axis",
+      "condition": "intrinsic_random",
+      "seed": 6101,
+      "k": 3,
+      "rows": 240,
+      "features": 3,
+      "reference": true,
+      "source": {
+        "path": "experiments/fixtures/historical-clustering-inputs-v1.npz",
+        "historical": true
+      },
+      "input_sha256": {
+        "metadata.json": "b08f1a23bd9e091ead382a186ffd0869970802a56bf2510414cba24955e660c5",
+        "train.csv": "a7f3bfc6c2196ef1d29d88b26aa331b09ea3e02b8171a634e423178111881d00"
+      }
+    },
+    {
+      "id": "mask_only-balanced-104729",
+      "family": "mask_only",
+      "condition": "balanced",
+      "seed": 104729,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "66ba47e14d50bc14f6181ec11a2e9c6eafe9aa7d51010a247f0eb9460dcfb3e7"
+      }
+    },
+    {
+      "id": "mask_only-balanced-104743",
+      "family": "mask_only",
+      "condition": "balanced",
+      "seed": 104743,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "5fecd90af8506aa28997249aa32f37c494cdb944f335c88fed1373ed45124e1d"
+      }
+    },
+    {
+      "id": "mask_only-balanced-104759",
+      "family": "mask_only",
+      "condition": "balanced",
+      "seed": 104759,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "3eead05fab282d85aa67aa392ccd63ecd52e1b93cecf6fade1e08cdf2bdf9ae8"
+      }
+    },
+    {
+      "id": "mask_only-rare-104729",
+      "family": "mask_only",
+      "condition": "rare",
+      "seed": 104729,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "15004c9e80e9035d145f6b89ebb0520145d158e8301ecfc229d88a7d9cc520d5"
+      }
+    },
+    {
+      "id": "mask_only-rare-104743",
+      "family": "mask_only",
+      "condition": "rare",
+      "seed": 104743,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "c346ececbf3fbd2b9904156e9e21d390a858acde4ff904ab2af0369b311c03b5"
+      }
+    },
+    {
+      "id": "mask_only-rare-104759",
+      "family": "mask_only",
+      "condition": "rare",
+      "seed": 104759,
+      "k": 3,
+      "rows": 600,
+      "features": 12,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": true
+      },
+      "input_sha256": {
+        "metadata.json": "734b33eb1baf399f9d9bf76f4c4527cfd812053cffba45f20de1171c3ab801a5",
+        "train.csv": "ea521913b1c0b62d4c02bd098cf7cb70e46fe1f388488b58e9f57d695867b32a"
+      }
+    },
+    {
+      "id": "nuisance_blocks-balanced-104729",
+      "family": "nuisance_blocks",
+      "condition": "balanced",
+      "seed": 104729,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "9fecd81610a9c37994acad2520a7850720fa89bf5352acda6b26fcb8935d71ca"
+      }
+    },
+    {
+      "id": "nuisance_blocks-balanced-104743",
+      "family": "nuisance_blocks",
+      "condition": "balanced",
+      "seed": 104743,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "e2da1e3386861933ed54c33b2b4d2d09b3f71100cd15f3f0fe0132e5528513d3"
+      }
+    },
+    {
+      "id": "nuisance_blocks-balanced-104759",
+      "family": "nuisance_blocks",
+      "condition": "balanced",
+      "seed": 104759,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          200,
+          200,
+          200
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "803a441c4a795ee4ad5fc243991768abbeaa094329661cc7a518ddd32d8983d0"
+      }
+    },
+    {
+      "id": "nuisance_blocks-rare-104729",
+      "family": "nuisance_blocks",
+      "condition": "rare",
+      "seed": 104729,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "790277ddbad069d727029ec65b330898c223e89e611210acb69f8498a0bc666d"
+      }
+    },
+    {
+      "id": "nuisance_blocks-rare-104743",
+      "family": "nuisance_blocks",
+      "condition": "rare",
+      "seed": 104743,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "4f7c34d3760c2533281c89492de2be8bec6ae1847180a812374cba3065cda80b"
+      }
+    },
+    {
+      "id": "nuisance_blocks-rare-104759",
+      "family": "nuisance_blocks",
+      "condition": "rare",
+      "seed": 104759,
+      "k": 3,
+      "rows": 600,
+      "features": 10,
+      "reference": true,
+      "source": {
+        "generator": "compare.py::prepare",
+        "counts": [
+          540,
+          54,
+          6
+        ],
+        "labels_used_for_mask": false
+      },
+      "input_sha256": {
+        "metadata.json": "90f6bc6393444f08181e609ab6a0757abfdefbb7e81c0653bb568aa8f8d6faa5",
+        "train.csv": "01311afa012fb553e6ae358bcbff354301840f7405b06a3e495503e54f1a816f"
+      }
+    },
+    {
+      "id": "mall-clean",
+      "family": "Mall",
+      "condition": "clean",
+      "seed": 104729,
+      "k": 5,
+      "rows": 200,
+      "features": 4,
+      "reference": false,
+      "source": {
+        "path": "C:\\Users\\User\\Downloads\\Mall_Customers.csv",
+        "sha256": "416a4f62a8f33841a16e1db5297f0e05d3b65b05e73632cedae58e739e1e1f77",
+        "k_assumption": 5,
+        "excluded": "CustomerID"
+      },
+      "input_sha256": {
+        "metadata.json": "8921fa643988d380204cc98ec578d7d9411beee89aa0e9ad2d0a306adbb988be",
+        "train.csv": "f798cb133fb7eded623d485ca156a8f966baa7c9312a6e15a44095dadb3f7651"
+      }
+    },
+    {
+      "id": "mall-random30",
+      "family": "Mall",
+      "condition": "random30",
+      "seed": 104729,
+      "k": 5,
+      "rows": 200,
+      "features": 4,
+      "reference": false,
+      "source": {
+        "path": "C:\\Users\\User\\Downloads\\Mall_Customers.csv",
+        "sha256": "416a4f62a8f33841a16e1db5297f0e05d3b65b05e73632cedae58e739e1e1f77",
+        "k_assumption": 5,
+        "excluded": "CustomerID"
+      },
+      "input_sha256": {
+        "metadata.json": "8921fa643988d380204cc98ec578d7d9411beee89aa0e9ad2d0a306adbb988be",
+        "train.csv": "c8103615ce3170e6fc850f5ce3daa5e70d8c0b9d5c1ad2691cd58d63c2771933"
+      }
+    }
+  ],
+  "existing_cases": 11,
+  "new_conditions": 12,
+  "mall_conditions": 2,
+  "main_calls": 75,
+  "mall_subsample_calls": 30,
+  "mall_subsample_fraction": 0.8,
+  "mall_subsample_seeds": [
+    41,
+    43,
+    47,
+    53,
+    59
+  ],
+  "budget": 20,
+  "cli_budget": 50,
+  "external_limit": 60,
+  "fresh_confirmation_opened": false,
+  "seeds": [
+    104729,
+    104743,
+    104759
+  ],
+  "estimator_changes": false,
+  "gates": "STAGE_1_PROPOSAL.md::Fixed proposed gates",
+  "preparation_scope": "Approved minimal comparison; no downloads or masked large-input expansion",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "source_sha256": {
+    "experiments\\clustering-representation-study\\compare.py": "41587dfed4de9058883cc40e4c01c1f8ab02db2db6b1bec3dccf9d94de424d18",
+    "src\\unknown_dataset\\clustering.py": "c4df5c0fde625b392a23c3f5ef05c9c3e7cd634b937634442ed10aa43a12ad61",
+    "src\\unknown_dataset\\preprocessing.py": "c6327fe726bf34ad9a068712f9cf2efddecac72d5de8643ca1ad24a9e3e586a5",
+    "src\\unknown_dataset\\models.py": "93ba44815b6bf01bf3e2ce7d18dac0d92f94541a43180ad0ba0654f991f318be",
+    "src\\unknown_dataset\\runner.py": "268517d36ecf83de1579c285689c7051119221fda535113b617e60e617a5b52f"
+  }
+}

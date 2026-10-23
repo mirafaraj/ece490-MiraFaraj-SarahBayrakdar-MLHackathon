@@ -1,0 +1,157 @@
+{
+  "stage": "coverage audit only",
+  "branch": "codex/clustering-representation-study",
+  "starting_commit": "36e0bf421eb6dc8615e781aa0709a8017c073777",
+  "main_commit": "36e0bf421eb6dc8615e781aa0709a8017c073777",
+  "frozen_files_verified": 65,
+  "frozen_mismatches": [],
+  "supplied_files": [
+    {
+      "path": "C:\\Users\\User\\Downloads\\ai4i2020.csv",
+      "bytes": 522048,
+      "sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+      "rows": 10000,
+      "columns": 14,
+      "column_names": [
+        "UDI",
+        "Product ID",
+        "Type",
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]",
+        "Machine failure",
+        "TWF",
+        "HDF",
+        "PWF",
+        "OSF",
+        "RNF"
+      ],
+      "parsed_missing": 0,
+      "whitespace_only_by_column": {
+        "UDI": 0,
+        "Product ID": 0,
+        "Type": 0,
+        "Air temperature [K]": 0,
+        "Process temperature [K]": 0,
+        "Rotational speed [rpm]": 0,
+        "Torque [Nm]": 0,
+        "Tool wear [min]": 0,
+        "Machine failure": 0,
+        "TWF": 0,
+        "HDF": 0,
+        "PWF": 0,
+        "OSF": 0,
+        "RNF": 0
+      }
+    },
+    {
+      "path": "C:\\Users\\User\\Downloads\\Mall_Customers.csv",
+      "bytes": 3981,
+      "sha256": "416a4f62a8f33841a16e1db5297f0e05d3b65b05e73632cedae58e739e1e1f77",
+      "rows": 200,
+      "columns": 5,
+      "column_names": [
+        "CustomerID",
+        "Gender",
+        "Age",
+        "Annual Income (k$)",
+        "Spending Score (1-100)"
+      ],
+      "parsed_missing": 0,
+      "whitespace_only_by_column": {
+        "CustomerID": 0,
+        "Gender": 0,
+        "Age": 0,
+        "Annual Income (k$)": 0,
+        "Spending Score (1-100)": 0
+      }
+    },
+    {
+      "path": "C:\\Users\\User\\Downloads\\Mall_Customers (1).csv",
+      "bytes": 3981,
+      "sha256": "416a4f62a8f33841a16e1db5297f0e05d3b65b05e73632cedae58e739e1e1f77",
+      "rows": 200,
+      "columns": 5,
+      "column_names": [
+        "CustomerID",
+        "Gender",
+        "Age",
+        "Annual Income (k$)",
+        "Spending Score (1-100)"
+      ],
+      "parsed_missing": 0,
+      "whitespace_only_by_column": {
+        "CustomerID": 0,
+        "Gender": 0,
+        "Age": 0,
+        "Annual Income (k$)": 0,
+        "Spending Score (1-100)": 0
+      }
+    },
+    {
+      "path": "C:\\Users\\User\\Downloads\\WA_Fn-UseC_-Telco-Customer-Churn.csv",
+      "bytes": 977501,
+      "sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "rows": 7043,
+      "columns": 21,
+      "column_names": [
+        "customerID",
+        "gender",
+        "SeniorCitizen",
+        "Partner",
+        "Dependents",
+        "tenure",
+        "PhoneService",
+        "MultipleLines",
+        "InternetService",
+        "OnlineSecurity",
+        "OnlineBackup",
+        "DeviceProtection",
+        "TechSupport",
+        "StreamingTV",
+        "StreamingMovies",
+        "Contract",
+        "PaperlessBilling",
+        "PaymentMethod",
+        "MonthlyCharges",
+        "TotalCharges",
+        "Churn"
+      ],
+      "parsed_missing": 0,
+      "whitespace_only_by_column": {
+        "customerID": 0,
+        "gender": 0,
+        "SeniorCitizen": 0,
+        "Partner": 0,
+        "Dependents": 0,
+        "tenure": 0,
+        "PhoneService": 0,
+        "MultipleLines": 0,
+        "InternetService": 0,
+        "OnlineSecurity": 0,
+        "OnlineBackup": 0,
+        "DeviceProtection": 0,
+        "TechSupport": 0,
+        "StreamingTV": 0,
+        "StreamingMovies": 0,
+        "Contract": 0,
+        "PaperlessBilling": 0,
+        "PaymentMethod": 0,
+        "MonthlyCharges": 0,
+        "TotalCharges": 11,
+        "Churn": 0
+      }
+    },
+    {
+      "path": "C:\\Users\\User\\Downloads\\data_description.txt",
+      "bytes": 13370,
+      "sha256": "356a4670aa688afa8ba44b1365b633fbbac2dae535fe4638532630607d64070d",
+      "lines": 523
+    }
+  ],
+  "contains_raw_rows_or_label_prediction_arrays": false,
+  "models_run": false,
+  "downloads_performed": false
+}
