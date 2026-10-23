@@ -71,16 +71,16 @@ def test_fixed_forest_parameters_are_isolated(monkeypatch):
         def predict(self,x):return np.zeros(len(x))
     monkeypatch.setattr(models,'ExtraTreesRegressor',Estimator)
     frame=pd.DataFrame({'x':np.arange(40,dtype=float)})
-    _,info=models.fit_predict('regression',frame,np.arange(40),frame.iloc[:2],_bounded_forest=True)
+    _,info=models.fit_predict('regression',frame,np.arange(40),frame.iloc[:2],strategy='baseline',_bounded_forest=True)
     assert seen[-1]['n_estimators']==16 and seen[-1]['max_features']=='sqrt'
-    models.fit_predict('regression',frame,np.arange(40),frame.iloc[:2])
+    models.fit_predict('regression',frame,np.arange(40),frame.iloc[:2],strategy='baseline')
     assert seen[-1]['n_estimators']==96 and 'max_features' not in seen[-1]
 
 
-def test_submission_delegates_by_task_and_defaults_stay_baseline(monkeypatch):
+def test_submission_delegates_by_task_and_is_api_default(monkeypatch):
     from unknown_dataset import models,supervised,clustering
     import inspect
-    assert inspect.signature(models.fit_predict).parameters['strategy'].default=='baseline'
+    assert inspect.signature(models.fit_predict).parameters['strategy'].default=='submission'
     assert effective_strategy('classification','submission')=='baseline'
     assert effective_strategy('regression','submission')=='auto'
     assert effective_strategy('clustering','submission')=='auto'
@@ -91,7 +91,9 @@ def test_submission_delegates_by_task_and_defaults_stay_baseline(monkeypatch):
     frame=pd.DataFrame({'x':[1,2,3]})
     models.fit_predict('regression',frame,[1,2,3],frame.iloc[:1],strategy='submission')
     models.fit_predict('clustering',frame,n_clusters=1,strategy='submission')
-    assert calls==['regression','clustering']
+    models.fit_predict('regression',frame,[1,2,3],frame.iloc[:1])
+    models.fit_predict('clustering',frame,n_clusters=1)
+    assert calls==['regression','clustering','regression','clustering']
 
 
 @pytest.mark.parametrize('forest_outcome',['error','timeout','invalid'])

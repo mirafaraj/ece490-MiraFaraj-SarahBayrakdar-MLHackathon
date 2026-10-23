@@ -22,8 +22,9 @@ namespaces, bounded one-hot encoding, constants and exact duplicate columns. Sca
 linear/distance-based models. Duplicate rows are retained; IDs and supervised targets are excluded
 from features. Unknown categories are handled without refitting on test inputs.
 
-The default remains baseline: Extra Trees classification/regression and scaled K-means/MiniBatch
-K-means. Auto is experimental: supervised linear/tree/histogram candidates compete on an inner
+The CLI and public Python API default to submission: baseline for classification and auto for
+regression/clustering. Explicit baseline remains Extra Trees classification/regression and scaled
+K-means/MiniBatch K-means. Auto uses supervised linear/tree/histogram candidates on an inner
 training holdout; eligible numeric clustering tables compare spherical/full covariance density
 models. Its generic/centroid restart fix addresses a reproduced local-optimization failure.
 
@@ -38,10 +39,10 @@ The experimental single-feature categorical classifier is disabled by default. I
 use the fitting prior. Missing and genuine category tokens are distinct. Inner fitting folds own
 all counts and priors; feature/smoothing choices use inner validation only. Explicit balanced
 decisions may differ from posterior argmax while the reported probabilities retain prior smoothing.
-None of these features replaces the baseline default.
+These optional controls do not alter explicitly selected baseline behavior.
 
-Explicit `submission` delegates classification to baseline and regression/clustering to auto;
-the CLI and API defaults remain baseline. This task mapping is conservative development judgment
+Default `submission` delegates classification to baseline and regression/clustering to auto;
+baseline, auto and routed remain explicitly selectable. This task mapping is conservative development judgment
 under unknown grading metrics; classification baseline's measured balanced-accuracy disadvantage
 remains relevant. See README for fixed expensive-input forest/sample rules, histogram eligibility,
 absolute worker deadline, existing linear recovery and full-data profiling. These guards address
@@ -119,5 +120,5 @@ Measured results must link to reports with source/config/input hashes. Runtime o
 limited to the recorded environment. Design settings and untested limits are assumptions, not
 measurements. Public Stories Coffee repository techniques motivate experiments only; their reported
 results were not independently reproduced here, do not establish superiority, and supply no reason
-to change clustering algorithms. Official alignment and fresh reviewed evidence are required before
-changing the baseline default.
+to change clustering algorithms. Official metric alignment remains unverified. The approved submission
+default is based on current development evidence; further model promotions require fresh reviewed evidence.

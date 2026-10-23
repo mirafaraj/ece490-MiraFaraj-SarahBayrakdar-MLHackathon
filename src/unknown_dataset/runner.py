@@ -144,7 +144,7 @@ def main(argv=None):
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--time-budget", type=float, default=50.0)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--strategy", choices=("baseline", "auto", "routed", "submission"), default="baseline")
+    parser.add_argument("--strategy", choices=("baseline", "auto", "routed", "submission"), default="submission")
     parser.add_argument("--router-config", type=Path)
     parser.add_argument("--timings", action="store_true", help="Opt in to diagnostic phase timings")
     parser.add_argument("--lazy-router-imports", action="store_true",

@@ -65,7 +65,7 @@ def test_baseline_centroid_restart_recovers_noisy_blob_local_optimum(tmp_path):
     x, _ = make_blobs(n_samples=660, centers=4, n_features=4,
                       cluster_std=1.8, random_state=42)
     frame = pd.DataFrame(np.column_stack([x, rng.normal(0, 2, (660, 4))]))
-    baseline, _ = fit_predict("clustering", frame, n_clusters=4, seed=42)
+    baseline, _ = fit_predict("clustering", frame, n_clusters=4, seed=42, strategy="baseline")
     candidate, info = fit_predict_clustering("clustering", frame, n_clusters=4, seed=42)
     assert adjusted_rand_score(baseline, candidate) == 1
     assert info["model"] == "GaussianMixtureFull"
@@ -81,7 +81,7 @@ def test_full_candidate_can_improve_geometry_without_baseline_agreement():
         rng.multivariate_normal(center, [[2, 1.95], [1.95, 2]], 200)
         for center in centers]))
     truth = np.repeat(np.arange(3), 200)
-    baseline, _ = fit_predict("clustering", frame, n_clusters=3, seed=42)
+    baseline, _ = fit_predict("clustering", frame, n_clusters=3, seed=42, strategy="baseline")
     candidate, info = fit_predict_clustering("clustering", frame, n_clusters=3, seed=42)
     assert adjusted_rand_score(truth, baseline) < .7
     assert adjusted_rand_score(truth, candidate) > .99
@@ -107,7 +107,7 @@ def test_failed_mixture_candidates_retain_completed_baseline(monkeypatch, failur
 
     monkeypatch.setattr(clustering, "GaussianMixture", UnusableMixture)
     frame = pd.DataFrame(np.random.default_rng(42).normal(size=(80, 2)))
-    baseline, _ = fit_predict("clustering", frame, n_clusters=2, seed=42)
+    baseline, _ = fit_predict("clustering", frame, n_clusters=2, seed=42, strategy="baseline")
     candidate, info = fit_predict_clustering("clustering", frame, n_clusters=2, seed=42)
     assert np.array_equal(candidate, baseline)
     assert info["bic"] == {}

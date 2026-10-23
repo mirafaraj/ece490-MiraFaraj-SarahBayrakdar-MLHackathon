@@ -83,8 +83,10 @@ def test_cli_timing_flag_preserves_predictions(tmp_path):
     for enabled in (False, True):
         output = tmp_path / str(enabled)
         command = [sys.executable, str(root / "main.py"), "--input", str(source), "--output", str(output),
-                   "--strategy", "routed", "--time-budget", "25"] + (["--timings"] if enabled else [])
-        result = subprocess.run(command, capture_output=True, text=True, env=environment, timeout=35)
+                   # This checks optional-selection instrumentation, not low-budget
+                   # admission. Leave room for cold imports and the 17s route gate.
+                   "--strategy", "routed", "--time-budget", "50"] + (["--timings"] if enabled else [])
+        result = subprocess.run(command, capture_output=True, text=True, env=environment, timeout=60)
         assert result.returncode == 0, result.stderr
         outputs.append((output / "predictions.csv").read_bytes())
         run = json.loads((output / "run.json").read_text())

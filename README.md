@@ -41,17 +41,31 @@ or a prepopulated wheel cache. The official Python version may require a separat
 .\.venv\Scripts\python.exe main.py --input data/example --output outputs/example --time-budget 50 --seed 42
 ```
 
-The default remains `--strategy baseline`. The opt-in `--strategy routed` applies explicit
+The CLI and public Python API default to `submission`. Explicit `--strategy baseline`,
+`--strategy auto` and `--strategy routed` remain available. The opt-in routed strategy applies explicit
 task-specific eligibility/metric rules, completes a baseline first, and preserves its predictions
 while optional candidates run. `--strategy auto` remains available for earlier experiments.
 See [MODEL_CARD.md](MODEL_CARD.md) for intended inputs, evidence and limitations.
 
-The explicit submission strategy delegates only by the declared task: classification uses
-baseline; regression and clustering use auto. It remains **non-default pending confirmation**:
+The submission strategy delegates only by the declared task: classification uses
+baseline; regression and clustering use auto. The following explicit command is equivalent
+to omitting `--strategy`:
 
 ```sh
 python main.py --input INPUT --output OUTPUT --strategy submission --time-budget 50 --seed SEED
 ```
+
+The public Python entry point has the same default:
+
+```python
+from unknown_dataset.models import fit_predict
+
+predictions, info = fit_predict(task, X_train, y_train, X_test, feature_types,
+                                n_clusters=n_clusters, seed=42)  # strategy="submission"
+```
+
+Supply `None` for supervised-only arguments when clustering; supply the required k.
+This default is an approved development choice, not a verified official scoring optimum.
 
 This command and the input/output file names are implementation assumptions.
 `INPUT`, `OUTPUT` and `SEED` are per-run parameters; omitting seed uses 42. Local frozen checks
@@ -208,26 +222,27 @@ zero; an exploratory positive tolerance worsened one development split.
 Seed 8081 was predeclared confirmation for the frozen router implementation; after its results
 are inspected it becomes development evidence for later changes. Do not retune against a report
 and continue describing that same report as untouched confirmation. The official metric gate
-and baseline default remain unchanged.
+remains unresolved. Historical default statements in frozen reports describe their recorded versions;
+the current default is the task-specific submission mapping documented above.
 
 Latest targeted follow-up: `reports/clustering_improvement.md` documents the optional clustering
 restart fix. It restores the observed noisy-data ARI regression (0.6337 to 1.0000), while fresh
 confirmation across ten cases found four wins, five ties, and one small loss versus baseline.
-All 20 CLI runs were valid without fallbacks. The baseline default remains unchanged; use
-`--strategy auto` to exercise the improved experimental selector.
+All 20 CLI runs were valid without fallbacks. Baseline remains explicitly selectable;
+submission now uses auto for clustering and regression.
 
 Current review and expanded comparison results are documented in `reports/RESULTS.md`.
 The frozen broad comparison passed all 48 CLI runs with zero deadline fallbacks. Supervised
 candidates improved several cases, but balanced accuracy and ordinary accuracy can move in
-opposite directions. Clustering also showed an observed regression. The default remains baseline;
-`--strategy auto` is explicit and experimental pending official metrics and broader evidence.
+opposite directions. Clustering also showed an observed regression. Submission's task mapping
+is based on development evidence; official metric compatibility and broader generalization remain unverified.
 
 Independent review reports are in `reports/review_data.md`, `reports/review_runtime.md`, and
 `reports/review_evaluation.md`. Regression fixes preserve lexical labels and missingness signals,
 avoid categorical token collisions, clear previous generated outputs at the start of a CLI run,
 and stage all result files before publication. Publication failures remove partial generated results.
 
-The original model family remains available as `--strategy baseline` (the default), with these
+The original model family remains available as explicit `--strategy baseline`, with these
 correctness fixes applied. Use `--strategy auto` for experimental training-only supervised selection
 among Extra Trees, linear models, and histogram boosting; clustering compares spherical/full mixture
 geometry for eligible small numeric tables. Selection metadata is written to `run.json`. These

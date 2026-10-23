@@ -16,13 +16,15 @@ from .preprocessing import TableCleaner, build_preprocessor
 
 
 def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
-                n_clusters=None, time_budget=50.0, seed=42, strategy="baseline",
+                n_clusters=None, time_budget=50.0, seed=42, strategy="submission",
                 route_config=None, checkpoint_callback=None, execution_deadline=None,
                 _bounded_forest=False, reliability_mode=None):
     """Fit on training features and return ordered predictions plus run metadata.
 
     The caller owns the hard process deadline. The budget here bounds estimator
     complexity; it is not a promise that an arbitrary input finishes in time.
+    The default submission strategy delegates classification to baseline and
+    regression/clustering to auto. Explicit baseline, auto and routed remain available.
     """
     if strategy not in {"baseline", "auto", "routed", "submission"}:
         raise ValueError(f"Unknown strategy: {strategy}")
