@@ -1,0 +1,167 @@
+[
+  {
+    "task": "classification",
+    "strategy": "baseline",
+    "prediction_sha256": "3396a199197e32e1f3396ed8279f2d4bce387d89071c96b7cc38ffca6ede6004",
+    "profile_sha256": "c486c510f1593548096b35c6bea4f99c27bae5a29d31f393e1d42e274cf6a1f3",
+    "selected": "ExtraTreesClassifier",
+    "api_sha256": "d2b500563efdae6cfb92dd991c9fec73b128e757d140794dbf5b55023297af19",
+    "api_selected": "ExtraTreesClassifier",
+    "seconds": 6.3589999999999804,
+    "fallback": false
+  },
+  {
+    "task": "classification",
+    "strategy": "auto",
+    "prediction_sha256": "3396a199197e32e1f3396ed8279f2d4bce387d89071c96b7cc38ffca6ede6004",
+    "profile_sha256": "c486c510f1593548096b35c6bea4f99c27bae5a29d31f393e1d42e274cf6a1f3",
+    "selected": "ExtraTreesClassifier",
+    "api_sha256": "d2b500563efdae6cfb92dd991c9fec73b128e757d140794dbf5b55023297af19",
+    "api_selected": "ExtraTreesClassifier",
+    "seconds": 6.438000000000017,
+    "fallback": false
+  },
+  {
+    "task": "classification",
+    "strategy": "routed",
+    "prediction_sha256": "3396a199197e32e1f3396ed8279f2d4bce387d89071c96b7cc38ffca6ede6004",
+    "profile_sha256": "c486c510f1593548096b35c6bea4f99c27bae5a29d31f393e1d42e274cf6a1f3",
+    "selected": "ExtraTreesClassifier",
+    "api_sha256": "d2b500563efdae6cfb92dd991c9fec73b128e757d140794dbf5b55023297af19",
+    "api_selected": "ExtraTreesClassifier",
+    "seconds": 8.218999999999994,
+    "fallback": false
+  },
+  {
+    "task": "classification",
+    "strategy": "submission",
+    "prediction_sha256": "3396a199197e32e1f3396ed8279f2d4bce387d89071c96b7cc38ffca6ede6004",
+    "profile_sha256": "c486c510f1593548096b35c6bea4f99c27bae5a29d31f393e1d42e274cf6a1f3",
+    "selected": "ExtraTreesClassifier",
+    "api_sha256": "d2b500563efdae6cfb92dd991c9fec73b128e757d140794dbf5b55023297af19",
+    "api_selected": "ExtraTreesClassifier",
+    "seconds": 5.2970000000000255,
+    "fallback": false
+  },
+  {
+    "task": "classification",
+    "strategy": "omitted",
+    "prediction_sha256": "3396a199197e32e1f3396ed8279f2d4bce387d89071c96b7cc38ffca6ede6004",
+    "profile_sha256": "c486c510f1593548096b35c6bea4f99c27bae5a29d31f393e1d42e274cf6a1f3",
+    "selected": "ExtraTreesClassifier",
+    "api_sha256": "d2b500563efdae6cfb92dd991c9fec73b128e757d140794dbf5b55023297af19",
+    "api_selected": "ExtraTreesClassifier",
+    "seconds": 6.359000000000037,
+    "fallback": false
+  },
+  {
+    "task": "regression",
+    "strategy": "baseline",
+    "prediction_sha256": "c05afc492702409d33a73cbf477fde91de0a92146ac854d4ef0d789751f8513c",
+    "profile_sha256": "d3f99ecfc572ceddb78663ac85433e27e351ebaeff9bfc97f35055945db87ea6",
+    "selected": "ExtraTreesRegressor",
+    "api_sha256": "d24c4d18053a8556ce74316249f57d2c52e494fcf5da8b1f530a13f6b57788e9",
+    "api_selected": "ExtraTreesRegressor",
+    "seconds": 6.5470000000000255,
+    "fallback": false
+  },
+  {
+    "task": "regression",
+    "strategy": "auto",
+    "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+    "profile_sha256": "d3f99ecfc572ceddb78663ac85433e27e351ebaeff9bfc97f35055945db87ea6",
+    "selected": "Ridge",
+    "api_sha256": "8abc435413ea2aee5e0dafe1537979365fda6ef418ff2f79754e055d70e173d2",
+    "api_selected": "Ridge",
+    "seconds": 6.187000000000012,
+    "fallback": false
+  },
+  {
+    "task": "regression",
+    "strategy": "routed",
+    "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+    "profile_sha256": "d3f99ecfc572ceddb78663ac85433e27e351ebaeff9bfc97f35055945db87ea6",
+    "selected": "Ridge",
+    "api_sha256": "8abc435413ea2aee5e0dafe1537979365fda6ef418ff2f79754e055d70e173d2",
+    "api_selected": "Ridge",
+    "seconds": 9.406000000000006,
+    "fallback": false
+  },
+  {
+    "task": "regression",
+    "strategy": "submission",
+    "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+    "profile_sha256": "d3f99ecfc572ceddb78663ac85433e27e351ebaeff9bfc97f35055945db87ea6",
+    "selected": "Ridge",
+    "api_sha256": "8abc435413ea2aee5e0dafe1537979365fda6ef418ff2f79754e055d70e173d2",
+    "api_selected": "Ridge",
+    "seconds": 6.75,
+    "fallback": false
+  },
+  {
+    "task": "regression",
+    "strategy": "omitted",
+    "prediction_sha256": "099db2c54a0a151aa764729a4cefaf4bc894e5210099936ee50b94fd35b85671",
+    "profile_sha256": "d3f99ecfc572ceddb78663ac85433e27e351ebaeff9bfc97f35055945db87ea6",
+    "selected": "Ridge",
+    "api_sha256": "8abc435413ea2aee5e0dafe1537979365fda6ef418ff2f79754e055d70e173d2",
+    "api_selected": "Ridge",
+    "seconds": 7.187999999999988,
+    "fallback": false
+  },
+  {
+    "task": "clustering",
+    "strategy": "baseline",
+    "prediction_sha256": "a841b3cdd20f5e63972934dadd37a4f2e1c8d72afae2e2470af86a94a62d5dbf",
+    "profile_sha256": "b444dc87dbe0666184e9bf6e7a7be51ff8550982661a1872b073dfeca42c4fd1",
+    "selected": "KMeans",
+    "api_sha256": "576a99bda1a9bca4e1ff4995947e60355b4e7c9ef71155e51b1ad0cf314ef64b",
+    "api_selected": "KMeans",
+    "seconds": 6.656000000000006,
+    "fallback": false
+  },
+  {
+    "task": "clustering",
+    "strategy": "auto",
+    "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+    "profile_sha256": "b444dc87dbe0666184e9bf6e7a7be51ff8550982661a1872b073dfeca42c4fd1",
+    "selected": "GaussianMixtureFull",
+    "api_sha256": "e14b5f755f621cec20e0b9b30133577d2447534fa01f3ab38fde9f0d92240d97",
+    "api_selected": "GaussianMixtureFull",
+    "seconds": 7.515999999999963,
+    "fallback": false
+  },
+  {
+    "task": "clustering",
+    "strategy": "routed",
+    "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+    "profile_sha256": "b444dc87dbe0666184e9bf6e7a7be51ff8550982661a1872b073dfeca42c4fd1",
+    "selected": "GaussianMixtureFull",
+    "api_sha256": "e14b5f755f621cec20e0b9b30133577d2447534fa01f3ab38fde9f0d92240d97",
+    "api_selected": "GaussianMixtureFull",
+    "seconds": 9.954000000000008,
+    "fallback": false
+  },
+  {
+    "task": "clustering",
+    "strategy": "submission",
+    "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+    "profile_sha256": "b444dc87dbe0666184e9bf6e7a7be51ff8550982661a1872b073dfeca42c4fd1",
+    "selected": "GaussianMixtureFull",
+    "api_sha256": "e14b5f755f621cec20e0b9b30133577d2447534fa01f3ab38fde9f0d92240d97",
+    "api_selected": "GaussianMixtureFull",
+    "seconds": 7.937999999999988,
+    "fallback": false
+  },
+  {
+    "task": "clustering",
+    "strategy": "omitted",
+    "prediction_sha256": "523f47a007b295b0b4369d0a58e5fd2475c2f077e03415073d1ef0ec848a8588",
+    "profile_sha256": "b444dc87dbe0666184e9bf6e7a7be51ff8550982661a1872b073dfeca42c4fd1",
+    "selected": "GaussianMixtureFull",
+    "api_sha256": "e14b5f755f621cec20e0b9b30133577d2447534fa01f3ab38fde9f0d92240d97",
+    "api_selected": "GaussianMixtureFull",
+    "seconds": 7.734000000000037,
+    "fallback": false
+  }
+]
