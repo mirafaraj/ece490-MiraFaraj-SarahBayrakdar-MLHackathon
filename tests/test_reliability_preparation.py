@@ -81,7 +81,7 @@ def test_submission_delegates_by_task_and_is_api_default(monkeypatch):
     from unknown_dataset import models,supervised,clustering
     import inspect
     assert inspect.signature(models.fit_predict).parameters['strategy'].default=='submission'
-    assert effective_strategy('classification','submission')=='baseline'
+    assert effective_strategy('classification','submission')=='auto'
     assert effective_strategy('regression','submission')=='auto'
     assert effective_strategy('clustering','submission')=='auto'
     calls=[]
@@ -89,11 +89,12 @@ def test_submission_delegates_by_task_and_is_api_default(monkeypatch):
     monkeypatch.setattr(supervised,'fit_predict_supervised',candidate)
     monkeypatch.setattr(clustering,'fit_predict_clustering',candidate)
     frame=pd.DataFrame({'x':[1,2,3]})
+    models.fit_predict('classification',frame,['a','b','a'],frame.iloc[:1],strategy='submission')
     models.fit_predict('regression',frame,[1,2,3],frame.iloc[:1],strategy='submission')
     models.fit_predict('clustering',frame,n_clusters=1,strategy='submission')
     models.fit_predict('regression',frame,[1,2,3],frame.iloc[:1])
     models.fit_predict('clustering',frame,n_clusters=1)
-    assert calls==['regression','clustering','regression','clustering']
+    assert calls==['classification','regression','clustering','regression','clustering']
 
 
 @pytest.mark.parametrize('forest_outcome',['error','timeout','invalid'])

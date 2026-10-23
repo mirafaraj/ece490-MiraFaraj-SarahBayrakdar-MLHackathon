@@ -22,8 +22,8 @@ namespaces, bounded one-hot encoding, constants and exact duplicate columns. Sca
 linear/distance-based models. Duplicate rows are retained; IDs and supervised targets are excluded
 from features. Unknown categories are handled without refitting on test inputs.
 
-The CLI and public Python API default to submission: baseline for classification and auto for
-regression/clustering. Explicit baseline remains Extra Trees classification/regression and scaled
+The CLI and public Python API default to submission: existing auto for all three tasks.
+Classification auto selects using balanced accuracy. Explicit baseline remains Extra Trees classification/regression and scaled
 K-means/MiniBatch K-means. Auto uses supervised linear/tree/histogram candidates on an inner
 training holdout; eligible numeric clustering tables compare spherical/full covariance density
 models. Its generic/centroid restart fix addresses a reproduced local-optimization failure.
@@ -41,12 +41,21 @@ all counts and priors; feature/smoothing choices use inner validation only. Expl
 decisions may differ from posterior argmax while the reported probabilities retain prior smoothing.
 These optional controls do not alter explicitly selected baseline behavior.
 
-Default `submission` delegates classification to baseline and regression/clustering to auto;
-baseline, auto and routed remain explicitly selectable. This task mapping is conservative development judgment
-under unknown grading metrics; classification baseline's measured balanced-accuracy disadvantage
-remains relevant. See README for fixed expensive-input forest/sample rules, histogram eligibility,
+Default `submission` delegates all tasks to existing auto;
+baseline, auto and routed remain explicitly selectable. This mapping is development judgment
+under unknown grading metrics; improved class recognition can cost overall accuracy or precision.
+The rejected macro-F1 challenger is not adopted. The original confirmation campaign stopped when
+its baseline comparator failed; the independent review subsequently completed the remaining frozen
+comparisons. Detailed evidence is in `experiments/classification-policy-independent-review-20261023/REPORT.md`.
+See README for fixed expensive-input forest/sample rules, histogram eligibility,
 absolute worker deadline, existing linear recovery and full-data profiling. These guards address
 local stress failures, not unspecified maximum assessment sizes. No new model family is added.
+
+The classification runtime repair additionally admits mixed-feature inputs above 20,000 rows
+to the existing bounded forest/linear recovery when a training-only encoded-width upper bound
+implies more than 2,000,000 full-fitting cells. Full-data profiles are retained. Numeric-only
+paths, estimator settings, metrics and deadlines are unchanged; the rule and staged evidence
+are recorded separately in `experiments/classification-runtime-repair/RESOURCE_RULE.md`.
 
 Reliability candidate checks: 295 tests passed; 39/39 stress runs produced learned outputs
 without emergency recovery; 108/108 ordinary real-data runs retained exact prediction hashes

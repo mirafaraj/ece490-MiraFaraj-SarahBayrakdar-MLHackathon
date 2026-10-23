@@ -192,7 +192,8 @@ def main(argv=None):
         profile = build_profile(dataset.X_train, dataset.feature_types, dataset.y_train)
         phases["profile"] = time.monotonic() - stage_started
         from .reliability import needs_bounded_forest
-        bounded = needs_bounded_forest(dataset.task, len(dataset.X_train), dataset.X_train.shape[1], args.strategy)
+        bounded = needs_bounded_forest(dataset.task, len(dataset.X_train), dataset.X_train.shape[1], args.strategy,
+                                       dataset.X_train, dataset.feature_types)
         reserve = min(8.0, args.time_budget * .2) if bounded else min(3.0, args.time_budget * 0.15)
         remaining = args.time_budget - (time.monotonic() - started) - reserve
         if remaining <= 0:

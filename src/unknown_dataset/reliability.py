@@ -3,14 +3,44 @@ from __future__ import annotations
 
 
 def effective_strategy(task, strategy):
-    return ('baseline' if task == 'classification' else 'auto') if strategy == 'submission' else strategy
+    return 'auto' if strategy == 'submission' else strategy
 
 
-def needs_bounded_forest(task, rows, features, strategy):
+def prepared_mixed_width(frame, feature_types=None):
+    """Training-only upper bound for the existing mixed-table encoding.
+
+    Count constants/duplicates conservatively; never fit or inspect test features.
+    None means numeric-only, whose existing admission behavior is preserved.
+    """
+    import pandas as pd
+    declared = feature_types or {}
+    kinds = {name: declared.get(name, 'numeric' if pd.api.types.is_numeric_dtype(frame[name])
+                               else 'categorical') for name in frame}
+    if 'categorical' not in kinds.values():
+        return None
+    width = 0
+    for name, kind in kinds.items():
+        column = frame[name]
+        if kind == 'categorical':
+            levels = column.dropna().map(str).nunique() + int(column.isna().any())
+            width += max(1, min(32, levels))
+        else:
+            numeric = pd.to_numeric(column, errors='coerce')
+            missing = numeric.isna() | numeric.isin([float('inf'), -float('inf')])
+            width += 1 + int(missing.any())
+    return int(width)
+
+
+def needs_bounded_forest(task, rows, features, strategy, X_train=None, feature_types=None):
     strategy = effective_strategy(task, strategy)
     costly = rows * features >= 2_500_000
-    return costly and (task == 'regression' or
-                       task == 'classification' and rows >= 50_000 and strategy in {'baseline', 'routed'})
+    if costly and (task == 'regression' or
+                   task == 'classification' and rows >= 50_000 and strategy in {'baseline', 'routed'}):
+        return True
+    if task == 'classification' and rows > 20_000 and strategy in {'baseline', 'auto'} and X_train is not None:
+        width = prepared_mixed_width(X_train, feature_types)
+        return width is not None and rows * width > 2_000_000
+    return False
 
 
 def guard_histogram(rows, features):

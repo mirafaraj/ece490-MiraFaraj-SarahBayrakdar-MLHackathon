@@ -23,14 +23,15 @@ def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
 
     The caller owns the hard process deadline. The budget here bounds estimator
     complexity; it is not a promise that an arbitrary input finishes in time.
-    The default submission strategy delegates classification to baseline and
-    regression/clustering to auto. Explicit baseline, auto and routed remain available.
+    The default submission strategy delegates all tasks to auto; classification
+    selects using balanced accuracy. Explicit baseline, auto and routed remain available.
     """
     if strategy not in {"baseline", "auto", "routed", "submission"}:
         raise ValueError(f"Unknown strategy: {strategy}")
     from .reliability import effective_strategy, needs_bounded_forest
     strategy = effective_strategy(task, strategy)
-    if not _bounded_forest and needs_bounded_forest(task, len(X_train), X_train.shape[1], strategy):
+    if not _bounded_forest and needs_bounded_forest(task, len(X_train), X_train.shape[1], strategy,
+                                                  X_train, feature_types):
         from .reliability import fit_predict_bounded
         return fit_predict_bounded(task, X_train, y_train, X_test, feature_types, seed,
                                    time_budget, reliability_mode or 'forest', checkpoint_callback)

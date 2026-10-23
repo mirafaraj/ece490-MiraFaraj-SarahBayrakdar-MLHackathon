@@ -47,8 +47,8 @@ task-specific eligibility/metric rules, completes a baseline first, and preserve
 while optional candidates run. `--strategy auto` remains available for earlier experiments.
 See [MODEL_CARD.md](MODEL_CARD.md) for intended inputs, evidence and limitations.
 
-The submission strategy delegates only by the declared task: classification uses
-baseline; regression and clustering use auto. The following explicit command is equivalent
+The submission strategy delegates all three declared tasks to existing auto.
+Classification auto selects using balanced accuracy. The following explicit command is equivalent
 to omitting `--strategy`:
 
 ```sh
@@ -70,21 +70,28 @@ This default is an approved development choice, not a verified official scoring 
 This command and the input/output file names are implementation assumptions.
 `INPUT`, `OUTPUT` and `SEED` are per-run parameters; omitting seed uses 42. Local frozen checks
 use the saved case seed (42/314/2027 for real tables and 7001 for stress inputs).
-Classification
-baseline is a conservative choice under unknown grading metrics, not a proven optimum: the
-existing real-data check found auto gained 3.90 balanced-accuracy and 11.78 minority-recall points,
-while losing 1.57 accuracy and 1.45 macro-F1 points. Regression/clustering comparisons use
+Improved class recognition can cost overall accuracy or precision. The official classification
+grading metric remains unknown; this mapping is supported by development evidence, not a verified
+official scoring formula. Regression/clustering comparisons use
 RMSE/MAE/R2 and ARI/AMI diagnostically; these are not verified organizer scoring metrics.
 
 ### Expensive-input safeguards (engineering assumptions)
 
 At 2,500,000 or more training feature cells, regression uses a fixed Extra Trees preset:
 16 trees, max_features="sqrt", depth 24, and at most 20,000 fitting rows. Classification uses
-this preset only with at least 50,000 training rows under baseline/routed (including submission's
-baseline mapping). Sampling is deterministic by seed and preserves observed classification
+this preset only with at least 50,000 training rows under explicit baseline/routed.
+Sampling is deterministic by seed and preserves observed classification
 classes. Existing successful large-classification auto and wide baseline/routed paths are retained.
 Auto skips histogram selection when there are at least 256 features and 2,500,000 training
 feature cells, avoiding the diagnosed binning stall. No dataset names or reference labels are used.
+
+Classification baseline and auto/submission also use the existing bounded path above 20,000
+training rows when categorical features are present and a training-derived prepared-width upper
+bound exceeds 2,000,000 full-training cells. This counts numeric missing indicators and capped
+one-hot categories, conservatively retaining constant/duplicate contributions. It avoids admitting
+sampled candidates whose full-table work would trigger an infeasible refit. Numeric-only inputs
+retain their existing path. This fixed rule is an engineering assumption; see
+`experiments/classification-runtime-repair/RESOURCE_RULE.md` for its registration and validation gates.
 
 For guarded forests, one fixed attempt receives at most 25 seconds and 65% of available worker
 time. If it fails, the existing linear estimator is retried on the bounded sample. Emergency
