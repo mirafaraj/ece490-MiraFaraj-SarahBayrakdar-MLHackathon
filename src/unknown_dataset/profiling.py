@@ -8,6 +8,9 @@ import numpy as np
 import pandas as pd
 
 
+CATEGORICAL_VALUE_LIMIT = 20
+
+
 def _finite(value: Any) -> float | None:
     number = float(value)
     return number if math.isfinite(number) else None
@@ -32,12 +35,32 @@ def _distribution(series: pd.Series) -> list[dict]:
     ]
 
 
-def build_profile(X: pd.DataFrame, feature_types: dict[str, str], y: pd.Series | None = None) -> dict:
+def _categorical_summary(series: pd.Series) -> dict:
+    # Count the full column; only publication is capped. Object conversion keeps
+    # ties in first-observed order, including categorical dtypes with unused levels.
+    counts = series.astype(object).value_counts(sort=False, dropna=True)
+    top = counts.nlargest(CATEGORICAL_VALUE_LIMIT, keep="first")
+    return {
+        "top_values": [
+            {"value": value.item() if isinstance(value, np.generic) else value, "count": int(count)}
+            for value, count in top.items()
+        ],
+        "omitted_category_count": int(len(counts) - len(top)),
+        "omitted_value_count": int(counts.sum() - top.sum()),
+    }
+
+
+def build_profile(X: pd.DataFrame, feature_types: dict[str, str], y: pd.Series | None = None,
+                  *, n_clusters: int | None = None) -> dict:
     if set(feature_types) != set(X.columns):
         raise ValueError("feature_types must cover exactly the profile feature columns")
     if any(not isinstance(kind, str) or kind not in {"numeric", "categorical"} for kind in feature_types.values()):
         raise ValueError("Unsupported feature type")
     rows = len(X)
+    if n_clusters is not None:
+        if (isinstance(n_clusters, (bool, np.bool_)) or
+                not isinstance(n_clusters, (int, np.integer)) or not 1 <= n_clusters <= rows):
+            raise ValueError("Requested cluster count must be an integer between one and the number of rows")
     columns = {}
     constants = []
     duplicate_columns = []
@@ -58,6 +81,8 @@ def build_profile(X: pd.DataFrame, feature_types: dict[str, str], y: pd.Series |
         }
         if feature_types[column] == "numeric":
             entry["numeric_summary"] = _numeric_summary(series)
+        else:
+            entry["categorical_summary"] = _categorical_summary(series)
         columns[column] = entry
         # Series.equals deliberately requires matching dtype and matching missing positions.
         signature = (str(series.dtype), int(pd.util.hash_pandas_object(series, index=False).sum()))
@@ -74,6 +99,9 @@ def build_profile(X: pd.DataFrame, feature_types: dict[str, str], y: pd.Series |
         "constant_definition": "At most one distinct nonmissing value; includes all-missing columns.",
         "constant_columns": constants, "duplicate_columns": duplicate_columns, "columns": columns,
     }
+    if n_clusters is not None:
+        # Metadata request, not an inference from any model's assignments.
+        profile["requested_cluster_count"] = int(n_clusters)
     if y is not None:
         if len(y) != rows:
             raise ValueError("Target and feature row counts must match")

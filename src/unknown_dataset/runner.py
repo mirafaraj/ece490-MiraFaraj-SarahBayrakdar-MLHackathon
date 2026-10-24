@@ -189,7 +189,8 @@ def main(argv=None):
         dataset = load_dataset(args.input)
         phases["load"] = time.monotonic() - stage_started
         stage_started = time.monotonic()
-        profile = build_profile(dataset.X_train, dataset.feature_types, dataset.y_train)
+        profile = build_profile(dataset.X_train, dataset.feature_types, dataset.y_train,
+                                n_clusters=dataset.n_clusters)
         phases["profile"] = time.monotonic() - stage_started
         from .reliability import needs_bounded_forest
         bounded = needs_bounded_forest(dataset.task, len(dataset.X_train), dataset.X_train.shape[1], args.strategy,
