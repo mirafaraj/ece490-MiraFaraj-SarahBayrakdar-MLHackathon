@@ -271,6 +271,7 @@ def main(argv=None):
             "model": result["model_info"],
             "contract": "provisional-v1",
             "strategy": args.strategy,
+            "numeric_feature_coercions": dataset.numeric_feature_coercions,
         }
         if args.timings:
             run_info["phase_seconds"] = dict(phases)

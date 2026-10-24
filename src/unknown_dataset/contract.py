@@ -5,7 +5,7 @@ import csv
 import json
 import os
 import tempfile
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +22,7 @@ class Dataset:
     X_test: pd.DataFrame | None
     feature_types: dict[str, str]
     n_clusters: int | None
+    numeric_feature_coercions: dict = field(default_factory=dict)
 
 
 def _read_table(path: Path, categorical_columns: list[str] | None = None) -> pd.DataFrame:
@@ -43,6 +44,21 @@ def _numeric(series: pd.Series, name: str) -> pd.Series:
     if np.isinf(result.to_numpy(dtype=float, na_value=np.nan)).any():
         raise ValueError(f"Numeric column {name!r} contains infinity")
     return result
+
+
+def _numeric_feature(series: pd.Series, name: str) -> tuple[pd.Series, dict]:
+    """Declared features only; targets retain strict numeric validation."""
+    missing = series.isna()
+    result = pd.to_numeric(series, errors="coerce")
+    if np.isinf(result.to_numpy(dtype=float, na_value=np.nan)).any():
+        raise ValueError(f"Numeric column {name!r} contains infinity")
+    coerced = result.isna() & ~missing
+    whitespace = int(series[coerced].map(lambda value: isinstance(value, str) and not value.strip()).sum())
+    return result, {
+        "already_missing_count": int(missing.sum()),
+        "coerced_whitespace_count": whitespace,
+        "coerced_invalid_count": int(coerced.sum()) - whitespace,
+    }
 
 
 def load_dataset(input_dir: str | Path) -> Dataset:
@@ -116,17 +132,21 @@ def load_dataset(input_dir: str | Path) -> Dataset:
         if set(test.columns) != set(X_train.columns):
             raise ValueError("Train and test feature columns must match exactly")
         X_test = test.loc[:, X_train.columns].copy()
+    coercions = {"train": {}, "test": {}} if declared is not None else {}
     for column, kind in feature_types.items():
         if kind == "numeric":
-            X_train[column] = _numeric(X_train[column], column)
-            if X_test is not None:
-                X_test[column] = _numeric(X_test[column], column)
+            for split, frame in (("train", X_train), ("test", X_test)):
+                if frame is not None:
+                    if declared is not None:
+                        frame[column], coercions[split][column] = _numeric_feature(frame[column], column)
+                    else:
+                        frame[column] = _numeric(frame[column], column)
         else:
             # Normalize categorical values identically across separate CSV parses.
             X_train[column] = X_train[column].map(lambda value: str(value) if pd.notna(value) else np.nan)
             if X_test is not None:
                 X_test[column] = X_test[column].map(lambda value: str(value) if pd.notna(value) else np.nan)
-    return Dataset(task, metadata, X_train, y, X_test, feature_types, n_clusters)
+    return Dataset(task, metadata, X_train, y, X_test, feature_types, n_clusters, coercions)
 
 
 def _json_default(value: Any) -> Any:
