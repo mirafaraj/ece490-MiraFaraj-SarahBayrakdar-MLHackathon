@@ -168,6 +168,8 @@ unknown hardware cannot be guaranteed.
 
 ## Verification and limitations
 
+Final comprehensive verification of model commit `380d56d` completed **72 fresh CLI runs**: 72 valid outputs/profiles, zero emergency predictions, and a maximum wall time of **47.55 seconds**. All 63 available historical prediction comparisons matched. See the [final validation record](reports/final-validation/REPORT.md) and its complete per-case metrics.
+
 The final repair's development suite passed **355 tests**. All **120 saved CLI
 configurations** retained predictions, model selections and profiles, including
 36 default real-data cases and 39 stress strategy combinations. The stress maximum
