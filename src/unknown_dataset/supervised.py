@@ -114,7 +114,7 @@ def _fit(name, task, frame, labels, feature_types, seed, final=False, final_tree
 def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_types=None,
                            n_clusters=None, time_budget=50, seed=42, route_plan=None,
                            completed_baseline=None, classification_controls=None,
-                           execution_deadline=None):
+                           execution_deadline=None, checkpoint_callback=None):
     """Choose using train-only holdout, then refit once on all supplied labels.
 
     The caller must enforce a process deadline. Checks between candidate fits
@@ -158,6 +158,8 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
             raise ValueError("Regression labels must be finite numbers")
         rare = False
     selected = "extra_trees"
+    selected_fit = None
+    selected_fit_seconds = None
     scores = {}
     errors = {}
     skip = None
@@ -191,7 +193,9 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
                     errors[name] = "selection budget exhausted; reserved remaining time for refit"
                     break
                 try:
+                    fit_started = time.monotonic()
                     fitted = _fit(name, task, X_train.iloc[fitting], target[fitting], feature_types, seed)
+                    fit_seconds = time.monotonic() - fit_started
                     cleaner, processor, estimator, dense, _ = fitted
                     prediction = estimator.predict(_matrix(cleaner, processor, X_train.iloc[validation], dense))
                     score = (balanced_accuracy_score(target[validation], prediction) if task == "classification"
@@ -199,8 +203,49 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
                     scores[name] = float(score)
                     if score > best + 1e-8:
                         best, selected = score, name
+                        if checkpoint_callback is not None:
+                            selected_fit = fitted
+                            selected_fit_seconds = fit_seconds
                 except (ValueError, MemoryError) as exc:
                     errors[name] = str(exc)
+        # Preserve the existing selection fit; never add a fit for recovery.
+        # Successful full-data refits below remain the final result.
+        checkpoint_error = None
+        if selected_fit is not None:
+            try:
+                selection_seconds = time.monotonic() - started
+                checkpoint_started = time.monotonic()
+                cleaner, processor, estimator, dense, width = selected_fit
+                batch = max(1, _DENSE_CELLS // max(1, width)) if dense else max(1, len(X_test))
+                saved_predictions = np.concatenate([
+                    estimator.predict(_matrix(cleaner, processor, X_test.iloc[offset:offset + batch], dense))
+                    for offset in range(0, len(X_test), batch)
+                ]) if len(X_test) else np.array([], dtype=target.dtype)
+                if encoder is not None:
+                    saved_predictions = encoder.inverse_transform(saved_predictions.astype(int))
+                checkpoint_callback(saved_predictions, {
+                    "model": type(estimator).__name__, "strategy": "auto",
+                    "selected_candidate": selected,
+                    "selection_metric": "balanced_accuracy" if task == "classification" else "negative_rmse",
+                    "validation_scores": dict(scores), "candidate_errors": dict(errors),
+                    "checkpoint_kind": "selection_model", "fitting_scope": "selection_partition",
+                    "training_rows": len(fitting), "available_training_rows": len(X_train),
+                    "input_features": X_train.shape[1], "transformed_features": int(width),
+                    "retained_features": len(cleaner.retained_columns_),
+                    "dropped_constant_columns": cleaner.constant_columns_,
+                    "dropped_duplicate_columns": cleaner.duplicate_columns_,
+                    "seed": int(seed), "cpu_threads": 1, "fallback": False,
+                    "n_estimators": getattr(estimator, "n_estimators", None),
+                    "fit_seconds": selected_fit_seconds, "selection_seconds": selection_seconds,
+                    "checkpoint_prediction_seconds": time.monotonic() - checkpoint_started,
+                    "model_seconds": time.monotonic() - started,
+                    "time_budget_seconds": float(time_budget),
+                })
+            except (OSError, ValueError, TypeError, MemoryError) as exc:
+                # A failed checkpoint must not prevent the normal full-data fit.
+                checkpoint_error = f"{type(exc).__name__}: {exc}"
+            finally:
+                selected_fit = None
         refit_fallback = None
         try:
             fitted = _fit(selected, task, X_train, target, feature_types, seed, final=True,
@@ -229,6 +274,7 @@ def fit_predict_supervised(task, X_train, y_train=None, X_test=None, feature_typ
         "selection_metric": "balanced_accuracy" if task == "classification" else "negative_rmse",
         "validation_scores": scores, "candidate_errors": errors, "selection_skipped": skip,
         "refit_fallback_reason": refit_fallback, "fallback": False,
+        "selection_checkpoint_error": checkpoint_error,
         "training_rows": len(X_train), "input_features": X_train.shape[1],
         "retained_features": len(cleaner.retained_columns_), "transformed_features": int(width),
         "dropped_constant_columns": cleaner.constant_columns_, "dropped_duplicate_columns": cleaner.duplicate_columns_,

@@ -1,133 +1,64 @@
-# Unknown Dataset AutoML
+# Model card: Unknown Dataset Hackathon
 
-## Intended use and inputs
+Team: Mira Faraj and Sarah Bayrakdar.
 
-CPU-only development baseline for unfamiliar tabular classification, regression and clustering.
-The file adapter accepts metadata.json and train.csv; supervised tasks also supply test.csv.
-Metadata declares task, target for supervised tasks, optional ID and feature types, and clustering k.
-Rows retain their input order. Classification labels are opaque strings in CSV; regression labels
-must be finite numeric values. CSV/JSON is the supported file interface; mostly-zero features do
-not imply support for sparse file formats. See README.md for the complete provisional contract.
+## Intended use
 
-The student announcement is the complete supplied specification. It leaves the machine-readable
-contract, profile schema, per-task scoring formulae, concrete size limits and CPU details
-unspecified. The repository interface and diagnostic metrics are implementation assumptions.
-**Official interface compatibility is unverified.** No clinical,
-financial, or production decision use is claimed.
+Automatic CPU-only classification, regression and clustering on unfamiliar tables.
+The standard entry point is `python main.py --input INPUT --output OUTPUT`.
+See README.md for installation and the provisional metadata/CSV contract.
+Prediction needs no network, AI service or evaluation labels. No clinical,
+financial or production-decision deployment is claimed.
 
-## Preprocessing and selection
+## Current model
 
-Training-fitted preparation handles missing values and numeric missingness indicators, category
-namespaces, bounded one-hot encoding, constants and exact duplicate columns. Scaling is used for
-linear/distance-based models. Duplicate rows are retained; IDs and supervised targets are excluded
-from features. Unknown categories are handled without refitting on test inputs.
+Default `submission` delegates all tasks to auto. Training-only holdout selection
+compares balanced Extra Trees/logistic/histogram classifiers by balanced accuracy,
+and tree/linear/histogram regressors by negative RMSE. Clustering compares scaled
+centroid models and eligible bounded mixture alternatives without reference labels.
+Preparation handles missingness, bounded categorical encoding, scale differences,
+constants and duplicate columns, fitting transformations within training partitions.
+IDs and supervised targets are excluded from features; duplicate rows are retained.
 
-The CLI and public Python API default to submission: existing auto for all three tasks.
-Classification auto selects using balanced accuracy. Explicit baseline remains Extra Trees classification/regression and scaled
-K-means/MiniBatch K-means. Auto uses supervised linear/tree/histogram candidates on an inner
-training holdout; eligible numeric clustering tables compare spherical/full covariance density
-models. Its generic/centroid restart fix addresses a reproduced local-optimization failure.
+Explicit baseline and routed strategies remain available. Experimental date parts,
+soft weights and clustering noise weighting are not included in the default.
+Numeric input coercion applies only to declared numeric feature columns and is
+logged. Full-training profiles include categorical frequencies and requested k.
 
-The opt-in routed strategy uses a training-only summary and versioned eligibility/metric rules.
-It checkpoints complete baseline predictions before optional model work and reuses that baseline
-if selected. Explicit accuracy/balanced-accuracy and RMSE/MAE objectives control supervised fitting.
-Near-tie tolerance defaults to zero; a configured positive tolerance prefers a simpler candidate only
-within that metric gap from the best validation score. No positive default was promoted.
+## Reliability
 
-The experimental single-feature categorical classifier is disabled by default. It uses
-`(category_class_count + alpha * fitting_class_prior) / (category_count + alpha)`; unseen categories
-use the fitting prior. Missing and genuine category tokens are distinct. Inner fitting folds own
-all counts and priors; feature/smoothing choices use inner validation only. Explicit balanced
-decisions may differ from posterior argmax while the reported probabilities retain prior smoothing.
-These optional controls do not alter explicitly selected baseline behavior.
+The 50-second default internal budget reserves output time below the announced
+60-second limit. Cost guards use bounded existing estimators/samples. Ordinary
+supervised auto checkpoints the winning already-fitted selection model before
+full refitting. Full-fit success takes precedence; recovered selection predictions
+report actual fitting rows and `fallback_kind=selection_model`. Routed recovery
+retains completed-baseline metadata. Corrupt checkpoints are rejected. With no
+usable learned checkpoint, marked emergency mean/majority/group outputs remain.
+They can have poor predictive quality. Profiling always covers full training data.
 
-Default `submission` delegates all tasks to existing auto;
-baseline, auto and routed remain explicitly selectable. This mapping is development judgment
-under unknown grading metrics; improved class recognition can cost overall accuracy or precision.
-The rejected macro-F1 challenger is not adopted. The original confirmation campaign stopped when
-its baseline comparator failed; the independent review subsequently completed the remaining frozen
-comparisons. Detailed evidence is in `experiments/classification-policy-independent-review-20261023/REPORT.md`.
-See README for fixed expensive-input forest/sample rules, histogram eligibility,
-absolute worker deadline, existing linear recovery and full-data profiling. These guards address
-local stress failures, not unspecified maximum assessment sizes. No new model family is added.
+## Evidence
 
-The classification runtime repair additionally admits mixed-feature inputs above 20,000 rows
-to the existing bounded forest/linear recovery when a training-only encoded-width upper bound
-implies more than 2,000,000 full-fitting cells. Full-data profiles are retained. Numeric-only
-paths, estimator settings, metrics and deadlines are unchanged; the rule and staged evidence
-are recorded separately in `experiments/classification-runtime-repair/RESOURCE_RULE.md`.
+The repair passed 355 development tests; 120 saved CLI configurations matched
+predictions/selections/profiles, including 36 default real-data cases and 39 stress
+combinations. Another 66 historical strategy comparisons were not rerun.
+Independent focused recovery testing passed 46 tests. Fresh full Bike and Metro
+runs reproduced learned recovery at 47.50/47.58 seconds, with R2 0.798/0.073.
+Both used 3,000 fitting rows and missed the provisional 45-second target while
+remaining below 60 seconds locally. These are measured diagnostics, not official
+scores or a guarantee for unseen inputs. Details:
+[repair report](experiments/auto-selection-recovery/REPORT.md).
 
-Reliability candidate checks: 295 tests passed; 39/39 stress runs produced learned outputs
-without emergency recovery; 108/108 ordinary real-data runs retained exact prediction hashes
-and selected models. Independent full-data profile checks passed. The fixed bounded forest's
-large-classification accuracy .9075 is lower than the successful 96-tree diagnostic run's
-.9565; this is a documented quality/runtime tradeoff. Frozen verification results are recorded
-separately and do not establish organizer-environment or official-score compatibility.
+## Limitations and assumptions
 
-Current development metrics are provisional: classification accuracy/balanced accuracy,
-regression RMSE/R2 (and explicit alternative objectives where configured), clustering ARI for
-offline reference-labelled evaluation and BIC for optional unsupervised selection. Better balanced
-accuracy can reduce ordinary accuracy; better density fit can disagree with reference groups.
-Neither relationship establishes an official-scoring gain.
+Official per-task metrics, normalization, interface/schema, exact size limits and
+hardware were not supplied. The README distinguishes announcement requirements
+from implementation choices. Balanced weighting can increase false positives;
+regression remains weak on some real temporal data; clustering is sensitive to
+irrelevant columns and noisy missingness. Date strings are ordinarily categorical.
+Finite development cases and reused datasets do not prove broad generalization.
+Some inputs may time out before a learned checkpoint is available.
 
-## Reproducibility and resources
-
-Previously verified local environment: Windows, Python 3.12.14, exact versions in requirements.lock,
-seeded estimators/splits, one numerical/estimator CPU thread. Verification used .venv312 and bundled
-NumPy/pandas. The pinned dependencies also install in a new isolated local environment; final
-entry-point smoke results are recorded separately. Assessment-hardware compatibility and CI for
-the present uncommitted candidate remain unverified. No AI/network service is needed for inference.
-
-The CLI default internal budget is 50 seconds with an output reserve; the announced external limit
-is 60 seconds. A parent process can terminate model work. Python startup, imports, scheduling and
-I/O mean this is not a hard real-time guarantee. Largest-size and peak-memory checks remain pending.
-Expanded/repeated-split model evaluation runs offline, outside prediction-time execution.
-
-## Measured evidence and limitations
-
-Historical evidence: reports/RESULTS.md and reports/clustering_improvement.md. The latter records
-68 passing tests and 20 valid clustering CLI runs without fallbacks; compared with baseline, four
-fresh-seed cases improved, five tied and one slightly regressed. Reported 5.84–7.35 second CLI
-times were partly contended and are not speed-improvement or maximum-size claims.
-
-Historical reports and source snapshots refer to their recorded versions, not every later edit.
-Small synthetic families and repeated splits of bundled real tables do not demonstrate hidden-test
-superiority. Previously inspected confirmation results become development evidence for later changes.
-Moons/circles, rare groups, high cardinality and selector instability remain relevant limitations.
-
-Current emergency outputs are explicitly marked majority class, training mean or round-robin groups;
-they prioritize valid output and may have poor quality. Routed timeout/crash/error recovery returns
-a validated completed baseline when available, marked `fallback_kind=completed_baseline`; optional
-refit failures are also counted. Corrupt checkpoints are rejected. Invalid inputs fail
-with nonzero status, and stale/partial generated artifacts are cleaned up.
-
-Historical implementation verification: **153 tests passed**, including real subprocess recovery,
-contract/parity checks, fold isolation, lexical/fractional labels, prediction-row permutation,
-test-feature invariance of fitted state/selection, and evaluation-label invariance of predictions.
-Only expected identical-point clustering warnings were observed.
-
-Offline development study: **148 valid direct-call runs**, eight supervised families and two
-overlapping outer splits. Routed selection had ten wins, five ties and one loss versus baseline;
-selection frequencies and empirical gaps are in experiments/selector_stability.json. The categorical
-variant was not selected on its two measured splits. A positive exploratory tie rule changed one
-selection, reducing balanced accuracy by 0.0389 with little timing benefit; zero remains default.
-These are direct-call timings, not CLI/deadline certification, fresh confirmation, or new datasets
-for every split. See reports/router_validation.md for complete current-source evidence.
-
-Frozen current-source CLI comparison: **54/54 valid**, no fallbacks, nine families/two seeds/three
-strategies, matching input hashes and stable source/config. Routed tied auto quality in all 18
-paired cases but mean CLI time increased from 4.973 to 7.127 seconds; routed ranged 6.399–9.546
-seconds. Against baseline on confirmation, routed had four wins/four ties/one loss across tasks,
-using provisional balanced accuracy/RMSE/ARI. One clustering ARI declined 0.3838 to 0.2962, and one
-classification case improved balanced accuracy while reducing ordinary accuracy. No default or
-positive tie policy was promoted. After this run, eight strengthened fitted-state/evaluation-label
-invariance tests passed; production source was unchanged.
-
-## Claims and external references
-
-Measured results must link to reports with source/config/input hashes. Runtime observations are
-limited to the recorded environment. Design settings and untested limits are assumptions, not
-measurements. Public Stories Coffee repository techniques motivate experiments only; their reported
-results were not independently reproduced here, do not establish superiority, and supply no reason
-to change clustering algorithms. Official metric alignment remains unverified. The approved submission
-default is based on current development evidence; further model promotions require fresh reviewed evidence.
+Pinned requirements, seeded splits/estimators and single-thread execution support
+reproduction; timing varies with hardware and scheduling. No universal quality or
+hard real-time guarantee is claimed. Historical reports remain preserved and apply
+to their recorded versions. Only the final verified commit should be submitted.

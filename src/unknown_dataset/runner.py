@@ -40,6 +40,12 @@ def _model_worker(dataset, budget, seed, result_path, strategy, route_config=Non
                          checkpoint_path, dataset, predictions, info)})
             if execution_deadline is not None:
                 extra["execution_deadline"] = execution_deadline
+        elif reliability_mode is None and checkpoint_path is not None:
+            from .reliability import effective_strategy
+            if dataset.task != "clustering" and effective_strategy(dataset.task, strategy) == "auto":
+                from .checkpoints import write_checkpoint
+                extra["checkpoint_callback"] = lambda predictions, info: write_checkpoint(
+                    checkpoint_path, dataset, predictions, info)
         fit_started = time.monotonic()
         predictions, info = fit_predict(
             task=dataset.task,
@@ -73,10 +79,18 @@ def _recover_checkpoint(checkpoint_path, dataset, reason):
 
     try:
         result = load_checkpoint(checkpoint_path, dataset)
+        info = result["model_info"]
+        selection_model = info.get("checkpoint_kind") == "selection_model"
+        if selection_model and (info.get("fitting_scope") != "selection_partition"
+                or type(info.get("training_rows")) is not int
+                or not 0 < info["training_rows"] <= len(dataset.X_train)
+                or info.get("available_training_rows") != len(dataset.X_train)):
+            return None
     except (OSError, ValueError, TypeError, KeyError):
         return None
     result["model_info"] = dict(result["model_info"], fallback=True,
-                                fallback_kind="completed_baseline", checkpoint_recovered=True,
+                                fallback_kind="selection_model" if selection_model else "completed_baseline",
+                                checkpoint_recovered=True,
                                 fallback_reason=str(reason))
     return result
 
@@ -192,7 +206,9 @@ def main(argv=None):
         profile = build_profile(dataset.X_train, dataset.feature_types, dataset.y_train,
                                 n_clusters=dataset.n_clusters)
         phases["profile"] = time.monotonic() - stage_started
-        from .reliability import needs_bounded_forest
+        from .reliability import effective_strategy, needs_bounded_forest
+        recover_selection = (dataset.task != "clustering"
+                             and effective_strategy(dataset.task, args.strategy) == "auto")
         bounded = needs_bounded_forest(dataset.task, len(dataset.X_train), dataset.X_train.shape[1], args.strategy,
                                        dataset.X_train, dataset.feature_types)
         reserve = min(8.0, args.time_budget * .2) if bounded else min(3.0, args.time_budget * 0.15)
@@ -211,7 +227,7 @@ def main(argv=None):
                 phases['bounded_attempts_and_recovery'] = time.monotonic() - stage_started
             else:
                 worker_args = (dataset, remaining, args.seed, result_path, args.strategy)
-                if args.strategy == "routed" or args.timings:
+                if args.strategy == "routed" or recover_selection or args.timings:
                     worker_args += (route_config, checkpoint_path, args.timings)
                 if args.strategy == "routed" and route_config["experimental"].get("refit_admission", False):
                     # Same monotonic deadline used by parent enforcement. Includes
@@ -234,7 +250,7 @@ def main(argv=None):
                         process.kill()
                         process.join()
                     result = (_recover_checkpoint(checkpoint_path, dataset, "model worker deadline")
-                              if args.strategy == "routed" else None)
+                              if args.strategy == "routed" or recover_selection else None)
                     if result is None:
                         from .fallback import fallback_predictions
 
@@ -257,7 +273,7 @@ def main(argv=None):
                         validate_predictions(dataset, result["predictions"])
                     except Exception as exc:
                         result = (_recover_checkpoint(checkpoint_path, dataset, str(exc))
-                                  if args.strategy == "routed" else None)
+                                  if args.strategy == "routed" or recover_selection else None)
                         if result is None:
                             raise
                 phases["recovery_or_result_validation"] = time.monotonic() - stage_started

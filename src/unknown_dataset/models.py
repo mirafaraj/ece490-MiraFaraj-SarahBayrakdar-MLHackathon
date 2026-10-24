@@ -51,7 +51,9 @@ def fit_predict(task, X_train, y_train=None, X_test=None, feature_types=None,
             from .supervised import fit_predict_supervised as candidate
         return candidate(task=task, X_train=X_train, y_train=y_train, X_test=X_test,
                          feature_types=feature_types, n_clusters=n_clusters,
-                         time_budget=time_budget, seed=seed)
+                         time_budget=time_budget, seed=seed,
+                         **({"checkpoint_callback": checkpoint_callback}
+                            if task != "clustering" and checkpoint_callback is not None else {}))
     started = time.monotonic()
     if task not in {"classification", "regression", "clustering"}:
         raise ValueError(f"Unsupported task: {task}")

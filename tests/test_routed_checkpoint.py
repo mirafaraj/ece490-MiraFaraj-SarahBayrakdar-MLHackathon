@@ -164,7 +164,7 @@ def test_successful_final_output_takes_priority(tmp_path, strategy):
     assert (output / "predictions.csv").read_text().splitlines() == ["prediction", "a", "b"]
 
 
-def test_real_model_worker_passes_new_arguments_only_when_routed(tmp_path, monkeypatch):
+def test_real_model_worker_passes_checkpoint_to_auto_and_routed(tmp_path, monkeypatch):
     from unknown_dataset import models, runner
 
     observed = []
@@ -182,6 +182,7 @@ def test_real_model_worker_passes_new_arguments_only_when_routed(tmp_path, monke
         runner._model_worker(frame, 5, 42, str(tmp_path / f"{strategy}.pkl"), strategy,
                              {"test": True}, str(tmp_path / "checkpoint.json"))
     assert "route_config" not in observed[0]
-    assert "checkpoint_callback" not in observed[1]
+    assert "checkpoint_callback" in observed[1]
+    assert "route_config" not in observed[1]
     assert observed[2]["route_config"] == {"test": True}
     assert checkpoints.load_checkpoint(tmp_path / "checkpoint.json", frame)["model_info"] == {"model": "baseline"}
